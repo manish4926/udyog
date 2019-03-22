@@ -15,6 +15,19 @@ Route::get('/', function () {
     return view('main.index');
 });
 
+
+/*Authentication Controller*/
+Auth::routes();
+
+Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+
+
+/*General/Main Controller*/
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+/*Directory Listing*/
 Route::get('/details',['as'=>'create','uses'=>'PostController@create']);
 Route::post('/store',['as'=>'store','uses'=>'PostController@store']);
 
@@ -23,3 +36,22 @@ Route::post('/result', 'SearchController@result');
 
 Route::get('/livesearch', 'LiveSearch@index');
 Route::get('/livesearch/action', 'LiveSearch@action')->name('livesearch.action');
+
+
+/*Job Controller*/
+Route::group(['prefix' => 'job'], function () 
+{
+    Route::get('/post', ['as' => 'postjob', 'uses' =>'JobController@postJob']);
+
+    Route::post('/post/submit', ['as' => 'postjobsubmit', 'uses' =>'JobController@postJobSubmit']);
+
+    Route::get('/all', ['as' => 'index', 'uses' =>'PostingController@index']);
+
+    Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'PostingController@getdisplay']);   
+
+    Route::get('/search',  ['as' => 'search', 'uses' =>'PostingController@search']);
+
+    Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@searchcontent']);
+   
+
+});
