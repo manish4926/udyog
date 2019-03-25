@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('main.index');
 });
 
+
 /*Authentication Controller*/
 Auth::routes();
 
@@ -24,6 +25,17 @@ Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone
 
 /*General/Main Controller*/
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+/*Directory Listing*/
+Route::get('/details',['as'=>'create','uses'=>'PostController@create']);
+Route::post('/store',['as'=>'store','uses'=>'PostController@store']);
+
+Route::get('/search', 'SearchController@search');
+Route::post('/result', 'SearchController@result');
+
+Route::get('/livesearch', 'LiveSearch@index');
+Route::get('/livesearch/action', 'LiveSearch@action')->name('livesearch.action');
 
 
 /*Job Controller*/
@@ -43,7 +55,3 @@ Route::group(['prefix' => 'job'], function ()
    
 
 });
-	
-
-
-

@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-
-    class LoginController extends Controller
-{    
+class LoginController extends Controller
+{
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -24,7 +23,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
     /**
      * Where to redirect users after login.
      *
-    * @var string
+     * @var string
      */
     protected $redirectTo = '/home';
 

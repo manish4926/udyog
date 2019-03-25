@@ -13,20 +13,24 @@
                   <i class="fas fa-search"></i> 
                   </button>
                </div>
-            </div>
-         </form>
-         @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                    <a href="{{ url('/home') }}">Home</a>
-                    @else
-                     <a class="btn btn-success" href="{{ route('login') }}">Login</a> 
 
-                        @if (Route::has('register'))
-                        <a class="btn btn-info" href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif     
-   </nav>
+            </div>
+        </div>
+    </form>
+
+    @if (Route::has('login'))
+    <div class="top-right links">
+        @auth
+        <a href="{{ url('/home') }}">Home</a>
+        @else
+        <a class="btn btn-success" href="{{ route('login') }}">Login</a> 
+
+        @if (Route::has('register'))
+        <a class="btn btn-info" href="{{ route('register') }}">Register</a>
+        @endif
+        @endauth
+    </div>
+    @endif     
+
+</nav>
 

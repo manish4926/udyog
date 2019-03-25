@@ -42,8 +42,10 @@
                </a>
             </li>
             <li class="nav-item">
+
                <a class="nav-link dropdown-toggle" href="{{ route('alljobs') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <i class="fas fa-fw fa-list-alt"></i>
+
                <span>Job Portal</span>
                </a>
                <div class="dropdown-menu">
@@ -62,6 +64,13 @@
                   <a class="dropdown-item" href="categories.html">Narela</a>
                   <a class="dropdown-item" href="categories.html">Others</a>
                </div>
+            </li>
+
+            <li class="nav-item">
+               <a class="nav-link" href="/livesearch">
+               <i class="fas fa-fw fa-user-alt"></i>
+               <span>Directory</span>
+               </a>
             </li>
          </ul>
 
@@ -92,9 +101,11 @@
           <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
       </div>
      
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
       <script type="text/javascript" src="/js/app.js"></script>
       @stack('bottomscript')
+
    </body>
 
 </html>
