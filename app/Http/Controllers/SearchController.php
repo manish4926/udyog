@@ -17,7 +17,7 @@ class SearchController extends Controller
    
     public function result(Request $request, Search $search){
         
-        $company = Search::where(function ($search){
+          $company = Search::where(function ($search){
            $material = Input::has('material') ? Input::get('material') : null;
            $sectors = Input::has('sectors') ? Input::get('sectors'):null; 
            $q = Input::has('q') ? Input::get ( 'q' ) : null;

@@ -12,11 +12,11 @@ use DB;
 class PostingController extends Controller
 {
 
-    public function index(Request $request)
+    public function alljob(Request $request)
     {
         
         $jobs= job_opening::all();
-        return view('job.index',compact('jobs'));
+        return view('job.alljob',compact('jobs'));
 
     }
 
@@ -74,7 +74,6 @@ class PostingController extends Controller
         $job_search = $job_search->paginate(5);
         
 
-//dd($job_search);
         return view('job.searchcontent')->with(['searching'=>$job_search]); 
     }
 

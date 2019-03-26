@@ -4,7 +4,7 @@
     <div>
     	<div>
             <h1 align="center">JOBS</h1><br/>
-                <form method="get" action="{{ route('alljobs') }}">  
+                <form method="get" action="{{ route('alljob') }}">  
                     {{ csrf_field() }}
                     <table class="table table-hover table-striped table-bordered">
                         <thead class="thead-dark" align="center">

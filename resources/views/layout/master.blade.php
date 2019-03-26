@@ -43,15 +43,14 @@
             </li>
             <li class="nav-item">
 
-               <a class="nav-link dropdown-toggle" href="{{ route('alljobs') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <a class="nav-link dropdown-toggle" href="{{ route('alljob') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <i class="fas fa-fw fa-list-alt"></i>
-
                <span>Job Portal</span>
                </a>
                <div class="dropdown-menu">
                   <a class="dropdown-item" href="{{ route('postjob') }}">Post a New Job</a>
-                  <a class="dropdown-item" href="all">Latest Jobs</a>
-                  <a class="dropdown-item" href="search">Search a Job</a>
+                  <a class="dropdown-item" href="{{ route('alljob') }}">Latest Jobs</a>
+                  <a class="dropdown-item" href="{{ route('search') }}">Search a Job</a>
                </div>
             </li>
             <li class="nav-item dropdown">

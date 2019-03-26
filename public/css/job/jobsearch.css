@@ -1,6 +1,13 @@
 .form-container div, .form-container  span{
     font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+
 }
+
+#temp{
+    margin-left: 60%;
+    margin-right: 10%;
+  }
+
 
 .form-container ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #999;
@@ -28,7 +35,7 @@
 .row {
   text-align:center;
 }
-#contact-form{
+#jobsearch-form{
  min-width:375px;   
 }
 
@@ -73,7 +80,7 @@
 
 .form-container .req-input{
   width:100%;
-    float:left;
+  float:left;
   position:relative;
   background:#00BCD4;
   height:40px;
@@ -287,18 +294,18 @@
   float:left;
   
 }
-.form-container input[type=text]:focus, .form-container input[type=password]:focus, .form-container input[type=email]:focus, .form-container input[type=tel]:focus, .form-container select{
+.form-container select,option, input[type=text]:focus, .form-container input[type=password]:focus, .form-container input[type=email]:focus, .form-container input[type=tel]:focus, .form-container select{
     background:#fff;
   color:#777;
   border-left:0px;
   outline:none;
 }
 
-.form-container input[type=text]:hover,.form-container input[type=password]:hover,.form-container input[type=email]:hover,.form-container input[type=tel]:hover, . form-container select{
+.form-container select,option,input[type=text]:hover,.form-container input[type=password]:hover,.form-container input[type=email]:hover,.form-container input[type=tel]:hover, . form-container select{
   background:#fff;
 }
 
-.form-container input[type=text], .form-container input[type=password], .form-container input[type=email],input[type=tel], form-container select{
+.form-container select,option, input[type=text], .form-container input[type=password], .form-container input[type=email],input[type=tel], form-container select{
   width:calc(100% - 50px);
   float:left;
   border-radius:0px;

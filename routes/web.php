@@ -45,7 +45,7 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/post/submit', ['as' => 'postjobsubmit', 'uses' =>'JobController@postJobSubmit']);
 
-    Route::get('/all', ['as' => 'alljobs', 'uses' =>'PostingController@index']);
+    Route::get('/all', ['as' => 'alljob', 'uses' =>'PostingController@alljob']);
 
     Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'PostingController@getdisplay']);   
 
