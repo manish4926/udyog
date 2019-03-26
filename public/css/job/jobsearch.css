@@ -8,6 +8,11 @@
     margin-right: 10%;
   }
 
+#temp1{
+    margin-left: 10%;
+    margin-right: 60%;
+  }
+
 
 .form-container ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #999;

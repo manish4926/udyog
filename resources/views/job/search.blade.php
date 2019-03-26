@@ -68,6 +68,43 @@
       </form>
     </div>
   </div>
-</div>
+      <div id="temp1">
+            <form method="get" action="{{ route('searchcontent') }}">  
+                {{ csrf_field() }}
+                  <table class="table table-hover table-striped table-bordered">
+                        <thead class="thead-dark" align="center">
+                          <tr>
+                                <th>JOB TITLE</th>
+                                <th>company name</th>
+                                <th>hr name</th>
+                                <th>experience</th>
+                                <th>Skills</th>
+                                <th>postdate</th>
+                                <th>expirydate</th>
+                                <th>location</th>
+                                <th>package</th>
+                          </tr>
+                        <tbody>
+                          @if(count($searching)>0)
+                          @foreach($searching as $job_opening)
+                              <tr>
+                                <td>{{$job_opening->job_title}}</td>
+                                <td>{{$job_opening->company_name}}</td>
+                                <td>{{$job_opening->hr_name}}</td>
+                                <td>{{$job_opening->experience}}</td>
+                                <td>{{$job_opening->skills}}</td>
+                                <td>{{$job_opening->postdate}}</td>
+                                <td>{{$job_opening->expdate}}</td>
+                                <td>{{$job_opening->location}}</td>
+                                <td>{{$job_opening->package}}</td>
+                                <td><a href="{{ route('getdisplay',['job_id'=>$job_opening->job_id])}}">View details</a></td>  
+                            </tr>
+                          @endforeach
+                          @endif
+                      </tbody>
+                  </table>
+            </form>
+        </div>
+  </div>
 @endsection
     
