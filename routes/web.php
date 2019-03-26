@@ -49,9 +49,9 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'PostingController@getdisplay']);   
 
-    Route::get('/search',  ['as' => 'search', 'uses' =>'PostingController@search']);
+    Route::any('/search',  ['as' => 'searchjob', 'uses' =>'PostingController@search']);
 
-    Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@searchcontent']);
+    Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@search']);
    
 
 });

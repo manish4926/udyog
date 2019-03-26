@@ -11,11 +11,50 @@
     <!------ Include the above in your HEAD tag ---------->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 @endpush
+<div class="row">
+<div class="col-8">
+    <div class="white-card">
+       <table class="table table-hover table-striped table-bordered">
+                        <thead class="thead-dark" align="center">
+                          <tr>
+                                <th>JOB TITLE</th>
+                                <th>company name</th>
+                                <th>hr name</th>
+                                <th>experience</th>
+                                <th>Skills</th>
+                                <th>postdate</th>
+                                <th>expirydate</th>
+                                <th>location</th>
+                                <th>package</th>
+                                <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @if(count($searching)>0)
+                          @foreach($searching as $job_opening)
+                              <tr>
+                                <td>{{$job_opening->job_title}}</td>
+                                <td>{{$job_opening->company_name}}</td>
+                                <td>{{$job_opening->hr_name}}</td>
+                                <td>{{$job_opening->experience}}</td>
+                                <td>{{$job_opening->skills}}</td>
+                                <td>{{$job_opening->postdate}}</td>
+                                <td>{{$job_opening->expdate}}</td>
+                                <td>{{$job_opening->location}}</td>
+                                <td>{{$job_opening->package}}</td>
+                                <td><a href="{{ route('getdisplay',['job_id'=>$job_opening->job_id])}}">View details</a></td>  
+                            </tr>
+                          @endforeach
+                          @endif
+                      </tbody>
+                  </table>
+                  {{ $searching->links() }}
+    </div>
+</div>
 
-  <div class="container" id="temp">
-    <div class="row">
-      <div class="col-md-4">
-        <form method="post" action="{{ route('searchcontent') }}"> {{ csrf_field() }}
+<div class="col-4">
+    <div class="white-card">
+    <form method="post" action="{{ route('searchjob') }}"> {{ csrf_field() }}
             <div id="jobsearch-form" class="form-container" data-form-container>
               <div class="row">
                 <div class="form-title">
@@ -67,44 +106,7 @@
         </div>
       </form>
     </div>
-  </div>
-      <div id="temp1">
-            <form method="get" action="{{ route('searchcontent') }}">  
-                {{ csrf_field() }}
-                  <table class="table table-hover table-striped table-bordered">
-                        <thead class="thead-dark" align="center">
-                          <tr>
-                                <th>JOB TITLE</th>
-                                <th>company name</th>
-                                <th>hr name</th>
-                                <th>experience</th>
-                                <th>Skills</th>
-                                <th>postdate</th>
-                                <th>expirydate</th>
-                                <th>location</th>
-                                <th>package</th>
-                          </tr>
-                        <tbody>
-                          @if(count($searching)>0)
-                          @foreach($searching as $job_opening)
-                              <tr>
-                                <td>{{$job_opening->job_title}}</td>
-                                <td>{{$job_opening->company_name}}</td>
-                                <td>{{$job_opening->hr_name}}</td>
-                                <td>{{$job_opening->experience}}</td>
-                                <td>{{$job_opening->skills}}</td>
-                                <td>{{$job_opening->postdate}}</td>
-                                <td>{{$job_opening->expdate}}</td>
-                                <td>{{$job_opening->location}}</td>
-                                <td>{{$job_opening->package}}</td>
-                                <td><a href="{{ route('getdisplay',['job_id'=>$job_opening->job_id])}}">View details</a></td>  
-                            </tr>
-                          @endforeach
-                          @endif
-                      </tbody>
-                  </table>
-            </form>
-        </div>
-  </div>
+</div>
+
+</div>
 @endsection
-    

@@ -21,19 +21,15 @@ class PostingController extends Controller
 
     public function getdisplay(Request $request)
     {
-        $description= job_opening::where('job_id' , $request->job_id)->get();
-        return view('job.details')->with(['desc'=>$description]);  
+        $description= job_opening::where('job_id' , $request->job_id)->first();
+        return view('job.details')->with(['job_opening'=>$description]);  
     }
 
 
     public function search(Request $request)
     {
-        return view('job.search'); //,compact()
-    }
+        //return view('job.search'); //,compact()
 
-
-    public function searchcontent(Request $request)
-    {   
         $searchkey= $request->search;
 
         $job_search= job_opening::orderBy('job_id');
@@ -63,6 +59,7 @@ class PostingController extends Controller
         
         return view('job.search')->with(['searching'=>$job_search]); 
     }
+
 
     
     /**
