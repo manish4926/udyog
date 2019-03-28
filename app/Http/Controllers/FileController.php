@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use VideoThumbnail;
 use App\File;
 use Illuminate\Http\Request;
 
@@ -30,7 +29,7 @@ class FileController extends Controller
             $file->thumbnail = $withoutExtFile;
     		$file->save();
 
-            VideoThumbnail::createThumbnail($videoUrl, $storageUrl ,$withoutExtFile.'.jpeg',5);
+
 
             return 'done'; 
 

@@ -9,6 +9,7 @@ class UsersTableSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
+     * Run the database seeds.
      *
      * @return void
      */
@@ -25,5 +26,13 @@ class UsersTableSeeder extends Seeder
                 'role_id'        => $role->id,
             ]);
         }
+
+        DB::table('users')->insert([
+            'firstname' => Str::random(10),
+            'lastname' => Str::random(10),
+            'email' => 'test@gmail.com',
+            'status' => 1,
+            'password' => bcrypt('secret'),
+        ]);
     }
 }

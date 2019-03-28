@@ -10,8 +10,7 @@
                         <div class="single-video-left">
                            <div class="single-video">
                               <video width="100%" height="550px" autoplay="on" controls>
-                                 <source src="{{ asset('storage/upload/Prakesh Chand Jain(1).mp4')}}" type="video/mp4">
-
+                                 <source src="{{ asset('storage/upload/Prakash Chand Jain(1).mp4')}}" type="video/mp4">
                               </video>
                            </div>
                            <div class="single-video-title box mb-3">
@@ -110,13 +109,14 @@
                                        </div>
                                     </div>
                                  </div>
-                                 @endforeach                             
-                              </div>
-                              
+                                  @endforeach
+
+
 
                            </div>
                         </div>
                      </div>
                   </div>
-
+                  </div>
+   </div>
 @endsection
