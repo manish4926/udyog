@@ -98,6 +98,7 @@
 						</div>
 						<div class="col-md-12">
 							<?php 
+							if(isset($files) && count($files))
 							for ($i=0; $i < 6; $i++) { 
 								$file = $files[$i];
 								?>
@@ -123,5 +124,6 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-		@endsection
+@endsection
