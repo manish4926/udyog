@@ -7,7 +7,7 @@ use App\File;
 use FFMpeg;
 use Illuminate\Http\Request;
 
-class FileController extends Controller
+class VideoController extends Controller
 {
 	
     public function showUploadForm()

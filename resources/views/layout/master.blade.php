@@ -15,7 +15,6 @@
       <!-- Bootstrap core CSS-->
       <!-- Custom styles for this template-->
       <link href="/css/app.css" rel="stylesheet">
-       <link href="/css/style.css" rel="stylesheet">
            @stack('topscript')
 
       <!-- Owl Carousel -->
