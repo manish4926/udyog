@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Thumbnail;
 use App\File;
 use FFMpeg;
-
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -43,14 +42,12 @@ class FileController extends Controller
 
             // return 'done'; 
             dd(floor($durationVid));
-
     	}
     	return $request->all();
     }
 
     public function display()
     {
-
         $files = File::all();
         return view('main.index')->with('files',$files);
 

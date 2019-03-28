@@ -1,17 +1,20 @@
 @extends('layout.master')
 
-@section('title','All Videos')
+
+@section('title','BCI - Bhawana Chamber of Industries')
 
 @section('content')
 
- <div class="video-block section-padding">
+   <div class="video-block section-padding">
                   <div class="row">
                      <div class="col-md-8">
                         <div class="single-video-left">
                            <div class="single-video">
+
                               <video width="100%" height="550px" autoplay="on" controls>
                                  <source src="{{ asset('storage/upload/Prakesh Chand Jain(1).mp4')}}" type="video/mp4">
 
+                            
                               </video>
                            </div>
                            <div class="single-video-title box mb-3">
@@ -26,12 +29,6 @@
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis sit ab accusantium, voluptatibus aperiam earum, laborum doloribus, aspernatur praesentium beatae ratione nam sequi fugit aliquid unde totam corporis saepe provident.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quaerat minima cum facilis deserunt necessitatibus nemo id expedita sunt similique esse inventore vel, quod, excepturi velit doloribus repellat quam, consequatur?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam voluptates consequatur obcaecati minima, maiores dolore, facere laboriosam ad sed placeat, sunt blanditiis quos reiciendis numquam harum facilis cumque repellat enim!
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum porro suscipit reprehenderit officiis sit nesciunt pariatur dolor quaerat iure debitis. Nisi enim ducimus itaque hic reprehenderit laudantium harum consequatur quam!</p>
                               
-
-                            
-
-
-                        
-
                            </div>
                         </div>
                      </div>
@@ -53,6 +50,7 @@
                                     <div class="video-card-image">
                                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
                                        {{-- <a href="#"><img class="img-fluid" src="{{ asset('storage/thumbs/'.$file->thumbnail) }}" alt="" height="77px"></a> --}}
+
                                        <div class="time">3:50</div>
                                     </div>
                                     <div class="video-card-body">
@@ -65,7 +63,6 @@
                                  {{-- @endforeach                            --}}
                               </div>
                               
-
                            </div>
                         </div>
                      </div>
@@ -73,3 +70,4 @@
 
 
 @endsection
+
