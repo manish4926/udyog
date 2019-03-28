@@ -73,9 +73,9 @@ Route::get('/','MainController@index');
 
 
 
-Route::get('file','FileController@showUploadForm')->name('upload.file');
+Route::get('file','VideoController@showUploadForm')->name('upload.file');
 
-Route::post('file','FileController@storeFile');
+Route::post('file','VideoController@storeFile');
 
 /*Route::get('/','FileController@display');*/
 
