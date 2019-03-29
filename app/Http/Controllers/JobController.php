@@ -58,4 +58,10 @@ class JobController extends Controller
 		echo "Job Posted Successfully!!!";
 
     }
+
+
+    public function jobapplication(Request $request)
+	{
+		return view('job.jobapplication');	//,compact()
+	}
 }

@@ -81,6 +81,7 @@
          <div id="content-wrapper">
             <div class="container-fluid pb-0">
                   @yield('content')
+                  @include('partials.content-divider')
                </div>
             </div>
             <!-- /.container-fluid -->
