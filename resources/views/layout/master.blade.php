@@ -66,7 +66,7 @@
 
 
             <li class="nav-item">
-               <a class="nav-link" href="/livesearch">
+               <a class="nav-link" href="directory/livesearch">
                <i class="fas fa-fw fa-user-alt"></i>
                <span>Directory</span>
                </a>
@@ -81,6 +81,7 @@
          <div id="content-wrapper">
             <div class="container-fluid pb-0">
                   @yield('content')
+                  @include('partials.content-divider')
                </div>
             </div>
             <!-- /.container-fluid -->

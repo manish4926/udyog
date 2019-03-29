@@ -4,7 +4,7 @@
 
 @push('topscript')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/job/jobsearch.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/job/jobsearch.css') }}">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -86,14 +86,7 @@
             </div>
             <div class="row">
               <span class="req-input">
-                <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Salary."> </span>
-                  <select name="sal">
-                    <option value="">Select Salary</option>
-                    <option>30000</option> 
-                    <option>40000</option> 
-                    <option>500000</option> 
-                    <option>57788</option>
-                    <option>100000</option>
+                <span class="input-status" data-toggle="tooltip" data-placement="top" title="g">
                     <option>200000</option>
                     <option>300000</option>
                   </select>
