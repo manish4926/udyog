@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('main.index');
-});
+
+
+
+
 
 
 /*Authentication Controller*/
@@ -24,6 +25,13 @@ Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone
 
 
 /*General/Main Controller*/
+
+Route::get('/', function () {
+    return view('main.index');
+});
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -45,13 +53,34 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/post/submit', ['as' => 'postjobsubmit', 'uses' =>'JobController@postJobSubmit']);
 
-    Route::get('/all', ['as' => 'index', 'uses' =>'PostingController@index']);
+    Route::get('/all', ['as' => 'alljob', 'uses' =>'PostingController@alljob']);
 
     Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'PostingController@getdisplay']);   
 
-    Route::get('/search',  ['as' => 'search', 'uses' =>'PostingController@search']);
+    Route::any('/search',  ['as' => 'searchjob', 'uses' =>'PostingController@search']);
 
-    Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@searchcontent']);
+    Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@search']);
    
 
 });
+
+/*Video Controller*/
+Route::get('/','MainController@index');
+
+/*Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});*/
+
+
+
+Route::get('file','VideoController@showUploadForm')->name('upload.file');
+
+Route::post('file','VideoController@storeFile');
+
+/*Route::get('/','FileController@display');*/
+
+Route::get('/video', function(){
+	return view('main.video');
+});
+
+

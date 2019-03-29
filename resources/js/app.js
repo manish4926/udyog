@@ -39,4 +39,3 @@ import './bootstrap';
 
 })(jQuery); // End of use strict
 
-

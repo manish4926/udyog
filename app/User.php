@@ -13,7 +13,6 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role','user_role','user_id','role_id');
     }
 
-
     use Notifiable;
 
     /**
@@ -39,7 +38,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-
    /* protected $casts = [
         'email_verified_at' => 'datetime',
     ];

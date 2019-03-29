@@ -16807,14 +16807,18 @@ body.sidebar-toggled footer.sticky-footer {
   background: #eceff0 none repeat scroll 0 0;
   border: medium none;
   font-size: 14px;
-  max-width: 607px !important;
-  width: 607px !important;
+  width: 500px !important;
+  transition: width 0.2s ease-in-out;
 }
 
 .osahan-navbar-search {
-  margin-right: 250px !important;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  margin-right: 370px !important;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.osahan-navbar-search:focus {
+  width: 607px;
 }
 
 .osahan-navbar-search .btn {
@@ -18105,5 +18109,42 @@ h6 {
   -moz-transition: 0.5s;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
+}
+
+.reg_btn {
+  color: #494949 !important;
+  text-transform: uppercase;
+  background: #ffffff;
+  padding: 10px;
+  border: 1px solid #494949 !important;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.reg_btn:hover {
+  color: #ffffff !important;
+  background: #3d5eaa;
+  border-color: #3d5eaa !important;
+  transition: all 0.4s ease 0s;
+}
+
+.login_btn {
+  color: #494949 !important;
+  text-transform: uppercase;
+  background: #ffffff;
+  padding: 10px;
+  border: 1px solid #494949 !important;
+  border-radius: 6px;
+  display: inline-block;
+  margin-right: 20px;
+  margin-left: 4px;
+  width: 84px;
+}
+
+.login_btn:hover {
+  color: #ffffff !important;
+  background: #208e4e;
+  border-color: #208e4e !important;
+  transition: all 0.4s ease 0s;
 }
 
