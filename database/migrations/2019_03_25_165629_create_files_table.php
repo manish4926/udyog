@@ -17,6 +17,7 @@ class CreateFilesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('size');
+            $table->decimal('duration',8,2);
             $table->string('thumbnail');
             $table->timestamps();
         });

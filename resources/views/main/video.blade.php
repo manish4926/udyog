@@ -1,6 +1,5 @@
 @extends('layout.master')
 
-
 @section('title','BCI - Bhawana Chamber of Industries')
 
 @section('content')
