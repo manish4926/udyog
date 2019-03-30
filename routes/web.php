@@ -60,6 +60,10 @@ Route::group(['prefix' => 'job'], function ()
     Route::any('/search',  ['as' => 'searchjob', 'uses' =>'PostingController@search']);
 
     Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@search']);
+
+    Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
+
+    Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
    
 });
 

@@ -97,15 +97,13 @@
 							</div>
 						</div>
 						<div class="col-md-12">
-							<?php 
-							for ($i=0; $i < 6; $i++) { 
-								$file = $files[$i];
-								?>
+							@if(count($files)>0)
+							@foreach($files as $file)
 								<div class="video-card video-card-list">
 									<div class="video-card-image">
 										<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
 										<a href="#"><img class="img-fluid" src="{{ asset('storage/thumbs/'.$file->thumbnail) }}" alt="" height="77px"></a>
-										<div class="time">3:50</div>
+										<div class="time">{{sprintf('%02d:%02d',($file->duration/60%60), $file->duration%60)}}</div>
 									</div>
 									<div class="video-card-body">
 										<div class="video-title">
@@ -113,9 +111,8 @@
 										</div>
 									</div>
 								</div>
-								<?php
-							}
-							?>
+							@endforeach
+							@endif
 						</div>
 
 
@@ -123,5 +120,6 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-		@endsection
+@endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
+use App\job_opening;
 use DB;
 
 
@@ -58,4 +59,16 @@ class JobController extends Controller
 		echo "Job Posted Successfully!!!";
 
     }
+
+
+    public function jobapplication(Request $request)
+	{
+		return view('job.jobapplication');	//,compact()
+	}
+
+	public function application(Request $request)
+	{
+		return view('job.application');	//,compact()
+	}
 }
+

@@ -5,71 +5,142 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
+
 @section('content')
+<style>
+	.white-card {
+		background: #fff;
+		display: block;
+		widows: 100%;
+		min-height: 200px;
+		padding:20px;
+	}
 
+	.col-md-4 {
 
-  <div class="container box">
+    flex: 0 0 33.3333333333%;
+    max-width: 150;
+	}
 
+	.card-img {
+    width: 150;
+    border-radius: calc(0.25rem - 1px);
+	}
+	
+	.card-head {
+		font-size: 15px;
+		font-weight:bold; 
+	}
 
-   <h3 align="center">Industry List</h3><br />
-   <div class="panel panel-default">
-    <div class="panel-heading"></div>
-    <div class="panel-body">
-     <div class="form-group">
-      <input type="text" name="search" id="search" class="form-control" placeholder="Search Industry.." />
-     </div>
+	.card-head-span{
+		font-size: 10x;
+	}
+
+	a {
+    color: 000000;
+}
+
+	
+	</style>
+
+<div class="row">
+  <div class="col-8">
+<div class="white-card">
+
+   <h3 class="center">Industry List</h3><br />
+
      <div class="table-responsive">
-      <h3 align="center">Total Data : <span id="total_records"></span></h3>
-      <table class="table table-striped table-bordered">
-       <thead>
-        <tr>
-         <th>Company Name</th>
-         <th>Employee</th>
-         <th>Material</th>
-         <th>Address</th>
-        </tr>
-       </thead>
-       <tbody>
+      <table >
 
-       </tbody>
+       <tbody>
+			@foreach($search as $set)
+            <tr>
+
+		<div class="card mb-3">
+				<div class="row no-gutters">
+					<div class="col-md-4">
+						<img src="https://cdn.shopify.com/s/files/1/0252/1347/products/IMG_3420.JPG?v=1486859233" class="card-img" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+								<div class="display-block">
+			
+						<h1 class="card-head" > <a href="/livesearch"> {{ $set->cname }} </a></h2>
+
+						<h3 class="card-head" > Material: <span > {{ $set->material }} </span></h3>
+						<h2 class="card-head"></h2>
+						<i class="fa fa-map-marker" style="color:red"></i><span class="card-head-span"> {{ $set->block}} {{ $set->sector }} {{ $set->area}}
+						</span>
+			
+				
+						</div>
+					</div>
+				</div>
+			</div>
+			
+            </tr>
+            @endforeach
+	   </tbody>
       </table>
-     </div>
+	 </div>
+	 {{ $search->links() }}
+	 <div>
+			<a class="btn btn-success" href="{{ route('create') }}">New Entry</a>
+	 </div>
     </div>    
    </div>
-  </div>
-  <div  class="container box">
-         <button type="button" class="btn btn-info"><a href="/details">New Entry</a></button>
-         <button type="button" class="btn btn-success"><a href="/search">Filtered data</a></button>   
-  </div> 
- </body>
-</html>
+  
+  <div  class="col-4">
+		<div class="white-card">
+		<form action="{{ route('IndustryList') }}" method="get">
+		<h2>Advanced Filters</h2>
 
-<script>
-$(document).ready(function(){
+		<label for="">Company</label>
+		<div>
+				<select class="form-control" name="company">
+						<option value="">Select</option>
+						@foreach($companys as $s)
+						<option value="{{ $s->cname }}">{{ $s->cname }}</option>
+						@endforeach
+				</select>
+		</div>
 
- fetch_customer_data();
+		<label for="">Material</label>
+		<div>
+				<select class="form-control" name="material">
+						<option value="">Select</option>
+						@foreach($materials as $s)
+						<option value="{{ $s->material }}">{{ $s->material }}</option>
+						@endforeach
+				</select>
+		</div>
 
- function fetch_customer_data(query = '')
- {
-  $.ajax({
-   url:"{{ route('livesearch.action') }}",
-   method:'GET',
-   data:{query:query},
-   dataType:'json',
-   success:function(data)
-   {
-    $('tbody').html(data.table_data);
-    $('#total_records').text(data.total_data);
-   }
-  })
- }
+		<label for="">Area</label>
+		<div>
+				<select class="form-control" name="area">
+				  <option value="">Select</option>
+				  @foreach($areas as $s)
+				  <option value="{{ $s->area }}">{{ $s->area }}</option>
+				  @endforeach
+				</select>
+		</div>
 
- $(document).on('keyup', '#search', function(){
-  var query = $(this).val();
-  fetch_customer_data(query);
- });
-});
-</script>
+		<label for="">Sectors</label>
+		<div>
+				<select class="form-control" name="sector">
+				  <option value="">Select</option>
+				  @foreach($sectors as $s)
+				  <option value="{{ $s->sector }}">{{ $s->sector }}</option>
+				  @endforeach
+				</select>
+		</div>
+		
+		<input type="submit" name="submit" value="Search" class="btn btn-danger">
+	</form> 
+	</div> 
+	</div>
+</div>
 
+<div class="row">
 
 @endsection

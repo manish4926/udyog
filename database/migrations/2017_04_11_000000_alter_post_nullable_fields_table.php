@@ -30,10 +30,10 @@ class AlterPostNullableFieldsTable extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        /*Schema::table('posts', function (Blueprint $table) {
             $table->text('excerpt')->change();
             $table->text('meta_description')->change();
             $table->text('meta_keywords')->change();
-        });
+        });*/
     }
 }

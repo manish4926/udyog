@@ -50,6 +50,7 @@
                   <a class="dropdown-item" href="{{ route('postjob') }}">Post a New Job</a>
                   <a class="dropdown-item" href="{{ route('alljob') }}">Latest Jobs</a>
                   <a class="dropdown-item" href="{{ route('searchjob') }}">Search a Job</a>
+                  <a class="dropdown-item" href="{{ route('application') }}">Application Form</a>
                </div>
             </li>
             <li class="nav-item dropdown">
@@ -73,6 +74,7 @@
             </li>
          </ul>
 
+
          <!-- SIDE NAV BAR SHOULD END HERE!!!! -->
 
          
@@ -81,6 +83,7 @@
          <div id="content-wrapper">
             <div class="container-fluid pb-0">
                   @yield('content')
+                  @include('partials.content-divider')
                </div>
             </div>
             <!-- /.container-fluid -->
