@@ -64,4 +64,10 @@ class JobController extends Controller
 	{
 		return view('job.jobapplication');	//,compact()
 	}
+
+public function application(Request $request)
+	{
+		return view('job.application');	//,compact()
+	}
 }
+

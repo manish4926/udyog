@@ -63,6 +63,8 @@ Route::group(['prefix' => 'job'], function ()
    
    Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
 
+   Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
+
 
 });
 
