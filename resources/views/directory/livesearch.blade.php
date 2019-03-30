@@ -5,6 +5,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
+
 @section('content')
 <style>
 	.white-card {
@@ -15,14 +16,33 @@
 		padding:20px;
 	}
 
-	.card-head {
-		font-size: 20px;
+	.col-md-4 {
+
+    flex: 0 0 33.3333333333%;
+    max-width: 150;
 	}
 
-	.card-head span{
-		font-size: 15x;
+	.card-img {
+    width: 150;
+    border-radius: calc(0.25rem - 1px);
 	}
+	
+	.card-head {
+		font-size: 15px;
+		font-weight:bold; 
+	}
+
+	.card-head-span{
+		font-size: 10x;
+	}
+
+	a {
+    color: 000000;
+}
+
+	
 	</style>
+
 <div class="row">
   <div class="col-8">
 <div class="white-card">
@@ -30,19 +50,8 @@
    <h3 class="center">Industry List</h3><br />
 
      <div class="table-responsive">
-      <table class="table table-striped table-hover table-bordered">
-      <!--  <thead class="thead-dark">
-        <tr>
-         		 <th>Company Name</th>
-				 <th>Material</th>
-				 <th>Email</th>
-				 <th>Contact No.</th>
-				 <th>Block</th>
-				 <th>Sector</th>
-				 <th>Area</th>
-				 <th>Website Link</th>
-        </tr> 
-       </thead> -->
+      <table >
+
        <tbody>
 			@foreach($search as $set)
             <tr>
@@ -56,35 +65,19 @@
 						<div class="card-body">
 								<div class="display-block">
 			
-						<h3 class="card-head">Company Name: <span>{{ $set->cname }} </span></h3>
+						<h1 class="card-head" > <a href="/livesearch"> {{ $set->cname }} </a></h2>
 
-						<h2 class="card-head">Material Name: <span>{{ $set->material }} </span></h2>
-						
-						<h2 class="card-head">Email: <span>{{ NULL }} </span></h2>
-					
-						<h1 class="card-head">Phone no: <span>{{ $set->phoneno}} </span></h1>
-						<h1 class="card-head">Block: <span>{{ $set->block}} </span></h1>
-						<h1 class="card-head">Sector: <span>{{ $set->sector }} </span></h1>
-						<h1 class="card-head">Area: <span>{{ $set->area}} </span></h1>
-						<h1 class="card-head">Website: <span>{{ NULL}} </span></h1>
-
-					
+						<h3 class="card-head" > Material: <span > {{ $set->material }} </span></h3>
+						<h2 class="card-head"></h2>
+						<i class="fa fa-map-marker" style="color:red"></i><span class="card-head-span"> {{ $set->block}} {{ $set->sector }} {{ $set->area}}
+						</span>
+			
 				
 						</div>
 					</div>
 				</div>
 			</div>
 			
-
-<!--
-               <td>{{ $set->cname }}</td>
-               <td>{{ $set->material }}</td>
-               <td>{{ $set->email}}</td>
-               <td>{{ $set->phoneno}}</td>
-               <td>{{ $set->block }}</td>
-               <td>{{ $set->sector }}</td>
-               <td>{{ $set->area }}</td>
-               <td>{{ $set->weblink }}</td> -->
             </tr>
             @endforeach
 	   </tbody>
@@ -149,106 +142,5 @@
 </div>
 
 <div class="row">
-	<!--
-<div class="col-md-4 col-sm-6 col-xs-12">
-	<div class="white-card">
-		<div class="feature-title-item">
-			<h1>Property</h1>
-			<img class="img-fluid" alt="Udyog TV" src="/img/udyog_logo.png" width="90px">
-		</div>
-		<div class="feature-box-text">
-			<h3>
-				<a href="">company name</a>
-			</h3>
-			<a href="#">
-				<i class="fa fa-phone">
-				</i>
-				+91 9711223390
-			</a>
-			<p>
-				details of company
-			</p>
-		</div>
-		<div class="feature-item-location">
-			<h2>
-				<i class="fa fa-map-marker">
-				</i>
-				company location
-			</h2>
-		</div>
-	</div>
-</div>
 
-<div class="col-md-4 col-sm-6 col-xs-12">
-	<div class="white-card">
-		<div class="feature-title-item">
-			<h1>Property</h1>
-			<img class="img-fluid" alt="Udyog TV" src="/img/udyog_logo.png" width="90px">
-		</div>
-		<div class="feature-box-text">
-			<h3>
-				<a href="">company name</a>
-			</h3>
-			<a href="#">
-				<i class="fa fa-phone">
-				</i>
-				+91 9711223390
-			</a>
-			<p>
-				details of company
-			</p>
-		</div>
-		<div class="feature-item-location">
-			<h2>
-				<i class="fa fa-map-marker">
-				</i>
-				company location
-			</h2>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-4 col-sm-6 col-xs-12">
-	<div class="white-card">
-		<div class="feature-title-item">
-			<h1>Property</h1>
-			<img class="img-fluid" alt="Udyog TV" src="/img/udyog_logo.png" width="90px">
-		</div>
-		<div class="feature-box-text">
-			<h3>
-				<a href="">company name</a>
-			</h3>
-			<a href="#">
-				<i class="fa fa-phone">
-				</i>
-				+91 9711223390
-			</a>
-			<p>
-				details of company
-			</p>
-		</div>
-		<div class="feature-item-location">
-			<h2>
-				<i class="fa fa-map-marker">
-				</i>
-				company location
-			</h2>
-		</div>
-	</div>
-</div>
-</div> 
-<div class="card mb-3">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="..." class="card-img" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        
-      </div>
-    </div>
-  </div>
-</div>-->
 @endsection

@@ -24,7 +24,6 @@
         <a href="{{ url('/home') }}">Home</a>
         @else
         <button  class="login_btn "><a class="text-dark" href="{{ route('login') }}">Login</a></button>
-
         @if (Route::has('register'))
         <button  class="reg_btn "><a class="text-dark" href="{{ route('register') }}">Register</a></button>
         @endif

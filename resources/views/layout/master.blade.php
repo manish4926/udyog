@@ -58,7 +58,7 @@
                <span>Industries</span>
                </a>
                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="categories.html">Bhawana</a>
+                  <a class="dropdown-item" href="categories.html">Bawana</a>
                   <a class="dropdown-item" href="categories.html">Narela</a>
                   <a class="dropdown-item" href="categories.html">Others</a>
                </div>
