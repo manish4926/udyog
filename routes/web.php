@@ -12,11 +12,6 @@
 */
 
 
-
-
-
-
-
 /*Authentication Controller*/
 Auth::routes();
 
