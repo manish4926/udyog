@@ -12,7 +12,7 @@ class VideoController extends Controller
 	
     public function showUploadForm()
     {
-    	return view('main.upload');
+    	return view('video.upload');
     	// return $request->all();
     }
 
