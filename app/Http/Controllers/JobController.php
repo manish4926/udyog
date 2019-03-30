@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
+use App\job_opening;
 use DB;
 
 
@@ -66,8 +67,14 @@ class JobController extends Controller
 	}
 
 	public function application(Request $request)
+<<<<<<< HEAD
 		{
 			return view('job.application');	//,compact()
 		}
+=======
+	{
+		return view('job.application');	//,compact()
+	}
+>>>>>>> ea266f77ac0be58bbe9cd9625e34faa5d14c330f
 }
 
