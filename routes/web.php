@@ -61,7 +61,6 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@search']);
    
-
 });
 
 /*Video Controller*/
