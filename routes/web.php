@@ -12,11 +12,6 @@
 */
 
 
-
-
-
-
-
 /*Authentication Controller*/
 Auth::routes();
 
@@ -36,14 +31,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 /*Directory Listing*/
-Route::group(['prefix' => 'directory'], function () 
-{
-    Route::get('/details',['as'=>'create','uses'=>'DirectoryController@create']);
-    Route::post('/store',['as'=>'store','uses'=>'DirectoryController@store']);
+Route::get('/details',['as'=>'create','uses'=>'PostController@create']);
+Route::post('/store',['as'=>'store','uses'=>'PostController@store']);
 
-    Route::get('/livesearch',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
+Route::get('/search', 'SearchController@search');
+Route::post('/result', 'SearchController@result');
 
-});
+Route::get('/livesearch', 'LiveSearch@index');
+Route::get('/livesearch/action', 'LiveSearch@action')->name('livesearch.action');
 
 
 /*Job Controller*/
@@ -60,10 +55,11 @@ Route::group(['prefix' => 'job'], function ()
     Route::any('/search',  ['as' => 'searchjob', 'uses' =>'PostingController@search']);
 
     Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@search']);
+
+    Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
+
+    Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
    
-   Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
-
-
 });
 
 /*Video Controller*/
@@ -73,11 +69,8 @@ Route::get('/','MainController@index');
     Voyager::routes();
 });*/
 
-
-
 Route::get('file','VideoController@showUploadForm')->name('uploadfile');
-
-Route::post('file','VideoController@storeFile');
+Route::post('file','FileController@storeFile');
 
 /*Route::get('/','FileController@display');*/
 

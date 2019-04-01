@@ -3263,7 +3263,7 @@ input[type=button].btn-block {
   top: 100%;
   left: 0;
   z-index: 1000;
-  display: none;
+  display: block;
   float: left;
   min-width: 10rem;
   padding: 0.5rem 0;
@@ -18146,5 +18146,9 @@ h6 {
   background: #208e4e;
   border-color: #208e4e !important;
   transition: all 0.4s ease 0s;
+}
+
+.manish {
+  display: block;
 }
 

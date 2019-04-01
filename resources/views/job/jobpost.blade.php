@@ -6,12 +6,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/job/jobform.css') }}">
 @endpush
-
-      
-
             <div class="container">
             <div class="row">
-                <div class="col-md-offset-3" id="form">
+                <div class="col-md-offset-3" id="form" style="float:right">
                     <center><b id="post">JOB POSTING FORM</b></center>            
            <form method="post" action="{{ route('postjobsubmit') }}">
 
