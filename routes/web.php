@@ -75,14 +75,13 @@ Route::get('/','MainController@index');
 
 
 
-Route::get('file','VideoController@showUploadForm')->name('upload.file');
+Route::get('file','VideoController@showUploadForm')->name('uploadfile');
 
 Route::post('file','VideoController@storeFile');
 
 /*Route::get('/','FileController@display');*/
 
-Route::get('/video', function(){
-	return view('main.video');
-});
+Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
+    //return $name;
 
 

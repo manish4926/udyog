@@ -97,11 +97,11 @@
 							</div>
 						</div>
 						<div class="col-md-12">
-							@if(count($files)>0)
-							@foreach($files as $file)
+							@if(count($videos)>0)
+							@foreach($videos as $file)
 								<div class="video-card video-card-list">
 									<div class="video-card-image">
-										<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+										<a class="play-icon" href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->name]) }}"><i class="fas fa-play-circle"></i></a>
 										<a href="#"><img class="img-fluid" src="{{ asset('storage/thumbs/'.$file->thumbnail) }}" alt="" height="77px"></a>
 										<div class="time">{{sprintf('%02d:%02d',($file->duration/60%60), $file->duration%60)}}</div>
 									</div>

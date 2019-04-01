@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Thumbnail;
-use App\File;
+use App\Video;
 use FFMpeg;
 use Illuminate\Http\Request;
 
@@ -31,10 +31,11 @@ class VideoController extends Controller
             $ffprobe = \FFMpeg\FFProbe::create();
             $durationVid = $ffprobe->format('storage/upload/'.$filename)->get('duration');
 
-    		$file = new File;
+    		$file = new Video;
     		$file->name = $filename;
     		$file->size = $filesize; 
             $file->duration = $durationVid;
+            //$file->slug = seoUrl($withoutExtFile."-".time());
             $file->thumbnail = $withoutExtFile.'.png';
     		$file->save();
 
