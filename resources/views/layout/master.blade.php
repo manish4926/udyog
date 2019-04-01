@@ -65,7 +65,7 @@
             </li>
 
             <li class="nav-item">
-               <a class="nav-link" href="/livesearch">
+               <a class="nav-link" href="directory/livesearch">
                <i class="fas fa-fw fa-user-alt"></i>
                <span>Directory</span>
                </a>

@@ -43,8 +43,8 @@ class DirectoryController extends Controller
       /*  $c_uan = $request->input('cuan');
         $c_rn = $request->input('crn');
         $c_gin = $request->input('cgin');*/
-        $data = array('cname'=>$c_name,'cemp'=>$c_emp,'phoneno'=>$c_no,'email'=>$c_email
-        ,'Address'=>$c_address);
+
+        $data = array('cname'=>$c_name,'cemp'=>$c_emp,'phoneno'=>$c_no,'email'=>$c_email ,'Address'=>$c_address);
      
         DB::table('cdetails')->insert($data);
       echo "Record inserted successfully.<br/>";
@@ -92,6 +92,11 @@ class DirectoryController extends Controller
       }
 */
 
+
+      if(!empty($request->address))
+      {
+        $search = $search->orwhere('address', $request->address);
+      }
       if(!empty($request->area))
       {
         $search = $search->orwhere('area', $request->area);
@@ -114,6 +119,7 @@ class DirectoryController extends Controller
 
       $search = $search->paginate(5);
       //dd($request->material);
+
 
       $materials=Search::where('material','!=','')->groupBy('material')->get();
       //dd($materials);
