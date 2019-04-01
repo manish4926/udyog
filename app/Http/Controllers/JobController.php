@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
-use App\job_opening;
 use DB;
 
 
@@ -63,18 +62,64 @@ class JobController extends Controller
 
     public function jobapplication(Request $request)
 	{
+		
 		return view('job.jobapplication');	//,compact()
 	}
 
 	public function application(Request $request)
-<<<<<<< HEAD
 		{
 			return view('job.application');	//,compact()
 		}
-=======
-	{
-		return view('job.application');	//,compact()
-	}
->>>>>>> ea266f77ac0be58bbe9cd9625e34faa5d14c330f
-}
 
+
+	public function applicationSubmit(request $request)
+    {
+    	 
+		//$user_id = $request->input('user_id');
+		$mobile_no = $request->input('mobile_no');
+		$state = $request->input('state');
+		$city= $request->input('city');
+		$email = $request->input('email');
+		$gender= $request->input('gender');
+		$dob = $request->input('dob');
+		$tyear = $request->input('tyear');
+		$tmonth = $request->input('tmonth');
+		$ddlSalaryLacs = $request->input('ddlSalaryLacs');
+		$salThousand =$request->input('salThousand');
+		$jobtitle = $request->input('jobtitle');
+		$companyname = $request->input('companyname');
+        $industry = $request->input('industry');
+		$yearduration= $request->input('yearduration');
+		$monthduration= $request->input('monthduration');
+		$graduation = $request->input('graduation');
+		$postgraduation= $request->input('postgraduation');
+		$doctorate = $request->input('doctorate');
+		$certificate = $request->input('certificate');
+		$experience=$tyear.'.'.$tmonth;
+		$salary= $ddlSalaryLacs.'.'.$salThousand;
+		$duration=$yearduration.'.'.$monthduration;
+
+		
+
+		if(!empty($request->file('fileupload'))){
+	        $this->validate($request,[
+	          'fileupload' =>'mimes:doc,docx,pdf']);
+
+	        $filename = $request->file('fileupload')->getClientOriginalName();
+
+	        $request->file('fileupload')->storeAs('resumes',$filename);
+	        
+    	} else {
+    		$fileupload= '';
+    	}
+
+
+
+
+		$data2 = array('mobile_no'=>$mobile_no,'state'=>$state,'city'=>$city,'email'=>$email,'gender'=>$gender,'dob'=>$dob, 'experience'=>$experience,'salary'=>$salary,'jobtitle'=>$jobtitle,'companyname'=>$companyname,'industry'=>$industry,'duration'=>$duration,'graduation'=>$graduation,'postgraduation'=>$postgraduation,'doctorate'=>$doctorate,'certificate'=>$certificate,'resume'=>$filename);
+
+		DB::table('candidatedata')->insert($data2);
+
+	}
+
+}

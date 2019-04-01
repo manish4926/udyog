@@ -33,7 +33,7 @@ return true; }
 <table border="0" cellpadding="5" cellspacing="0">
 	<tr> <td style="width: 50%">
 
-	PERSONAL DETAILS:	
+	<h1>PERSONAL DETAILS:
 	<label for="First_Name"><b>First name *</b></label><br />
 	<input name="First_Name" type="text" maxlength="50" style="width: 260px" />
 	</td> <td style="width: 50%">

@@ -42,7 +42,7 @@
                </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link dropdown-toggle" href="{{ route('alljob') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <i class="fas fa-fw fa-list-alt"></i>
                <span>Job Portal</span>
                </a>

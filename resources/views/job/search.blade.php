@@ -86,14 +86,7 @@
             </div>
             <div class="row">
               <span class="req-input">
-                <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Salary."> </span>
-                  <select name="sal">
-                    <option value="">Select Salary</option>
-                    <option>30000</option> 
-                    <option>40000</option> 
-                    <option>500000</option> 
-                    <option>57788</option>
-                    <option>100000</option>
+                <span class="input-status" data-toggle="tooltip" data-placement="top" title="">
                     <option>200000</option>
                     <option>300000</option>
                   </select>
