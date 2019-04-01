@@ -30,7 +30,6 @@
 
       <!-- TOP NAV BAR END -->
 
-
        <div id="wrapper">
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
@@ -65,7 +64,6 @@
                </div>
             </li>
 
-
             <li class="nav-item">
                <a class="nav-link" href="/livesearch">
                <i class="fas fa-fw fa-user-alt"></i>
@@ -74,11 +72,7 @@
             </li>
          </ul>
 
-
          <!-- SIDE NAV BAR SHOULD END HERE!!!! -->
-
-         
-
 
          <div id="content-wrapper">
             <div class="container-fluid pb-0">
@@ -86,27 +80,20 @@
                   @include('partials.content-divider')
                </div>
             </div>
-            <!-- /.container-fluid -->
-           
+            <!-- /.container-fluid -->  
          </div>
 
             <!-- SIDE NAV BAR END -->
-
 
       <!-- /#wrapper -->
       <!-- Scroll to Top Button-->
       {{-- <a class="scroll rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
       </a> --}}
-
       <div class='scrolltop'>
           <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
       </div>
-     
-
       <script type="text/javascript" src="/js/app.js"></script>
       @stack('bottomscript')
-
    </body>
-
 </html>
