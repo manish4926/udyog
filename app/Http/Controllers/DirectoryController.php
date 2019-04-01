@@ -43,8 +43,8 @@ class DirectoryController extends Controller
       /*  $c_uan = $request->input('cuan');
         $c_rn = $request->input('crn');
         $c_gin = $request->input('cgin');*/
-        $data = array('Cname'=>$c_name,'Cemp'=>$c_emp,'Phoneno'=>$c_no,'Email'=>$c_email
-        ,'Address'=>$c_address);
+
+        $data = array('cname'=>$c_name,'cemp'=>$c_emp,'phoneno'=>$c_no,'email'=>$c_email ,'Address'=>$c_address);
      
         DB::table('cdetails')->insert($data);
       echo "Record inserted successfully.<br/>";
@@ -92,9 +92,19 @@ class DirectoryController extends Controller
       }
 */
 
+
       if(!empty($request->address))
       {
         $search = $search->orwhere('address', $request->address);
+      }
+      if(!empty($request->area))
+      {
+        $search = $search->orwhere('area', $request->area);
+      }
+
+      if(!empty($request->sector))
+      {
+        $search = $search->orwhere('sector', $request->sector);
       }
 
       if(!empty($request->material))
@@ -110,8 +120,14 @@ class DirectoryController extends Controller
       $search = $search->paginate(5);
       //dd($request->material);
 
-      $select=Search::whereRaw('material <> ""')->get();
+
+      $materials=Search::where('material','!=','')->groupBy('material')->get();
+      //dd($materials);
+      $sectors=Search::whereNotNull('sector')->groupBy('sector')->get();
+      $areas=Search::whereNotNull('area')->groupBy('area')->get();
+      $companys=Search::whereNotNull('cname')->get();
+      //dd($select);
       //$sectorlist = Search::->groupBy('browser')->get();
-      return view('directory.livesearch',compact('search'),compact('select'));//sent data to view
+      return view('directory.livesearch',compact('search','materials','sectors','areas','companys'));//sent data to view
     }
 }

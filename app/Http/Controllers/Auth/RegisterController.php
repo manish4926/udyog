@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers\Auth ;
 
 use App\User;
@@ -8,9 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
 use Illuminate\Support\Str;
-//use App\User;
 use Mail;
 use App\Mail\verifyEmail;
 
@@ -32,16 +31,16 @@ class RegisterController extends Controller
     /**
      * Where to redirect users after registration.
      *
-     *  @var string
+     * @var string
      */
     protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
+
      * @return void()
      */
-
     public function __construct()
     {
         $this->middleware('guest');
@@ -56,6 +55,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+
             'lastname' => ['required', 'string', 'max:255'],
             'firstname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
