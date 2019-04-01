@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Search;
+
 use DB;
 
 class LiveSearch extends Controller
 {
     function index()
     {
-     return view('directory.livesearch');
+      $search = Search::paginate(10);
+      return view('directory.livesearch2',compact('search'));
     }
 
     function action(Request $request)
@@ -32,7 +36,7 @@ class LiveSearch extends Controller
       {
        $data = DB::table('cdetails')
          ->orderBy('C_id', 'asc')
-         ->get();
+         ->paginate(5);
       }
       $total_row = $data->count();
       if($total_row > 0)

@@ -28,13 +28,13 @@
                                     <div class="card">
                                        <div class="row ">
                                          <div class="col-md-4">
-                                             <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97400&w=400&h=400" class="w-100">
+                                             <img src="https://4.imimg.com/data4/IS/BQ/MY-4144035/work-shoes-250x250.jpg" class="w-100">
                                            </div>
                                            <div class="col-md-8 px-3">
                                              <div class="card-block px-3">
-                                               <h4 class="card-title">Lorem ipsum dolor sit amet</h4>
-                                               <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                               <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                               <h1 class="card-title">FORTUNE ENTERPRISES</h1>
+                                               <h3 class="card-text">Aman Aggarwal </h3>
+                                               <h3 class="card-text">Safity Shoes</h3>
                                                <a href="#" class="btn btn-primary">Read More</a>
                                              </div>
                                            </div>
@@ -47,13 +47,13 @@
                                     <div class="card">
                                        <div class="row ">
                                          <div class="col-md-4">
-                                             <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97400&w=400&h=400" class="w-100">
+                                             <img src="https://previews.123rf.com/images/gurza/gurza1301/gurza130100036/17599642-set-of-cosmetic-accessories-on-a-white-background.jpg" class="w-100">
                                            </div>
                                            <div class="col-md-8 px-3">
                                              <div class="card-block px-3">
-                                               <h4 class="card-title">Lorem ipsum dolor sit amet</h4>
-                                               <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                               <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                               <h1 class="card-title">KUNAL ENTERPRISES	</h1>
+                                               <h3 class="card-text">Manvinder Singh </h3>
+                                               <h3 class="card-text">Cosmetic Accessories</h3>
                                                <a href="#" class="btn btn-primary">Read More</a>
                                              </div>
                                            </div>
@@ -67,13 +67,13 @@
                                        <div class="card">
                                           <div class="row ">
                                             <div class="col-md-4">
-                                                <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97400&w=400&h=400" class="w-100">
+                                                <img src="https://5.imimg.com/data5/UR/JT/MY-1594025/non-woven-d-cut-bag-offset-printing-machine-500x500.jpg" class="w-100">
                                               </div>
                                               <div class="col-md-8 px-3">
                                                 <div class="card-block px-3">
-                                                  <h4 class="card-title">Lorem ipsum dolor sit amet</h4>
-                                                  <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                                  <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                  <h1 class="card-title">S.R OFFSET PRESS</h1>
+                                                  <h3 class="card-text">Harish Malhotra </h3>
+                                                  <h3 class="card-text">Printing Press</h3>
                                                   <a href="#" class="btn btn-primary">Read More</a>
                                                 </div>
                                               </div>
