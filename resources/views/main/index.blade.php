@@ -104,14 +104,38 @@
 									</div>
 								</div>
 							</div>
-						</div> -->
+						</div> 
 						{{-- card end  --}}
-
-
-
 					</div>
-           @include('job.jobmaster')
-				</div>
+          {{--jobs card--}}
+          @foreach($jobs as $job_opening)
+            <div class="row">
+              <div class="col-12 mt-3">
+                  <div class="card">
+                      <div class="card-horizontal">
+                          <div class="card-body">
+                              <h4 class="card-title"><p class="fas fa-bolt" style="color:red"></p>{{$job_opening->job_title}}</h4>
+                              <h3>{{$job_opening->company_name}}</h3>
+                              <h5><p class="fas fa-file-alt"></p>{{$job_opening->job_desc}}</h5>
+                              <p class="fas fa-archive">{{$job_opening->experience}}</p>
+                              <p class="fa fa-map-marker" style="float:right">{{$job_opening->location}}</p>
+                              <p class="fas fa-pen" style="float:left">{{$job_opening->skills}}</p> 
+                          </div>
+                      </div>
+                      <div class="card-footer">
+                        <span class ="glyphicon glyphicon-user">
+                          <p class="fas fa-rupee-sign">{{$job_opening->package}}</p> 
+                          <small class="fas fa-user" style="float:right">{{$job_opening->hr_name}}</small>
+                        </span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+         @endforeach
+
+         {{--end jobs card--}}
+
+        </div>
 			</div>
 			<div class="col-md-4">
 				<div class="single-video-right">
