@@ -3,16 +3,6 @@
 @section('content')
 
 @push('topscript')
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/bootstrap-datepicker.css')}}">
-@endpush
-
-        <h1 align="center">JOB POSTING FORM</h1>
-
-            <form method="post" action="{{ route('postjobsubmit') }}">
-
-                {{ csrf_field() }}
-            
-            <table align="center" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/job/jobform.css') }}">
 @endpush
@@ -33,6 +23,7 @@
                 </ul>
             </div>
         @endif
+<<<<<<< HEAD
             
             <tr>
             <td>Job Title</td><td><input type="text" name="title" /></td>
@@ -171,5 +162,6 @@ $(document).ready(function() {
         });
     });
     </script>
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 @endpush
 @endsection

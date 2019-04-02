@@ -30,13 +30,13 @@ Route::group(['prefix' => 'directory'], function ()
 });
 
 
+
 /*Job Controller*/
 Route::group(['prefix' => 'job'], function () 
 {
     Route::get('/post', ['as' => 'postjob', 'uses' =>'JobController@postJob']);
 
     Route::post('/post/submit', ['as' => 'postjobsubmit', 'uses' =>'JobController@postJobSubmit']);
-
 
     Route::get('/all', ['as' => 'alljob', 'uses' =>'PostingController@alljob']);
 

@@ -175,13 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-<<<<<<< HEAD
-=======
         //Thumbnail and Duration
         Lakshmaji\Thumbnail\ThumbnailServiceProvider::class,
         Pbmedia\LaravelFFMpeg\FFMpegServiceProvider::class,
 
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
     ],
 
     /*
@@ -233,13 +230,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-<<<<<<< HEAD
-=======
          //Thumbnail and Duration
         'Thumbnail' => Lakshmaji\Thumbnail\Facade\Thumbnail::class,
         'FFMpeg' => Pbmedia\LaravelFFMpeg\FFMpegFacade::class
 
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
     ],
 
 ];

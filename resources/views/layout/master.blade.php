@@ -34,7 +34,6 @@
        <div id="wrapper">
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
-=======
        <div id="wrapper">
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
@@ -90,8 +89,6 @@
 
          
 
-
-=======
          </ul>
 
          <!-- SIDE NAV BAR SHOULD END HERE!!!! -->
