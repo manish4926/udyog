@@ -193,59 +193,27 @@ input[type=submit]:hover {
                     @endif
             
                 </h1>
-         
+                <style>
+	.white-card {
+		background: #fff;
+		display: block;
+		widows: 100%;
+		min-height: 200px;
+		padding:20px;
+	}
+	</style>
+
 <div class="container">
+<div class="col-14">
+<div class="white-card">
     <form action="store" method="post">
             <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
       <label for="name"> Company Name </label>
       <input type="text" id="name" name="name">
-      @if ($errors->has('name'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
-                            @endif
-						
-
     <br>
-    <br>
-      <label for="crn"> Company Registration Number </label>
-      <input type="text" id="crn" name="crn">
-      @if ($errors->has('crn'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('crn') }}</strong>
-                                </span>
-                            @endif
-						
-      
-      
-      
-      <br>
-      <br>
-      <label for="cgin"> GST Identification Number </label>
-      <input type="text" id="cgin" name="cgin">
-
-      @if ($errors->has('cgin'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('cgin') }}</strong>
-                            </span>
-                        @endif
-				
-
-      <br>
-     
-     
     <br>
     <label for="name"> Employee Name </label>
       <input type="text" id="ename" name="ename">
-      @if ($errors->has('ename'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('ename') }}</strong>
-                            </span>
-                        @endif
-				
-
-
-
       <br>
     <br>
       <label for="cno"><b> Contact Details - </b></label>
@@ -254,48 +222,31 @@ input[type=submit]:hover {
       <input type="text" id="cno" name="cno">
       <br>
       <br>
-      @if ($errors->has('cno'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('cno') }}</strong>
-                            </span>
-                        @endif
-				
-
-
-      <label for="cemail"> Email - Id </label>
       <input type="text" id="cemail" name="cemail">
-      @if ($errors->has('cemail'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('cemail') }}</strong>
-                            </span>
-                        @endif
-				
-     
       <br>
       <br>
-      <label for="caddress"> Address </label>
+      <label for="caddress"> Block </label>
       <textarea id="caddress" name="caddress" style="height:50px"></textarea>
-      @if ($errors->has('caddress'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('cadress') }}</strong>
-                            </span>
-                        @endif
-				
-      
+      <br>
+      <br>
+      <label for="caddress"> Sector </label>
+      <textarea id="caddress" name="caddress" style="height:50px"></textarea>
+      <br>
+      <br>
+      <label for="caddress"> Area </label>
+      <textarea id="caddress" name="caddress" style="height:50px"></textarea>
+      <br>
+      <br>
+      <label for="caddress"> State </label>
+      <textarea id="caddress" name="caddress" style="height:50px"></textarea>
       <br>
       <br>
      <!-- <label for="cuan"> Udyog Aadhar Number</label>
       <input type="text" id="cuan" name="cuan">
       <br>
+<<<<<<< HEAD
       -->
-      <br> -->
-      <label for=""></label>
-      <input type="submit" name="submit" value="submit">
-  
-    </form>
-
-		
-  </div> 
-            </div>
-        </div>
-        @endsection
+=======
+      <br>
+      <label for="crn"> Company Registration Number </label>
+      <input type="text" id="crn" name="crn">

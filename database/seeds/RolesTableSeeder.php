@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
+<<<<<<< HEAD
+=======
+use TCG\Voyager\Models\Role;
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 
 class RolesTableSeeder extends Seeder
 {
@@ -15,6 +19,7 @@ class RolesTableSeeder extends Seeder
         	[
             'name' => 'Admin',
             'description' => '',
+<<<<<<< HEAD
         	]);
              DB::table('roles')->insert(
             [
@@ -36,4 +41,21 @@ class RolesTableSeeder extends Seeder
         	]);
     
     }                                                                                                                                                                                                                                                                           
+=======
+        	],
+        	[
+            'name' => 'Moderator',
+            'description' => '',
+        	],
+        	[
+            'name' => 'General User',
+            'description' => '',
+        	],
+        	[
+            'name' => 'Employee',
+            'description' => '',
+        	]
+    	);
+    }
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 }

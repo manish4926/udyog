@@ -15,7 +15,11 @@
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
         "jquery": "^3.2",
+<<<<<<< HEAD
         "laravel-mix": "^4.0.7",
+=======
+        "laravel-mix": "^4.0.15",
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
@@ -25,6 +29,10 @@
         "vue-template-compiler": "^2.6.8"
     },
     "dependencies": {
+<<<<<<< HEAD
+=======
+        "ffmpeg": "0.0.4",
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
         "font-awesome": "^4.7.0",
         "fontawesome": "^5.6.3"
     }

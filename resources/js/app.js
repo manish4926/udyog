@@ -39,4 +39,7 @@ import './bootstrap';
 
 })(jQuery); // End of use strict
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0

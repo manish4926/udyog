@@ -1,0 +1,34 @@
+#form
+{
+	background-color: #84e184;
+	min-height:300px;
+	padding: 5px 70px;
+	min-width: 50px;
+	font-size: 60px;
+	font-family: Agency FB;
+	font-weight: 400;
+	border-bottom-style: ridge; 
+}
+
+.text
+{
+	height: 60px;
+}
+
+label{
+	font-size: 25px;
+}
+
+.btn-primary
+{
+	border-radius: 0px; 
+	padding:10px;
+	width:48%;
+}
+
+.btn-danger
+{
+	border-radius: 0px; 
+	padding:10px;
+	width:48%;
+}

@@ -5,6 +5,7 @@
          </button> &nbsp;&nbsp;
          <a class="navbar-brand mr-1" href="/"><img class="img-fluid" alt="Udyog TV" src="{{asset('/img/udyog_logo.png')}}" width="90px"></a>
          <!-- Navbar Search -->
+<<<<<<< HEAD
 
          <li class="nav-item active">
                <a class="nav-link" href="/">
@@ -30,6 +31,8 @@
 
 
 
+=======
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
          <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
             <div class="input-group">
                <input type="text" class="form-control" placeholder="Search" align="left">
@@ -39,6 +42,7 @@
                   <i class="fas fa-search"></i> 
                   </button>
                </div>
+<<<<<<< HEAD
             
             </div>
             
@@ -46,6 +50,11 @@
         
     </form>
     
+=======
+            </div>
+        </div>
+    </form>
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 
     @if (Route::has('login'))
     <div class="top-right links">
