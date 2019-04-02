@@ -84,6 +84,7 @@
 
 
           </div>
+           @include('job.jobmaster')
         </div>
       </div>
       <div class="col-md-4">
