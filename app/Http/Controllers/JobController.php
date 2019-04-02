@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use DB;
 
-
 class JobController extends Controller
 {
 
@@ -17,9 +16,7 @@ class JobController extends Controller
 	}
     
     public function postJobSubmit(request $request)
-    {
-		
-    	
+    {    	
 		$title = $request->input('title');
 		$companyname = $request->input('companyname');
 		$hrname= $request->input('hrname');
@@ -46,9 +43,7 @@ class JobController extends Controller
             'desc' =>'required|max:70'
         ]);
 
-
        // print_r($val);
-
 
 		$data = array('job_title'=>$title,'company_name'=>$companyname,'hr_name'=>$hrname,'experience'=>$exp, 'skills'=>$skills,'postdate'=>$postdate, 'expdate'=>$expdate,'location'=>$location,'package'=>$package,'job_desc'=>$description,'status'=>0,'del'=>0,'ip_address'=>$_SERVER['REMOTE_ADDR']);
 

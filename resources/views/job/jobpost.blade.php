@@ -80,17 +80,15 @@
             </div>
             </form>
             
-        
 @push('bottomscript')
-<script type="text/javascript" src="{{asset('js/bootstrap-datepicker.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/bootstrap-datepicker.min.js')}}"></script>
 
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.datetime').datepicker({
-        format: 'yyyy-mm-dd'
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.datetime').datepicker({
+            format: 'yyyy-mm-dd'
+        });
     });
-});
-
-</script>
+    </script>
 @endpush
 @endsection
