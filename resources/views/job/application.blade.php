@@ -36,7 +36,7 @@
             <div id="content1-middle">
                 <div class="content1-middle-left">
                     <table width="100%" style="margin-bottom: 20px">
-                        <tr>
+                        
                             <td colspan="2" style="height: 33px;">
 
                             	<br>
@@ -44,33 +44,30 @@
                                 <h3>
                                     <b>Login Details:</b>
                                 </h3>
-                            </td>
-                        </tr>
-                        <tr>
+                       
                             <td class="content1-middle-left-content" style="width: 35%;">
                                 <span style="color: Red;">* </span>Mobile No. :<br /><span style="font-size:10px; color:Red;"></span>
                             </td>
-                            <td style="width: 65%;">
+                            <style="width: 65%;">
+                             <div class="form-group">	
                             <input name="mobile_no" type="text" />
-                          </td>
-                        </tr>            
-                            </td>
-                        </tr>
-                    </table>
+                          </div>
                     <table width="100%" style="margin-bottom: 20px">
-                        <tr>
+                        
                             <td colspan="2" style="height: 33px;">
                                 <h3>
                                     <b>Personal Details:</b>
                                 </h3>
                             </td>
-                        </tr>
+                
                         <tr>
                             <td class="content1-middle-left-content" style="width: 35%;">
                                 <span style="color: Red;">* </span>First Name :
                             </td>
                             <td style="width: 65%;">
+                            	 <div class="form-group">
                                 <input name="fname" type="text" id="fname" style="width:250px;" />
+                            </div>
                                 <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">First name</span>
                             </td>
                         </tr>
