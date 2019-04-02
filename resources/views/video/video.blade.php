@@ -11,8 +11,8 @@
                            <div class="single-video">
 
                               <video width="100%" height="550px" autoplay="on" controls>
-                                 <source src="{{ asset('storage/upload/Prakesh Chand Jain(1).mp4')}}" type="video/mp4">
-
+                                 <source src="{{ asset('storage/upload/'.$video->name)}}" type="video/mp4">
+                                  {{-- <source src="{{ asset('video/upload/'.$video->name)}}" type="video/mp4"> --}}
                             
                               </video>
                            </div>

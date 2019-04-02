@@ -1,4 +1,3 @@
-
 @extends('layout.master')
 
 @section('title','BCI - Bhawana Chamber of Industries')
@@ -39,9 +38,7 @@
 	a {
     color: 000000;
 }
-
-	
-	</style>
+</style>
 
 <div class="row">
   <div class="col-8">
@@ -95,6 +92,17 @@
 		<form action="{{ route('IndustryList') }}" method="get">
 		<h2>Advanced Filters</h2>
 
+		<label for="">Area</label>
+		<div>
+				<select class="form-control" name="address">
+				  <option value="">Select</option>
+				  @foreach($select as $s)
+				  <option value="{{ $s->Address }}">{{ $s->address }}</option>
+				  @endforeach
+				</select>
+		</div>
+		
+
 		<label for="">Company</label>
 		<div>
 				<select class="form-control" name="company">
@@ -109,19 +117,9 @@
 		<div>
 				<select class="form-control" name="material">
 						<option value="">Select</option>
-						@foreach($materials as $s)
-						<option value="{{ $s->material }}">{{ $s->material }}</option>
+						@foreach($select as $s)
+						<option value="{{ $s->Material }}">{{ $s->material }}</option>
 						@endforeach
-				</select>
-		</div>
-
-		<label for="">Area</label>
-		<div>
-				<select class="form-control" name="area">
-				  <option value="">Select</option>
-				  @foreach($areas as $s)
-				  <option value="{{ $s->area }}">{{ $s->area }}</option>
-				  @endforeach
 				</select>
 		</div>
 
@@ -140,7 +138,4 @@
 	</div> 
 	</div>
 </div>
-
-<div class="row">
-
 @endsection

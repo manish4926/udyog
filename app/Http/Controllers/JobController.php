@@ -114,8 +114,6 @@ class JobController extends Controller
     	}
 
 
-
-
 		$data2 = array('mobile_no'=>$mobile_no,'state'=>$state,'city'=>$city,'email'=>$email,'gender'=>$gender,'dob'=>$dob, 'experience'=>$experience,'salary'=>$salary,'jobtitle'=>$jobtitle,'companyname'=>$companyname,'industry'=>$industry,'duration'=>$duration,'graduation'=>$graduation,'postgraduation'=>$postgraduation,'doctorate'=>$doctorate,'certificate'=>$certificate,'resume'=>$filename);
 
 		DB::table('candidatedata')->insert($data2);
