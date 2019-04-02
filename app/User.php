@@ -13,10 +13,6 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role','user_role','user_id','role_id');
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
     use Notifiable;
 
     /**
@@ -79,8 +75,4 @@ class User extends Authenticatable
     }
 
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0

@@ -246,7 +246,6 @@ input[type=submit]:hover {
       <br>
 <<<<<<< HEAD
       -->
-=======
       <br>
       <label for="crn"> Company Registration Number </label>
       <input type="text" id="crn" name="crn">

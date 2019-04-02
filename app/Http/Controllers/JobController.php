@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\URL;
 use App\job_opening;
 use DB;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 class JobController extends Controller
 {
 
@@ -21,13 +17,10 @@ class JobController extends Controller
 	}
     
     public function postJobSubmit(request $request)
-<<<<<<< HEAD
     {
 		
     	
-=======
     {    	
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 		$title = $request->input('title');
 		$companyname = $request->input('companyname');
 		$hrname= $request->input('hrname');
@@ -54,15 +47,9 @@ class JobController extends Controller
             'desc' =>'required|max:70'
         ]);
 
-<<<<<<< HEAD
-
-       // print_r($val);
 
 
-=======
-       // print_r($val);
 
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 		$data = array('job_title'=>$title,'company_name'=>$companyname,'hr_name'=>$hrname,'experience'=>$exp, 'skills'=>$skills,'postdate'=>$postdate, 'expdate'=>$expdate,'location'=>$location,'package'=>$package,'job_desc'=>$description,'status'=>0,'del'=>0,'ip_address'=>$_SERVER['REMOTE_ADDR']);
 
 		DB::table('job_openings')->insert($data);
@@ -71,9 +58,7 @@ class JobController extends Controller
 		echo "Job Posted Successfully!!!";
 
     }
-<<<<<<< HEAD
 }
-=======
 
 
     public function jobapplication(Request $request)
@@ -136,10 +121,7 @@ class JobController extends Controller
 
 	}
 
-<<<<<<< HEAD
 }
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
-=======
 
 	 public function alljob(Request $request)
     {
@@ -190,4 +172,3 @@ class JobController extends Controller
     }
 
 }
->>>>>>> 4475adb08f0baed78ee69dd34a13cb60b0df4644

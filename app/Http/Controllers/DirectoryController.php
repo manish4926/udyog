@@ -43,13 +43,8 @@ class DirectoryController extends Controller
       /*  $c_uan = $request->input('cuan');
         $c_rn = $request->input('crn');
         $c_gin = $request->input('cgin');*/
-<<<<<<< HEAD
-        $data = array('cname'=>$c_name,'cemp'=>$c_emp,'phoneno'=>$c_no,'email'=>$c_email
-        ,'Address'=>$c_address);
-=======
 
         $data = array('cname'=>$c_name,'cemp'=>$c_emp,'phoneno'=>$c_no,'email'=>$c_email ,'Address'=>$c_address);
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
      
         DB::table('cdetails')->insert($data);
       echo "Record inserted successfully.<br/>";
@@ -59,7 +54,6 @@ class DirectoryController extends Controller
     function index(Request $request)
     {
       $search=Search::orderBy('c_id');//get data from table
-<<<<<<< HEAD
 /*      if(!empty($request->material))
       {
         $search = $search->where('Material', $request->material);
@@ -98,7 +92,6 @@ class DirectoryController extends Controller
       }
 */
 
-=======
 
       $industry_type  = industry_type();
 
@@ -110,7 +103,6 @@ class DirectoryController extends Controller
       {
         $search = $search->orwhere('address', $request->address);
       }
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
       if(!empty($request->area))
       {
         $search = $search->orwhere('area', $request->area);
@@ -131,12 +123,10 @@ class DirectoryController extends Controller
         $search = $search->orwhere('cname', $request->company);
       }
 
-<<<<<<< HEAD
       $search = $search->paginate(5);
       //dd($request->material);
 
       $materials=Search::whereNotNull('material')->groupBy('material')->get();
-=======
 //******* search for material tags in cards *************
       if(!empty($request->materialtag))
       {
@@ -150,17 +140,12 @@ class DirectoryController extends Controller
 
 
       $materials=Search::where('material','!=','')->groupBy('material')->get();
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
       //dd($materials);
       $sectors=Search::whereNotNull('sector')->groupBy('sector')->get();
       $areas=Search::whereNotNull('area')->groupBy('area')->get();
       $companys=Search::whereNotNull('cname')->get();
       //dd($select);
       //$sectorlist = Search::->groupBy('browser')->get();
-<<<<<<< HEAD
-      return view('directory.livesearch',compact('search','materials','sectors','areas','companys'));//sent data to view
-=======
       return view('directory.livesearch',compact('search','materials','sectors','areas','companys','industry_type','business_type'));//sent data to view
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
     }
 }
