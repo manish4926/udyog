@@ -86,7 +86,7 @@
             </div>
             <div class="row">
               <span class="req-input">
-                <span class="input-status" data-toggle="tooltip" data-placement="top" title="g">
+                <span class="input-status" data-toggle="tooltip" data-placement="top" title="">
                     <option>200000</option>
                     <option>300000</option>
                   </select>

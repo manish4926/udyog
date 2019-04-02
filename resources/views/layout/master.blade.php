@@ -30,7 +30,6 @@
 
       <!-- TOP NAV BAR END -->
 
-
        <div id="wrapper">
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
@@ -41,8 +40,8 @@
                <span>Home</span>
                </a>
             </li>
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="{{ route('alljob') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+               <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <i class="fas fa-fw fa-list-alt"></i>
                <span>Job Portal</span>
                </a>
@@ -50,6 +49,7 @@
                   <a class="dropdown-item" href="{{ route('postjob') }}">Post a New Job</a>
                   <a class="dropdown-item" href="{{ route('alljob') }}">Latest Jobs</a>
                   <a class="dropdown-item" href="{{ route('searchjob') }}">Search a Job</a>
+                  <a class="dropdown-item" href="{{ route('application') }}">Application Form</a>
                </div>
             </li>
             <li class="nav-item dropdown">
@@ -64,7 +64,6 @@
                </div>
             </li>
 
-
             <li class="nav-item">
                <a class="nav-link" href="{{route('IndustryList')}}">
                <i class="fas fa-fw fa-user-alt"></i>
@@ -75,36 +74,26 @@
 
          <!-- SIDE NAV BAR SHOULD END HERE!!!! -->
 
-         
-
-
          <div id="content-wrapper">
             <div class="container-fluid pb-0">
                   @yield('content')
                   @include('partials.content-divider')
                </div>
             </div>
-            <!-- /.container-fluid -->
-           
+            <!-- /.container-fluid -->  
          </div>
 
             <!-- SIDE NAV BAR END -->
-
 
       <!-- /#wrapper -->
       <!-- Scroll to Top Button-->
       {{-- <a class="scroll rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
       </a> --}}
-
       <div class='scrolltop'>
           <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
       </div>
-     
-
       <script type="text/javascript" src="/js/app.js"></script>
       @stack('bottomscript')
-
    </body>
-
 </html>

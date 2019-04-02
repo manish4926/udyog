@@ -1,21 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
-
-
-
-
 
 /*Authentication Controller*/
 Auth::routes();
@@ -60,11 +44,16 @@ Route::group(['prefix' => 'job'], function ()
     Route::any('/search',  ['as' => 'searchjob', 'uses' =>'PostingController@search']);
 
     Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@search']);
+
+    Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
+
+    Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
+
+    Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
+
    
-   Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
-
-
 });
+
 
 /*Video Controller*/
 Route::get('/','MainController@index');
@@ -73,16 +62,24 @@ Route::get('/','MainController@index');
     Voyager::routes();
 });*/
 
-
-
-Route::get('file','VideoController@showUploadForm')->name('upload.file');
-
-Route::post('file','VideoController@storeFile');
+Route::get('file','VideoController@showUploadForm')->name('uploadfile');
+Route::post('file','FileController@storeFile');
 
 /*Route::get('/','FileController@display');*/
 
-Route::get('/video', function(){
-	return view('main.video');
+Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
+    //return $name;
+
+
+
+/*Microsite*/
+Route::group(['prefix' => 'company'], function () 
+{
+    Route::get('/', function () {
+        return view('main.index');
+    });
+
+    Route::get('/microwebsite', function () {
+        return view('main.microwebsite');
+    });
 });
-
-

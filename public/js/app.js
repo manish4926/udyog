@@ -36701,12 +36701,12 @@ if (token) {
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
-__webpack_require__(/*! C:\xampp\htdocs\BCI_UdyogTv\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\BCI_UdyogTv\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\test\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\test\resources\sass\app.scss */"./resources/sass/app.scss");
 =======
-__webpack_require__(/*! C:\xampp\htdocs\udyog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\udyog\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> 2b48e1848254b9d257ede5e1749041556aaf43cb
+__webpack_require__(/*! C:\xampp\htdocs\BCI_UdyogTv-master\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\BCI_UdyogTv-master\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> c47e9fa9a83417b21352b80782f5e70a1fc96e59
 
 
 /***/ })

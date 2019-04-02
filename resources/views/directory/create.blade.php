@@ -193,8 +193,19 @@ input[type=submit]:hover {
                     @endif
             
                 </h1>
-         
+                <style>
+	.white-card {
+		background: #fff;
+		display: block;
+		widows: 100%;
+		min-height: 200px;
+		padding:20px;
+	}
+	</style>
+
 <div class="container">
+<div class="col-14">
+<div class="white-card">
     <form action="store" method="post">
             <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
       <label for="name"> Company Name </label>
@@ -215,7 +226,19 @@ input[type=submit]:hover {
       <input type="text" id="cemail" name="cemail">
       <br>
       <br>
-      <label for="caddress"> Address </label>
+      <label for="caddress"> Block </label>
+      <textarea id="caddress" name="caddress" style="height:50px"></textarea>
+      <br>
+      <br>
+      <label for="caddress"> Sector </label>
+      <textarea id="caddress" name="caddress" style="height:50px"></textarea>
+      <br>
+      <br>
+      <label for="caddress"> Area </label>
+      <textarea id="caddress" name="caddress" style="height:50px"></textarea>
+      <br>
+      <br>
+      <label for="caddress"> State </label>
       <textarea id="caddress" name="caddress" style="height:50px"></textarea>
       <br>
       <br>

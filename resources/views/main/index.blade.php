@@ -123,27 +123,23 @@
 							</div>
 						</div>
 						<div class="col-md-12">
-							<?php 
-							if(isset($files) && count($files))
-							for ($i=0; $i < 6; $i++) { 
-								$file = $files[$i];
-								?>
-								<div class="video-card video-card-list">
-									<div class="video-card-image">
-										<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-										<a href="#"><img class="img-fluid" src="{{ asset('storage/thumbs/'.$file->thumbnail) }}" alt="" height="77px"></a>
-										<div class="time">3:50</div>
-									</div>
-									<div class="video-card-body">
-										<div class="video-title">
-											<a href="#">{{ $file->name }}</a>
-										</div>
-									</div>
-								</div>
-								<?php
-							}
-							?>
-						</div>
+			              @if(count($videos)>0)
+			              @foreach($videos as $file)
+			              <div class="video-card video-card-list">
+			                <div class="video-card-image">
+			                  <a class="play-icon" href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->name]) }}"><i class="fas fa-play-circle"></i></a>
+			                  <a href="#"><img class="img-fluid" src="{{ asset('storage/thumbs/'.$file->thumbnail) }}" alt="" height="77px"></a>
+			                  <div class="time">{{sprintf('%02d:%02d',($file->duration/60%60), $file->duration%60)}}</div>
+			                </div>
+			                <div class="video-card-body">
+			                  <div class="video-title">
+			                    <a href="#">{{ $file->name }}</a>
+			                  </div>
+			                </div>
+			              </div>
+			              @endforeach
+			              @endif
+			            </div>
 
 
 					</div>

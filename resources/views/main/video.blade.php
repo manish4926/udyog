@@ -1,6 +1,5 @@
 @extends('layout.master')
 
-
 @section('title','BCI - Bhawana Chamber of Industries')
 
 @section('content')
@@ -10,9 +9,9 @@
                      <div class="col-md-8">
                         <div class="single-video-left">
                            <div class="single-video">
-
+                            
                               <video width="100%" height="550px" autoplay="on" controls>
-                                 <source src="{{ asset('storage/upload/Prakesh Chand Jain(1).mp4')}}" type="video/mp4">
+                                    <source src="{{ asset('storage/upload/'.$files->name) }}" type="video/mp4">
 
                             
                               </video>

@@ -1,4 +1,3 @@
-
 @extends('layout.master')
 
 @section('title','BCI - Bhawana Chamber of Industries')
@@ -138,8 +137,8 @@
 		<div>
 				<select class="form-control" name="material">
 						<option value="">Select</option>
-						@foreach($materials as $s)
-						<option value="{{ $s->material }}">{{ $s->material }}</option>
+						@foreach($select as $s)
+						<option value="{{ $s->Material }}">{{ $s->material }}</option>
 						@endforeach
 				</select>
 		</div>
@@ -179,7 +178,4 @@
 	</div> 
 	</div>
 </div>
-
-<div class="row">
-
 @endsection

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Thumbnail;
-use App\File;
+use App\Video;
 use FFMpeg;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class VideoController extends Controller
 	
     public function showUploadForm()
     {
-    	return view('main.upload');
+    	return view('video.upload');
     	// return $request->all();
     }
 
@@ -28,9 +28,14 @@ class VideoController extends Controller
             $videoUrl = storage_path('\\app\\public\\upload\\'.$filename);
             $storageUrl = storage_path('\\app\\public\\upload\\thumbs\\');
 
-    		$file = new File;
+            $ffprobe = \FFMpeg\FFProbe::create();
+            $durationVid = $ffprobe->format('storage/upload/'.$filename)->get('duration');
+
+    		$file = new Video;
     		$file->name = $filename;
     		$file->size = $filesize; 
+            $file->duration = $durationVid;
+            //$file->slug = seoUrl($withoutExtFile."-".time());
             $file->thumbnail = $withoutExtFile.'.png';
     		$file->save();
 
