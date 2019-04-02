@@ -19,7 +19,8 @@
 
 @section('center-content')
 <div class="white-card">
-<form action="" method="post" onsubmit="return ValidateForm(this);">
+<form action="{{route('applicationsubmit')}}" method="post" enctype="multipart/form-data">
+	{{ csrf_field() }}
 
 
 
@@ -47,19 +48,12 @@
                         </tr>
                         <tr>
                             <td class="content1-middle-left-content" style="width: 35%;">
-                                <span style="color: Red;">* </span>Mobile No :<br /><span style="font-size:10px; color:Red;"></span>
+                                <span style="color: Red;">* </span>Mobile No. :<br /><span style="font-size:10px; color:Red;"></span>
                             </td>
                             <td style="width: 65%;">
-		
-                                        <input name="mob" type="text" style="width:250px;" />
-                                        <span id="RequiredFieldValidator1" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Mobile No.</span>&nbsp;
-                                       
-                                             <span id="RegularExpressionValidator2" InitialValue="Mobile" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Numeric digits only.</span>
-                                <span id="RegularExpressionValidator3" style="color:Red;font-weight:bold;display:none;">Do not go beyond 10 digits.</span>
+                            <input name="mobile_no" type="text" />
                           </td>
-                        </tr>
-                  
-                              
+                        </tr>            
                             </td>
                         </tr>
                     </table>
@@ -77,7 +71,7 @@
                             </td>
                             <td style="width: 65%;">
                                 <input name="fname" type="text" id="fname" style="width:250px;" />
-                                <span id="RequiredFieldValidator4" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">First name</span>
+                                <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">First name</span>
                             </td>
                         </tr>
                         <tr>
@@ -86,60 +80,58 @@
                             </td>
                             <td style="width: 65%;">
                                 <input name="lname" type="text" id="lname" style="width:250px;" />
-                                <span id="RequiredFieldValidator5" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Last name</span>
+                                <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Last name</span>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <div id="UpdatePanel2">
-		
                                         <table width="100%">
                                             <tr style="min-height: 30px;">
                                                 <td class="content1-middle-left-content" style="width: 35%;">
                                                     <span style="color: Red;">* </span>State :
                                                 </td>
                                                 <td style="width: 65%;">
-                                                    <select name="state" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;state\&#39;,\&#39;\&#39;)&#39;, 0)" id="state" style="width:250px;">
-			<option selected="selected" value="State">State</option>
-			<option value="an">Andaman Nicobar</option>
-			<option value="ap">Andhra Pradesh</option>
-			<option value="ar">Arunachal Pradesh</option>
-			<option value="as">Assam</option>
-			<option value="St40">Banglore</option>
-			<option value="br">Bihar</option>
-			<option value="cg">Chandigarah</option>
-			<option value="St39">Chennai</option>
-			<option value="ch">Chhattisgarh</option>
-			<option value="dn">Dadra Nagar Haveli</option>
-			<option value="dd">Daman Diu</option>
-			<option value="dl">Delhi</option>
-			<option value="ga">Goa</option>
-			<option value="gj">Gujrat</option>
-			<option value="hr">Haryana</option>
-			<option value="hp">Himachal Pradesh</option>
-			<option value="jr">Jharkhand</option>
-			<option value="kr">Karnataka</option>
-			<option value="ka">Kerala</option>
-			<option value="ld">Lakshadweep</option>
-			<option value="mp">Madhya Pradesh</option>
-			<option value="mh">Maharashtra</option>
-			<option value="mn">Manipur</option>
-			<option value="ml">Meghalaya</option>
-			<option value="mz">Mizoram</option>
-			<option value="nl">Nagaland</option>
-			<option value="or">Orissa</option>
-			<option value="pn">Pondicherry</option>
-			<option value="pb">Punjab</option>
-			<option value="rj">Rajasthan</option>
-			<option value="sk">Sikkim</option>
-			<option value="tn">Tamilnadu</option>
-			<option value="tr">Tripura</option>
-			<option value="up">Uttar Pradesh</option>
-			<option value="ut">Uttaranchal</option>
-			<option value="wb">West Bengal</option>
-
-		</select>
-                                                    <span id="RequiredFieldValidator6" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">State</span>
+                                                    <select name="state" id="state" style="width:250px;">
+															<option selected="selected" value="State">State</option>
+															<option value="an">Andaman Nicobar</option>
+															<option value="ap">Andhra Pradesh</option>
+															<option value="ar">Arunachal Pradesh</option>
+															<option value="as">Assam</option>
+															<option value="St40">Banglore</option>
+															<option value="br">Bihar</option>
+															<option value="cg">Chandigarah</option>
+															<option value="St39">Chennai</option>
+															<option value="ch">Chhattisgarh</option>
+															<option value="dn">Dadra Nagar Haveli</option>
+															<option value="dd">Daman Diu</option>
+															<option value="dl">Delhi</option>
+															<option value="ga">Goa</option>
+															<option value="gj">Gujrat</option>
+															<option value="hr">Haryana</option>
+															<option value="hp">Himachal Pradesh</option>
+															<option value="jr">Jharkhand</option>
+															<option value="kr">Karnataka</option>
+															<option value="ka">Kerala</option>
+															<option value="ld">Lakshadweep</option>
+															<option value="mp">Madhya Pradesh</option>
+															<option value="mh">Maharashtra</option>
+															<option value="mn">Manipur</option>
+															<option value="ml">Meghalaya</option>
+															<option value="mz">Mizoram</option>
+															<option value="nl">Nagaland</option>
+															<option value="or">Orissa</option>
+															<option value="pn">Pondicherry</option>
+															<option value="pb">Punjab</option>
+															<option value="rj">Rajasthan</option>
+															<option value="sk">Sikkim</option>
+															<option value="tn">Tamilnadu</option>
+															<option value="tr">Tripura</option>
+															<option value="up">Uttar Pradesh</option>
+															<option value="ut">Uttaranchal</option>
+															<option value="wb">West Bengal</option>
+														</select>
+                                                    <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">State</span>
                                                 </td>
                                             </tr>
                                             <tr style="min-height: 30px;">
@@ -147,16 +139,12 @@
                                                     <span style="color: Red;">* </span>City :
                                                 </td>
                                                 <td style="width: 65%;">
-                                                    <select name="city" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;city\&#39;,\&#39;\&#39;)&#39;, 0)" id="city" style="width:250px;">
-
-		</select>
-                                                    
-                                                    <span id="RequiredFieldValidator7" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">City</span>
+                                                    <input type="text" name="city" id="city" style="width:250px;">
+                                                    <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">City</span>
                                                 </td>
                                             </tr>
                                         </table>
-                                    
-	</div>
+								</div>
                             </td>
                         </tr>
                         <tr>
@@ -175,13 +163,12 @@
                             <td style="width: 65%;">
                                 <div style="float: left;">
                                     <table id="rdbGender" style="color:Black;width:200px;">
-		<tr>
-			<td><input id="rdbGender_0" type="radio" name="m" value="Male" checked="checked" /><label for="rdbGender_0">Male</label></td><td><input id="rdbGender_1" type="radio" name="f" value="Female" /><label for="rdbGender_1">Female</label></td>
+						<tr>
+			<td><input type="radio" name="gender" value="male"> Male<br>
+<input type="radio" name="gender" value="female"> Female<br>
+<input type="radio" name="gender" value="other"> Other</td>
 		</tr>
 	</table>
-                                </div>
-                                <div style="float: left;">
-                                    <span id="RequiredFieldValidator9" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Gender</span>
                                 </div>
                             </td>
                         </tr>
@@ -190,127 +177,9 @@
                                 <span style="color: Red;">* </span>Date of Birth
                             </td>
                             <td style="width: 65%;">
-                                <select name="dob" id="dob" style="width:85px;">
-									<option value="Date">Date</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
-									<option value="13">13</option>
-									<option value="14">14</option>
-									<option value="15">15</option>
-									<option value="16">16</option>
-									<option value="17">17</option>
-									<option value="18">18</option>
-									<option value="19">19</option>
-									<option value="20">20</option>
-									<option value="21">21</option>
-									<option value="22">22</option>
-									<option value="23">23</option>
-									<option value="24">24</option>
-									<option value="25">25</option>
-									<option value="26">26</option>
-									<option value="27">27</option>
-									<option value="28">28</option>
-									<option value="29">29</option>
-									<option value="30">30</option>
-									<option value="31">31</option>
-
-								</select>
-                                <select name="month" id="month" style="width:85px;">
-									<option value="Month">Month</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
-
-								</select>
-                                <select name="year" id="year" style="width:85px;">
-								<option value="Year">Year</option>
-								<option value="1950">1950</option>
-								<option value="1951">1951</option>
-								<option value="1952">1952</option>
-								<option value="1953">1953</option>
-								<option value="1954">1954</option>
-								<option value="1955">1955</option>
-								<option value="1956">1956</option>
-								<option value="1957">1957</option>
-								<option value="1958">1958</option>
-								<option value="1959">1959</option>
-								<option value="1960">1960</option>
-								<option value="1961">1961</option>
-								<option value="1962">1962</option>
-								<option value="1963">1963</option>
-								<option value="1964">1964</option>
-								<option value="1965">1965</option>
-								<option value="1966">1966</option>
-								<option value="1967">1967</option>
-								<option value="1968">1968</option>
-								<option value="1969">1969</option>
-								<option value="1970">1970</option>
-								<option value="1971">1971</option>
-								<option value="1972">1972</option>
-								<option value="1973">1973</option>
-								<option value="1974">1974</option>
-								<option value="1975">1975</option>
-								<option value="1976">1976</option>
-								<option value="1977">1977</option>
-								<option value="1978">1978</option>
-								<option value="1979">1979</option>
-								<option value="1980">1980</option>
-								<option value="1981">1981</option>
-								<option value="1982">1982</option>
-								<option value="1983">1983</option>
-								<option value="1984">1984</option>
-								<option value="1985">1985</option>
-								<option value="1986">1986</option>
-								<option value="1987">1987</option>
-								<option value="1988">1988</option>
-								<option value="1989">1989</option>
-								<option value="1990">1990</option>
-								<option value="1991">1991</option>
-								<option value="1992">1992</option>
-								<option value="1993">1993</option>
-								<option value="1994">1994</option>
-								<option value="1995">1995</option>
-								<option value="1996">1996</option>
-								<option value="1997">1997</option>
-								<option value="1998">1998</option>
-								<option value="1999">1999</option>
-								<option value="2000">2000</option>
-								<option value="2001">2001</option>
-								<option value="2002">2002</option>
-								<option value="2003">2003</option>
-								<option value="2004">2004</option>
-								<option value="2005">2005</option>
-								<option value="2006">2006</option>
-								<option value="2007">2007</option>
-								<option value="2008">2008</option>
-								<option value="2009">2009</option>
-								<option value="2010">2010</option>
-
-							</select>
-             <span id="RequiredFieldValidator11" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Date</span>&nbsp;
-             <span id="RequiredFieldValidator12" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Month</span>&nbsp;
-             <span id="RequiredFieldValidator13" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Year</span>
-               </td>
-               </tr>
+                   				<input type="date" name="dob" format"dd-mm-yyyy">
+					        </td>
+					    </tr>
                     </table>
                     <table width="100%">
                         <tr>
@@ -330,8 +199,8 @@
                                 Total Experience :
                             </td>
                             <td style="width: 65%;">
-                                <select name="tyear" id="tyear" style="width:125px;">
-									<option value="Year">Year</option>
+                                <select name="tyear" id="tyear" style="width:125px;" required="">
+									<option value="">Year</option>
 									<option value="0">0</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -384,7 +253,6 @@
 									<option value="48">48</option>
 									<option value="49">49</option>
 									<option value="50">50</option>
-
 								</select>
 							    <select name="tmonth" id="tmonth" style="width:125px;">
 									<option value="Month">Month</option>
@@ -401,7 +269,6 @@
 									<option value="10">10</option>
 									<option value="11">11</option>
 									<option value="12">12</option>
-
 								</select>
                             </td>
                         </tr>
@@ -513,9 +380,8 @@
 									<option value="98">98</option>
 									<option value="99">99</option>
 									<option value="100">100</option>
-
 								</select>
-                                <select name="salary" id="salary" style="width:125px;">
+                                <select name="salThousand" id="salary" style="width:125px;">
 								<option value="Thousands">Thousands</option>
 								<option value="0">0</option>
 								<option value="1">1</option>
@@ -617,7 +483,6 @@
 								<option value="97">97</option>
 								<option value="98">98</option>
 								<option value="99">99</option>
-
 							</select>
                             </td>
                         </tr>
@@ -645,107 +510,93 @@
                         <tr>
                             <td class="content1-middle-left-content" colspan="2">
                                 <div id="UpdatePanel3">
-		
                                         <table width="100%">
                                             <tr>
                                                 <td class="content1-middle-left-content" style="width: 35%;">
                                                     <span style="color: Red;">* </span>Industry :
                                                 </td>
                                                 <td style="width: 65%; text-align: left;">
-                                                    <select name="industry" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;industry\&#39;,\&#39;\&#39;)&#39;, 0)" id="industry" style="width:250px;">
-			<option selected="selected" value="Industry">Industry</option>
-			<option value="Ind4">Accounting / Finance</option>
-			<option value="Ind60">Administration</option>
-			<option value="Ind5">Advertising / PR/ MR / Event Management</option>
-			<option value="Ind61">Agency</option>
-			<option value="Ind6">Agriculture / Dairy/ Fertilizer/Pesticides</option>
-			<option value="Ind9">Airlines/Travel/Transportation/Logistic/Car rental</option>
-			<option value="Ind7">Animation / Gaming</option>
-			<option value="Ind74">Any Industry</option>
-			<option value="Ind8">Architecture / Interior Design</option>
-			<option value="Ind3">Automobile / Auto Alliance / Auto Components</option>
-			<option value="Ind10">Banking / Financial Services / Broking</option>
-			<option value="Ind73">Beauty &amp; Wellness/SPA</option>
-			<option value="Ind2">BPO/ Call Centre/ ITES</option>
-			<option value="Ind11">Brewery / Distillery</option>
-			<option value="Ind12">Ceramics / Sanitary ware</option>
-			<option value="Ind13">Chemicals/Petrochemicals/Tyres/Glass/Plastic/rubbe</option>
-			<option value="Ind14">Construction / Engineering / Cement / Metals/ Stee</option>
-			<option value="Ind15">Consumer/durables/electricals/Switchgears</option>
-			<option value="Ind16">Courier / Transportation / Freight / Warehousing</option>
-			<option value="Ind17">Education / Teaching / Training</option>
-			<option value="Ind18">Electricals / Switchgears</option>
-			<option value="Ind62">Engineering/oil &amp; gas/Power/Energy</option>
-			<option value="Ind63">Entertainment/Media</option>
-			<option value="Ind64">Event Management/Promotional event</option>
-			<option value="Ind19">Export / Import</option>
-			<option value="Ind20">Facility Management</option>
-			<option value="Ind21">Fertilizers / Pesticides</option>
-			<option value="Ind22">FMCG / Foods / Beverage</option>
-			<option value="Ind23">Food Processing</option>
-			<option value="Ind65">Footwear</option>
-			<option value="Ind24">Fresher / Trainee / Entry Level</option>
-			<option value="Ind25">Gems / Jewellery</option>
-			<option value="Ind66">General</option>
-			<option value="Ind26">Glass / Glassware</option>
-			<option value="Ind27">Government / Defence</option>
-			<option value="Ind28">Heat Ventilation / Air Conditioning</option>
-			<option value="Ind67">Hospitality/Hotel Management</option>
-			<option value="Ind68">Household</option>
-			<option value="Ind29">Industrial Products / Heavy Machinery</option>
-			<option value="Ind69">Infrastructure/Construction</option>
-			<option value="Ind30">Insurance</option>
-			<option value="Ind36">Internet / Ecommerce</option>
-			<option value="Ind31">Iron and Steel</option>
-			<option value="Ind1">IT Software/ Software Services</option>
-			<option value="Ind32">IT-Hardware &amp; Networking</option>
-			<option value="Ind33">KPO / Research / Analytics</option>
-			<option value="Ind34">Legal</option>
-			<option value="Ind70">Manufacturing</option>
-			<option value="Ind35">Media / Entertainment / Internet</option>
-			<option value="Ind37">Medical / Healthcare / Hospitals</option>
-			<option value="Ind38">Mining / Quarrying</option>
-			<option value="Ind39">NGO / Social Services / Regulators / Industry Asso</option>
-			<option value="Ind40">Office Equipment / Automation</option>
-			<option value="Ind41">Oil and Gas / Energy / Power / Infrastructure</option>
-			<option value="Ind59">Other</option>
-			<option value="Ind43">Pharma / Biotech / Clinical Research</option>
-			<option value="Ind44">Printing / Packaging</option>
-			<option value="Ind45">Publishing</option>
-			<option value="Ind42">Pulp and Paper</option>
-			<option value="Ind46">Real Estate / Property</option>
-			<option value="Ind47">Recruitment / Staffing</option>
-			<option value="Ind48">Retail / Wholesale/ Shopkeeper</option>
-			<option value="Ind71">Sales Marketing</option>
-			<option value="Ind49">Security / Law Enforcement</option>
-			<option value="Ind50">Semiconductors / Electronics</option>
-			<option value="Ind51">Shipping / Marine</option>
-			<option value="Ind72">Soft Skills/Personality Development</option>
-			<option value="Ind52">Strategy / Management Consulting Firms</option>
-			<option value="Ind53">Telcom / ISP</option>
-			<option value="Ind54">Textiles / Garments / Accessories</option>
-			<option value="Ind55">Travel / Hotels / Restaurants / Airlines / Railway</option>
-			<option value="Ind56">Tyres</option>
-			<option value="Ind57">Water Treatment / Waste Management</option>
-			<option value="Ind58">Wellness / Fitness / Sports</option>
-
-		</select>
-                                                    <span id="RequiredFieldValidator15" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Industry</span>
+                                                    <select name="industry" style="width:250px;">
+														<option selected="selected" value="Industry">Industry</option>
+														<option value="Ind4">Accounting / Finance</option>
+														<option value="Ind60">Administration</option>
+														<option value="Ind5">Advertising / PR/ MR / Event Management</option>
+														<option value="Ind61">Agency</option>
+														<option value="Ind6">Agriculture / Dairy/ Fertilizer/Pesticides</option>
+														<option value="Ind9">Airlines/Travel/Transportation/Logistic/Car rental</option>
+														<option value="Ind7">Animation / Gaming</option>
+														<option value="Ind74">Any Industry</option>
+														<option value="Ind8">Architecture / Interior Design</option>
+														<option value="Ind3">Automobile / Auto Alliance / Auto Components</option>
+														<option value="Ind10">Banking / Financial Services / Broking</option>
+														<option value="Ind73">Beauty &amp; Wellness/SPA</option>
+														<option value="Ind2">BPO/ Call Centre/ ITES</option>
+														<option value="Ind11">Brewery / Distillery</option>
+														<option value="Ind12">Ceramics / Sanitary ware</option>
+														<option value="Ind13">Chemicals/Petrochemicals/Tyres/Glass/Plastic/rubbe</option>
+														<option value="Ind14">Construction / Engineering / Cement / Metals/ Stee</option>
+														<option value="Ind15">Consumer/durables/electricals/Switchgears</option>
+														<option value="Ind16">Courier / Transportation / Freight / Warehousing</option>
+														<option value="Ind17">Education / Teaching / Training</option>
+														<option value="Ind18">Electricals / Switchgears</option>
+														<option value="Ind62">Engineering/oil &amp; gas/Power/Energy</option>
+														<option value="Ind63">Entertainment/Media</option>
+														<option value="Ind64">Event Management/Promotional event</option>
+														<option value="Ind19">Export / Import</option>
+														<option value="Ind20">Facility Management</option>
+														<option value="Ind21">Fertilizers / Pesticides</option>
+														<option value="Ind22">FMCG / Foods / Beverage</option>
+														<option value="Ind23">Food Processing</option>
+														<option value="Ind65">Footwear</option>
+														<option value="Ind24">Fresher / Trainee / Entry Level</option>
+														<option value="Ind25">Gems / Jewellery</option>
+														<option value="Ind66">General</option>
+														<option value="Ind26">Glass / Glassware</option>
+														<option value="Ind27">Government / Defence</option>
+														<option value="Ind28">Heat Ventilation / Air Conditioning</option>
+														<option value="Ind67">Hospitality/Hotel Management</option>
+														<option value="Ind68">Household</option>
+														<option value="Ind29">Industrial Products / Heavy Machinery</option>
+														<option value="Ind69">Infrastructure/Construction</option>
+														<option value="Ind30">Insurance</option>
+														<option value="Ind36">Internet / Ecommerce</option>
+														<option value="Ind31">Iron and Steel</option>
+														<option value="Ind1">IT Software/ Software Services</option>
+														<option value="Ind32">IT-Hardware &amp; Networking</option>
+														<option value="Ind33">KPO / Research / Analytics</option>
+														<option value="Ind34">Legal</option>
+														<option value="Ind70">Manufacturing</option>
+														<option value="Ind35">Media / Entertainment / Internet</option>
+														<option value="Ind37">Medical / Healthcare / Hospitals</option>
+														<option value="Ind38">Mining / Quarrying</option>
+														<option value="Ind39">NGO / Social Services / Regulators / Industry Asso</option>
+														<option value="Ind40">Office Equipment / Automation</option>
+														<option value="Ind41">Oil and Gas / Energy / Power / Infrastructure</option>
+														<option value="Ind59">Other</option>
+														<option value="Ind43">Pharma / Biotech / Clinical Research</option>
+														<option value="Ind44">Printing / Packaging</option>
+														<option value="Ind45">Publishing</option>
+														<option value="Ind42">Pulp and Paper</option>
+														<option value="Ind46">Real Estate / Property</option>
+														<option value="Ind47">Recruitment / Staffing</option>
+														<option value="Ind48">Retail / Wholesale/ Shopkeeper</option>
+														<option value="Ind71">Sales Marketing</option>
+														<option value="Ind49">Security / Law Enforcement</option>
+														<option value="Ind50">Semiconductors / Electronics</option>
+														<option value="Ind51">Shipping / Marine</option>
+														<option value="Ind72">Soft Skills/Personality Development</option>
+														<option value="Ind52">Strategy / Management Consulting Firms</option>
+														<option value="Ind53">Telcom / ISP</option>
+														<option value="Ind54">Textiles / Garments / Accessories</option>
+														<option value="Ind55">Travel / Hotels / Restaurants / Airlines / Railway</option>
+														<option value="Ind56">Tyres</option>
+														<option value="Ind57">Water Treatment / Waste Management</option>
+														<option value="Ind58">Wellness / Fitness / Sports</option>
+													</select>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td class="content1-middle-left-content" style="width: 35%;">
-                                                    Functional Area :
-                                                </td>
-                                                <td style="width: 65%; text-align: left;">
-                                                    <select name="functionalarea" id="functionalarea" style="width:250px;">
-
-		</select>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    
-	</div>
+                                        </table>                          
+								</div>
                             </td>
                         </tr>
                         <tr>
@@ -753,58 +604,58 @@
                                 Duration in this job :
                             </td>
                             <td style="width: 65%;">
-                      <select name="yearduration" id="yearduration" style="width:124px;">
-							<option value="Year">Year</option>
-							<option value="0">0</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-							<option value="16">16</option>
-							<option value="17">17</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30">30</option>
+				                      <select name="yearduration" id="yearduration" style="width:124px;">
+											<option value="Year">Year</option>
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+											<option value="13">13</option>
+											<option value="14">14</option>
+											<option value="15">15</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+											<option value="21">21</option>
+											<option value="22">22</option>
+											<option value="23">23</option>
+											<option value="24">24</option>
+											<option value="25">25</option>
+											<option value="26">26</option>
+											<option value="27">27</option>
+											<option value="28">28</option>
+											<option value="29">29</option>
+											<option value="30">30</option>
 
-						    </select>
-                    <select name="monthduration" id="monthduration" style="width:124px;">
-							<option value="Month">Month</option>
-							<option value="0">0</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
+										    </select>
+				                    <select name="monthduration" id="monthduration" style="width:124px;">
+											<option value="Month">Month</option>
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
 
-						    </select>
+										    </select>
 	                         </td>
                         </tr>
                     </table>
@@ -856,7 +707,7 @@
 						<option value="Gra26">PRT</option>
 
 					</select>
-                                <span id="RequiredFieldValidator14" style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Basic/Graduation</span>
+                                <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Basic/Graduation</span>
                             </td>
                         </tr>
                         <tr>
@@ -889,7 +740,6 @@
 							<option value="OTH">Other</option>
 							<option value="PGD">PG Diploma</option>
 							<option value="Pg20">Post Graduation (Any)</option>
-
 						</select>
                             </td>
                         </tr>
@@ -904,7 +754,6 @@
 							<option value="PHD">Ph.d/Doctorate</option>
 							<option value="MPHIL">MPHIL</option>
 							<option value="OTH">Other</option>
-
 						</select>
                             </td>
                         </tr>
@@ -929,7 +778,6 @@
                         <tr>
                         	<br>
                             <td class="content1-middle-left-content" style="width: 35%; margin-bottom: 10px">
-
                                 Upload Resume :
                             </td>
                             <td style="width: 65%;">
@@ -938,20 +786,14 @@
                         </tr>
                         <tr>
                             <td align="center" colspan="2">
-                                <input type="submit" name="imgbtnCreateLogin" value="Create my account" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;imgbtnCreateLogin&quot;, &quot;&quot;, true, &quot;g&quot;, &quot;&quot;, false, false))" id="imgbtnCreateLogin" class="Lbutton" style="border-width:0px;margin-top: 20px" />
-                                <input type="hidden" name="HiddenField1" id="HiddenField1" />
-                                <input type="hidden" name="HiddenField2" id="HiddenField2" />
-                                <input type="hidden" name="HiddenField3" id="HiddenField3" />
+                                <input type="submit" name="imgbtnCreateLogin" value="Create my account" id="imgbtnCreateLogin" class="Lbutton" style="border-width:0px;margin-top: 20px" />
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
-        
-</div>
-        
-        
-        </div>
+       </div>
+      </div>
     </div>
 </div>
 <!-- Services -->
