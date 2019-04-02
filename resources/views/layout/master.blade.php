@@ -66,7 +66,7 @@
 
 
             <li class="nav-item">
-               <a class="nav-link" href="directory/livesearch">
+               <a class="nav-link" href="{{route('IndustryList')}}">
                <i class="fas fa-fw fa-user-alt"></i>
                <span>Directory</span>
                </a>

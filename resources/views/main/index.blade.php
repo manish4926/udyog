@@ -22,20 +22,28 @@
 					<div class="single-video-info-content box mb-3 text-justify ">
 
 
-
 						{{--  card start --}}
 
 						<div class="card">
 							<div class="row ">
 								<div class="col-md-4">
-									<img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97400&w=400&h=400" class="w-100">
+									<img src="https://cdn.shopify.com/s/files/1/0252/1347/products/IMG_3420.JPG?v=1486859233" class="card-img" alt="...">
 								</div>
 								<div class="col-md-8 px-3">
 									<div class="card-block px-3">
-										<h4 class="card-title">Lorem ipsum dolor sit amet</h4>
-										<p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-										<p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
+										<h4 class="card-title">SHARMA AUTO </h4>
+										<h3 class="card-head" > 
+									<span > 
+										  <input type="submit" name="materialtag" value="Motor Brake Shous" class="btn btn-outline-secondary" class="btn btn-sm">
+									</span></h3>
+									<h2 class="card-head"></h2>
+									<i class="fa fa-map-marker" style="color:red"></i><span class="card-head-span"> A-2 Sector-1 Bawana  </span>
+									<h3 class="card-head" ></h3>
+										<i class="fa fa-phone" style="color:grey"></i>
+										<span >  9312835122  </span>
+										<h3> </h3>
+									<a href="#" class="btn btn-info" class="btn btn-sm">Read More</a>
+
 									</div>
 								</div>
 							</div>
@@ -47,14 +55,23 @@
 						<div class="card">
 							<div class="row ">
 								<div class="col-md-4">
-									<img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97400&w=400&h=400" class="w-100">
+									<img src="https://cdn.shopify.com/s/files/1/0252/1347/products/IMG_3420.JPG?v=1486859233" class="card-img">
 								</div>
 								<div class="col-md-8 px-3">
 									<div class="card-block px-3">
-										<h4 class="card-title">Lorem ipsum dolor sit amet</h4>
-										<p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-										<p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
+										<h4 class="card-title">HINDUSTAN BROOMS </h4>
+										<h3 class="card-head" > 
+									<span > 
+										  <input type="submit" name="materialtag" value="Brooms" class="btn btn-outline-secondary" class="btn btn-sm">
+									</span></h3>
+									<h2 class="card-head"></h2>
+									<i class="fa fa-map-marker" style="color:red"></i><span class="card-head-span"> A-3 Sector-3 Bawana  </span>
+									<h3 class="card-head" ></h3>
+										<i class="fa fa-phone" style="color:grey"></i>
+										<span >  9810074613  </span>
+										<h3> </h3>
+									<a href="#" class="btn btn-info" class="btn btn-sm">Read More</a>
+
 									</div>
 								</div>
 							</div>
@@ -67,18 +84,27 @@
 						<div class="card">
 							<div class="row ">
 								<div class="col-md-4">
-									<img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97400&w=400&h=400" class="w-100">
+									<img src="https://cdn.shopify.com/s/files/1/0252/1347/products/IMG_3420.JPG?v=1486859233" class="card-img">
 								</div>
 								<div class="col-md-8 px-3">
 									<div class="card-block px-3">
-										<h4 class="card-title">Lorem ipsum dolor sit amet</h4>
-										<p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-										<p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
+										<h4 class="card-title">FORTUNE ENTERPRISES </h4>
+										<h3 class="card-head" > 
+									<span > 
+										  <input type="submit" name="materialtag" value="Safity Shoes" class="btn btn-outline-secondary" class="btn btn-sm">
+									</span></h3>
+									<h2 class="card-head"></h2>
+									<i class="fa fa-map-marker" style="color:red"></i><span class="card-head-span"> A-5 Sector-3 Bawana   </span>
+									<h3 class="card-head" ></h3>
+										<i class="fa fa-phone" style="color:grey"></i>
+										<span >  9811962523  </span>
+										<h3> </h3>
+									<a href="#" class="btn btn-info" class="btn btn-sm">Read More</a>
+
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						{{-- card end  --}}
 
 

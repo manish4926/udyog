@@ -54,43 +54,11 @@ class DirectoryController extends Controller
     function index(Request $request)
     {
       $search=Search::orderBy('c_id');//get data from table
-/*      if(!empty($request->material))
-      {
-        $search = $search->where('Material', $request->material);
 
-        if(!empty($request->address)) 
-        {
-          $search = $search->where('Material', $request->material)->orwhere('Address', $request->address);
+      $industry_type  = industry_type();
 
-          if(!empty($request->company)) 
-          {
-            $search = $search->where('Material', $request->material)->orwhere('Address', $request->address)->orwhere('Cname', $request->company);
+      $business_type = business_type();
 
-          }
-        }
-
-        else if(!empty($request->company)) 
-        {
-          $search = $search->where('Material', $request->material)->orwhere('Cname', $request->company);
-        }
-      }
-
-      else if(!empty($request->address)) 
-      {
-        $search = $search->where('Address', $request->address);
-
-        if(!empty($request->company)) 
-          {
-            $search = $search->where('Address', $request->address)->orwhere('Cname', $request->company);
-
-          }
-      }
-
-      else if(!empty($request->company)) 
-      {
-        $search = $search->where('Cname', $request->company);
-      }
-*/
 
       if(!empty($request->area))
       {
@@ -112,8 +80,16 @@ class DirectoryController extends Controller
         $search = $search->orwhere('cname', $request->company);
       }
 
+//******* search for material tags in cards *************
+      if(!empty($request->materialtag))
+      {
+        $search = $search->where('material', $request->materialtag);
+      }
+
+      // pagination
       $search = $search->paginate(5);
       //dd($request->material);
+      
 
       $materials=Search::where('material','!=','')->groupBy('material')->get();
       //dd($materials);
@@ -122,6 +98,6 @@ class DirectoryController extends Controller
       $companys=Search::whereNotNull('cname')->get();
       //dd($select);
       //$sectorlist = Search::->groupBy('browser')->get();
-      return view('directory.livesearch',compact('search','materials','sectors','areas','companys'));//sent data to view
+      return view('directory.livesearch',compact('search','materials','sectors','areas','companys','industry_type','business_type'));//sent data to view
     }
 }
