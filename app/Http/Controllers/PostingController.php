@@ -12,42 +12,32 @@ use DB;
 class PostingController extends Controller
 {
 
-<<<<<<< HEAD
+
     public function index(Request $request)
     {
         
         $jobs= job_opening::all();
         return view('job.index',compact('jobs'));
 
-=======
     public function alljob(Request $request)
     {
         $jobs= job_opening::all();
         return view('job.alljob',compact('jobs'));
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
     }
 
 
     public function getdisplay(Request $request)
     {
-<<<<<<< HEAD
         //dd($request->job_id);
         $description= job_opening::where('job_id' , $request->job_id)->get();
         //$desc= $this->jobs->select('request','job_desc')->get();
-        
-
         return view('job.details')->with(['desc'=>$description]);  
 
-=======
-        $description= job_opening::where('job_id' , $request->job_id)->first();
-        return view('job.details')->with(['job_opening'=>$description]);  
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
     }
 
 
     public function search(Request $request)
     {
-<<<<<<< HEAD
         return view('job.search'); //,compact()
     }
 
@@ -59,11 +49,7 @@ class PostingController extends Controller
         //$searchkey=$request->get('search');
         $searchkey= $request->search;
         //dd($searchkey);
-=======
         //return view('job.search'); //,compact()
-
-        $searchkey= $request->search;
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 
         $job_search= job_opening::orderBy('job_id');
         if($searchkey && !empty($searchkey)){
@@ -73,10 +59,7 @@ class PostingController extends Controller
                     $query->orwhere('company_name', 'LIKE', '%' .$searchkey. '%');
                 });
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
         $searchkey1=$request->get('place');
         if($searchkey1){
             $job_search->where('location' , 'like','%' .$searchkey1. '%');
@@ -86,15 +69,10 @@ class PostingController extends Controller
             $job_search->where('experience' , 'like','%' .$searchkey2. '%');
         }  
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
         $searchkey3=$request->get('sal');
         if($searchkey3){
             $job_search->where('package' , '=', $searchkey3);
         }
-<<<<<<< HEAD
 
         
         $job_search = $job_search->paginate(5);
@@ -104,79 +82,13 @@ class PostingController extends Controller
         return view('job.searchcontent')->with(['searching'=>$job_search]); 
     }
 
-    
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function validation(Request $request){
         
         dd('validation passes');
     }
-=======
         
         $job_search = $job_search->paginate(5);
         
         return view('job.search')->with(['searching'=>$job_search]); 
     }
-    
->>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 }

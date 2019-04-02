@@ -38,13 +38,13 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/post/submit', ['as' => 'postjobsubmit', 'uses' =>'JobController@postJobSubmit']);
 
-    Route::get('/all', ['as' => 'alljob', 'uses' =>'PostingController@alljob']);
+    Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
 
-    Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'PostingController@getdisplay']);   
+    Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);   
 
-    Route::any('/search',  ['as' => 'searchjob', 'uses' =>'PostingController@search']);
+    Route::any('/search',  ['as' => 'searchjob', 'uses' =>'JobController@search']);
 
-    Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@search']);
+    Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'JobController@search']);
 
     Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
 
