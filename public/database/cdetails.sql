@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Apr 02, 2019 at 10:14 AM
+=======
+-- Generation Time: Apr 02, 2019 at 08:43 AM
+>>>>>>> d34f776f667c8bbc1ef9b819e53a48c183f006b3
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -19,7 +23,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
+<<<<<<< HEAD
 -- Database: `directory`
+=======
+-- Database: `bci`
+>>>>>>> d34f776f667c8bbc1ef9b819e53a48c183f006b3
 --
 
 -- --------------------------------------------------------
@@ -46,6 +54,7 @@ CREATE TABLE `cdetails` (
 --
 
 INSERT INTO `cdetails` (`c_id`, `cname`, `cemp`, `material`, `block`, `sector`, `area`, `state`, `phoneno`, `email`) VALUES
+<<<<<<< HEAD
 (1, 'SHARMA AUTO', 'Sant Kumar Sharma', 'Motor Brake Shous', 'A-2 ', 'Sector-1 ', 'Bawana', 'Delhi', 9312835122, ''),
 (2, 'HINDUSTAN BROOMS', 'Amit Jain', 'Brooms', 'A-3 ', 'Sector-3 ', 'Bawana', ' Delhi', 9810074613, ''),
 (3, 'FORTUNE ENTERPRISES', 'Aman Aggarwal', 'Safity Shoes', 'A-5 ', 'Sector-3', ' Bawana', 'Delhi', 9811962523, ''),
@@ -55,6 +64,17 @@ INSERT INTO `cdetails` (`c_id`, `cname`, `cemp`, `material`, `block`, `sector`, 
 (7, 'PARGATI MOULD PLAST', 'Sanjay Arora', 'Injection Moulding', 'A-9 ', 'Sector-1 ', 'Bawana', 'Delhi', 9643960062, ''),
 (8, 'PAL AUTO', 'Manmohan Singh', 'Auto Parts', 'A-11 ', 'Sector-3', 'Bawana', 'Delhi', 9312664028, ''),
 (9, 'S.K. INDUSTRIES', 'Ankit', 'Presure Cooker', 'A-12', 'Sector-3 ', 'Bawana', 'Delhi', 9811550006, ''),
+=======
+(1, 'SHARMA AUTO', 'Sant Kumar Sharma', 'Motor Brake Shous', 'A-2  ', 'Sector-1', 'Bawana', 'Delhi', 9312835122, ''),
+(2, 'HINDUSTAN BROOMS', 'Amit Jain', 'Brooms', 'A-3 ', 'Sector-3', 'Bawana', 'Delhi', 9810074613, ''),
+(3, 'FORTUNE ENTERPRISES', 'Aman Aggarwal', 'Safity Shoes', 'A-5  ', 'Sector-3', 'Bawana', 'Delhi', 9811962523, ''),
+(4, 'JAI BHAWANI INDS', 'B.K. Garg', 'C.R.Pipe', 'A-6 ', 'Sector-1 ', 'Bawana', 'Delhi', 9871955755, ''),
+(5, 'S.R OFFSET PRESS', 'Harish Malhotra', 'Printing Press', 'A-7  ', 'Sector-3', 'Bawana', 'Delhi', 9818380011, ''),
+(6, 'SANJAY SUCHDEVA LURINDA MUL SONS', 'Sanjay', '', 'A-8 ', 'Sector-1 ', 'Bawana', 'Delhi', 9818503131, ''),
+(7, 'PARGATI MOULD PLAST', 'Sanjay Arora', 'Injection Moulding', 'A-9 ', 'Sector-1', 'Bawana', 'Delhi', 9643960062, ''),
+(8, 'PAL AUTO', 'Manmohan Singh', 'Auto Parts', 'A-11 ', 'Sector-3 ', 'Bawana', 'Delhi', 9312664028, ''),
+(9, 'S.K. INDUSTRIES', 'Ankit', 'Presure Cooker', 'A-12 ', 'Sector-3 ', 'Bawana', 'Delhi', 9811550006, ''),
+>>>>>>> d34f776f667c8bbc1ef9b819e53a48c183f006b3
 (10, 'KUNAL ENTERPRISES', 'Manvinder Singh', 'Cosmetic Accessories', 'A-13 ', 'Sector-1 ', 'Bawana', 'Delhi', 93102441959, '');
 
 --
@@ -65,6 +85,7 @@ INSERT INTO `cdetails` (`c_id`, `cname`, `cemp`, `material`, `block`, `sector`, 
 -- Indexes for table `cdetails`
 --
 ALTER TABLE `cdetails`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`c_id`),
   ADD UNIQUE KEY `Cname` (`cname`,`phoneno`,`block`,`email`);
 
@@ -77,6 +98,9 @@ ALTER TABLE `cdetails`
 --
 ALTER TABLE `cdetails`
   MODIFY `c_id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+=======
+  ADD PRIMARY KEY (`c_id`);
+>>>>>>> d34f776f667c8bbc1ef9b819e53a48c183f006b3
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -93,6 +93,12 @@ class DirectoryController extends Controller
 */
 
 
+      $industry_type  = industry_type();
+
+      $business_type = business_type();
+
+
+
       if(!empty($request->address))
       {
         $search = $search->orwhere('address', $request->address);
@@ -120,6 +126,18 @@ class DirectoryController extends Controller
       $search = $search->paginate(5);
       //dd($request->material);
 
+      $materials=Search::whereNotNull('material')->groupBy('material')->get();
+//******* search for material tags in cards *************
+      if(!empty($request->materialtag))
+      {
+        $search = $search->where('material', $request->materialtag);
+      }
+
+      // pagination
+      $search = $search->paginate(5);
+      //dd($request->material);
+      
+
 
       $materials=Search::where('material','!=','')->groupBy('material')->get();
       //dd($materials);
@@ -128,6 +146,6 @@ class DirectoryController extends Controller
       $companys=Search::whereNotNull('cname')->get();
       //dd($select);
       //$sectorlist = Search::->groupBy('browser')->get();
-      return view('directory.livesearch',compact('search','materials','sectors','areas','companys'));//sent data to view
+      return view('directory.livesearch',compact('search','materials','sectors','areas','companys','industry_type','business_type'));//sent data to view
     }
 }

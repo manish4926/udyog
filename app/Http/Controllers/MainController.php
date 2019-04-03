@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Video;
 use App\Http\Controllers\Controller;
+use App\job_opening;
 
 class MainController extends Controller
 {
     public function index() {
          $videos = Video::all();
-        return view('main.index')->with('videos',$videos);
+
+         $jobs = job_opening::orderBy('job_id')->limit(10)->get();
+        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);
 //dd('hello');
         /*$videos = Video::orderBy('id','desc')->first();
         dd(json_decode($videos->upload)[0]->download_link);

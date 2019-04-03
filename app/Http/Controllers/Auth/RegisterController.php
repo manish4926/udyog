@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers\Auth ;
 
 use App\User;
@@ -31,6 +30,7 @@ class RegisterController extends Controller
     /**
      * Where to redirect users after registration.
      *
+    *  @var string
      * @var string
      */
     protected $redirectTo = '/home';
@@ -55,6 +55,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'lastname' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            
 
             'lastname' => ['required', 'string', 'max:255'],
             'firstname' => ['required', 'string', 'max:255'],
@@ -71,13 +74,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
         $user =  User::create([
                 'firstname' => $data['firstname'],
                 'lastname' => $data['lastname'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'verifyToken'=>Str::random(40),
+                'status' => 0,
             ]);
+        
 
         $user->roles()->attach(Role::where('name','General User')->first());
 
@@ -109,3 +115,4 @@ class RegisterController extends Controller
         }
     }
 }
+

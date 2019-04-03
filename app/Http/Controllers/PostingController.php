@@ -12,6 +12,13 @@ use DB;
 class PostingController extends Controller
 {
 
+
+    public function index(Request $request)
+    {
+        
+        $jobs= job_opening::all();
+        return view('job.index',compact('jobs'));
+
     public function alljob(Request $request)
     {
         $jobs= job_opening::all();
@@ -21,16 +28,28 @@ class PostingController extends Controller
 
     public function getdisplay(Request $request)
     {
-        $description= job_opening::where('job_id' , $request->job_id)->first();
-        return view('job.details')->with(['job_opening'=>$description]);  
+        //dd($request->job_id);
+        $description= job_opening::where('job_id' , $request->job_id)->get();
+        //$desc= $this->jobs->select('request','job_desc')->get();
+        return view('job.details')->with(['desc'=>$description]);  
+
     }
 
 
     public function search(Request $request)
     {
-        //return view('job.search'); //,compact()
+        return view('job.search'); //,compact()
+    }
 
+
+
+    public function searchcontent(Request $request)
+    {   
+
+        //$searchkey=$request->get('search');
         $searchkey= $request->search;
+        //dd($searchkey);
+        //return view('job.search'); //,compact()
 
         $job_search= job_opening::orderBy('job_id');
         if($searchkey && !empty($searchkey)){
@@ -54,78 +73,22 @@ class PostingController extends Controller
         if($searchkey3){
             $job_search->where('package' , '=', $searchkey3);
         }
+
         
         $job_search = $job_search->paginate(5);
         
-        return view('job.search')->with(['searching'=>$job_search]); 
-    }
 
-
-    
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+//dd($job_search);
+        return view('job.searchcontent')->with(['searching'=>$job_search]); 
     }
 
     public function validation(Request $request){
         
         dd('validation passes');
+    }
+        
+        $job_search = $job_search->paginate(5);
+        
+        return view('job.search')->with(['searching'=>$job_search]); 
     }
 }
