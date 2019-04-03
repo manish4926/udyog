@@ -34,25 +34,6 @@
        <div id="wrapper">
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
-            <li class="nav-item active">
-               <a class="nav-link" href="/">
-
-               <i class="fas fa-fw fa-home"></i>
-               <span>Home</span>
-               </a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link dropdown-toggle" href="{{ route('alljob') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <i class="fas fa-fw fa-list-alt"></i>
-               <span>Job Portal</span>
-               </a>
-               <div class="dropdown-menu">
-                  <a class="dropdown-item" href="{{ route('postjob') }}">Post a New Job</a>
-                  <a class="dropdown-item" href="{{ route('alljob') }}">Latest Jobs</a>
-                  <a class="dropdown-item" href="{{ route('searchjob') }}">Search a Job</a>
-                  <a class="dropdown-item" href="{{ route('application') }}">Application Form</a>
-               </div>
-            </li>
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <i class="fas fa-fw fa-list-alt"></i>
@@ -67,13 +48,20 @@
 
 
             <li class="nav-item">
-               <a class="nav-link" href="directory/livesearch">
+               <a class="nav-link" href="{{route('IndustryList')}}">
                <i class="fas fa-fw fa-user-alt"></i>
                <span>Directory</span>
                </a>
             </li>
-         </ul>
+         
+         <li class="nav-item">
+               <a class="nav-link" href=" ">
 
+               <i class="fas fa-fw fa-home"></i>
+               <span>PRODUCT</span>
+               </a>
+                </li>
+</ul>
 
          <!-- SIDE NAV BAR SHOULD END HERE!!!! -->
 

@@ -88,7 +88,7 @@ Route::group(['prefix' => 'company'], function ()
         return view('main.index');
     });
 
-    Route::get('/microwebsite', function () {
-        return view('main.microwebsite');
+    Route::get('/microweb', function () {
+        return view('microweb');
     });
 });

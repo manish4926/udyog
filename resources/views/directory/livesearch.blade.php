@@ -96,8 +96,8 @@
 		<div>
 				<select class="form-control" name="address">
 				  <option value="">Select</option>
-				  @foreach($select as $s)
-				  <option value="{{ $s->Address }}">{{ $s->address }}</option>
+				  @foreach($areas as $s)
+				  <option value="{{ $s->address }}">{{ $s->address }}</option>
 				  @endforeach
 				</select>
 		</div>
@@ -117,8 +117,8 @@
 		<div>
 				<select class="form-control" name="material">
 						<option value="">Select</option>
-						@foreach($select as $s)
-						<option value="{{ $s->Material }}">{{ $s->material }}</option>
+						@foreach($materials as $s)
+						<option value="{{ $s->material }}">{{ $s->material }}</option>
 						@endforeach
 				</select>
 		</div>
