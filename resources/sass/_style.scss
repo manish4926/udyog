@@ -39,3 +39,10 @@ border-radius: calc(0.25rem - 1px);
 	font-size: 12px;
 	padding: 5px 12px;
 }
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+    height:200px;
+}
+

@@ -205,7 +205,7 @@
         height: 100%;
         overflow: auto;
         position: fixed;
-        width: 225px !important;
+        width: 240px !important;
     }
      .sidebar .nav-item .nav-link {
          display: block;
@@ -377,16 +377,13 @@
      background: #eceff0 none repeat scroll 0 0;
      border: medium none;
      font-size: 14px;
-
-     width: 500px !important;
-      transition : width 0.2s ease-in-out;
+     max-width: 607px !important;
+     width: 607px !important;
 }
  .osahan-navbar-search {
-     margin-right: 370px !important;
-     padding-top: 3px;
-     padding-bottom: 3px;
-    
-
+     margin-right: 250px !important;
+     padding-top: 5px;
+     padding-bottom: 5px;
 }
 
 .osahan-navbar-search:focus{
@@ -1469,5 +1466,3 @@ background: #208e4e;
 border-color: #208e4e !important;
 transition: all 0.4s ease 0s;
 }
-
-

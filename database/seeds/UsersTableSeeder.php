@@ -8,7 +8,10 @@ use TCG\Voyager\Models\User;
 class UsersTableSeeder extends Seeder
 {
     /**
+<<<<<<< HEAD
+=======
      * Auto generated seed file.
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
      * Run the database seeds.
      *
      * @return void

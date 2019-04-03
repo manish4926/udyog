@@ -10,6 +10,7 @@ Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone
 
 /*General/Main Controller*/
 
+
 Route::get('/', function () {
     return view('main.index');
 });
@@ -17,7 +18,6 @@ Route::get('/', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 
 /*Directory Listing*/
 Route::group(['prefix' => 'directory'], function () 
@@ -30,6 +30,7 @@ Route::group(['prefix' => 'directory'], function ()
 });
 
 
+
 /*Job Controller*/
 Route::group(['prefix' => 'job'], function () 
 {
@@ -37,13 +38,13 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/post/submit', ['as' => 'postjobsubmit', 'uses' =>'JobController@postJobSubmit']);
 
-    Route::get('/all', ['as' => 'alljob', 'uses' =>'PostingController@alljob']);
+    Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
 
-    Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'PostingController@getdisplay']);   
+    Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);   
 
-    Route::any('/search',  ['as' => 'searchjob', 'uses' =>'PostingController@search']);
+    Route::any('/search',  ['as' => 'searchjob', 'uses' =>'JobController@search']);
 
-    Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'PostingController@search']);
+    Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'JobController@search']);
 
     Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
 

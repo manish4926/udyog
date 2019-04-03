@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
+-- Generation Time: Mar 15, 2019 at 07:22 AM
+=======
 -- Generation Time: Mar 28, 2019 at 11:44 AM
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -38,6 +42,8 @@ CREATE TABLE `category` (
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
+=======
 -- Table structure for table `files`
 --
 
@@ -72,6 +78,7 @@ INSERT INTO `files` (`id`, `name`, `size`, `thumbnail`, `created_at`, `updated_a
 -- --------------------------------------------------------
 
 --
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 -- Table structure for table `migrations`
 --
 
@@ -86,10 +93,15 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+<<<<<<< HEAD
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1);
+=======
 (3, '2019_03_11_063650_create_files_table', 2),
 (8, '2014_10_12_000000_create_users_table', 3),
 (9, '2014_10_12_100000_create_password_resets_table', 3),
 (10, '2019_03_16_082814_create_files_table', 3);
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 
 -- --------------------------------------------------------
 
@@ -130,12 +142,20 @@ CREATE TABLE `video` (
   `vid_id` int(20) NOT NULL,
   `vid_title` varchar(200) NOT NULL,
   `description` varchar(500) NOT NULL,
+<<<<<<< HEAD
+  `path` varchar(200) DEFAULT NULL,
+  `duration` float NOT NULL,
+  `cat_id` int(20) NOT NULL,
+  `upload_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tags` varchar(200) NOT NULL
+=======
   `path` varchar(200) NOT NULL,
   `thumbnail` varchar(100) NOT NULL,
   `duration` float NOT NULL,
   `cat_id` int(20) NOT NULL,
   `tags` varchar(200) NOT NULL,
   `upload_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -143,8 +163,18 @@ CREATE TABLE `video` (
 --
 -- Table structure for table `video_timing`
 --
+<<<<<<< HEAD
+
+CREATE TABLE `video_timing` (
+  `time_id` int(20) NOT NULL,
+  `vid_id` int(20) NOT NULL,
+  `time_slot` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `vid_order` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+=======
 -- Error reading structure for table bci.video_timing: #1932 - Table 'bci.video_timing' doesn't exist in engine
 -- Error reading data for table bci.video_timing: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `bci`.`video_timing`' at line 1
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 
 --
 -- Indexes for dumped tables
@@ -157,12 +187,15 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`cat_id`);
 
 --
+<<<<<<< HEAD
+=======
 -- Indexes for table `files`
 --
 ALTER TABLE `files`
   ADD PRIMARY KEY (`id`);
 
 --
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -189,6 +222,16 @@ ALTER TABLE `video`
   ADD KEY `CategoryFK` (`cat_id`);
 
 --
+<<<<<<< HEAD
+-- Indexes for table `video_timing`
+--
+ALTER TABLE `video_timing`
+  ADD PRIMARY KEY (`time_id`),
+  ADD KEY `VideoFK` (`vid_id`);
+
+--
+=======
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -199,6 +242,12 @@ ALTER TABLE `category`
   MODIFY `cat_id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
+<<<<<<< HEAD
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
@@ -209,6 +258,7 @@ ALTER TABLE `files`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -223,6 +273,15 @@ ALTER TABLE `video`
   MODIFY `vid_id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
+<<<<<<< HEAD
+-- AUTO_INCREMENT for table `video_timing`
+--
+ALTER TABLE `video_timing`
+  MODIFY `time_id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+=======
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 -- Constraints for dumped tables
 --
 
@@ -230,7 +289,17 @@ ALTER TABLE `video`
 -- Constraints for table `video`
 --
 ALTER TABLE `video`
+<<<<<<< HEAD
+  ADD CONSTRAINT `CategoryFK` FOREIGN KEY (`cat_id`) REFERENCES `category` (`cat_id`);
+
+--
+-- Constraints for table `video_timing`
+--
+ALTER TABLE `video_timing`
+  ADD CONSTRAINT `VideoFK` FOREIGN KEY (`vid_id`) REFERENCES `video` (`vid_id`);
+=======
   ADD CONSTRAINT `CategoryFK` FOREIGN KEY (`cat_id`) REFERENCES `category` (`cat_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+>>>>>>> d2692a5e98b7dfc23494d27ca3b0d654eb1091c0
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

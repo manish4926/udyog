@@ -54,6 +54,44 @@ class DirectoryController extends Controller
     function index(Request $request)
     {
       $search=Search::orderBy('c_id');//get data from table
+/*      if(!empty($request->material))
+      {
+        $search = $search->where('Material', $request->material);
+
+        if(!empty($request->address)) 
+        {
+          $search = $search->where('Material', $request->material)->orwhere('Address', $request->address);
+
+          if(!empty($request->company)) 
+          {
+            $search = $search->where('Material', $request->material)->orwhere('Address', $request->address)->orwhere('Cname', $request->company);
+
+          }
+        }
+
+        else if(!empty($request->company)) 
+        {
+          $search = $search->where('Material', $request->material)->orwhere('Cname', $request->company);
+        }
+      }
+
+      else if(!empty($request->address)) 
+      {
+        $search = $search->where('Address', $request->address);
+
+        if(!empty($request->company)) 
+          {
+            $search = $search->where('Address', $request->address)->orwhere('Cname', $request->company);
+
+          }
+      }
+
+      else if(!empty($request->company)) 
+      {
+        $search = $search->where('Cname', $request->company);
+      }
+*/
+
 
       $industry_type  = industry_type();
 
@@ -85,6 +123,10 @@ class DirectoryController extends Controller
         $search = $search->orwhere('cname', $request->company);
       }
 
+      $search = $search->paginate(5);
+      //dd($request->material);
+
+      $materials=Search::whereNotNull('material')->groupBy('material')->get();
 //******* search for material tags in cards *************
       if(!empty($request->materialtag))
       {
