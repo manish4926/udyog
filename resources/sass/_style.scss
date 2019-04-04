@@ -2,12 +2,25 @@
 	display:block;
 }
 
+.live-video {
+	width:100%;
+}
+
 .white-card {
 	background: #fff;
 	display: block;
 	widows: 100%;
 	min-height: 200px;
 	padding:20px;
+}
+
+.card-info {
+	padding: 10px;
+}
+
+.card-title {
+	font-size:22px;
+	margin-bottom: 0;
 }
 
 .col-md-4-directory{
@@ -40,9 +53,49 @@ border-radius: calc(0.25rem - 1px);
 	padding: 5px 12px;
 }
 
+.card-img-padding {
+	padding: 10px;
+}
+
 .card-horizontal {
     display: flex;
     flex: 1 1 auto;
     height:200px;
 }
 
+.no-padding {
+	padding: 0;
+}
+
+.lg-btn-padding {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.title-blue {
+	color: blue;
+
+}
+
+.marquee-message {
+	background: #ddd;
+	border-top:    0px solid #ff0000;
+	border-right:  8px solid #ff0000;
+	border-bottom: 0px solid #ff0000;
+	border-left:   8px solid #ff0000;
+	margin-top: 2px;
+	display: block;
+	color:  #ff0000;
+	font-weight: bold;
+	padding-top: 5px;
+}
+
+
+/*Color*/
+.red {
+	color: #ff0000;
+}
+
+.blue {
+	color: blue;
+}
