@@ -38,7 +38,6 @@ class VideoController extends Controller
             $file->thumbnail = $withoutExtFile.'.png';
     		$file->save();
 
-            
             Thumbnail::getThumbnail(public_path('/video/upload/'.$filename),public_path('video/thumbs/') ,$withoutExtFile.'.png', $durationVid/2);
 
             // $ffprobe = \FFMpeg\FFProbe::create();
@@ -50,7 +49,3 @@ class VideoController extends Controller
     	return $request->all();
     }
 }
-
-
-// public_path('video/upload/'.$filename)
-// public_path('video/thumbs/')

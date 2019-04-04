@@ -13,11 +13,9 @@ use App\job_opening;
 class MainController extends Controller
 {
     public function index() {
-
         //  $files = File::limit(6)->get();
         // return view('main.index')->with('files',$files);
          $videos = Video::limit(6)->get();
-
          $search=Search::orderBy('c_id')->limit(3)->get();
 
           $jobs = job_opening::orderBy('job_id')->limit(10)->get();

@@ -1,6 +1,10 @@
 @extends('layout.master')
 
+<<<<<<< HEAD
 @section('title',preg_replace('/\\.[^.\\s]{3,4}$/', '', $video->name))
+=======
+@section('title','BCI - Bhawana Chamber of Industries')
+>>>>>>> 0a8386b4a65ee1e3368eb9af5fd37d70b14fd23c
 
 @section('content')
 
@@ -11,9 +15,7 @@
                            <div class="single-video">
 
                               <video width="100%" height="550px" autoplay="on" controls>
-                                 <source src="{{ asset('video/upload/'.$video->name)}}" type="video/mp4">
-                                  {{-- <source src="{{ asset('video/upload/'.$video->name)}}" type="video/mp4"> --}}
-                            
+                                 <source src="{{ asset('video/upload/'.$video->name)}}" type="video/mp4">                            
                               </video>
                            </div>
                            <div class="single-video-title box mb-3">
@@ -60,8 +62,7 @@
                                 </div>
                               @endforeach
                               @endif
-                            </div>
-                              
+                            </div>                            
                            </div>
                         </div>
                      </div>

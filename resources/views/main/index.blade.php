@@ -11,7 +11,6 @@
 				<div class="single-video">
 					<video width="100%" height="550px" autoplay="on" controls>
 						<source src="{{ asset('video/upload/Prakesh Chand Jain(1).mp4')}}" type="video/mp4">
-
 						</video>
 					</div>
 					<div class="single-video-title box mb-3">
@@ -54,7 +53,7 @@
 						{{-- card end  --}}
 						
 						{{--  card start --}}
-<!--
+
 						<div class="card">
 							<div class="row ">
 								<div class="col-md-4">
@@ -80,11 +79,10 @@
 							</div>
 						</div> -->
 						{{-- card end  --}}
-
-					{{--	<hr> --}}
+			<hr>
 						{{--  card start --}}
 
-	<!--					<div class="card">
+						<div class="card">
 							<div class="row ">
 								<div class="col-md-4">
 									<img src="https://cdn.shopify.com/s/files/1/0252/1347/products/IMG_3420.JPG?v=1486859233" class="card-img">
@@ -109,7 +107,7 @@
 							</div>
 						</div> 
 						{{-- card end  --}}
-					</div>
+			
           {{--jobs card--}}
           @foreach($jobs as $job_opening)
             <div class="row">
@@ -137,45 +135,40 @@
          @endforeach
 
          {{--end jobs card--}}
+				 <div class="col-md-4">
+                        <div class="single-video-right">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="main-title">
+                                    <div class="btn-group float-right right-action">
+                                    </div>
+                                    <h6>More BCI Videos</h6>
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                              @if(count($videos)>0)
+                              @foreach($videos as $file)
+                                <div class="video-card video-card-list">
+                                  <div class="video-card-image">
 
-        </div>
-			</div>
-			<div class="col-md-4">
-				<div class="single-video-right">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="main-title">
-								<div class="btn-group float-right right-action">
-								</div>
-								<h6>More BCI Videos</h6>
-							</div>
-						</div>
-						<div class="col-md-12">
-							@if(count($videos)>0)
-							@foreach($videos as $file)
-								<div class="video-card video-card-list">
-									<div class="video-card-image">
+                                    <a class="play-icon" href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}"><i class="fas fa-play-circle"></i></a>
+                                    <a href="#"><img class="img-fluid" src="{{ asset('video/thumbs/'.$file->thumbnail) }}" alt="" height="77px"></a>
 
-										<a class="play-icon" href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}"><i class="fas fa-play-circle"></i></a>
-										<a href="#"><img class="img-fluid" src="{{ asset('video/thumbs/'.$file->thumbnail) }}" alt="" height="77px"></a>
-
-										<div class="time">{{sprintf('%02d:%02d',($file->duration/60%60), $file->duration%60)}}</div>
-									</div>
-									<div class="video-card-body">
-										<div class="video-title">
-											<a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}">{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $file->name) }}</a>
-										</div>
-									</div>
-								</div>
-							@endforeach
-							@endif
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                    <div class="time">{{sprintf('%02d:%02d',($file->duration/60%60), $file->duration%60)}}</div>
+                                  </div>
+                                  <div class="video-card-body">
+                                    <div class="video-title">
+                                      <a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}">{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $file->name) }}</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              @endforeach
+                              @endif
+                            </div>                            
+                           </div>
+                        </div>
+                     </div>
+	
 
 @endsection
 

@@ -64,16 +64,16 @@ Route::get('/','MainController@index');
 });*/
 
 
+
 Route::get('file','VideoController@showUploadForm')->name('uploadfile');
 
 Route::post('file','VideoController@storeFile');
+
 
 /*Route::get('/','FileController@display');*/
 
 Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
     //return $name;
-
-
 
 /*Microsite*/
 Route::group(['prefix' => 'company'], function () 
@@ -82,7 +82,7 @@ Route::group(['prefix' => 'company'], function ()
         return view('main.index');
     });
 
-    Route::get('/microwebsite', function () {
-        return view('main.microwebsite');
+    Route::get('/microweb', function () {
+        return view('microweb');
     });
 });
