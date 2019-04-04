@@ -51,7 +51,7 @@
 							<i class="fa fa-phone" style="color:grey"></i>
 							<span > {{ $set->phoneno }} </span>
 							<h3> </h3>
-						<a href="#" class="btn btn-info-directory" class="btn btn-sm">Read More</a>
+						<a href="#" class="btn btn-info" class="btn btn-sm">Read More</a>
 
 						</div>
 					</div>
