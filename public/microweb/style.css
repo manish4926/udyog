@@ -30,8 +30,7 @@
 /*   16 - Contact Section  */
 /*   17 - Footer */
 /*   18 - Inner Page Banner  */
-/*   19 - Blog Aside bar */
-/*   20 - Blog Details Post */
+
 
 
 
@@ -41,24 +40,24 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700');
 /*----bootstrap css ----- */
-@import url('../vendor/bootstrap/bootstrap.css');
+@import url('../microweb/vendor/bootstrap/bootstrap.css');
 /*----font awesome -------*/
-@import url('../fonts/font-awesome/css/font-awesome.min.css');
+@import url('../microweb/fonts/font-awesome/css/font-awesome.min.css');
 /*----revolution-slider---*/
-@import url('../vendor/revolution/settings.css');
-@import url('../vendor/revolution/layers.css');
-@import url('../vendor/revolution/navigation.css');
+@import url('../microweb/vendor/revolution/settings.css');
+@import url('../microweb/vendor/revolution/layers.css');
+@import url('../microweb/vendor/revolution/navigation.css');
 /*----owl-carousel css----*/
-@import url('../vendor/owl-carousel/owl.carousel.css');
-@import url('../vendor/owl-carousel/owl.theme.css');
+@import url('../microweb/vendor/owl-carousel/owl.carousel.css');
+@import url('../microweb/vendor/owl-carousel/owl.theme.css');
 /*-------- animated css ------*/
-@import url('../vendor/WOW-master/css/libs/animate.css');
+@import url('../microweb/vendor/WOW-master/css/libs/animate.css');
 /*---- Progress bar css----*/
-@import url('../vendor/skills-master/source/habilidades.css');
+@import url('../microweb/vendor/skills-master/source/habilidades.css');
 /*-------- hover css ------*/
-@import url('../vendor/hover.css');
+@import url('../microweb/vendor/hover.css');
 /*----calendar css--------*/
-@import url('../vendor/monthly-master/css/monthly.css');
+@import url('../microweb/vendor/monthly-master/css/monthly.css');
 
 
 /*** 

@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title','BCI - Bhawana Chamber of Industries')
+@section('title','BCI - Bawana Chamber of Industries')
 
 @section('content')
 
@@ -77,7 +77,7 @@
 							</div>
 						</div>
 						{{-- card end  --}}
-
+	
 						<hr>
 						{{--  card start --}}
 

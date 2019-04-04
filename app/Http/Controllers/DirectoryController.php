@@ -123,7 +123,7 @@ class DirectoryController extends Controller
         $search = $search->orwhere('cname', $request->company);
       }
 
-      $search = $search->paginate(5);
+      //$search = $search->paginate(5);
       //dd($request->material);
 
       $materials=Search::whereNotNull('material')->groupBy('material')->get();

@@ -115,19 +115,11 @@
 
 		<label for="">Business Type</label>
 		<div>
-<<<<<<< HEAD
-				<select class="form-control" name="address">
-				  <option value="">Select</option>
-				  @foreach($areas as $s)
-				  <option value="{{ $s->address }}">{{ $s->address }}</option>
-				  @endforeach
-=======
 				<select class="form-control" name="businee_type">
 						<option value="">Select</option>
 				        @foreach($business_type as $s)
 						<option value="{{ $s }}">{{ $s }}</option>
 						@endforeach
->>>>>>> d34f776f667c8bbc1ef9b819e53a48c183f006b3
 				</select>
 		</div>
 

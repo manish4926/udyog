@@ -34,8 +34,6 @@
        <div id="wrapper">
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
-<<<<<<< HEAD
-=======
             <li class="nav-item active">
                <a class="nav-link" href="/">Home</a>
             </li>
@@ -48,7 +46,6 @@
                   <a class="dropdown-item" href="{{ route('application') }}">Application Form</a>
                </div>
             </li>
->>>>>>> d34f776f667c8bbc1ef9b819e53a48c183f006b3
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
                <div class="dropdown-menu">
@@ -60,28 +57,8 @@
 
 
             <li class="nav-item">
-<<<<<<< HEAD
-               <a class="nav-link" href="{{route('IndustryList')}}">
-               <i class="fas fa-fw fa-user-alt"></i>
-               <span>Directory</span>
-               </a>
-            </li>
-         
-         <li class="nav-item">
-               <a class="nav-link" href=" ">
-
-               <i class="fas fa-fw fa-home"></i>
-               <span>PRODUCT</span>
-               </a>
-                </li>
-</ul>
-
-         <!-- SIDE NAV BAR SHOULD END HERE!!!! -->
-
-=======
                <a class="nav-link" href="{{route('IndustryList')}}">Directory</a>
             </li>
->>>>>>> d34f776f667c8bbc1ef9b819e53a48c183f006b3
          
          <li class="nav-item">
                <a class="nav-link" href="#">Product</a>
