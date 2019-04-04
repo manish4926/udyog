@@ -1,0 +1,48 @@
+.manish {
+	display:block;
+}
+
+.white-card {
+	background: #fff;
+	display: block;
+	widows: 100%;
+	min-height: 200px;
+	padding:20px;
+}
+
+.col-md-4-directory{
+
+flex: 33.3333333333%;
+max-width: 200;
+}
+
+.card-img-directory {
+width: 73%;
+border-radius: calc(0.25rem - 1px);
+}
+
+.card-head-directory {
+	font-size: 15px;
+	font-weight:bold; 
+}
+
+.card-head-span-directory{
+	font-size: 10x;
+}
+
+.btn-outline-secondaryrc-directory{
+	font-size: 10px;
+	padding: 5px 12px;
+}
+.btn-info-directory{
+
+	font-size: 12px;
+	padding: 5px 12px;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+    height:200px;
+}
+
