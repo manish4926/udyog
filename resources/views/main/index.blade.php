@@ -23,7 +23,7 @@
 
 
 						{{--  card start --}}
-
+					@foreach($search as $set)
 						<div class="card">
 							<div class="row ">
 								<div class="col-md-4">
@@ -31,16 +31,17 @@
 								</div>
 								<div class="col-md-8 px-3">
 									<div class="card-block px-3">
-										<h4 class="card-title">SHARMA AUTO </h4>
+										<h4 class="card-title"><a href="{{ NULL }}"> {{ $set->cname }} </a></h2>
+						<form action="{{ route('IndustryList') }}" method="get"> </h4>
 										<h3 class="card-head" > 
 									<span > 
 										  <input type="submit" name="materialtag" value="Motor Brake Shous" class="btn btn-outline-secondary" class="btn btn-sm">
 									</span></h3>
 									<h2 class="card-head"></h2>
-									<i class="fa fa-map-marker" style="color:red"></i><span class="card-head-span"> A-2 Sector-1 Bawana  </span>
+									<i class="fa fa-map-marker-alt" style="color:red"></i><span class="card-head-span"> {{ $set->block}} {{ $set->sector }} {{ $set->area}} </span>
 									<h3 class="card-head" ></h3>
 										<i class="fa fa-phone" style="color:grey"></i>
-										<span >  9312835122  </span>
+										<span >  {{ $set->phoneno }} </span>
 										<h3> </h3>
 									<a href="#" class="btn btn-info" class="btn btn-sm">Read More</a>
 
@@ -48,10 +49,12 @@
 								</div>
 							</div>
 						</div>
-						{{-- card end  --}}
 						<hr>
+					@endforeach
+						{{-- card end  --}}
+						
 						{{--  card start --}}
-
+<!--
 						<div class="card">
 							<div class="row ">
 								<div class="col-md-4">
@@ -65,7 +68,7 @@
 										  <input type="submit" name="materialtag" value="Brooms" class="btn btn-outline-secondary" class="btn btn-sm">
 									</span></h3>
 									<h2 class="card-head"></h2>
-									<i class="fa fa-map-marker" style="color:red"></i><span class="card-head-span"> A-3 Sector-3 Bawana  </span>
+									<i class="fa fa-map-marker-alt" style="color:red"></i><span class="card-head-span"> A-3 Sector-3 Bawana  </span>
 									<h3 class="card-head" ></h3>
 										<i class="fa fa-phone" style="color:grey"></i>
 										<span >  9810074613  </span>
@@ -75,13 +78,13 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						{{-- card end  --}}
 
-						<hr>
+					{{--	<hr> --}}
 						{{--  card start --}}
 
-						<div class="card">
+	<!--					<div class="card">
 							<div class="row ">
 								<div class="col-md-4">
 									<img src="https://cdn.shopify.com/s/files/1/0252/1347/products/IMG_3420.JPG?v=1486859233" class="card-img">
@@ -94,7 +97,7 @@
 										  <input type="submit" name="materialtag" value="Safity Shoes" class="btn btn-outline-secondary" class="btn btn-sm">
 									</span></h3>
 									<h2 class="card-head"></h2>
-									<i class="fa fa-map-marker" style="color:red"></i><span class="card-head-span"> A-5 Sector-3 Bawana   </span>
+									<i class="fa fa-map-marker-alt" style="color:red"></i><span class="card-head-span"> A-5 Sector-3 Bawana   </span>
 									<h3 class="card-head" ></h3>
 										<i class="fa fa-phone" style="color:grey"></i>
 										<span >  9811962523  </span>

@@ -25,7 +25,7 @@ Route::group(['prefix' => 'directory'], function ()
     Route::get('/details',['as'=>'create','uses'=>'DirectoryController@create']);
     Route::post('/store',['as'=>'store','uses'=>'DirectoryController@store']);
 
-    Route::get('/livesearch',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
+    Route::get('/livesearch/{tag?}',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
 
 });
 
