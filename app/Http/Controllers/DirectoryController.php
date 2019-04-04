@@ -128,9 +128,9 @@ class DirectoryController extends Controller
 
       $materials=Search::whereNotNull('material')->groupBy('material')->get();
 //******* search for material tags in cards *************
-      if(!empty($request->materialtag))
+      if(!empty($request->tag))
       {
-        $search = $search->where('material', $request->materialtag);
+        $search = $search->where('material', $request->tag);
       }
 
       // pagination
