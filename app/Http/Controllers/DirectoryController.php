@@ -98,10 +98,20 @@ class DirectoryController extends Controller
       $business_type = business_type();
 
 
-
-      if(!empty($request->address))
+      if(!empty($request->business_types))
       {
-        $search = $search->orwhere('address', $request->address);
+        $search = $search->orwhere('businesstype', $request->business_types);
+      }
+
+      if(!empty($request->industry_types))
+      {
+        $search = $search->orwhere('industrytype', $request->industry_types);
+      }
+
+
+      if(!empty($request->block))
+      {
+        $search = $search->orwhere('block', $request->block);
       }
       if(!empty($request->area))
       {

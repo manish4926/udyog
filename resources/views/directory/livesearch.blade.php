@@ -77,7 +77,7 @@
 
 		<label for="">Business Type</label>
 		<div>
-				<select class="form-control" name="businee_type">
+				<select class="form-control" name="business_types">
 						<option value="">Select</option>
 				        @foreach($business_type as $s)
 						<option value="{{ $s }}">{{ $s }}</option>
@@ -87,7 +87,7 @@
 
 		<label for="">Industry Type</label>
 		<div>
-				<select class="form-control" name="industry_type">
+				<select class="form-control" name="industry_types">
 						<option value="">Select</option>
 				    @foreach($industry_type as $s)
 						<option value="{{ $s }}">{{ $s }}</option>
