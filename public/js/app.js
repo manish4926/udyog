@@ -36700,8 +36700,13 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\xampp\BCI_UdyogTv\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\BCI_UdyogTv\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\xampp\htdocs\BCI_UdyogTv_current\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\BCI_UdyogTv_current\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 466ee81a8c72198c21cffc51cc4296d8a177348f
 
 
 /***/ })
