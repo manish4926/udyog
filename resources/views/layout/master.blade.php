@@ -69,32 +69,25 @@ function googleTranslateElementInit() {
                <a class="nav-link" href="{{route('IndustryList')}}">Directory</a>
             </li>
          
-         <li class="nav-item">
-            <a class="nav-link" href="#">
-               <span> Current affairs</span>
-            </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="#">
-               <span>Training's</span>
+               <a class="nav-link" href="#">Current affairs</a>
+               </li>
+         
+               <li class="nav-item">
+               <a class="nav-link" href="#">Training's</a>
+               </li>
+         
             </a>
+            <li class="nav-item">
+               <a class="nav-link" href="#">Current Law Affecting Industry</a>
+               </li>
+         
          </li>
          <li class="nav-item">
-               <a class="nav-link" href="#">Current Law Affecting Industry </a>
-            <a class="nav-link" href="#">
-               <span>Enviroment</span>
-            </a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link" href="#">
-               <span>Labour Laws</span>
-            </a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link" href="#">
-               <span>Taxestion's</span>
-            </a>
-         </li>
+               <a class="nav-link" href="#">Labour Laws</a>
+               </li>
+         
          <li class="nav-item">
                <a class="nav-link" href="#">taxation</a>
                 </li>
@@ -136,19 +129,19 @@ function googleTranslateElementInit() {
          <!-- /#wrapper -->
          <!-- Scroll to Top Button-->
 
-      <!--<div class='scrolltop'>
+      <div class='scrolltop'>
           <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:red"></i>
       </div>
       
       <script type="text/javascript" src="/js/app.js"></script>
       @stack('bottomscript')
    </body>
-   -->
+   
 
-   <div class='scrolltop'>
+  <!-- <div class='scrolltop'>
       <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
    </div>
    <script type="text/javascript" src="/js/app.js"></script>
    @stack('bottomscript')
-</body>
+</body>-->
 </html>
