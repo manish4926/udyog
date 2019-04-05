@@ -1,3 +1,8 @@
+<div class="col-md-6 offset-md-6">
+  <div id="google_translate_element" style="height: 27px;
+    float: right;"></div>
+    <div class="clearfix"></div>
+</div>
 <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
 
          <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
@@ -12,24 +17,20 @@
                <div class="input-group-append">
                   <button class="btn btn-light" type="button">
                   <i class="fas fa-search"></i> 
-                  </button>
+                 
+                 </button>
 
                </div>
-
-            </div>
+             </div>
             
         </div>
-<div id="google_translate_element"></div>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
-</script>
-
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     </form>
+
+
+
+
+
 
     @if (Route::has('login'))
     <div class="top-right links">

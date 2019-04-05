@@ -121,9 +121,9 @@ class JobController extends Controller
 
 	}
 
-}
 
-	 public function alljob(Request $request)
+
+	 public function alljob (Request $request)
     {
         $jobs= job_opening::all();
         return view('job.alljob',compact('jobs'));
