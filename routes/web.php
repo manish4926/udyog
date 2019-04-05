@@ -86,6 +86,6 @@ Route::group(['prefix' => 'company'], function ()
     Route::get('/', function () {
         return view('main.index');
     });
-    Route::get('/microweb/{slug}',['as'=>'microwebsite','uses'=>'DirectoryController@microweb']);
+    Route::get('/microweb/{slug}',['as'=>'microwebsite','uses'=>'MicrowebController@microweb']);
 
 });
