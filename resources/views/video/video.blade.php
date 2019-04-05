@@ -1,6 +1,10 @@
 @extends('layout.master')
 
+<<<<<<< HEAD
+@section('title',preg_replace('/\\.[^.\\s]{3,4}$/', '', $video->name))
+=======
 @section('title','BCI - Bhawana Chamber of Industries')
+>>>>>>> 0a8386b4a65ee1e3368eb9af5fd37d70b14fd23c
 
 @section('content')
 
@@ -11,13 +15,11 @@
                            <div class="single-video">
 
                               <video width="100%" height="550px" autoplay="on" controls>
-                                 <source src="{{ asset('storage/upload/'.$video->name)}}" type="video/mp4">
-                                  {{-- <source src="{{ asset('video/upload/'.$video->name)}}" type="video/mp4"> --}}
-                            
+                                 <source src="{{ asset('video/upload/'.$video->name)}}" type="video/mp4">                            
                               </video>
                            </div>
                            <div class="single-video-title box mb-3">
-                              <h2>Prakesh Chand Jain Director Chamber of Industries</h2>
+                              <h2>{{preg_replace('/\\.[^.\\s]{3,4}$/', '', $video->name)}}</h2>
                               <p class="mb-0"><i class="fas fa-eye"></i> 2,729,347 views</p>
                            </div>
                            
@@ -42,26 +44,25 @@
                                  </div>
                               </div>
                               <div class="col-md-12">
-                                {{-- @foreach($files as $file) --}}
-                                  {{-- @if($file->id < 15) --}}
+                              @if(count($all)>0)
+                              @foreach($all as $video)
+                                <div class="video-card video-card-list">
+                                  <div class="video-card-image">
 
-                                 <div class="video-card video-card-list">
-                                    <div class="video-card-image">
-                                       <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                       {{-- <a href="#"><img class="img-fluid" src="{{ asset('storage/thumbs/'.$file->thumbnail) }}" alt="" height="77px"></a> --}}
+                                    <a class="play-icon" href="{{ route('videothumb',['id' => $video->id, 'slug' => $video->slug]) }}"><i class="fas fa-play-circle"></i></a>
+                                    <a href="#"><img class="img-fluid" src="{{ asset('video/thumbs/'.$video->thumbnail) }}" alt="" height="77px"></a>
 
-                                       <div class="time">3:50</div>
+                                    <div class="time">{{sprintf('%02d:%02d',($video->duration/60%60), $video->duration%60)}}</div>
+                                  </div>
+                                  <div class="video-card-body">
+                                    <div class="video-title">
+                                      <a href="{{ route('videothumb',['id' => $video->id, 'slug' => $video->slug]) }}">{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $video->name) }}</a>
                                     </div>
-                                    <div class="video-card-body">
-                                       <div class="video-title">
-                                          {{-- <a href="#">{{ $file->name }}</a> --}}
-                                       </div>
-                                    </div>
-                                 </div>
-                                  {{-- @endif --}}
-                                 {{-- @endforeach                            --}}
-                              </div>
-                              
+                                  </div>
+                                </div>
+                              @endforeach
+                              @endif
+                            </div>                            
                            </div>
                         </div>
                      </div>

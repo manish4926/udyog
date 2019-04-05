@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-   
+
 <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +20,14 @@
       <!-- Owl Carousel -->
       {{-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.carousel.css"> --}}
       {{-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.theme.css"> --}}
+
+      <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
    </head>
    <body >
       <div class='thetop'></div>
@@ -46,6 +54,7 @@
                   <a class="dropdown-item" href="{{ route('application') }}">Application Form</a>
                </div>
             </li>
+            
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
                <div class="dropdown-menu">
@@ -61,28 +70,36 @@
             </li>
          
          <li class="nav-item">
-               <a class="nav-link" href="#">Product</a>
+            <a class="nav-link" href="#">
+               <span> Current affairs</span>
+            </a>
          </li>
          <li class="nav-item">
-               <a class="nav-link" href="#">Current affairs</a>
+            <a class="nav-link" href="#">
+               <span>Training's</span>
+            </a>
          </li>
          <li class="nav-item">
-               <a class="nav-link" href="#">Traning's</a>
+               <a class="nav-link" href="#">Current Law Affecting Industry </a>
+            <a class="nav-link" href="#">
+               <span>Enviroment</span>
+            </a>
          </li>
          <li class="nav-item">
-               <a class="nav-link" href="#">Current Law Affacting Industry </a>
+            <a class="nav-link" href="#">
+               <span>Labour Laws</span>
+            </a>
          </li>
          <li class="nav-item">
-               <a class="nav-link" href="#">Enviroment</a>
+            <a class="nav-link" href="#">
+               <span>Taxestion's</span>
+            </a>
          </li>
          <li class="nav-item">
-               <a class="nav-link" href="#">Labour Laws</a>
-         </li>
-         <li class="nav-item">
-               <a class="nav-link" href="#">Taxestion's</a>
+               <a class="nav-link" href="#">taxation</a>
                 </li>
                <li class="nav-item">
-               <a class="nav-link" href="#">Presnatly Development</a>
+               <a class="nav-link" href="#">Presently Development</a>
                </li>
                <li class="nav-item">
                <a class="nav-link" href="#">New Technology</a>
@@ -104,27 +121,34 @@
 
          <div id="content-wrapper">
             <div class="container-fluid pb-0">
-                  @yield('content')
-                  @include('partials.content-divider')
-               </div>
+               @yield('content')
+               @include('partials.content-divider')
             </div>
-            <!-- /.container-fluid -->
-           
-            <!-- /.container-fluid -->  
          </div>
+         <!-- /.container-fluid -->
 
-            <!-- SIDE NAV BAR END -->
+         <!-- /.container-fluid -->  
+   </div>
+
+         <!-- SIDE NAV BAR END -->
 
 
-      <!-- /#wrapper -->
-      <!-- Scroll to Top Button-->
+         <!-- /#wrapper -->
+         <!-- Scroll to Top Button-->
 
-   </body>
-
-      <div class='scrolltop'>
-          <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
+      <!--<div class='scrolltop'>
+          <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:red"></i>
       </div>
+      
       <script type="text/javascript" src="/js/app.js"></script>
       @stack('bottomscript')
    </body>
+   -->
+
+   <div class='scrolltop'>
+      <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
+   </div>
+   <script type="text/javascript" src="/js/app.js"></script>
+   @stack('bottomscript')
+</body>
 </html>
