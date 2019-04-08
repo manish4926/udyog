@@ -8,7 +8,7 @@
         <!-- For Resposive Device -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>SHARMA AUTO</title>
+        <title>{{$sites->cname}}</title>
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
@@ -102,7 +102,7 @@
                                         data-splitout="none" 
                                         data-responsive_offset="on" 
                                         style="z-index: 6; white-space: nowrap;">
-                                        <h1>SHARMA AUTO</h1>
+                                        <h1>{{$sites->cname}}</h1>
                                     </div>
 
                                     <!-- LAYER NR. 2 -->
@@ -185,7 +185,7 @@
                                         data-splitout="none" 
                                         data-responsive_offset="on" 
                                         style="z-index: 6; white-space: nowrap;">
-                                        <h1>SHARMA AUTO</h1>
+                                        <h1>{{$sites->cname}}</h1>
                                     </div>
 
                                     <!-- LAYER NR. 2 -->
@@ -251,7 +251,7 @@
                                         data-splitout="none" 
                                         data-responsive_offset="on" 
                                         style="z-index: 6; white-space: nowrap;">
-                                        <h1>SHARMA AUTO</h1>
+                                        <h1>{{$sites->cname}}</h1>
                                     </div>
 
                                     <!-- LAYER NR. 2 -->
@@ -306,8 +306,8 @@
             <section id="about-us">
                 <div class="container">
                     <div class="theme-title">
-                        <h2>ABOUT SHARMA AUTO</h2>
-                        <p>Sharma Auto Products was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings. The products we manufacture are in compliance with industry laid norms and guidelines. We take into consideration all the technical details provided to us by our clients while fabricating these products.</p>
+                        <h2>ABOUT {{$sites->cname}}</h2>
+                        <p>{{$sites->cname}} Products was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings. The products we manufacture are in compliance with industry laid norms and guidelines. We take into consideration all the technical details provided to us by our clients while fabricating these products.</p>
                     </div> <!-- /.theme-title -->
 
                     <div class="row">
@@ -492,7 +492,7 @@
 
                         <div class="mix grid-item photo webd support">
                             <div class="single-img">
-                                <img src="https://5.imimg.com/data5/WY/XB/MY-424719/brake-shoe-250x250.jpg" alt="Image"height=https://5.imimg.com/data5/WY/XB/MY-424719/brake-shoe-250x250.jpg"250" width="250">
+                                <img src="https://5.imimg.com/data5/WY/XB/MY-424719/brake-shoe-250x250.jpg" alt="Image"height="https://5.imimg.com/data5/WY/XB/MY-424719/brake-shoe-250x250.jpg" width="250">
                                 <div class="opacity">
                                     <div class="border-shape"><div><div>
                                         <h6><a href="#">Bike Brake Lining</a></h6>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-   
+
 <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +20,14 @@
       <!-- Owl Carousel -->
       {{-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.carousel.css"> --}}
       {{-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.theme.css"> --}}
+
+      <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+      </script>
+
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
    </head>
    <body >
       <div class='thetop'></div>
@@ -28,22 +36,18 @@
       
      @include('layout.nav')
 
+
       <!-- TOP NAV BAR END -->
 
 
-       <div id="wrapper">
+      <div id="wrapper">
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
             <li class="nav-item active">
-               <a class="nav-link" href="/">
-
-               <i class="fas fa-fw fa-home"></i>
-               <span>Home</span>
-               </a>
+               <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-briefcase"></i>
-                <span>Job Portal</span></a>
+            <li class="nav-item">
+               <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Job Portal</a>
                <div class="dropdown-menu">
                   <a class="dropdown-item" href="{{ route('postjob') }}">Post a New Job</a>
                   <a class="dropdown-item" href="{{ route('alljob') }}">Latest Jobs</a>
@@ -51,10 +55,9 @@
                   <a class="dropdown-item" href="{{ route('application') }}">Application Form</a>
                </div>
             </li>
+            
             <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-industry"></i>
-                  <span>Industries</span>
-               </a>
+               <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
                <div class="dropdown-menu">
                   <a class="dropdown-item" href="categories.html">Bhawana</a>
                   <a class="dropdown-item" href="categories.html">Narela</a>
@@ -64,102 +67,83 @@
 
 
             <li class="nav-item">
-               <a class="nav-link" href="{{route('IndustryList')}}"><i class="fas fa-fw fa-book"></i>
-                  <span>Directory</span>
-               </a>
+               <a class="nav-link" href="{{route('IndustryList')}}">Directory</a>
             </li>
          
-         <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-shopping-cart"></i>
-                  <span>Product</span>
-               </a>
-         </li>
-         <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-newspaper"></i>
-                  <span> Current affairs</span>
-              </a>
-         </li>
-         <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-user"></i>
-                  <span>Training's</span>
-               </a>
-         </li>
-         <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-exclamation"></i>
-                  <span>Current Law Affecting Industry </span>
-               </a>
-         </li>
-         <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-globe-americas"></i>
-                  <span>Enviroment</span>
-               </a>
-         </li>
-         <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-exclamation"></i>
-                  <span>Labour Laws</span>
-               </a>
-         </li>
-         <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-exclamation"></i>
-                  <span>Taxestion's</span>
-               </a>
+         
+            <li class="nav-item">
+               <a class="nav-link" href="#">Current affairs</a>
+               </li>
+         
+               <li class="nav-item">
+               <a class="nav-link" href="#">Training's</a>
+               </li>
+         
+            
+            <li class="nav-item">
+               <a class="nav-link" href="#">Current Law Affecting Industry</a>
+               </li>
+         
+         
+            <li class="nav-item">
+               <a class="nav-link" href="#">Labour Laws</a>
+               </li>
+         
+            <li class="nav-item">
+               <a class="nav-link" href="#">taxation</a>
                 </li>
                <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-user"></i>
-                  <span>Personality Development</span>
-               </a>
+               <a class="nav-link" href="#">Presently Development</a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-laptop"></i>
-                  <span>New Technology</span>
-               </a>
+               <a class="nav-link" href="#">New Technology</a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-shopping-cart"></i>
-                  <span>New Products</span>
-               </a>
+               <a class="nav-link" href="#">New Products</a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-heartbeat"></i>
-                  <span>Health</span>
-               </a>
+               <a class="nav-link" href="#">Health</a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-chart-line"></i>
-                  <span>How to grow business</span>
-               </a>
+               <a class="nav-link" href="#">How to grow business</a>
                </li>
-               <li class="nav-item">
-               <a class="nav-link" href="#"><i class="fas fa-fw fa-wpforms"></i>
-                  <span>Registerations & Arade Marks</span>
-               </a></li>
+               <li class="nav-item">x
+               <a class="nav-link" href="#">Registerations & Arade Marks</a></li>
                </ul>
 
          <!-- SIDE NAV BAR SHOULD END HERE!!!! -->
 
          <div id="content-wrapper">
-            <div class="container-fluid pb-0">
-                  @yield('content')
-                  @include('partials.content-divider')
-               </div>
+            <div class="container-fluid pb-0" id="manish-test">
+               @yield('content')
+               @include('partials.content-divider')
             </div>
-            <!-- /.container-fluid -->
-           
-            <!-- /.container-fluid -->  
          </div>
+         <!-- /.container-fluid -->
 
-            <!-- SIDE NAV BAR END -->
+         <!-- /.container-fluid -->  
+      </div>
+   </div>
+         <!-- SIDE NAV BAR END -->
+      
 
-
-      <!-- /#wrapper -->
-      <!-- Scroll to Top Button-->
-
-   </body>
+         <!-- /#wrapper -->
+      @include('layout.footer')
+         <!-- Scroll to Top Button-->
 
       <div class='scrolltop'>
-          <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
+          <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:red"></i>
       </div>
+
       <script type="text/javascript" src="/js/app.js"></script>
       @stack('bottomscript')
+      
    </body>
+   
+
+  <!-- <div class='scrolltop'>
+      <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
+   </div>
+   <script type="text/javascript" src="/js/app.js"></script>
+   ody>-->
 </html>
