@@ -27,6 +27,11 @@ Route::group(['prefix' => 'directory'], function ()
 
     Route::get('/livesearch/{tag?}',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
 
+     /*   Route::get('/microweb', function () {
+        return view('microweb');
+    })->name('microwebsite');*/
+
+        
 });
 
 
@@ -63,15 +68,17 @@ Route::get('/','MainController@index');
     Voyager::routes();
 });*/
 
+
+
 Route::get('file','VideoController@showUploadForm')->name('uploadfile');
-Route::post('file','FileController@storeFile');
+
+Route::post('file','VideoController@storeFile');
+
 
 /*Route::get('/','FileController@display');*/
 
 Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
     //return $name;
-
-
 
 /*Microsite*/
 Route::group(['prefix' => 'company'], function () 
@@ -79,8 +86,6 @@ Route::group(['prefix' => 'company'], function ()
     Route::get('/', function () {
         return view('main.index');
     });
+    Route::get('/microweb/{slug}',['as'=>'microwebsite','uses'=>'MicrowebController@microweb']);
 
-    Route::get('/microweb', function () {
-        return view('microweb');
-    });
 });
