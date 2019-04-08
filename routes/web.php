@@ -30,6 +30,11 @@ Route::group(['prefix' => 'directory'], function ()
 
     Route::get('/livesearch/{tag?}',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
 
+     /*   Route::get('/microweb', function () {
+        return view('microweb');
+    })->name('microwebsite');*/
+
+        
 });
 
 
@@ -84,8 +89,6 @@ Route::group(['prefix' => 'company'], function ()
     Route::get('/', function () {
         return view('main.index');
     });
+    Route::get('/microweb/{slug}',['as'=>'microwebsite','uses'=>'MicrowebController@microweb']);
 
-    Route::get('/microweb', function () {
-        return view('microweb');
-    });
 });

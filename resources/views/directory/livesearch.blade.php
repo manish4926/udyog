@@ -15,8 +15,6 @@
 	</div>
 @endsection--}}
 
-
-
 <div class="row">
   <div class="col-8">
 <div class="white-card-directory">
@@ -39,30 +37,22 @@
 						<div class="card-body">
 								<div class="card-block card-info">
 			
-						<h2 class="card-head-directory" > <a href="{{ NULL }}"> {{ ucfirst($set->cname) }} </a></h2>
-						<h3 class="card-head-directory" > <span > 			 
-							  {{-- <input type="submit" name="materialtag" value="{{$set->material}}" class="btn-outline-secondary-directory" class="btn btn-sm"> --}}
+						<h2 class="card-head-directory" >{{  ucfirst($set->cname) }}</h2>
+						<h3 class="card-head-directory" > <span > 
 							  <a href="{{ route('IndustryList', ['tag' => $set->material ]) }}" class="btn btn-primary btn-sm">{{$set->material}}</a>
 						</span></h3>
-				{{--	<h2 class="card-head-directory"></h2>
-						<i class="fa fa-map-marker-alt" style="color:red"></i><span class="card-head-span-directory"> {{ $set->block}} {{ $set->sector }} {{ $set->area}} </span>
-						<h3 class="card-head-directory" ></h3>
-							<i class="fa fa-phone" style="color:grey"></i>
-							<span > {{ $set->phoneno }} </span>
-							<h3> </h3>
-						<a href="#" class="btn btn-info" class="btn btn-sm">Read More</a> --}}
 						<div class="card-desc">Approx 3 Lines of Text</div>
 							<hr>
-						<div class="row">
+							<div class="row">
 							<div class="col-md-6 no-padding">
-								<div><i class="fa fa-map-marker-alt" style="color:red"></i><span class="card-head-span"> {{ $set->block}} {{ $set->sector }} {{ $set->area}} </span></div>
-								@if(!empty($set->email))<div><i class="fa fa-envelope blue" style="color:blue"></i><span> {{ $set->email }}</span></div>@endif
-								@if(!empty($set->phoneno))<div><i class="fa fa-phone" style="color:green"></i><span> {{ $set->phoneno }}</span></div>@endif
+								<div><i class="fa fa-map-marker-alt"></i><span class="card-head-span"> {{ $set->block}} {{ $set->sector }} {{ $set->area}} </span></div>
+								@if(!empty($set->email))<div><i class="fa fa-envelope"></i><span> {{ $set->email }}</span></div>@endif
+								@if(!empty($set->phoneno))<div><i class="fa fa-phone"></i><span> {{ $set->phoneno }}</span></div>@endif
 							</div>
 							<div class="col-md-6 no-padding">
-								<a href="microweb " class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm">Visit Site</a>
+								<a href="{{route('microwebsite', ['site'=> $set->slug ])}}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm"> Visit Site</a>
 							</div>
-
+							</div>
 						</div>
 					</div>
 				</div>
@@ -87,7 +77,7 @@
 
 		<label for="">Business Type</label>
 		<div>
-				<select class="form-control" name="businee_type">
+				<select class="form-control" name="business_types">
 						<option value="">Select</option>
 				        @foreach($business_type as $s)
 						<option value="{{ $s }}">{{ $s }}</option>
@@ -97,7 +87,7 @@
 
 		<label for="">Industry Type</label>
 		<div>
-				<select class="form-control" name="industry_type">
+				<select class="form-control" name="industry_types">
 						<option value="">Select</option>
 				    @foreach($industry_type as $s)
 						<option value="{{ $s }}">{{ $s }}</option>
