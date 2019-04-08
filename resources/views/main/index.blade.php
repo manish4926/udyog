@@ -80,13 +80,8 @@
 							</div>
 						</div> -->
 						{{-- card end  --}}
-<<<<<<< HEAD
-	
-						<hr>
-=======
 
 					{{--	<hr> --}}
->>>>>>> 4fd6f8dfb27ba70aa727f4b6e9e31939896f580e
 						{{--  card start --}}
 
 	<!--					<div class="card">
