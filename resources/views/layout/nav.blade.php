@@ -40,13 +40,6 @@
                   </button>
 
                </div>
-<<<<<<< HEAD
-            
-            </div>
-            
-        </div>
-        
-=======
 
             </div>
             
@@ -59,9 +52,9 @@ function googleTranslateElementInit() {
 }
 </script>
 
+<!--
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
->>>>>>> 4fd6f8dfb27ba70aa727f4b6e9e31939896f580e
+-->
     </form>
     
 
