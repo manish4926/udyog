@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('main.index');
 });
 
+Route::get('/puneet', function () {
+    return view('Footer.footer');
+});
 
 
 Route::get('/home', 'HomeController@index')->name('home');
