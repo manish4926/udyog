@@ -22,12 +22,12 @@
       {{-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.theme.css"> --}}
 
       <script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
-</script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+      </script>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
    </head>
    <body >
       <div class='thetop'></div>
@@ -36,10 +36,11 @@ function googleTranslateElementInit() {
       
      @include('layout.nav')
 
+
       <!-- TOP NAV BAR END -->
 
 
-       <div id="wrapper">
+      <div id="wrapper">
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
             <li class="nav-item active">
@@ -69,8 +70,8 @@ function googleTranslateElementInit() {
                <a class="nav-link" href="{{route('IndustryList')}}">Directory</a>
             </li>
          
-         </li>
-         <li class="nav-item">
+         
+            <li class="nav-item">
                <a class="nav-link" href="#">Current affairs</a>
                </li>
          
@@ -78,17 +79,17 @@ function googleTranslateElementInit() {
                <a class="nav-link" href="#">Training's</a>
                </li>
          
-            </a>
+            
             <li class="nav-item">
                <a class="nav-link" href="#">Current Law Affecting Industry</a>
                </li>
          
-         </li>
-         <li class="nav-item">
+         
+            <li class="nav-item">
                <a class="nav-link" href="#">Labour Laws</a>
                </li>
          
-         <li class="nav-item">
+            <li class="nav-item">
                <a class="nav-link" href="#">taxation</a>
                 </li>
                <li class="nav-item">
@@ -106,14 +107,14 @@ function googleTranslateElementInit() {
                <li class="nav-item">
                <a class="nav-link" href="#">How to grow business</a>
                </li>
-               <li class="nav-item">
+               <li class="nav-item">x
                <a class="nav-link" href="#">Registerations & Arade Marks</a></li>
                </ul>
 
          <!-- SIDE NAV BAR SHOULD END HERE!!!! -->
 
          <div id="content-wrapper">
-            <div class="container-fluid pb-0">
+            <div class="container-fluid pb-0" id="manish-test">
                @yield('content')
                @include('partials.content-divider')
             </div>
@@ -121,20 +122,22 @@ function googleTranslateElementInit() {
          <!-- /.container-fluid -->
 
          <!-- /.container-fluid -->  
+      </div>
    </div>
-
          <!-- SIDE NAV BAR END -->
-
+      
 
          <!-- /#wrapper -->
+      @include('layout.footer')
          <!-- Scroll to Top Button-->
 
       <div class='scrolltop'>
           <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:red"></i>
       </div>
-      
+
       <script type="text/javascript" src="/js/app.js"></script>
       @stack('bottomscript')
+      
    </body>
    
 
@@ -142,6 +145,5 @@ function googleTranslateElementInit() {
       <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
    </div>
    <script type="text/javascript" src="/js/app.js"></script>
-   @stack('bottomscript')
-</body>-->
+   ody>-->
 </html>
