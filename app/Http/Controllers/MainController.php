@@ -18,7 +18,7 @@ class MainController extends Controller
          $videos = Video::limit(6)->get();
          $directory=Search::orderBy('c_id')->limit(3)->get();
 
-          $jobs = job_opening::orderBy('job_id')->limit(10)->get();
+          $jobs = job_opening::orderBy('job_id')->limit(5)->get();
         return view('main.index',compact('directory','videos','jobs'));
 
 
