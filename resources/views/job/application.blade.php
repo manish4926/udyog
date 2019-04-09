@@ -3,6 +3,7 @@
 @section('content')
 
 @push('topscript')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/job/applicationform.css') }}">
 <style type="text/css">
       .white-card {
         background: #fff;
@@ -33,63 +34,58 @@
          <div id="pnlShow">
 	
            
-            <div id="content1-middle">
-                <div class="content1-middle-left">
-                    <table width="100%" style="margin-bottom: 20px">
-                        
-                            <td colspan="2" style="height: 33px;">
-
-                            	<br>
-                            	<br>
+                                       <td colspan="2">
+                            	
                                 <h3>
                                     <b>Login Details:</b>
                                 </h3>
                        
-                            <td class="content1-middle-left-content" style="width: 35%;">
-                                <span style="color: Red;">* </span>Mobile No. :<br /><span style="font-size:10px; color:Red;"></span>
-                            </td>
-                            <style="width: 65%;">
+                            <div class="content1-middle-left-content">
+                           Mobile No. :
+                           </td>
+                          
                              <div class="form-group">	
-                            <input name="mobile_no" type="text" />
+                            <input name="mobile_no" type="text"  />
+                               </div>
+                         
                           </div>
-                    <table width="100%" style="margin-bottom: 20px">
+                          <table width="100%" >
                         
-                            <td colspan="2" style="height: 33px;">
+                            <td colspan="2" >
                                 <h3>
                                     <b>Personal Details:</b>
                                 </h3>
                             </td>
                 
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
-                                <span style="color: Red;">* </span>First Name :
+                            <td class="content1-middle-left-content">
+                             First Name :
                             </td>
-                            <td style="width: 65%;">
+                            <td>
                             	 <div class="form-group">
-                                <input name="fname" type="text" id="fname" style="width:250px;" />
+                                <input name="fname" type="text" id="fname"/>
                             </div>
-                                <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">First name</span>
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
-                                <span style="color: Red;">* </span>Last Name :
+                            <td class="content1-middle-left-content">
+                             Last Name :
                             </td>
-                            <td style="width: 65%;">
-                                <input name="lname" type="text" id="lname" style="width:250px;" />
-                                <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Last name</span>
+                            <td>
+                                <input name="lname" type="text" id="lname" />
+                               
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <div id="UpdatePanel2">
                                         <table width="100%">
-                                            <tr style="min-height: 30px;">
-                                                <td class="content1-middle-left-content" style="width: 35%;">
-                                                    <span style="color: Red;">* </span>State :
+                                            <tr>
+                                                <td class="content1-middle-left-content" >
+                                                   State :
                                                 </td>
-                                                <td style="width: 65%;">
-                                                    <select name="state" id="state" style="width:250px;">
+                                                <td>
+                                                    <select name="state" id="state">
 															<option selected="selected" value="State">State</option>
 															<option value="an">Andaman Nicobar</option>
 															<option value="ap">Andhra Pradesh</option>
@@ -128,16 +124,17 @@
 															<option value="ut">Uttaranchal</option>
 															<option value="wb">West Bengal</option>
 														</select>
-                                                    <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">State</span>
-                                                </td>
+                                               
+                                               </td>
                                             </tr>
-                                            <tr style="min-height: 30px;">
-                                                <td class="content1-middle-left-content" style="width: 35%;">
-                                                    <span style="color: Red;">* </span>City :
+                                            <tr>
+                                                <td class="content1-middle-left-content" >
+                                                City :
                                                 </td>
-                                                <td style="width: 65%;">
-                                                    <input type="text" name="city" id="city" style="width:250px;">
-                                                    <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">City</span>
+                                                <td >
+                                                  <div class="form-group">	
+                                                  <input type="text" name="city" id="city">
+                                                   
                                                 </td>
                                             </tr>
                                         </table>
@@ -145,58 +142,58 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
-                                <span style="color: Red;">* </span>Email :<i style="color: Gray; font-size: 10px;"></i>
+                         <td class="content1-middle-left-content" >
+                         Email :<i style="color: Gray; font-size: 10px;"></i>
                             </td>
-                            <td style="width: 65%;">
-                                <input name="email" type="text" id="email" style="width:250px;" />
+                            <td>
+                                <input name="email" type="text" id="email" />
                                 
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
-                                <span style="color: Red;">* </span>Gender :
+                            <td class="content1-middle-left-content">
+                                Gender :
                             </td>
-                            <td style="width: 65%;">
-                                <div style="float: left;">
-                                    <table id="rdbGender" style="color:Black;width:200px;">
+                            <td>
+                                <div>
+                                <table id="rdbGender" >
 						<tr>
 			<td><input type="radio" name="gender" value="male"> Male<br>
-<input type="radio" name="gender" value="female"> Female<br>
-<input type="radio" name="gender" value="other"> Other</td>
+            <input type="radio" name="gender" value="female"> Female<br>
+            <input type="radio" name="gender" value="other"> Other</td>
 		</tr>
 	</table>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
-                                <span style="color: Red;">* </span>Date of Birth
+                            <td class="content1-middle-left-content" >
+                             Date of Birth
                             </td>
-                            <td style="width: 65%;">
-                   				<input type="date" name="dob" format"dd-mm-yyyy">
+                            <td>
+                   				<input type="date" name="dob" format="dd-mm-yyyy">
 					        </td>
 					    </tr>
                     </table>
                     <table width="100%">
                         <tr>
-                            <td colspan="2" style="height: 33px; margin-bottom: 10px">
+                            <td colspan="2">
                                 <h3>
                                     <b>Work Experience:</b>
                                 </h3>
                             </td>
                         </tr>
                         <tr>
-                            <td align="left" colspan="2" style="color: Black;">
+                            <td align="left" colspan="2">
                                 <b>Experience Summary </b>
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
+                            <td class="content1-middle-left-content">
                                 Total Experience :
                             </td>
                             <td style="width: 65%;">
-                                <select name="tyear" id="tyear" style="width:125px;" required="">
+                                <select name="tyear" id="tyear" required="">
 									<option value="">Year</option>
 									<option value="0">0</option>
 									<option value="1">1</option>
@@ -251,7 +248,7 @@
 									<option value="49">49</option>
 									<option value="50">50</option>
 								</select>
-							    <select name="tmonth" id="tmonth" style="width:125px;">
+							    <select name="tmonth" id="tmonth">
 									<option value="Month">Month</option>
 									<option value="0">0</option>
 									<option value="1">1</option>
@@ -270,11 +267,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
+                            <td class="content1-middle-left-content">
                                 Current CTC :
                             </td>
-                            <td style="width: 65%;">
-                                <select name="ddlSalaryLacs" id="ddlSalaryLacs" style="width:125px;">
+                            <td>
+                                <select name="ddlSalaryLacs" id="ddlSalaryLacs">
 									<option value="Lacs">Lacs</option>
 									<option value="0">0</option>
 									<option value="1">1</option>
@@ -378,7 +375,7 @@
 									<option value="99">99</option>
 									<option value="100">100</option>
 								</select>
-                                <select name="salThousand" id="salary" style="width:125px;">
+                                <select name="salThousand" id="salary">
 								<option value="Thousands">Thousands</option>
 								<option value="0">0</option>
 								<option value="1">1</option>
@@ -484,24 +481,24 @@
                             </td>
                         </tr>
                         <tr>
-                            <td align="left" colspan="2" style="color: Black;">
+                            <td align="left" colspan="2">
                                 <b>Current / Latest Job Details</b>
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
+                            <td class="content1-middle-left-content" >
                                 Job Title :
                             </td>
-                            <td style="width: 65%;">
-                                <input name="jobtitle" type="text" id="jobtitle" style="width:250px;" />
+                            <td>
+                                <input name="jobtitle" type="text" id="jobtitle" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
+                            <td class="content1-middle-left-content" >
                                 Company Name :
                             </td>
-                            <td style="width: 65%;">
-                                <input name="companyname" type="text" id="companyname" style="width:250px;" />
+                            <td>
+                                <input name="companyname" type="text" id="companyname" />
                             </td>
                         </tr>
                         <tr>
@@ -509,11 +506,12 @@
                                 <div id="UpdatePanel3">
                                         <table width="100%">
                                             <tr>
-                                                <td class="content1-middle-left-content" style="width: 35%;">
-                                                    <span style="color: Red;">* </span>Industry :
+                                                <td class="content1-middle-left-content">
+                                                 Industry 
+                                                 
                                                 </td>
-                                                <td style="width: 65%; text-align: left;">
-                                                    <select name="industry" style="width:250px;">
+                                                <td>
+                                                    <select name="industry" id="industry">
 														<option selected="selected" value="Industry">Industry</option>
 														<option value="Ind4">Accounting / Finance</option>
 														<option value="Ind60">Administration</option>
@@ -597,11 +595,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
+                            <td class="content1-middle-left-content">
                                 Duration in this job :
                             </td>
-                            <td style="width: 65%;">
-				                      <select name="yearduration" id="yearduration" style="width:124px;">
+                            <td>
+				                      <select name="yearduration" id="yearduration" >
 											<option value="Year">Year</option>
 											<option value="0">0</option>
 											<option value="1">1</option>
@@ -636,7 +634,7 @@
 											<option value="30">30</option>
 
 										    </select>
-				                    <select name="monthduration" id="monthduration" style="width:124px;">
+				                    <select name="monthduration" id="monthduration">
 											<option value="Month">Month</option>
 											<option value="0">0</option>
 											<option value="1">1</option>
@@ -659,7 +657,7 @@
 
                     <table width="100%">
                         <tr>
-                            <td colspan="2" style="height: 33px; margin-bottom: 10px">
+                            <td colspan="2" >
                             	<br>
                                 <h3>
                                     <b>Educational Details:</b>
@@ -667,11 +665,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
-                                <span style="color: Red;">* </span>Basic / Graduation :
+                            <td class="content1-middle-left-content" >
+                            Basic / Graduation :
                             </td>
-                            <td style="width: 65%;">
-                      <select name="graduation" id="graduation" style="width:250px;">
+                            <td>
+                      <select name="graduation" id="graduation">
 						<option value="Basic/Graduation">Basic/Graduation</option>
 						<option value="Gra21">10th (Higher Secondary)</option>
 						<option value="Gra22">12th (Senior Secondary)</option>
@@ -704,15 +702,15 @@
 						<option value="Gra26">PRT</option>
 
 					</select>
-                                <span style="display:inline-block;color:#FF3300;border-style:None;font-weight:bold;font-style:normal;display:none;">Basic/Graduation</span>
+                           
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
+                            <td class="content1-middle-left-content">
                                 Post Graduation :
                             </td>
-                            <td style="width: 65%;">
-                       <select name="postgraduation" id="postgraduation" style="width:250px;">
+                            <td>
+                       <select name="postgraduation" id="postgraduation">
 							<option value="Post Graduation">Post Graduation</option>
 							<option value="CA">C.A</option>
 							<option value="CS">C.S</option>
@@ -741,11 +739,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
+                            <td class="content1-middle-left-content">
                                 Doctorate / Phd :
                             </td>
-                            <td style="width: 65%;">
-                       <select name="doctorate" id="doctorate" style="width:250px;">
+                            <td>
+                       <select name="doctorate" id="doctorate">
 							<option value="Doctorate">Doctorate</option>
 							<option value="DbCourse_Code">DbCourse_Name</option>
 							<option value="PHD">Ph.d/Doctorate</option>
@@ -755,18 +753,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="content1-middle-left-content" style="width: 35%;">
+                            <td class="content1-middle-left-content">
                                 Certified Course(s):
                             </td>
-                            <td style="width: 65%;">
-                            <textarea name="certificate" rows="2" cols="20" id="certificate" style="height:80px;width:250px;">
+                            <td>
+                            <textarea name="certificate" rows="2" cols="20" id="certificate">
                             </textarea>
                             </td>
                         </tr>
                     </table>
                     <table width="100%">
                         <tr>
-                            <td colspan="2" style="height: 33px; margin-bottom: 10px">
+                            <td colspan="2">
                                 <h3>
                                     <b>Upload Resume:</b>
                                 </h3>
@@ -774,16 +772,16 @@
                         </tr>
                         <tr>
                         	<br>
-                            <td class="content1-middle-left-content" style="width: 35%; margin-bottom: 10px">
+                            <td class="content1-middle-left-content" >
                                 Upload Resume :
                             </td>
-                            <td style="width: 65%;">
-                                <input type="file" name="fileupload" id="fileupload" style="width:250px;" />
+                            <td>
+                                <input type="file" name="fileupload" id="fileupload" />
                             </td>
                         </tr>
                         <tr>
                             <td align="center" colspan="2">
-                                <input type="submit" name="imgbtnCreateLogin" value="Create my account" id="imgbtnCreateLogin" class="Lbutton" style="border-width:0px;margin-top: 20px" />
+                                <input type="submit" name="imgbtnCreateLogin" value="Create my account" id="imgbtnCreateLogin" class="Lbutton" />
                             </td>
                         </tr>
                     </table>

@@ -18158,6 +18158,32 @@ h6 {
   height: 200px;
 }
 
+.fas fa-file-alt {
+  align: left;
+  font-size: 12px;
+}
+
+.fas fa-archive {
+  align: left;
+  font: 10px;
+  text-color: blue;
+}
+
+.fas fa-pen {
+  float: left;
+  text-color: blue;
+}
+
+.fas fa-rupee-sign {
+  align: left;
+  text-color: blue;
+}
+
+.fas fa-user {
+  float: right;
+  text-color: blue;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

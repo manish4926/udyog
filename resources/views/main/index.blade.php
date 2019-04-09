@@ -117,15 +117,17 @@
                               <h4 class="card-title"><p class="fas fa-bolt" style="color:red"></p>{{$job_opening->job_title}}</h4>
                               <h3>{{$job_opening->company_name}}</h3>
                               <h5><p class="fas fa-file-alt"></p>{{$job_opening->job_desc}}</h5>
-                              <p class="fas fa-archive">{{$job_opening->experience}}</p>
-                              <p class="fa fa-map-marker" style="float:right">{{$job_opening->location}}</p>
-                              <p class="fas fa-pen" style="float:left">{{$job_opening->skills}}</p> 
+                              <h6>
+                                  <p class="fas fa-archive">{{$job_opening->experience}}</p>
+                                  <p class="fa fa-map-marker" style="float:right">{{$job_opening->location}}</p>
+                                  <p class="fas fa-pen">{{$job_opening->skills}}</p>
+                              </h6>
                           </div>
                       </div>
                       <div class="card-footer">
                         <span class ="glyphicon glyphicon-user">
                           <p class="fas fa-rupee-sign">{{$job_opening->package}}</p> 
-                          <small class="fas fa-user" style="float:right">{{$job_opening->hr_name}}</small>
+                          <small class="fas fa-user">{{$job_opening->hr_name}}</small>
                         </span>
                       </div>
                   </div>
