@@ -21,7 +21,7 @@ class MainController extends Controller
           $jobs = job_opening::orderBy('job_id')->limit(5)->get();
         return view('main.index',compact('directory','videos','jobs'));
 
-        
+
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);
 //dd('hello');
         /*$videos = Video::orderBy('id','desc')->first();
@@ -30,9 +30,11 @@ class MainController extends Controller
     }
 
     public function videothumb(Request $request){
-        //$user = DB::table('files')->where('name', $name )->value('name'); 
-        $video = Video::where('id', $request->id)
-                        ->first();
+        //$user = DB::table('files')->where('name', $name )->value('name');
+        $video = Video::where('id', $request->id)->first();
+        // dd($video);
+        //$tags = Video::where('id',$request->id)->get()->all();
+
         $all = Video::limit(6)->get();
 
         return view('video.video')->with('video',$video)->with('all',$all);
