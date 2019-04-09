@@ -1,36 +1,23 @@
-
-#form{
-    background-color: red;
-	min-height:300px;
+.form-group{
+    background-color: #F8F8F8;
+	min-height:50px;
 	padding: 5px 40px;
 	min-width: 50px;
-	font-size: 60px;
-	font-family: Agency FB;
+	font-size: 15px;
 	font-weight: 400px;
-	border-bottom-style: ridge; 
-
 }
 
-.text
+
+fieldset{
+	min-width: 200px;
+	
+}
+
+label
 {
-	height: 60px;
-	width: 30px;
+	font-size: 15px;
+	color: black;
 }
 
-.state
-{
-  
-  width: 55%;
-}
 
-.city
-{
-	width:250px;
-}
 
-.industry
-{
-   
-   width: 35px; 
-   text-align: left;
-}

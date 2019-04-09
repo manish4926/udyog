@@ -5,15 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Video;
 use App\Http\Controllers\Controller;
+use DB;
+use App\Search;
 use App\job_opening;
+
 
 class MainController extends Controller
 {
     public function index() {
-         $videos = Video::all();
+        //  $files = File::limit(6)->get();
+        // return view('main.index')->with('files',$files);
+         $videos = Video::limit(6)->get();
+         $directory=Search::orderBy('c_id')->limit(3)->get();
 
-         $jobs = job_opening::orderBy('job_id')->limit(10)->get();
-        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);
+          $jobs = job_opening::orderBy('job_id')->limit(5)->get();
+        return view('main.index',compact('directory','videos','jobs'));
+
+        
+//        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);
 //dd('hello');
         /*$videos = Video::orderBy('id','desc')->first();
         dd(json_decode($videos->upload)[0]->download_link);
@@ -24,7 +33,8 @@ class MainController extends Controller
         //$user = DB::table('files')->where('name', $name )->value('name'); 
         $video = Video::where('id', $request->id)
                         ->first();
+        $all = Video::limit(6)->get();
 
-        return view('video.video')->with('video',$video);
+        return view('video.video')->with('video',$video)->with('all',$all);
     }
 }

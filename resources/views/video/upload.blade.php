@@ -7,7 +7,7 @@
 
 	<div class="row">
 			<br>
-				<form action="{{ route('upload.file') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+				<form action="{{ route('uploadfile') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
 					{{ csrf_field() }}
 				<input type="file" name="videoFile">
 

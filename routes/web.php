@@ -10,14 +10,17 @@ Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone
 
 /*General/Main Controller*/
 
+
 Route::get('/', function () {
     return view('main.index');
 });
 
+Route::get('/puneet', function () {
+    return view('Footer.footer');
+});
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 
 /*Directory Listing*/
 Route::group(['prefix' => 'directory'], function () 
@@ -25,9 +28,15 @@ Route::group(['prefix' => 'directory'], function ()
     Route::get('/details',['as'=>'create','uses'=>'DirectoryController@create']);
     Route::post('/store',['as'=>'store','uses'=>'DirectoryController@store']);
 
-    Route::get('/livesearch',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
+    Route::get('/livesearch/{tag?}',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
 
+     /*   Route::get('/microweb', function () {
+        return view('microweb');
+    })->name('microwebsite');*/
+
+        
 });
+
 
 
 /*Job Controller*/
@@ -62,15 +71,17 @@ Route::get('/','MainController@index');
     Voyager::routes();
 });*/
 
+
+
 Route::get('file','VideoController@showUploadForm')->name('uploadfile');
-Route::post('file','FileController@storeFile');
+
+Route::post('file','VideoController@storeFile');
+
 
 /*Route::get('/','FileController@display');*/
 
 Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
     //return $name;
-
-
 
 /*Microsite*/
 Route::group(['prefix' => 'company'], function () 
@@ -78,8 +89,6 @@ Route::group(['prefix' => 'company'], function ()
     Route::get('/', function () {
         return view('main.index');
     });
+    Route::get('/microweb/{slug}',['as'=>'microwebsite','uses'=>'MicrowebController@microweb']);
 
-    Route::get('/microwebsite', function () {
-        return view('main.microwebsite');
-    });
 });

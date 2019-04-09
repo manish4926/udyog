@@ -222,7 +222,6 @@ input[type=submit]:hover {
       <input type="text" id="cno" name="cno">
       <br>
       <br>
-      <label for="cemail"> Email - Id </label>
       <input type="text" id="cemail" name="cemail">
       <br>
       <br>
@@ -245,22 +244,8 @@ input[type=submit]:hover {
      <!-- <label for="cuan"> Udyog Aadhar Number</label>
       <input type="text" id="cuan" name="cuan">
       <br>
+<<<<<<< HEAD
+      -->
       <br>
       <label for="crn"> Company Registration Number </label>
       <input type="text" id="crn" name="crn">
-      <br>
-      <br>
-      <label for="cgin"> GST Identification Number </label>
-      <input type="text" id="cgin" name="cgin">
-      <br>
-      <br> -->
-      <label for=""></label>
-      <input type="submit" name="submit" value="submit">
-  
-    </form>
-
-		
-  </div> 
-            </div>
-        </div>
-        @endsection
