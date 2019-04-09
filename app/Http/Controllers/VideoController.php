@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
-	
+
     public function showUploadForm()
     {
     	return view('video.upload');
@@ -19,7 +19,7 @@ class VideoController extends Controller
     public function storeFile(request $request)
     {
     	if($request->hasFile('videoFile'))
-    	{       
+    	{
     		$filename = $request->file('videoFile')->getClientOriginalName();
             $withoutExtFile = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);
 
@@ -32,8 +32,9 @@ class VideoController extends Controller
             $durationVid = $ffprobe->format('video/upload/'.$filename)->get('duration');
     		$file = new Video;
     		$file->name = $filename;
-    		$file->size = $filesize; 
+    		$file->size = $filesize;
             $file->duration = $durationVid;
+            $file->tags = $request->tags;
             $file->slug = hash('crc32',time());
             $file->thumbnail = $withoutExtFile.'.png';
     		$file->save();
@@ -43,7 +44,7 @@ class VideoController extends Controller
             // $ffprobe = \FFMpeg\FFProbe::create();
             // $durationVid = $ffprobe->format('storage/upload/'.$filename)->get('duration');
 
-            return 'done'; 
+            return 'done';
             // dd(floor($durationVid));
     	}
     	return $request->all();
