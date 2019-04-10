@@ -68,15 +68,8 @@ Route::group(['prefix' => 'job'], function ()
 /*Video Controller*/
 
 
-/*Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});*/
 
 
-
-Route::get('file','VideoController@showUploadForm')->name('uploadfile');
-
-Route::post('file','VideoController@storeFile');
 
 
 /*Route::get('/','FileController@display');*/
@@ -104,3 +97,29 @@ Route::group(['prefix' => 'company'], function ()
 
 Route::get('/companylogin','Auth\RegisterController@companyregister');
 Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
+//admin panel
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
+    Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
+
+    Route::get('/video/upload','VideoController@upload')->name('uploadfile');
+    Route::post('/video/upload','VideoController@storeFile');
+
+    Route::get('/video/all','VideoController@fetch')->name('videoall');
+    Route::get('/video/delete/{id}',[
+        'uses' => 'VideoController@delete',
+        'as' => 'video.delete'
+    ]);
+    Route::get('/video/update/{id}',[
+        'uses' => 'VideoController@update',
+        'as' => 'video.update'
+    ]);
+    Route::post('/video/save/{id}',[
+        'uses' => 'VideoController@save',
+        'as' => 'videosave'
+    ]);
+
+
+
+});

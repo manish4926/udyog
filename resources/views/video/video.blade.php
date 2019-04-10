@@ -4,7 +4,7 @@
 
 @section('content')
 
-   <div class="video-block section-padding">
+   <div class="container">
                   <div class="row">
                      <div class="col-md-8">
                         <div class="single-video-left">
