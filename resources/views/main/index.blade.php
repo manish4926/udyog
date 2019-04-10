@@ -37,11 +37,11 @@
 							<div class="row">
 							<div class="col-md-6 no-padding">
 								<div><i class="fa fa-map-marker-alt red"></i><span class="card-head-span"> {{ $list->block}} {{ $list->sector }} {{ $list->area}} </span></div>
-								@if(!empty($list->email))<div><i class="fa fa-envelope blue" style="color:grey"></i><span> {{ $list->email }}</span></div>@endif
-								@if(!empty($list->phoneno))<div><i class="fa fa-phone" style="color:grey"></i><span> {{ $list->phoneno }}</span></div>@endif
+								@if(!empty($list->email))<div><i class="fa fa-envelope blue" ></i><span> {{ $list->email }}</span></div>@endif
+								@if(!empty($list->phoneno))<div><i class="fa fa-phone green" ></i><span> {{ $list->phoneno }}</span></div>@endif
 							</div>
 							<div class="col-md-6 no-padding">
-								<a href="#" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm">Visit Site</a>
+								<a href="{{route('microwebsite', ['site'=> $list->slug ])}}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm"> Visit Site</a>
 							</div>
 							</div>
 						</div>

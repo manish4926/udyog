@@ -9,15 +9,8 @@ Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone
 
 
 /*General/Main Controller*/
+Route::get('/','MainController@index')->name('home');
 
-
-Route::get('/', function () {
-    return view('main.index');
-});
-
-
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 /*Directory Listing*/
 Route::group(['prefix' => 'directory'], function () 
@@ -25,7 +18,7 @@ Route::group(['prefix' => 'directory'], function ()
     Route::get('/details',['as'=>'create','uses'=>'DirectoryController@create']);
     Route::post('/store',['as'=>'store','uses'=>'DirectoryController@store']);
 
-    Route::get('/livesearch/{tag?}',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
+    Route::get('/industrylist/{tag?}',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
 
      /*   Route::get('/microweb', function () {
         return view('microweb');
@@ -62,7 +55,7 @@ Route::group(['prefix' => 'job'], function ()
 
 
 /*Video Controller*/
-Route::get('/','MainController@index');
+
 
 /*Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

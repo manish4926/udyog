@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Search;
-
+use App\MicrowebCompanyProduct;
+use App\MicrowebCompanyDetails;
+use App\MicrowebTestimonial;
 use DB;
 
 class MicrowebController extends Controller
@@ -15,8 +16,11 @@ class MicrowebController extends Controller
 
         if(!empty($request->slug))
         {
-            $sites = Search::where('slug',$request->slug)->first(); 
+            $companydetail = MicrowebCompanyDetails::where('slug',$request->slug)->first();
+            $companyproduct = MicrowebCompanyProduct::where('slug',$request->slug)->first();
+            $testimonials = MicrowebTestimonial::where('slug',$request->slug)->first(); 
         }
-        return view('microweb',compact('sites'));
+
+         return view('microweb',compact('companydetail','companyproduct','testimonials'));
     }
 }
