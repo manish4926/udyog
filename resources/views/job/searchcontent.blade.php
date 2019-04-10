@@ -17,10 +17,10 @@
           <div>
         <table align="center" border-spacing= "2px" bgcolor="" order-color= "gray">
           <tr>
-                <th>JOB TITLE</th>
-                <th>company name</th>
-                <th>hr name</th>
-                <th>experience</th>
+            <th>JOB TITLE</th>
+            <th>company name</th>
+            <th>hr name</th>
+            <th>experience</th>
             <th>Skills</th>
             <th>postdate</th>
             <th>expirydate</th>

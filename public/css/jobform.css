@@ -9,13 +9,12 @@
 	border-bottom-style: ridge; 
 }
 
-.text
-{
-	height: 60px;
-}
 
-label{
-	font-size: 25px;
+.form-group
+{
+	font-size: 20px;
+	font-family:  Monaco;
+	font-color: #fff;
 }
 
 .btn-primary

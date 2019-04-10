@@ -11,6 +11,17 @@ Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone
 /*General/Main Controller*/
 Route::get('/','MainController@index')->name('home');
 
+/*
+Route::get('/', function () {
+    return view('main.index');
+});*/
+
+Route::get('/puneet', function () {
+    return view('Footer.footer');
+});
+
+/*
+Route::get('/home', 'HomeController@index')->name('home');*/
 
 /*Directory Listing*/
 Route::group(['prefix' => 'directory'], function () 

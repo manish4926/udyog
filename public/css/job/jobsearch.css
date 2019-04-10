@@ -37,9 +37,9 @@
 }
 
 
-.row {
+/*.row {
   text-align:center;
-}
+}*/
 #jobsearch-form{
  min-width:375px;   
 }
@@ -300,7 +300,7 @@
   
 }
 .form-container select,option, input[type=text]:focus, .form-container input[type=password]:focus, .form-container input[type=email]:focus, .form-container input[type=tel]:focus, .form-container select{
-    background:#fff;
+  background:#fff;
   color:#777;
   border-left:0px;
   outline:none;
@@ -312,7 +312,6 @@
 
 .form-container select,option, input[type=text], .form-container input[type=password], .form-container input[type=email],input[type=tel], form-container select{
   width:calc(100% - 50px);
-  float:left;
   border-radius:0px;
   border:0px solid #ddd;
   padding:0px 9px;

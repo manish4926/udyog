@@ -9,12 +9,12 @@
       <meta name="author" content="Askbootstrap">
      <meta name="csrf-token" content="{{ csrf_token() }}">
       <title>@yield('title')</title>
-      
+
       <!-- Favicon Icon -->
       <link rel="icon" type="image/png" href="{{asset('/img/udyog_logo.png')}}">
       <!-- Bootstrap core CSS-->
       <!-- Custom styles for this template-->
-      <link href="/css/app.css" rel="stylesheet">
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
            @stack('topscript')
 
       <!-- Owl Carousel -->
@@ -22,24 +22,26 @@
       {{-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.theme.css"> --}}
 
       <script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
-</script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'hi', 
+            autoDisplay: false}, 'google_translate_element');
+      }
+      </script>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
    </head>
    <body >
       <div class='thetop'></div>
 
       <!-- TOP NAV BAR -->
-      
+
      @include('layout.nav')
+
 
       <!-- TOP NAV BAR END -->
 
 
-       <div id="wrapper">
+      <div id="wrapper">
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
             <li class="nav-item active">
@@ -54,7 +56,7 @@ function googleTranslateElementInit() {
                   <a class="dropdown-item" href="{{ route('application') }}">Application Form</a>
                </div>
             </li>
-            
+
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
                <div class="dropdown-menu">
@@ -68,27 +70,27 @@ function googleTranslateElementInit() {
             <li class="nav-item">
                <a class="nav-link" href="{{route('IndustryList')}}">Directory</a>
             </li>
-         
-         </li>
-         <li class="nav-item">
+
+
+            <li class="nav-item">
                <a class="nav-link" href="#">Current affairs</a>
                </li>
-         
+
                <li class="nav-item">
                <a class="nav-link" href="#">Training's</a>
                </li>
-         
-            </a>
+
+
             <li class="nav-item">
                <a class="nav-link" href="#">Current Law Affecting Industry</a>
                </li>
-         
-         </li>
-         <li class="nav-item">
+
+
+            <li class="nav-item">
                <a class="nav-link" href="#">Labour Laws</a>
                </li>
-         
-         <li class="nav-item">
+
+            <li class="nav-item">
                <a class="nav-link" href="#">taxation</a>
                 </li>
                <li class="nav-item">
@@ -106,42 +108,44 @@ function googleTranslateElementInit() {
                <li class="nav-item">
                <a class="nav-link" href="#">How to grow business</a>
                </li>
-               <li class="nav-item">
+               <li class="nav-item">x
                <a class="nav-link" href="#">Registerations & Arade Marks</a></li>
                </ul>
 
          <!-- SIDE NAV BAR SHOULD END HERE!!!! -->
 
          <div id="content-wrapper">
-            <div class="container-fluid pb-0">
+            <div class="container-fluid pb-0" id="manish-test">
                @yield('content')
                @include('partials.content-divider')
             </div>
          </div>
          <!-- /.container-fluid -->
+                 @include('layout.footer')
 
-         <!-- /.container-fluid -->  
-   </div>
 
+         <!-- /.container-fluid -->
+      </div>
          <!-- SIDE NAV BAR END -->
 
 
          <!-- /#wrapper -->
+
          <!-- Scroll to Top Button-->
 
       <div class='scrolltop'>
-          <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:red"></i>
+          <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:white"></i>
       </div>
-      
+
       <script type="text/javascript" src="/js/app.js"></script>
       @stack('bottomscript')
+
    </body>
-   
+
 
   <!-- <div class='scrolltop'>
       <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
    </div>
    <script type="text/javascript" src="/js/app.js"></script>
-   @stack('bottomscript')
-</body>-->
+   ody>-->
 </html>
