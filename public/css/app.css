@@ -18156,6 +18156,29 @@ h6 {
   width: 100%;
 }
 
+#wrapper {
+  margin-top: 150px;
+}
+
+.sticky-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+}
+
+.google-language-box {
+  height: 27px;
+  background-color: #fafafa;
+}
+
+.google-language-box #google_translate_element {
+  float: right;
+  display: block;
+  text-align: right;
+  height: 27px;
+}
+
 .white-card {
   background: #fff;
   display: block;
@@ -18208,9 +18231,14 @@ h6 {
 }
 
 .scroll {
-  padding: 10px;
-  background-color: blue;
+  /* padding: 10px; */
+  padding: 10px 13px;
+  background-color: rgba(178, 178, 178, 0.5);
   border-radius: 50%;
+}
+
+.scroll:hover {
+  background: darkblue;
 }
 
 .no-padding {
@@ -18232,7 +18260,7 @@ h6 {
   border-right: 8px solid #ff0000;
   border-bottom: 0px solid #ff0000;
   border-left: 8px solid #ff0000;
-  margin-top: 2px;
+  /* margin-top: 2px; */
   display: block;
   color: #ff0000;
   font-weight: bold;
@@ -18248,6 +18276,10 @@ h6 {
 .blue {
   color: blue;
 }
+
+
+.green {
+  color: #008000;
 
 /*Footer*/
 
@@ -18357,6 +18389,7 @@ body {
 #myFooter {
   flex: 0 0 auto;
   -webkit-flex: 0 0 auto;
+>>>>>>> 1de97654505faa837af33a4fab8d07586dbcfcc4
 }
 
 .navbar-laravel {

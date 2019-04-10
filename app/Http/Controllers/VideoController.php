@@ -23,7 +23,7 @@ class VideoController extends Controller
     public function storeFile(request $request)
     {
     	if($request->hasFile('videoFile'))
-    	{       
+    	{
     		$filename = $request->file('videoFile')->getClientOriginalName();
             $withoutExtFile = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);
 
@@ -42,6 +42,7 @@ class VideoController extends Controller
             $file->tags = $request->tags;
     		$file->size = $filesize;
             $file->duration = $durationVid;
+            $file->tags = $request->tags;
             $file->slug = hash('crc32',time());
             $file->thumbnail = $withoutExtFile.'.png';
     		$file->save();
@@ -51,7 +52,7 @@ class VideoController extends Controller
             // $ffprobe = \FFMpeg\FFProbe::create();
             // $durationVid = $ffprobe->format('storage/upload/'.$filename)->get('duration');
 
-            return 'done'; 
+            return 'done';
             // dd(floor($durationVid));
     	}
     	return $request->all();

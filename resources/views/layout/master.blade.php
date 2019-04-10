@@ -9,13 +9,13 @@
       <meta name="author" content="Askbootstrap">
      <meta name="csrf-token" content="{{ csrf_token() }}">
       <title>@yield('title')</title>
-      
+
       <!-- Favicon Icon -->
       <link rel="icon" type="image/png" href="{{asset('/img/udyog_logo.png')}}">
       <!-- Bootstrap core CSS-->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <!-- Custom styles for this template-->
-      <link href="/css/app.css" rel="stylesheet">
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
            @stack('topscript')
 
       <!-- Owl Carousel -->
@@ -24,7 +24,8 @@
 
       <script type="text/javascript">
       function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'hi', 
+            autoDisplay: false}, 'google_translate_element');
       }
       </script>
 
@@ -34,7 +35,7 @@
       <div class='thetop'></div>
 
       <!-- TOP NAV BAR -->
-      
+
      @include('layout.nav')
 
 
@@ -56,7 +57,7 @@
                   <a class="dropdown-item" href="{{ route('application') }}">Application Form</a>
                </div>
             </li>
-            
+
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
                <div class="dropdown-menu">
@@ -70,26 +71,26 @@
             <li class="nav-item">
                <a class="nav-link" href="{{route('IndustryList')}}">Directory</a>
             </li>
-         
-         
+
+
             <li class="nav-item">
                <a class="nav-link" href="#">Current affairs</a>
                </li>
-         
+
                <li class="nav-item">
                <a class="nav-link" href="#">Training's</a>
                </li>
-         
-            
+
+
             <li class="nav-item">
                <a class="nav-link" href="#">Current Law Affecting Industry</a>
                </li>
-         
-         
+
+
             <li class="nav-item">
                <a class="nav-link" href="#">Labour Laws</a>
                </li>
-         
+
             <li class="nav-item">
                <a class="nav-link" href="#">taxation</a>
                 </li>
@@ -121,26 +122,27 @@
             </div>
          </div>
          <!-- /.container-fluid -->
+                 @include('layout.footer')
 
-         <!-- /.container-fluid -->  
+
+         <!-- /.container-fluid -->
       </div>
-   </div>
          <!-- SIDE NAV BAR END -->
-      
+
 
          <!-- /#wrapper -->
-      @include('layout.footer')
+
          <!-- Scroll to Top Button-->
 
       <div class='scrolltop'>
-          <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:red"></i>
+          <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:white"></i>
       </div>
 
       <script type="text/javascript" src="/js/app.js"></script>
       @stack('bottomscript')
-      
+
    </body>
-   
+
 
   <!-- <div class='scrolltop'>
       <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
