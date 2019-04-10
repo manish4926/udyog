@@ -90,7 +90,7 @@ class RegisterController extends Controller
         $thisUser = User::findOrFail($user->id);
 
 
-        $this->sendEmail($thisUser);
+        //$this->sendEmail($thisUser);
     }
 
     public function sendEmail($thisUser)

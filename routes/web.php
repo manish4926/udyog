@@ -83,6 +83,13 @@ Route::post('file','VideoController@storeFile');
 Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
     //return $name;
 
+/*Company Admin */
+Route::group(['prefix' => 'company/panel'], function () 
+{
+    
+    Route::get('/',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
+
+});
 /*Microsite*/
 Route::group(['prefix' => 'company'], function () 
 {

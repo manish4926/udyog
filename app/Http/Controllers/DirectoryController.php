@@ -89,7 +89,6 @@ class DirectoryController extends Controller
         }
         */
 
-
         $industry_type  = industry_type();
 
         $business_type = business_type();
