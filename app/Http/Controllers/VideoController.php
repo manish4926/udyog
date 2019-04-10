@@ -10,10 +10,14 @@ use Illuminate\Http\Request;
 class VideoController extends Controller
 {
 	
-    public function showUploadForm()
+    public function dashboard()
     {
-    	return view('video.upload');
-    	// return $request->all();
+    	return view('admin.dashboard');
+    }
+
+    public function upload(request $request)
+    {
+    	return view('admin.upload');
     }
 
     public function storeFile(request $request)
@@ -31,8 +35,12 @@ class VideoController extends Controller
             $ffprobe = \FFMpeg\FFProbe::create();
             $durationVid = $ffprobe->format('video/upload/'.$filename)->get('duration');
     		$file = new Video;
-    		$file->name = $filename;
-    		$file->size = $filesize; 
+            $file->name = $filename;
+            $file->title = $request->title;
+            $file->description = $request->description;
+            $file->category = $request->category;
+            $file->tags = $request->tags;
+    		$file->size = $filesize;
             $file->duration = $durationVid;
             $file->slug = hash('crc32',time());
             $file->thumbnail = $withoutExtFile.'.png';
@@ -48,4 +56,37 @@ class VideoController extends Controller
     	}
     	return $request->all();
     }
+
+    public function fetch()
+    {
+        $videos = Video::all();
+
+    	return view('admin.fetch')->with('videos',$videos);
+    }
+
+    public function delete($id)
+    {
+        $video = Video::find($id);
+        $video->delete();
+
+    	return redirect()->back();
+    }
+
+    public function update($id)
+    {
+        $video = Video::find($id);
+
+    	return view('admin.update')->with('video',$video);
+    }
+
+    public function save(Request $request, $id)
+    {
+        $video = Video::find($id);
+        $video->title = $request->title;
+        $video->description = $request->description;
+        $video->tags = $request->tags;
+        $video->save();
+        return redirect()->route('videoall');
+    }
+
 }

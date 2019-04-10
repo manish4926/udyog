@@ -1,14 +1,11 @@
 @extends('layout.master')
 
-<<<<<<< HEAD
+
 @section('title',preg_replace('/\\.[^.\\s]{3,4}$/', '', $video->name))
-=======
-@section('title','BCI - Bhawana Chamber of Industries')
->>>>>>> 0a8386b4a65ee1e3368eb9af5fd37d70b14fd23c
 
 @section('content')
 
-   <div class="video-block section-padding">
+   <div class="container">
                   <div class="row">
                      <div class="col-md-8">
                         <div class="single-video-left">
