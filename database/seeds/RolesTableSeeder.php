@@ -29,12 +29,7 @@ class RolesTableSeeder extends Seeder
             'name' => 'General User',
             'description' => '',
         	]);
-        	 DB::table('roles')->insert(
-            [
-
-            'name' => 'Employee',
-            'description' => '',
-        	]);
+        	 
     
                                                                                                                                                                                                                                                                                
     

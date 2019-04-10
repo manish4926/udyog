@@ -36589,11 +36589,12 @@ __webpack_require__.r(__webpack_exports__);
   "use strict"; // Start of use strict
   // Toggle the side navigation
 
-  $(document).on('click', '#sidebarToggle', function (e) {
-    e.preventDefault();
-    $("body").toggleClass("sidebar-toggled");
-    $(".sidebar").toggleClass("toggled");
-  }); // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
+  /*$(document).on('click', '#sidebarToggle', function(e) {
+   e.preventDefault();
+   $("body").toggleClass("sidebar-toggled");
+   $(".sidebar").toggleClass("toggled");
+  });*/
+  // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
 
   $('body.fixed-nav .sidebar').on('mousewheel DOMMouseScroll wheel', function (e) {
     if ($window.width() > 768) {
@@ -36689,7 +36690,7 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/lib/loader.js):\n\r\n>>>>>>> 1de97654505faa837af33a4fab8d07586dbcfcc4\r\n                                               ^\r\n      Expected \"{\".\n    ╷\n247 │ >>>>>>> 1de97654505faa837af33a4fab8d07586dbcfcc4\r\n    │                                                 ^\n    ╵\n  resources\\sass\\_style.scss 247:49  root stylesheet\n  stdin 22:9                         root stylesheet\r\n      in C:\\xampp\\htdocs\\BCI_UdyogTv-master\\resources\\sass\\_style.scss (line 247, column 49)\n    at runLoaders (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\webpack\\lib\\NormalModule.js:301:20)\n    at C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at render (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass-loader\\lib\\loader.js:52:13)\n    at Function.$2 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:24106:48)\n    at w6.$2 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:15161:15)\n    at u6.v7 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:9031:42)\n    at u6.v6 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:9033:32)\n    at ik.uh (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8373:46)\n    at tF.$0 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8515:7)\n    at Object.ex (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:1532:80)\n    at aj.bb (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8436:3)\n    at iz.bb (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8366:25)\n    at iz.cA (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8353:6)\n    at p8.cA (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8143:35)\n    at Object.n (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:1405:19)\n    at C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:5110:51\n    at ww.a (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:1416:71)\n    at ww.$2 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8158:23)\n    at v9.$2 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8153:25)\n    at u6.v7 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:9031:42)\n    at u6.v6 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:9033:32)\n    at ik.uh (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8373:46)\n    at tF.$0 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8515:7)\n    at Object.ex (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:1532:80)\n    at aj.bb (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8436:3)\n    at iz.bb (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8366:25)\n    at iz.cA (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8353:6)\n    at Object.eval (eval at BU (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:656:15), <anonymous>:3:37)\n    at u6.v7 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:9031:42)\n    at u6.v6 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:9033:32)\n    at ik.uh (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8373:46)\n    at tF.$0 (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8515:7)\n    at Object.ex (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:1532:80)\n    at aj.bb (C:\\xampp\\htdocs\\BCI_UdyogTv-master\\node_modules\\sass\\sass.dart.js:8436:3)");
 
 /***/ }),
 

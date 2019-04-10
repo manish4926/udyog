@@ -31,17 +31,19 @@
 					<div class="col-md-8 px-3">
 						<div class="card-block card-info">
 							<h4 class="card-title"><a href="#"> {{ ucfirst($list->cname) }} </a></h4>
-							<a href="#" class="btn btn-link"><u>{{ $list->material }}</u></a>
+							{{-- <span class="badge badge-light"><a href="">{{ $list->material }}</a></span> --}}<a href="#" class="btn btn-link"><u>{{ $list->material }}</u></a>
 							<div class="card-desc">Approx 3 Lines of Text</div>
 							<hr>
+							<div class="col-md-12">
 							<div class="row">
 							<div class="col-md-6 no-padding">
 								<div><i class="fa fa-map-marker-alt red"></i><span class="card-head-span"> {{ $list->block}} {{ $list->sector }} {{ $list->area}} </span></div>
-								@if(!empty($list->email))<div><i class="fa fa-envelope blue" style="color:grey"></i><span> {{ $list->email }}</span></div>@endif
-								@if(!empty($list->phoneno))<div><i class="fa fa-phone" style="color:grey"></i><span> {{ $list->phoneno }}</span></div>@endif
+								@if(!empty($list->email))<div><i class="fa fa-envelope blue" ></i><span> {{ $list->email }}</span></div>@endif
+								@if(!empty($list->phoneno))<div><i class="fa fa-phone green" ></i><span> {{ $list->phoneno }}</span></div>@endif
 							</div>
 							<div class="col-md-6 no-padding">
-								<a href="#" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm">Visit Site</a>
+								<a href="{{route('microwebsite', ['site'=> $list->slug ])}}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm"> Visit Site</a>
+							</div>
 							</div>
 							</div>
 						</div>
@@ -59,28 +61,38 @@
 			@foreach($jobs as $job_opening)
 
 			<div class="row">
-				<div class="col-12 mt-3">
+				<div class="col-12">
 					<div class="card">
-						<div class="card-horizontal">
+						<div class="">
 							<div class="card-body">
-								<h4 class="card-title"><i class="fas fa-bolt red"></i> {{ ucfirst($job_opening->job_title) }}</h4>
-								<h3>Company: <a href="#">{{ ucfirst($job_opening->company_name) }}</a> </h3>
-								<h5><p class="fas fa-file-alt"></p>{{$job_opening->job_desc}}</h5>
-								<p class="fas fa-archive">{{$job_opening->experience}}</p>
-								<p class="fa fa-map-marker" style="float:right">{{$job_opening->location}}</p>
-								<p class="fas fa-pen" style="float:left">{{$job_opening->skills}}</p> 
+								<div class="row">
+									<div class="col-md-8">
+										<h5 class="card-title"><i class="fas fa-bolt red"></i> <a href="#">{{ ucfirst($job_opening->job_title) }}</a></h5>
+										<p>Company: <a href="#"><u>{{ ucfirst($job_opening->company_name) }}</u></a> </p>
+										<p>{{ $job_opening->job_desc }} Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+									</div>
+									<div class="col-md-4">
+										<img src="{{ asset('img/udyog_logo.png') }}" style="width: 100px; float: right; position: absolute; right: 20px; margin-top: -10px;">
+									</div>
+									<div class="col-md-4">
+										<p><i class="fas fa-pen"></i> Skills: {{$job_opening->skills}}</p> 
+									</div>
+									<div class="col-md-8">
+										<p><i class="fas fa-archive"></i> Experience: {{$job_opening->experience}}</p> 
+									</div>
+									<div class="col-md-4">
+										<p><i class="fas fa-map-marker"></i> Location: {{$job_opening->location}}</p> 
+									</div>
+									<div class="col-md-8">
+										<p><i class="fas fa-rupee-sign"></i> Package: {{$job_opening->package}}</p> 
+									</div>
+								</div>
 							</div>
-
-						</div>
-						<div class="card-footer">
-							<span class ="glyphicon glyphicon-user">
-								<p class="fas fa-rupee-sign">{{$job_opening->package}}</p> 
-								<small class="fas fa-user" style="float:right">{{$job_opening->hr_name}}</small>
-							</span>
 						</div>
 					</div>
 				</div>
 			</div>
+
 			@endforeach	 
 			{{--Latest Jobs End--}}
 			
@@ -111,6 +123,7 @@
 
 								<div class="time">{{sprintf('%02d:%02d',($file->duration/60%60), $file->duration%60)}}</div>
 							</div>
+
 							<div class="video-card-body">
 								<div class="video-title">
 									<a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}">{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $file->name) }}</a>
