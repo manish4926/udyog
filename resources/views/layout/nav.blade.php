@@ -1,9 +1,10 @@
+<div class="sticky-header">
+  <div class="google-language-box">
+  <div id="google_translate_element"></div>
 
-  <div id="google_translate_element" style="height: 27px;
-    float: right; display: block; text-align: right"></div>
     <div class="clearfix"></div>
-
-<nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
+</div>
+<nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav">
 
          <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
          <i class="fas fa-bars"></i>
@@ -21,8 +22,9 @@
                  </button>
 
                </div>
+
             </div>
-    </form>
+          </form>
     
         @if (Route::has('login'))
     <div class="top-right links">
@@ -38,8 +40,9 @@
     @endif     
 
 </nav>
-{{-- <div class="marquee-message">
+<div class="marquee-message">
   <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
     Flash Message: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
   </marquee>
-</div> --}}
+</div>
+</div>

@@ -91,8 +91,12 @@ class RegisterController extends Controller
 
         $thisUser = User::findOrFail($user->id);
 
+<<<<<<< HEAD
 
-        $this->sendEmail($thisUser);
+=======
+        return redirect()->route('home');
+>>>>>>> 2c67432518c4e3e23cab6b951d54ef824d784cde
+        //$this->sendEmail($thisUser);
     }
 
     public function sendEmail($thisUser)

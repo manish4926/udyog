@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use DB;
-use App\Search;
+use App\Directory;
 
 class DirectoryController extends Controller
 {
@@ -51,6 +51,7 @@ class DirectoryController extends Controller
     //******* For showing list of industries ********/
     function index(Request $request)
     {
+<<<<<<< HEAD
         $search=Search::orderBy('c_id');//get data from table
         /*      if(!empty($request->material))
         {
@@ -90,7 +91,10 @@ class DirectoryController extends Controller
         }
         */
 
-
+=======
+        $search=Directory::orderBy('c_id');//get data from table
+   
+>>>>>>> 2c67432518c4e3e23cab6b951d54ef824d784cde
         $industry_type  = industry_type();
 
         $business_type = business_type();
@@ -134,7 +138,7 @@ class DirectoryController extends Controller
         //$search = $search->paginate(5);
         //dd($request->material);
 
-        $materials=Search::whereNotNull('material')->groupBy('material')->get();
+        $materials=Directory::whereNotNull('material')->groupBy('material')->get();
         //******* search for material tags in cards *************
         if(!empty($request->tag))
         {
@@ -147,24 +151,13 @@ class DirectoryController extends Controller
 
 
 
-        $materials=Search::where('material','!=','')->groupBy('material')->get();
+        $materials=Directory::where('material','!=','')->groupBy('material')->get();
         //dd($materials);
-        $sectors=Search::whereNotNull('sector')->groupBy('sector')->get();
-        $areas=Search::whereNotNull('area')->groupBy('area')->get();
-        $companys=Search::whereNotNull('cname')->get();
-        //dd($select);
-        //$sectorlist = Search::->groupBy('browser')->get();
-        return view('directory.livesearch',compact('search','materials','sectors','areas','companys','industry_type','business_type'));//sent data to view
+        $sectors=Directory::whereNotNull('sector')->groupBy('sector')->get();
+        $areas=Directory::whereNotNull('area')->groupBy('area')->get();
+        $companys=Directory::whereNotNull('cname')->get();
+
+        return view('directory.industrylist',compact('search','materials','sectors','areas','companys','industry_type','business_type'));//sent data to view
     }
 
-
-    function microweb(Request $request)
-    {
-
-        if(!empty($request->slug))
-        {
-            $sites = Search::where('slug',$request->slug)->first(); 
-        }
-        return view('microweb',compact('sites'));
-    }
 }

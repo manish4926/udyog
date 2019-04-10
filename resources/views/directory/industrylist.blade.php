@@ -45,9 +45,9 @@
 							<hr>
 							<div class="row">
 							<div class="col-md-6 no-padding">
-								<div><i class="fa fa-map-marker-alt"></i><span class="card-head-span"> {{ $set->block}} {{ $set->sector }} {{ $set->area}} </span></div>
-								@if(!empty($set->email))<div><i class="fa fa-envelope"></i><span> {{ $set->email }}</span></div>@endif
-								@if(!empty($set->phoneno))<div><i class="fa fa-phone"></i><span> {{ $set->phoneno }}</span></div>@endif
+								<div><i class="fa fa-map-marker-alt red"></i><span class="card-head-span"> {{ $set->block}} {{ $set->sector }} {{ $set->area}} </span></div>
+								@if(!empty($set->email))<div><i class="fa fa-envelope blue"></i><span> {{ $set->email }}</span></div>@endif
+								@if(!empty($set->phoneno))<div><i class="fa fa-phone green"></i><span> {{ $set->phoneno }}</span></div>@endif
 							</div>
 							<div class="col-md-6 no-padding">
 								<a href="{{route('microwebsite', ['site'=> $set->slug ])}}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm"> Visit Site</a>
