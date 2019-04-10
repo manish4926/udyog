@@ -18,11 +18,12 @@ class DirectoryController extends Controller
     public function store(Request $request)
     {
         $validation= $request->validate( [
-            'name' => 'required|max:100|string',
-            'ename' => 'required|max:100|string',
-            'cno' => 'required|min:10|max:12|numeric',
-            'cemail' => 'required|max:50|email',
-            'caddress' => 'required|max:150|string'
+            'c_name' => 'required|max:50|string',
+            'c_emp' => 'required|max:20|string',
+         
+            'c_email' => 'required|max:50|email',
+            'c_address' => 'required|max:150|string',
+            'c_password' => ['required', 'string', 'min:8', 'confirmed'],
             /*'cuan' => 'required|max:12|min:12|alpha_num',
             'crn' => 'required|max:8|min:8|alpha_num',
             'cgin' => 'required|max:15|min:15|alpha_num'*/
@@ -31,17 +32,17 @@ class DirectoryController extends Controller
         // print_r($validation);
 
         if($validation->true){}
-            $c_name = $request->input('name');
-        $c_emp = $request->input('cemp');
-        $c_no = $request->input('cno');
-        $c_email = $request->input('cemail');
-        $c_address = $request->input('caddress');
-        $slug = seoUrl($request->input('name'));
+            $c_name = $request->input('companyname');
+        $c_emp = $request->input('directorname');
+        $c_email = $request->input('companyemail');
+        $c_address = $request->input('companyaddress');
+        $c_password => Hash::make($data['password']),
+                
         /*  $c_uan = $request->input('cuan');
         $c_rn = $request->input('crn');
         $c_gin = $request->input('cgin');*/
 
-        $data = array('cname'=>$c_name, 'slug' => $slug,'cemp'=>$c_emp,'phoneno'=>$c_no,'email'=>$c_email ,'Address'=>$c_address);
+        $data = array('cname'=>$c_name,'cemp'=>$c_emp,'email'=>$c_email ,'Address'=>$c_address,'password'=>$c_password);
 
         DB::table('cdetails')->insert($data);
         echo "Record inserted successfully.<br/>";

@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 
 /*Authentication Controller*/
@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/puneet', function () {
-    return view('Footer.footer');
+    return view('auth.companylogin');
 });
 
 
@@ -92,3 +92,7 @@ Route::group(['prefix' => 'company'], function ()
     Route::get('/microweb/{slug}',['as'=>'microwebsite','uses'=>'MicrowebController@microweb']);
 
 });
+
+
+Route::get('/companylogin','Auth\RegisterController@companyregister');
+Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
