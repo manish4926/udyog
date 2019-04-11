@@ -22,10 +22,11 @@
                            <div class="single-video-info-content box mb-3 text-justify ">
 
                             <p>
-                              <h5 class="display-5">Keywords: </h5>
+                              <span style="font-size: 20px;">Keywords: </span>
                               @foreach(json_decode($video->tags) as $tags)
                                 <span class="badge badge-secondary badge-pill" style="font-size: 14px;">{{ $tags->value }}</span>
                               @endforeach
+                              <br>
                               <br>
 
 

@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Footer with social icons</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/css/app.css" rel="stylesheet">
-</head>
-
-<body>
 <div class="content">
 </div>
-    <footer id="myFooter">
+    <footer style="position: fixed;" id="myFooter">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 myCols">
@@ -29,11 +18,11 @@
                         <li><a href="#">T&C</a></li>
                         <li><a href="#">Company login</a></li>
                         <li><a href="#">FAQ</a></li>
-                        
+
                     </ul>
                 </div>
                 <div class="col-sm-4 myCols">
-       
+
                     <h5>Contact us</h5>
 
             <div class="social-networks">
@@ -44,7 +33,7 @@
             <a href="#" class="Google"><i class="fab fa-google"></i></a>
         </ul>
         </div>
-            
+
                     <!--<ul>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Help desk</a></li>
@@ -70,4 +59,3 @@
     </footer>
 </body>
 
-</html>
