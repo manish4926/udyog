@@ -26,7 +26,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
      *
     * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -37,4 +37,4 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
     {
         $this->middleware('guest')->except('logout');
     }
-}
+    }

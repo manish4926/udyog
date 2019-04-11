@@ -8,10 +8,10 @@
         <!-- For Resposive Device -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>{{$sites->cname}}</title>
+        <title>{{$companydetail->companyname}}</title>
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
+        <link rel="icon" type="image/png" sizes="56x56" href="{{ asset( 'microweb/images/fav-icon/icon.png') }}">
 
         <!-- Main style sheet -->
         <link rel="stylesheet" type="text/css" href="{{ asset('microweb/style.css') }}">
@@ -102,7 +102,7 @@
                                         data-splitout="none" 
                                         data-responsive_offset="on" 
                                         style="z-index: 6; white-space: nowrap;">
-                                        <h1>{{$sites->cname}}</h1>
+                                        <h1>{{$companydetail->companyname}}</h1>
                                     </div>
 
                                     <!-- LAYER NR. 2 -->
@@ -126,6 +126,8 @@
                                         <h6></h6>
                                     </div>
 
+                                    <-- LAYER NR. 3 -->
+                        -->
                                     <!-- LAYER NR. 3 -->
                                     <div class="tp-caption"
                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -185,7 +187,7 @@
                                         data-splitout="none" 
                                         data-responsive_offset="on" 
                                         style="z-index: 6; white-space: nowrap;">
-                                        <h1>{{$sites->cname}}</h1>
+                                        <h1>{{$companydetail->companyname}}</h1>
                                     </div>
 
                                     <!-- LAYER NR. 2 -->
@@ -209,6 +211,7 @@
                                         <h6></h6>
                                     </div>
 
+                                    <-- LAYER NR. 3 -->
                                     <!-- LAYER NR. 3 -->
                                     <div class="tp-caption"
                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -251,7 +254,7 @@
                                         data-splitout="none" 
                                         data-responsive_offset="on" 
                                         style="z-index: 6; white-space: nowrap;">
-                                        <h1>{{$sites->cname}}</h1>
+                                        <h1>{{$companydetail->companyname}}</h1>
                                     </div>
 
                                     <!-- LAYER NR. 2 -->
@@ -275,8 +278,9 @@
                                         <h6></h6>
                                     </div>
 
+                                    <-- LAYER NR. 3 -->
                                     <!-- LAYER NR. 3 -->
-                                    <div class="tp-caption"
+\                                    <div class="tp-caption"
                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
                                         data-y="['middle','middle','middle','middle']" data-voffset="['52','185','185','105']"
                                         data-transform_idle="o:1;"
@@ -306,8 +310,8 @@
             <section id="about-us">
                 <div class="container">
                     <div class="theme-title">
-                        <h2>ABOUT {{$sites->cname}}</h2>
-                        <p>{{$sites->cname}} Products was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings. The products we manufacture are in compliance with industry laid norms and guidelines. We take into consideration all the technical details provided to us by our clients while fabricating these products.</p>
+                        <h2>ABOUT {{$companydetail->companyname}}</h2>
+                        <p>{{$companydetail->companyname}} Products was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings. The products we manufacture are in compliance with industry laid norms and guidelines. We take into consideration all the technical details provided to us by our clients while fabricating these products.</p>
                     </div> <!-- /.theme-title -->
 
                     <div class="row">
@@ -634,7 +638,7 @@
                         <div class="float-left">
                             <div class="single-team-member">
                                 <div class="img">
-                                    <img src="images/team/1.jpg" alt="Image">
+                                    <img src="{{ asset('microweb/images/team/1.jpg') }}" alt="Image">
                                     <div class="opacity tran4s">
                                         <h4>Sant Kumar Sharma</h4>
                                         <span>CEO</span>
@@ -663,7 +667,8 @@
                                         <span>Media Partner</span>
                                         <p>On the other hand, We denounce ut with righteo indignation and dislike men who are so beguiled and demoralized.</p>
                                     </div>
-                                </div> <!-- /.img -->
+                                </div> <-- /.img -->
+                                </div> --><!-- /.img -->
             <!--                    <div class="member-name">
                                     <h6>Holly Vincenzini</h6>
                                     <p>Media Partner</p>
@@ -673,7 +678,8 @@
                                         <li><a href="#" class="tran3s round-border"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
                                         <li><a href="#" class="tran3s round-border"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                     </ul>
-                                </div> <!-- /.member-name -->
+                                </div> <-- /.member-name -->
+                                </div> --><!-- /.member-name -->
                             </div> <!-- /.single-team-member -->
                         </div> <!-- /float-left -->
 <!--
@@ -686,7 +692,8 @@
                                         <span>Graphic Design</span>
                                         <p>On the other hand, We denounce ut with righteo indignation and dislike men who are so beguiled and demoralized.</p>
                                     </div>
-                                </div> <!-- /.img -->
+                                </div> <-- /.img -->
+                                </div> --><!-- /.img -->
         <!--                        <div class="member-name">
                                     <h6>Ramirez Minita</h6>
                                     <p>Graphic Design</p>
@@ -696,7 +703,8 @@
                                         <li><a href="#" class="tran3s round-border"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
                                         <li><a href="#" class="tran3s round-border"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                     </ul>
-                                </div> <!-- /.member-name -->
+                                </div> <-- /.member-name -->
+                                </div> --><!-- /.member-name -->
                             </div> <!-- /.single-team-member -->
                         </div> <!-- /float-left -->
                     </div> <!-- /.team-member-wrapper -->
@@ -766,7 +774,7 @@
                                             </div>
                                         </div>
                                     </div> <!- /.codeconSkills -->
-                            <   </div> <!-- /.habilidades_contenedor -->
+                               </div> <!-- /.habilidades_contenedor -->
                             </div> <!-- /.skills-progress -->
                         </div>
                     </div> <!-- /.clear-fix -->
@@ -788,17 +796,17 @@
 
                     <div class="client-slider">
                         <div class="item">
-                            <img src="images/home/c1.jpg" alt="Client">
+                            <img src="{{ asset('microweb/images/home/c1.jpg') }}" alt="Client">
                             <p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
                             <h6>- Spryte Loriano -</h6>
                         </div> <!-- /.item -->
                         <div class="item">
-                            <img src="images/home/c2.jpg" alt="Client">
+                            <img src="{{ asset('microweb/images/home/c2.jpg') }}" alt="Client">
                             <p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
                             <h6>- Spryte Loriano -</h6>
                         </div> <!-- /.item -->
                         <div class="item">
-                            <img src="images/home/c3.jpg" alt="Client">
+                            <img src="{{ asset('microweb/images/home/c3.jpg') }}" alt="Client">
                             <p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
                             <h6>- Spryte Loriano -</h6>
                         </div> <!-- /.item -->
@@ -830,7 +838,8 @@
                                     <li>24/7 Support</li>
                                 </ul>
                                 <a href="#" class="tran3s p-color-bg">BUY IT NOW</a>
-                            </div> <!-- /.single-price-table -->
+                            </div> <-- /.single-price-table -->
+                            </div>--> <!-- /.single-price-table -->
                         </div> <!-- /.col -->
 <!--
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -846,7 +855,8 @@
                                     <li>24/7 Support</li>
                                 </ul>
                                 <a href="#" class="tran3s p-color-bg">BUY IT NOW</a>
-                            </div> <!-- /.single-price-table -->
+                            </div> <-- /.single-price-table -->
+                            </div>--> <!-- /.single-price-table -->
                         </div> <!-- /.col -->
 <!--
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -862,7 +872,8 @@
                                     <li>24/7 Support</li>
                                 </ul>
                                 <a href="#" class="tran3s p-color-bg">BUY IT NOW</a>
-                            </div> <!-- /.single-price-table -->
+                            </div> <-- /.single-price-table -->
+                            </div>--> <!-- /.single-price-table -->
                         </div> <!-- /.col -->
                     </div>
                 </div> <!-- /.container -->
@@ -880,20 +891,23 @@
                     <div class="theme-title">
                         <h2>OUR LATEST Blog</h2>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
-                    </div> <!-- /.theme-title -->
+                    </div> <-- /.theme-title -->
+                    </div> --><!-- /.theme-title -->
 <!--
                     <div class="clear-fix">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="single-news-item">
                                 <div class="img"><img src="images/blog/1.jpg" alt="Image">
                                     <a href="blog-details.html" class="opacity tran4s"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                </div> <!-- /.img -->
+                                </div> <-- /.img -->
+                                </div>--> <!-- /.img -->
 <!--
                                 <div class="post">
                                     <h6><a href="blog-details.html" class="tran3s">Playback: Akufo-Addo speaks to business community</a></h6>
                                     <a href="blog-details.html">Posted by <span class="p-color">admin</span>  at 04 Feb, 2017</a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna sed accumsan... <a href="blog-details.html" class="tran3s">Read More</a></p>
-                                </div> <!-- /.post -->
+                                </div> <-- /.post -->
+                                </div>--> <!-- /.post -->
                             </div> <!-- /.single-news-item -->
                         </div> <!-- /.col- -->
 <!--
@@ -901,13 +915,15 @@
                             <div class="single-news-item">
                                 <div class="img"><img src="images/blog/2.jpg" alt="Image">
                                     <a href="blog-details.html" class="opacity tran4s"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                </div> <!-- /.img -->
+                                </div> <-- /.img -->
+                                </div>--> <!-- /.img -->
 <!--
                                 <div class="post">
                                     <h6><a href="blog-details.html" class="tran3s">Playback: Akufo-Addo speaks to business community</a></h6>
                                     <a href="blog-details.html">Posted by <span class="p-color">admin</span>  at 04 Feb, 2017</a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna sed accumsan... <a href="blog-details.html" class="tran3s">Read More</a></p>
-                                </div> <!-- /.post -->
+                                </div> <-- /.post -->
+                                </div>--> <!-- /.post -->
                             </div> <!-- /.single-news-item -->
                         </div> <!-- /.col- -->
 <!--
@@ -915,13 +931,15 @@
                             <div class="single-news-item">
                                 <div class="img"><img src="images/blog/3.jpg" alt="Image">
                                     <a href="blog-details.html" class="opacity tran4s"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                </div> <!-- /.img -->
+                                </div> <-- /.img -->
+                               </div>--> <!-- /.img -->
 <!--
                                 <div class="post">
                                     <h6><a href="blog-details.html" class="tran3s">Playback: Akufo-Addo speaks to business community</a></h6>
                                     <a href="blog-details.html">Posted by <span class="p-color">admin</span>  at 04 Feb, 2017</a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna sed accumsan... <a href="blog-details.html" class="tran3s">Read More</a></p>
-                                </div> <!-- /.post -->
+                                </div> <-- /.post -->
+                                </div>--> <!-- /.post -->
                             </div> <!-- /.single-news-item -->
                         </div> <!-- /.col- -->
                     </div> <!-- /.clear-fix -->
@@ -944,7 +962,8 @@
                         <div class="item"><img src="images/logo/p4.png" alt="logo"></div>
                         <div class="item"><img src="images/logo/p5.png" alt="logo"></div>
                         <div class="item"><img src="images/logo/p2.png" alt="logo"></div>
-                    </div> <!-- End .partner_logo -->
+                    </div> <-- End .partner_logo -->
+                    </div>--> <!-- End .partner_logo -->
                 </div> <!-- /.container -->
             </div> <!-- /#partner-section -->
 
@@ -987,7 +1006,8 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="map-area">
                                 <h2>Our Location</h2>
-                                <div id="map"></div>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6992.909035671204!2d77.03489342527185!3d28.795526229414907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390da9f621ace391%3A0xb18a2afb574734b6!2sSHARMA+AUTO+PRODUCTS!5e0!3m2!1sen!2sin!4v1554711196742!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.019341339903!2d77.10664051494741!3d28.71896798238373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d014e7953d073%3A0xa1df99c8551f3812!2sJagan+Institute+of+Management+Studies+-+JIMS+Rohini!5e0!3m2!1sen!2sin!4v1554708915211!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                             </div> <!-- /.map-area -->
                         </div> <!-- /.col- -->
                     </div> <!-- /.contact-address-content -->

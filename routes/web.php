@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 
 /*Authentication Controller*/
@@ -9,18 +9,19 @@ Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone
 
 
 /*General/Main Controller*/
+Route::get('/','MainController@index')->name('home');
 
-
+/*
 Route::get('/', function () {
     return view('main.index');
-});
+});*/
 
 Route::get('/puneet', function () {
-    return view('Footer.footer');
+    return view('auth.companylogin');
 });
 
-
-Route::get('/home', 'HomeController@index')->name('home');
+/*
+Route::get('/home', 'HomeController@index')->name('home');*/
 
 /*Directory Listing*/
 Route::group(['prefix' => 'directory'], function () 
@@ -28,7 +29,7 @@ Route::group(['prefix' => 'directory'], function ()
     Route::get('/details',['as'=>'create','uses'=>'DirectoryController@create']);
     Route::post('/store',['as'=>'store','uses'=>'DirectoryController@store']);
 
-    Route::get('/livesearch/{tag?}',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
+    Route::get('/industrylist/{tag?}',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
 
      /*   Route::get('/microweb', function () {
         return view('microweb');
@@ -65,17 +66,10 @@ Route::group(['prefix' => 'job'], function ()
 
 
 /*Video Controller*/
-Route::get('/','MainController@index');
-
-/*Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});*/
 
 
 
-Route::get('file','VideoController@showUploadForm')->name('uploadfile');
 
-Route::post('file','VideoController@storeFile');
 
 
 /*Route::get('/','FileController@display');*/
@@ -83,6 +77,13 @@ Route::post('file','VideoController@storeFile');
 Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
     //return $name;
 
+/*Company Admin */
+Route::group(['prefix' => 'company/panel'], function () 
+{
+    
+    Route::get('/',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
+
+});
 /*Microsite*/
 Route::group(['prefix' => 'company'], function () 
 {
@@ -90,5 +91,35 @@ Route::group(['prefix' => 'company'], function ()
         return view('main.index');
     });
     Route::get('/microweb/{slug}',['as'=>'microwebsite','uses'=>'MicrowebController@microweb']);
+
+});
+
+
+Route::get('/companylogin','Auth\RegisterController@companyregister');
+Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
+//admin panel
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
+    Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
+
+    Route::get('/video/upload','VideoController@upload')->name('uploadfile');
+    Route::post('/video/upload','VideoController@storeFile');
+
+    Route::get('/video/all','VideoController@fetch')->name('videoall');
+    Route::get('/video/delete/{id}',[
+        'uses' => 'VideoController@delete',
+        'as' => 'video.delete'
+    ]);
+    Route::get('/video/update/{id}',[
+        'uses' => 'VideoController@update',
+        'as' => 'video.update'
+    ]);
+    Route::post('/video/save/{id}',[
+        'uses' => 'VideoController@save',
+        'as' => 'videosave'
+    ]);
+
+
 
 });

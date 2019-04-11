@@ -41,9 +41,9 @@
                 padding: 20px;
             }           
     </style>  
-<div class="row">
-<div class="col-8">
-    <div class="white-card">
+
+@section('center-content')
+<div class="white-card">
         <h1>{{ ucfirst($job_opening->job_title) }}</h1>
 
         <div class="row">
@@ -78,11 +78,9 @@
             </div>
         </div>
     </div>
-</div>
-<div class="col-4">
-    <div class="white-card">
-    Right Side Bar
-    </div>
-</div>
 @endsection
-       
+@section('right-content')
+@include('partials.sidebar-search-job')
+@endsection
+
+@endsection
