@@ -14,7 +14,7 @@
       <link rel="icon" type="image/png" href="{{asset('/img/udyog_logo.png')}}">
       <!-- Bootstrap core CSS-->
       <!-- Custom styles for this template-->
-      <link href="/css/app.css" rel="stylesheet">
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
            @stack('topscript')
 
       <!-- Owl Carousel -->
@@ -136,7 +136,7 @@
           <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:red"></i>
       </div>
 
-      <script type="text/javascript" src="/js/app.js"></script>
+      <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
       @stack('bottomscript')
       
    </body>
