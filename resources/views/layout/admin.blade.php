@@ -23,6 +23,7 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    @stack('topscript')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -154,7 +155,7 @@
 
     <!-- Content Here -->
     @yield('content')
-   
+
 
 </div>
 <!-- ./wrapper -->
@@ -180,5 +181,6 @@
 <script src="{{asset('admin/dist/js/pages/dashboard2.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin/dist/js/demo.js')}}"></script>
+@stack('bottomscript')
 </body>
 </html>

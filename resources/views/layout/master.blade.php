@@ -138,7 +138,7 @@
           <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:white"></i>
       </div>
 
-      <script type="text/javascript" src="/js/app.js"></script>
+      <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
       @stack('bottomscript')
 
    </body>

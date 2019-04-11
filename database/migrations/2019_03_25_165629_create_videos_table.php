@@ -18,7 +18,7 @@ class CreateVideosTable extends Migration
             $table->string('title');
             $table->longText('description');
             $table->string('category');
-            $table->string('tags');         
+            $table->string('tags');
             $table->string('name');
             $table->string('size');
             $table->string('slug');
