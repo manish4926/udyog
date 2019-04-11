@@ -75,16 +75,16 @@
 										<img src="{{ asset('img/udyog_logo.png') }}" style="width: 100px; float: right; position: absolute; right: 20px; margin-top: -10px;">
 									</div>
 									<div class="col-md-4">
-										<p><i class="fas fa-pen"></i> Skills: {{$job_opening->skills}}</p> 
+										<p><i class="fas fa-pen"></i> Skills: {{$job_opening->skills}}</p>
 									</div>
 									<div class="col-md-8">
-										<p><i class="fas fa-archive"></i> Experience: {{$job_opening->experience}}</p> 
+										<p><i class="fas fa-archive"></i> Experience: {{$job_opening->experience}}</p>
 									</div>
 									<div class="col-md-4">
-										<p><i class="fas fa-map-marker"></i> Location: {{$job_opening->location}}</p> 
+										<p><i class="fas fa-map-marker"></i> Location: {{$job_opening->location}}</p>
 									</div>
 									<div class="col-md-8">
-										<p><i class="fas fa-rupee-sign"></i> Package: {{$job_opening->package}}</p> 
+										<p><i class="fas fa-rupee-sign"></i> Package: {{$job_opening->package}}</p>
 									</div>
 								</div>
 							</div>
@@ -93,9 +93,9 @@
 				</div>
 			</div>
 
-			@endforeach	 
+			@endforeach
 			{{--Latest Jobs End--}}
-			
+
 		</div>
 
 
@@ -126,16 +126,16 @@
 
 							<div class="video-card-body">
 								<div class="video-title">
-									<a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}">{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $file->name) }}</a>
+									<a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}">{{ $file->title }}</a>
 								</div>
 							</div>
 						</div>
 						@endforeach
 						@endif
-					</div>                            
+					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 	</div>
 </div>
 
