@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
-use App\Search;
 use App\CompanyDetail;
 
-=======
 use App\MicrowebCompanyProduct;
 use App\MicrowebCompanyDetails;
 use App\MicrowebTestimonial;
->>>>>>> 2c67432518c4e3e23cab6b951d54ef824d784cde
+
 use DB;
 use Auth;
 

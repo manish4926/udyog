@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 use Mail;
 use Illuminate\Http\Request;
 use App\Mail\verifyEmail;
-use App\Search;
+use App\Directory;
 
 class RegisterController extends Controller
 {
@@ -91,11 +91,7 @@ class RegisterController extends Controller
 
         $thisUser = User::findOrFail($user->id);
 
-<<<<<<< HEAD
-
-=======
         return redirect()->route('home');
->>>>>>> 2c67432518c4e3e23cab6b951d54ef824d784cde
         //$this->sendEmail($thisUser);
     }
 
@@ -136,17 +132,23 @@ class RegisterController extends Controller
          
                 if(!empty($cname))
                 {
-                 $ccode=Search::where('cname',$cname)->value('ccode');
-                }
+                    $ccode=Directory::where('cname',$cname)->value('ccode');
 
-               if($ccode==$code)
-                {
-                    return view('auth.Register');
-                }
-                else
-                {
-                    return view('auth.companyRegister');
-                } 
+                   if($ccode==$code)
+                    {
+                        return view('auth.Register');
+                    }
+                    else
+                    {
+                        return view('auth.companyRegister');
+                    } 
+
+                 }
+
+            else
+            {
+                 return view('auth.companyRegister');
+            }
             
     }
 
