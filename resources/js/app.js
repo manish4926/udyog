@@ -5,11 +5,11 @@ import './bootstrap';
   "use strict"; // Start of use strict
 
   // Toggle the side navigation
-   $(document).on('click', '#sidebarToggle', function(e) {  
+   /*$(document).on('click', '#sidebarToggle', function(e) {
     e.preventDefault();
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
-  });
+  });*/
 
   // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
   $('body.fixed-nav .sidebar').on('mousewheel DOMMouseScroll wheel', function(e) {
@@ -20,13 +20,13 @@ import './bootstrap';
       e.preventDefault();
     }
   });
-  
- 
-	
+
+
+
   // Tooltip
   $('[data-toggle="tooltip"]').tooltip();
 
- 
+
 
       $(window).scroll(function() {
         if ($(this).scrollTop() > 80 ) {

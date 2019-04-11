@@ -38,11 +38,11 @@
 							<div class="row">
 							<div class="col-md-6 no-padding">
 								<div><i class="fa fa-map-marker-alt red"></i><span class="card-head-span"> {{ $list->block}} {{ $list->sector }} {{ $list->area}} </span></div>
-								@if(!empty($list->email))<div><i class="fa fa-envelope blue" style="color:grey"></i><span> {{ $list->email }}</span></div>@endif
-								@if(!empty($list->phoneno))<div><i class="fa fa-phone" style="color:grey"></i><span> {{ $list->phoneno }}</span></div>@endif
+								@if(!empty($list->email))<div><i class="fa fa-envelope blue" ></i><span> {{ $list->email }}</span></div>@endif
+								@if(!empty($list->phoneno))<div><i class="fa fa-phone green" ></i><span> {{ $list->phoneno }}</span></div>@endif
 							</div>
 							<div class="col-md-6 no-padding">
-								<a href="#" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm">Visit Site</a>
+								<a href="{{route('microwebsite', ['site'=> $list->slug ])}}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm"> Visit Site</a>
 							</div>
 							</div>
 							</div>
@@ -75,28 +75,27 @@
 										<img src="{{ asset('img/udyog_logo.png') }}" style="width: 100px; float: right; position: absolute; right: 20px; margin-top: -10px;">
 									</div>
 									<div class="col-md-4">
-										<p><i class="fas fa-pen"></i> Skills: {{$job_opening->skills}}</p> 
+										<p><i class="fas fa-pen"></i> Skills: {{$job_opening->skills}}</p>
 									</div>
 									<div class="col-md-8">
-										<p><i class="fas fa-archive"></i> Experience: {{$job_opening->experience}}</p> 
+										<p><i class="fas fa-archive"></i> Experience: {{$job_opening->experience}}</p>
 									</div>
 									<div class="col-md-4">
-										<p><i class="fas fa-map-marker"></i> Location: {{$job_opening->location}}</p> 
+										<p><i class="fas fa-map-marker"></i> Location: {{$job_opening->location}}</p>
 									</div>
 									<div class="col-md-8">
-										<p><i class="fas fa-rupee-sign"></i> Package: {{$job_opening->package}}</p> 
+										<p><i class="fas fa-rupee-sign"></i> Package: {{$job_opening->package}}</p>
 									</div>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
 			</div>
 
-			@endforeach	 
+			@endforeach
 			{{--Latest Jobs End--}}
-			
+
 		</div>
 
 
@@ -124,18 +123,19 @@
 
 								<div class="time">{{sprintf('%02d:%02d',($file->duration/60%60), $file->duration%60)}}</div>
 							</div>
+
 							<div class="video-card-body">
 								<div class="video-title">
-									<a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}">{{ preg_replace('/\\.[^.\\s]{3,4}$/', '', $file->name) }}</a>
+									<a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}">{{ $file->title }}</a>
 								</div>
 							</div>
 						</div>
 						@endforeach
 						@endif
-					</div>                            
+					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 	</div>
 </div>
 

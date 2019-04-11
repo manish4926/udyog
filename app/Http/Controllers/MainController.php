@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Video;
 use App\Http\Controllers\Controller;
 use DB;
-use App\Search;
+use App\Directory;
 use App\job_opening;
 
 
@@ -16,12 +16,12 @@ class MainController extends Controller
         //  $files = File::limit(6)->get();
         // return view('main.index')->with('files',$files);
          $videos = Video::limit(6)->get();
-         $directory=Search::orderBy('c_id')->limit(3)->get();
+         $directory=Directory::orderBy('c_id')->limit(3)->get();
 
           $jobs = job_opening::orderBy('job_id')->limit(5)->get();
         return view('main.index',compact('directory','videos','jobs'));
 
-        
+
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);
 //dd('hello');
         /*$videos = Video::orderBy('id','desc')->first();
@@ -30,9 +30,11 @@ class MainController extends Controller
     }
 
     public function videothumb(Request $request){
-        //$user = DB::table('files')->where('name', $name )->value('name'); 
-        $video = Video::where('id', $request->id)
-                        ->first();
+        //$user = DB::table('files')->where('name', $name )->value('name');
+        $video = Video::where('id', $request->id)->first();
+        // dd($video);
+        //$tags = Video::where('id',$request->id)->get()->all();
+
         $all = Video::limit(6)->get();
 
         return view('video.video')->with('video',$video)->with('all',$all);
