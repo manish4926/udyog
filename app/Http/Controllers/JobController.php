@@ -6,10 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\job_opening;
+use App\Candidatedata;
+
 use DB;
+use Auth;
+use Carbon\Carbon;
 
 class JobController extends Controller
 {
+
 
 	public function postJob(Request $request)
 	{
@@ -61,48 +66,18 @@ class JobController extends Controller
 }
 
 
-    public function jobapplication(Request $request)
-	{
-		
-		return view('job.jobapplication');	//,compact()
-	}
-
 	public function application(Request $request)
-		{
-			return view('job.application');	//,compact()
-		}
+	{
+		$user = Auth::user();
+		return view('job.application',compact('user'));	//,compact()
+	}
 
 
 	public function applicationSubmit(request $request)
     {
-    	 
-		//$user_id = $request->input('user_id');
-		$mobile_no = $request->input('mobile_no');
-		$state = $request->input('state');
-		$city= $request->input('city');
-		$email = $request->input('email');
-		$gender= $request->input('gender');
-		$dob = $request->input('dob');
-		$tyear = $request->input('tyear');
-		$tmonth = $request->input('tmonth');
-		$ddlSalaryLacs = $request->input('ddlSalaryLacs');
-		$salThousand =$request->input('salThousand');
-		$jobtitle = $request->input('jobtitle');
-		$companyname = $request->input('companyname');
-        $industry = $request->input('industry');
-		$yearduration= $request->input('yearduration');
-		$monthduration= $request->input('monthduration');
-		$graduation = $request->input('graduation');
-		$postgraduation= $request->input('postgraduation');
-		$doctorate = $request->input('doctorate');
-		$certificate = $request->input('certificate');
-		$experience=$tyear.'.'.$tmonth;
-		$salary= $ddlSalaryLacs.'.'.$salThousand;
-		$duration=$yearduration.'.'.$monthduration;
+    	$user = Auth::user();
 
-		
-
-		if(!empty($request->file('fileupload'))){
+    	if(!empty($request->file('fileupload'))){
 	        $this->validate($request,[
 	          'fileupload' =>'mimes:doc,docx,pdf']);
 
@@ -114,11 +89,34 @@ class JobController extends Controller
     		$fileupload= '';
     	}
 
+		$candidate = new Candidatedata;
 
-		$data2 = array('mobile_no'=>$mobile_no,'state'=>$state,'city'=>$city,'email'=>$email,'gender'=>$gender,'dob'=>$dob, 'experience'=>$experience,'salary'=>$salary,'jobtitle'=>$jobtitle,'companyname'=>$companyname,'industry'=>$industry,'duration'=>$duration,'graduation'=>$graduation,'postgraduation'=>$postgraduation,'doctorate'=>$doctorate,'certificate'=>$certificate,'resume'=>$filename);
+		$tyear          = $request->tyear;
+		$tmonth         = $request->tmonth;
+		$ddlSalaryLacs  = $request->ddlSalaryLacs;
+		$salThousand    = $request->salThousand;
+		$yearduration   = $request->yearduration;
+		$monthduration  = $request->monthduration;
 
-		DB::table('candidatedata')->insert($data2);
 
+		$candidate->user_id        = $user->id;
+		$candidate->mobile_no      = $request->mobile_no;
+		$candidate->state          = $request->state;
+		$candidate->city           = $request->city;
+		$candidate->gender         = $request->gender;
+		$candidate->dob            = $request->dob;
+		$candidate->jobtitle       = $request->jobtitle;
+		$candidate->companyname    = $request->companyname;
+		$candidate->graduation     = $request->graduation;
+		$candidate->postgraduation = $request->postgraduation;
+		$candidate->doctorate      = $request->doctorate;
+		$candidate->certificate    = $request->certificate;
+		$candidate->experience     = $tyear.'.'.$tmonth;
+		$candidate->salary         = $ddlSalaryLacs.'.'.$salThousand;
+		$candidate->duration       = $yearduration.'.'.$monthduration;
+		$candidate->save();
+		
+		return redirect()->back();
 	}
 
 

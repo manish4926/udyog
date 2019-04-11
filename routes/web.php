@@ -55,8 +55,6 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'JobController@search']);
 
-    Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
-
     Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
@@ -100,8 +98,14 @@ Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('c
 //admin panel
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+
+//dashboard
+
 Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
+
+    
+    //video
 
     Route::get('/video/upload','VideoController@upload')->name('uploadfile');
     Route::post('/video/upload','VideoController@storeFile');
@@ -119,6 +123,15 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
         'uses' => 'VideoController@save',
         'as' => 'videosave'
     ]);
+
+
+    //jobs panel
+
+    Route::get('/jobs/active', ['as' => 'activejobs', 'uses' =>'AdminController@activejobs']);
+
+    Route::get('/post/applicants/{job_id}', ['as' => 'getapplicants', 'uses' => 'AdminController@getapplicants']);
+
+    Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
 
 
 
