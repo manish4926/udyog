@@ -19,7 +19,7 @@ class AdminController extends Controller
         $joblist = job_opening::where('expdate','>=',Carbon::today()->toDateString())
         				->get();
         				//dd($joblist);
-        return view('admin.activejobs')->with(['job_active'=>$joblist]);  
+        return view('admin.job.activejobs')->with(['job_active'=>$joblist]);  
     }
 
     public function expjobs(Request $request)
@@ -27,14 +27,14 @@ class AdminController extends Controller
         $joblist = job_opening::where('expdate','<',Carbon::today()->toDateString())
         				->get();
         				//dd($joblist);
-        return view('admin.expjobs')->with(['job_expiry'=>$joblist]);
+        return view('admin.job.expjobs')->with(['job_expiry'=>$joblist]);
     }
 	
 
 	public function getapplicants(Request $request)
     {
         $applicants= job_opening::where('job_id' , $request->job_id)->get();
-        return view('admin.allapplicants')->with(['job_opening'=>$applicants]);  
+        return view('admin.job.allapplicants')->with(['job_opening'=>$applicants]);  
     }
 
 }

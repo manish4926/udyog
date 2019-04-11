@@ -125,7 +125,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     ]);
 
 
-    //jobs panel
+    //admin jobs panel
 
     Route::get('/jobs/active', ['as' => 'activejobs', 'uses' =>'AdminController@activejobs']);
 
