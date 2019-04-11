@@ -1,125 +1,150 @@
 @extends('layout.master')
 
-@section('title','BCI - Bhawana Chamber of Industries')
+@section('title','BCI - Bawana Chamber of Industries')
 
 @section('content')
 
 <div class="video-block section-padding">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="single-video-left">
-        <div class="single-video">
-          <video width="100%" height="550px" autoplay="on" controls>
-            <source src="{{ asset('storage/upload/Prakash Chand Jain(1).mp4')}}" type="video/mp4">
-
-            </video>
-          </div>
-          <div class="single-video-title box mb-3">
-            <h2>Prakesh Chand Jain Director Chamber of Industries</h2>
-            <p class="mb-0"><i class="fas fa-eye"></i> 2,729,347 views</p>
-          </div>
-
-          <div class="single-video-info-content box mb-3 text-justify ">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="single-video-left">
+				<div class="single-video">
+					<video id="live-video" class="live-video" autoplay="on" controls>
+						<source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4">
+					</video>
+				</div>
+				<div class="single-video-title box mb-3">
+					<h2>Prakesh Chand Jain Director Chamber of Industries</h2>
+					<p class="mb-0"><i class="fas fa-eye"></i> 2,729,347 views</p>
+				</div>
+			</div>
 
 
+			{{--  Company Directory Start --}}
+			<h3 class="title-blue">DIRECTORY </h3>
+			@foreach($directory as $list)
+			<div class="card">
+				<div class="row ">
+					<div class="col-md-4">
+						<img src="https://cdn.shopify.com/s/files/1/0252/1347/products/IMG_3420.JPG?v=1486859233" class="card-img card-img-padding" alt="{{ ucfirst($list->cname) }}">
+					</div>
+					<div class="col-md-8 px-3">
+						<div class="card-block card-info">
+							<h4 class="card-title"><a href="#"> {{ ucfirst($list->cname) }} </a></h4>
+							{{-- <span class="badge badge-light"><a href="">{{ $list->material }}</a></span> --}}<a href="#" class="btn btn-link"><u>{{ $list->material }}</u></a>
+							<div class="card-desc">Approx 3 Lines of Text</div>
+							<hr>
+							<div class="col-md-12">
+							<div class="row">
+							<div class="col-md-6 no-padding">
+								<div><i class="fa fa-map-marker-alt red"></i><span class="card-head-span"> {{ $list->block}} {{ $list->sector }} {{ $list->area}} </span></div>
+								@if(!empty($list->email))<div><i class="fa fa-envelope blue" ></i><span> {{ $list->email }}</span></div>@endif
+								@if(!empty($list->phoneno))<div><i class="fa fa-phone green" ></i><span> {{ $list->phoneno }}</span></div>@endif
+							</div>
+							<div class="col-md-6 no-padding">
+								<a href="{{route('microwebsite', ['site'=> $list->slug ])}}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm"> Visit Site</a>
+							</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+			@endforeach
+			{{--  Company Directory Start --}}
 
-            {{--  card start --}}
+			{{--Latest Jobs Start--}}
 
-            <div class="card">
-              <div class="row ">
-                <div class="col-md-4">
-                  <img src="https://4.imimg.com/data4/IS/BQ/MY-4144035/work-shoes-250x250.jpg" class="w-100">
-                </div>
-                <div class="col-md-8 px-3">
-                  <div class="card-block px-3">
-                    <h1 class="card-title">FORTUNE ENTERPRISES</h1>
-                    <h3 class="card-text">Aman Aggarwal </h3>
-                    <h3 class="card-text">Safity Shoes</h3>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {{-- card end  --}}
-            <hr>
-            {{--  card start --}}
+			<br>
+			<h3 class="title-blue">LATEST JOBS</h3>
+			@foreach($jobs as $job_opening)
 
-            <div class="card">
-              <div class="row ">
-                <div class="col-md-4">
-                  <img src="https://previews.123rf.com/images/gurza/gurza1301/gurza130100036/17599642-set-of-cosmetic-accessories-on-a-white-background.jpg" class="w-100">
-                </div>
-                <div class="col-md-8 px-3">
-                  <div class="card-block px-3">
-                    <h1 class="card-title">KUNAL ENTERPRISES	</h1>
-                    <h3 class="card-text">Manvinder Singh </h3>
-                    <h3 class="card-text">Cosmetic Accessories</h3>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {{-- card end  --}}
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-8">
+										<h5 class="card-title"><i class="fas fa-bolt red"></i> <a href="#">{{ ucfirst($job_opening->job_title) }}</a></h5>
+										<p>Company: <a href="#"><u>{{ ucfirst($job_opening->company_name) }}</u></a> </p>
+										<p>{{ $job_opening->job_desc }} Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+									</div>
+									<div class="col-md-4">
+										<img src="{{ asset('img/udyog_logo.png') }}" style="width: 100px; float: right; position: absolute; right: 20px; margin-top: -10px;">
+									</div>
+									<div class="col-md-4">
+										<p><i class="fas fa-pen"></i> Skills: {{$job_opening->skills}}</p>
+									</div>
+									<div class="col-md-8">
+										<p><i class="fas fa-archive"></i> Experience: {{$job_opening->experience}}</p>
+									</div>
+									<div class="col-md-4">
+										<p><i class="fas fa-map-marker"></i> Location: {{$job_opening->location}}</p>
+									</div>
+									<div class="col-md-8">
+										<p><i class="fas fa-rupee-sign"></i> Package: {{$job_opening->package}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <hr>
-            {{--  card start --}}
+			@endforeach
+			{{--Latest Jobs End--}}
 
-            <div class="card">
-              <div class="row ">
-                <div class="col-md-4">
-                  <img src="https://5.imimg.com/data5/UR/JT/MY-1594025/non-woven-d-cut-bag-offset-printing-machine-500x500.jpg" class="w-100">
-                </div>
-                <div class="col-md-8 px-3">
-                  <div class="card-block px-3">
-                    <h1 class="card-title">S.R OFFSET PRESS</h1>
-                    <h3 class="card-text">Harish Malhotra </h3>
-                    <h3 class="card-text">Printing Press</h3>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {{-- card end  --}}
-
-
-
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="single-video-right">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="main-title">
-                <div class="btn-group float-right right-action">
-                </div>
-                <h6>More BCI Videos</h6>
-              </div>
-            </div>
-            <div class="col-md-12">
-              @if(count($videos)>0)
-              @foreach($videos as $file)
-              <div class="video-card video-card-list">
-                <div class="video-card-image">
-                  <a class="play-icon" href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->name]) }}"><i class="fas fa-play-circle"></i></a>
-                  <a href="#"><img class="img-fluid" src="{{ asset('storage/thumbs/'.$file->thumbnail) }}" alt="" height="77px"></a>
-                  <div class="time">{{sprintf('%02d:%02d',($file->duration/60%60), $file->duration%60)}}</div>
-                </div>
-                <div class="video-card-body">
-                  <div class="video-title">
-                    <a href="#">{{ $file->name }}</a>
-                  </div>
-                </div>
-              </div>
-              @endforeach
-              @endif
-            </div>
+		</div>
 
 
-          </div>
-        </div>
-      </div>
-    </div>
 
 
-    @endsection
+		{{--end jobs card--}}
+		<div class="col-md-4">
+			<div class="single-video-right">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="main-title">
+							<div class="btn-group float-right right-action">
+							</div>
+							<h6>More BCI Videos</h6>
+						</div>
+					</div>
+					<div class="col-md-12">
+						@if(count($videos)>0)
+						@foreach($videos as $file)
+						<div class="video-card video-card-list">
+							<div class="video-card-image">
+
+								<a class="play-icon" href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}"><i class="fas fa-play-circle"></i></a>
+								<a href="#"><img class="img-fluid" src="{{ asset('video/thumbs/'.$file->thumbnail) }}" alt="" height="77px"></a>
+
+								<div class="time">{{sprintf('%02d:%02d',($file->duration/60%60), $file->duration%60)}}</div>
+							</div>
+
+							<div class="video-card-body">
+								<div class="video-title">
+									<a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}">{{ $file->title }}</a>
+								</div>
+							</div>
+						</div>
+						@endforeach
+						@endif
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@push('bottomscript')
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#live-video').currentTime=10;
+	});
+</script>
+@endpush
+@endsection
+

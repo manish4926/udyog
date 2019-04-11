@@ -36589,11 +36589,12 @@ __webpack_require__.r(__webpack_exports__);
   "use strict"; // Start of use strict
   // Toggle the side navigation
 
-  $(document).on('click', '#sidebarToggle', function (e) {
-    e.preventDefault();
-    $("body").toggleClass("sidebar-toggled");
-    $(".sidebar").toggleClass("toggled");
-  }); // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
+  /*$(document).on('click', '#sidebarToggle', function(e) {
+   e.preventDefault();
+   $("body").toggleClass("sidebar-toggled");
+   $(".sidebar").toggleClass("toggled");
+  });*/
+  // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
 
   $('body.fixed-nav .sidebar').on('mousewheel DOMMouseScroll wheel', function (e) {
     if ($window.width() > 768) {
@@ -36700,8 +36701,13 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\xampp\htdocs\BCI_UdyogTv\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\BCI_UdyogTv\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\Users\Sanchit\Desktop\Sanchit Files\Laravel5.8\main\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Sanchit\Desktop\Sanchit Files\Laravel5.8\main\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 022795743c87794d799b8b4372f7457effb133bd
 
 
 /***/ })

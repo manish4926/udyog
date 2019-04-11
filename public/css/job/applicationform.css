@@ -1,0 +1,23 @@
+.form-group{
+    background-color: #F8F8F8;
+	min-height:50px;
+	padding: 5px 40px;
+	min-width: 50px;
+	font-size: 15px;
+	font-weight: 400px;
+}
+
+
+fieldset{
+	min-width: 200px;
+	
+}
+
+label
+{
+	font-size: 15px;
+	color: black;
+}
+
+
+

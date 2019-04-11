@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers\Auth ;
 
 use App\User;
@@ -11,7 +10,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
 use Mail;
+use Illuminate\Http\Request;
 use App\Mail\verifyEmail;
+use App\Directory;
 
 class RegisterController extends Controller
 {
@@ -31,6 +32,7 @@ class RegisterController extends Controller
     /**
      * Where to redirect users after registration.
      *
+    *  @var string
      * @var string
      */
     protected $redirectTo = '/home';
@@ -55,6 +57,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'lastname' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            
 
             'lastname' => ['required', 'string', 'max:255'],
             'firstname' => ['required', 'string', 'max:255'],
@@ -71,20 +76,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
         $user =  User::create([
                 'firstname' => $data['firstname'],
                 'lastname' => $data['lastname'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'verifyToken'=>Str::random(40),
+                'status' => 0,
             ]);
+        
 
         $user->roles()->attach(Role::where('name','General User')->first());
 
         $thisUser = User::findOrFail($user->id);
 
-
-        $this->sendEmail($thisUser);
+        return redirect()->route('home');
+        //$this->sendEmail($thisUser);
     }
 
     public function sendEmail($thisUser)
@@ -108,4 +116,41 @@ class RegisterController extends Controller
             return 'user not found';
         }
     }
+
+
+    public function companyregister()
+    {
+        return view("auth.companyRegister");
+    }
+
+    public function CompanyValidate(Request $request)
+    {
+
+        $cname = $request->input('cname');
+        $code = $request->input('code');
+
+         
+                if(!empty($cname))
+                {
+                    $ccode=Directory::where('cname',$cname)->value('ccode');
+
+                   if($ccode==$code)
+                    {
+                        return view('auth.Register');
+                    }
+                    else
+                    {
+                        return view('auth.companyRegister');
+                    } 
+
+                 }
+
+            else
+            {
+                 return view('auth.companyRegister');
+            }
+            
+    }
+
 }
+
