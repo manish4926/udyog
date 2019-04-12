@@ -119,7 +119,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('uploadfile') }}"><i class="fa fa-upload"></i> New Video</a></li>
-            <li><a href="{{ route('videoall') }}"><i class="fa fa-list-ul"></i> All Videos</a></li>
+            <li><a href="{{ route('videoall') }}"><i class="fa "></i> All Videos</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -131,6 +131,20 @@
           </a>
         </li>
         <li class="treeview">
+<<<<<<< HEAD
+            <a href="#">
+              <i class="fa fa-list-ul"></i>
+              <span>Categories</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('categorypage') }}"><i class="fa fa-upload"></i> New Category</a></li>
+              <li><a href="{{ route('allcategory') }}"><i class="fa fa-list-ul"></i> All Categories</a></li>
+            </ul>
+          </li>
+=======
           <a href="#">
             <i class="fa fa-list-ul"></i>
             <span>Jobs</span>
@@ -143,6 +157,7 @@
             <li><a href="{{ route('expjobs') }}"><i class="fa fa-list-ul"></i> Expired Jobs</a></li>
           </ul>
         </li>
+>>>>>>> 7164e198209c99aecd6da0d5281cffbed7727824
       </ul>
 
     </section>
