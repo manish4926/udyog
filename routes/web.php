@@ -24,7 +24,7 @@ Route::get('/puneet', function () {
 Route::get('/home', 'HomeController@index')->name('home');*/
 
 /*Directory Listing*/
-Route::group(['prefix' => 'directory'], function () 
+Route::group(['prefix' => 'directory'], function ()
 {
     Route::get('/details',['as'=>'create','uses'=>'DirectoryController@create']);
     Route::post('/store',['as'=>'store','uses'=>'DirectoryController@store']);
@@ -35,13 +35,13 @@ Route::group(['prefix' => 'directory'], function ()
         return view('microweb');
     })->name('microwebsite');*/
 
-        
+
 });
 
 
 
 /*Job Controller*/
-Route::group(['prefix' => 'job'], function () 
+Route::group(['prefix' => 'job'], function ()
 {
     Route::get('/post', ['as' => 'postjob', 'uses' =>'JobController@postJob']);
 
@@ -49,7 +49,7 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
 
-    Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);   
+    Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
 
     Route::any('/search',  ['as' => 'searchjob', 'uses' =>'JobController@search']);
 
@@ -61,7 +61,7 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
 
-   
+
 });
 
 
@@ -78,14 +78,14 @@ Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb'
     //return $name;
 
 /*Company Admin */
-Route::group(['prefix' => 'company/panel'], function () 
+Route::group(['prefix' => 'company/panel'], function ()
 {
-    
+
     Route::get('/',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
 
 });
 /*Microsite*/
-Route::group(['prefix' => 'company'], function () 
+Route::group(['prefix' => 'company'], function ()
 {
     Route::get('/', function () {
         return view('main.index');
@@ -93,6 +93,7 @@ Route::group(['prefix' => 'company'], function ()
     Route::get('/microweb/{slug}',['as'=>'microwebsite','uses'=>'MicrowebController@microweb']);
 
 });
+
 
 
 Route::get('/companylogin','Auth\RegisterController@companyregister');
@@ -103,6 +104,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
 
+    //video
     Route::get('/video/upload','VideoController@upload')->name('uploadfile');
     Route::post('/video/upload','VideoController@storeFile');
 
@@ -119,6 +121,31 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
         'uses' => 'VideoController@save',
         'as' => 'videosave'
     ]);
+
+    //category
+    Route::get('/category/page',[
+        'uses' => 'VideoCategoryController@page',
+        'as' => 'categorypage'
+    ]);
+    Route::post('/category/add',[
+        'uses' => 'VideoCategoryController@add',
+        'as' => 'addcategory'
+    ]);
+    Route::get('/category/all','VideoCategoryController@fetch')->name('allcategory');
+
+    Route::get('/category/delete/{id}',[
+        'uses' => 'VideoCategoryController@delete',
+        'as' => 'category.delete'
+    ]);
+    Route::get('/category/update/{id}',[
+        'uses' => 'VideoCategoryController@update',
+        'as' => 'category.update'
+    ]);
+    Route::post('/category/save/{id}',[
+        'uses' => 'VideoCategoryController@save',
+        'as' => 'savecategory'
+    ]);
+
 
 
 

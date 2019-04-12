@@ -119,7 +119,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('uploadfile') }}"><i class="fa fa-upload"></i> New Video</a></li>
-            <li><a href="{{ route('videoall') }}"><i class="fa fa-list-ul"></i> All Videos</a></li>
+            <li><a href="{{ route('videoall') }}"><i class="fa "></i> All Videos</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -130,6 +130,19 @@
             </span>
           </a>
         </li>
+        <li class="treeview">
+            <a href="#">
+              <i class="fa fa-list-ul"></i>
+              <span>Categories</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('categorypage') }}"><i class="fa fa-upload"></i> New Category</a></li>
+              <li><a href="{{ route('allcategory') }}"><i class="fa fa-list-ul"></i> All Categories</a></li>
+            </ul>
+          </li>
       </ul>
 
     </section>

@@ -12,7 +12,7 @@
                      <div class="col-md-11">
                      <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Admin can View, Edit & Delete Videos</h3>
+              <h3 class="box-title"><button type="button" class="btn btn-block btn-default btn-flat">Add Video</button></h3>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -40,18 +40,18 @@
                      </tr>
                      @endforeach
                 </tbody>
-               
+
               </table>
             </div>
             <!-- /.box-body -->
           </div>
-                     
-                     
-                     
- 
-                    
-                     
-                     
+
+
+
+
+
+
+
                      </tr>
                      </table>
                         </div>
