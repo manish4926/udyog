@@ -1,6 +1,5 @@
     <?php
 
-
 /*Authentication Controller*/
 Auth::routes();
 
