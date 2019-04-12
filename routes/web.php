@@ -46,8 +46,6 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/post/submit', ['as' => 'postjobsubmit', 'uses' =>'JobController@postJobSubmit']);
 
-    Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
-
     Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);   
 
     Route::any('/search',  ['as' => 'searchjob', 'uses' =>'JobController@search']);
@@ -133,8 +131,12 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
 
     Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
 
+    Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
 
-    //Route::post('/alljobs/details/{job_id}', ['as' => 'application', 'uses' =>'AdminController@application']);
+    Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);   
+
+    Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
+
 
     });
 
@@ -144,7 +146,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
 
 Route::group(['prefix' => 'main'], function () 
 {
-    Route::get('/currentLaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
+    Route::get('/currentlaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
 
 });
 

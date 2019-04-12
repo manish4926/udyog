@@ -54,7 +54,8 @@
                                     Login
                                 </button>
                     </div>
-
+                    <input type="hidden" name="redirecturl" value="{{$_REQUEST['redirecturl'] }}">
+                    <input type="hidden" name="passingid" value="{{$_REQUEST['id']}}">
                     @if (Route::has('password.request'))
 
                     <div class="text-center p-t-12">
