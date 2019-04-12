@@ -44,7 +44,9 @@
 
 @section('center-content')
 <div class="white-card">
-        <h1>{{ ucfirst($job_opening->job_title) }}</h1>
+     <form method="post" action="{{ route('application') }}">
+         <h1>{{ ucfirst($job_opening->job_title) }}</h1>
+
 
         <div class="row">
               <div class="column" style="background-color:#aaa;">
@@ -76,7 +78,8 @@
                         
                         <button type="button" class="btn btn-success">Apply Now</button>
             </div>
-        </div>
+          </div>
+      </form>
     </div>
 @endsection
 @section('right-content')

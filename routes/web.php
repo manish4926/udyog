@@ -134,5 +134,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
 
 
+    Route::post('/alljobs/details/{job_id}', ['as' => 'application', 'uses' =>'AdminController@application']);
+
+
 
 });
