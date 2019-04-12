@@ -144,7 +144,25 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
 
 Route::group(['prefix' => 'main'], function () 
 {
-    Route::get('/currentLaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
+    Route::get('/currentlaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
+
+    Route::get('/labourlaws', ['as' => 'labourlaws', 'uses' =>'MainController@labourLaws']);
+
+    Route::get('/taxation', ['as' => 'taxation', 'uses' =>'MainController@taxation']);
+
+    Route::get('/presentlydevelopment', ['as' => 'presentlydevelopment', 'uses' =>'MainController@presentlyDevelopment']);
+
+    Route::get('/newtechnology', ['as' => 'newtechnology', 'uses' =>'MainController@newTechnology']);
+
+    Route::get('/newproducts', ['as' => 'newproducts', 'uses' =>'MainController@newProducts']);
+
+    Route::get('/health', ['as' => 'health', 'uses' =>'MainController@health']);
+
+    Route::get('/growbusiness', ['as' => 'growbusiness', 'uses' =>'MainController@growBusiness']);
+
+    Route::get('/regarademarks', ['as' => 'regarademarks', 'uses' =>'MainController@regAradeMarks']);
+
+
 
 });
 
