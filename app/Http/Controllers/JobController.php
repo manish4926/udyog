@@ -20,45 +20,29 @@ class JobController extends Controller
 	{
 		return view('job.jobpost');	//,compact()
 	}
-	
-	public function postJobSubmit(request $request)
-	{
+    
+    public function postJobSubmit(request $request)
+    {
+
+		$jobpost = new job_opening;
+
+		$jobpost->job_title           = $request->title;
+		$jobpost->company_name     = $request->companyname;
+		$jobpost->hr_name          = $request->hrname;
+		$jobpost->experience             = $request->exp;
+		$jobpost->skills          = $request->skill;
+		$jobpost->postdate        = $request->postdate;
+		$jobpost->expdate         = $request->expdate;
+		$jobpost->location        = $request->location;
+		$jobpost->package         = $request->pack;
+		$jobpost->job_desc            = $request->desc;
+        $jobpost->status=0;
+        $jobpost->del=0;
+        $jobpost->ip_address   =$_SERVER['REMOTE_ADDR'];
+		$jobpost->save();
 		
-		
-		$hrname= $request->input('hrname');
-		$exp = $request->input('exp');
-		// $skills=!empty($request->input('skill')) ? $request->input('skill') : $request->input('skills');
-		$skills= $request->input('skill');
-		$postdate = $request->input('postdate');
-		$expdate = $request->input('expdate');
-		$location = $request->input('location');
-		$package = $request->input('pack');
-		$description = $request->input('desc');
-
-		{    	
-			$validatedData = $request->validate([
-				
-				'title' =>'required|max:20',
-				'companyname' =>'required|max:50',
-				'hrname' =>'required|max:50',
-				'exp' =>'required',
-				'skill' =>'required|max:20',
-				'postdate' =>'required',
-				'expdate' =>'required',
-				'location' =>'required|min:3',
-				'pack'=> 'required|max:6',
-				'desc' =>'required|max:70'
-			]);
-
-			$data = array('job_title'=>$title,'company_name'=>$companyname,'hr_name'=>$hrname,'experience'=>$exp, 'skills'=>$skills,'postdate'=>$postdate, 'expdate'=>$expdate,'location'=>$location,'package'=>$package,'job_desc'=>$description,'status'=>0,'del'=>0,'ip_address'=>$_SERVER['REMOTE_ADDR']);
-
-			DB::table('job_openings')->insert($data);
-
-
-			echo "Job Posted Successfully!!!";
-
-		}
-	}
+		return redirect()->back();
+}
 
 
 	public function application(Request $request)
@@ -69,8 +53,22 @@ class JobController extends Controller
 
 
 	public function applicationSubmit(request $request)
+
 	{
 		$user = Auth::user();
+    	
+		$validatedData = $request->validate([
+
+            'mobile_no' =>'required|max:10',
+            'state' =>'required',
+            'city' =>'required|max:20',
+            'gender' =>'required',
+            'dob' =>'required',
+            'jobtitle' =>'required|max:20',
+            'companyname' =>'required',
+            'graduation' =>'required',
+            'fileupload'=> 'required'
+            ]);
 
 		if(!empty($request->file('fileupload'))){
 			$this->validate($request,[
@@ -112,6 +110,7 @@ class JobController extends Controller
 		$candidate->save();
 		
 		return redirect()->back();
+
 	}
 
 

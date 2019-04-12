@@ -72,7 +72,7 @@
             </div>
             <div class="form-group">
                 <label>Job Description</label>
-                <textarea class="form-control" rows="6" placeholder="Enter Full Address"></textarea>
+                <textarea class="form-control" rows="6" name="desc" placeholder="Enter Full Address"></textarea>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Post Job" name="submit">
