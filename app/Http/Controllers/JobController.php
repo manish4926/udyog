@@ -20,14 +20,11 @@ class JobController extends Controller
 	{
 		return view('job.jobpost');	//,compact()
 	}
-    
-    public function postJobSubmit(request $request)
-    {
+	
+	public function postJobSubmit(request $request)
+	{
 		
-    	
-    {    	
-		$title = $request->input('title');
-		$companyname = $request->input('companyname');
+		
 		$hrname= $request->input('hrname');
 		$exp = $request->input('exp');
 		// $skills=!empty($request->input('skill')) ? $request->input('skill') : $request->input('skills');
@@ -38,32 +35,30 @@ class JobController extends Controller
 		$package = $request->input('pack');
 		$description = $request->input('desc');
 
-		$validatedData = $request->validate([
-            
-            'title' =>'required|max:20',
-            'companyname' =>'required|max:50',
-            'hrname' =>'required|max:50',
-            'exp' =>'required',
-            'skill' =>'required|max:20',
-            'postdate' =>'required',
-            'expdate' =>'required',
-            'location' =>'required|min:3',
-            'pack'=> 'required|max:6',
-            'desc' =>'required|max:70'
-        ]);
+		{    	
+			$validatedData = $request->validate([
+				
+				'title' =>'required|max:20',
+				'companyname' =>'required|max:50',
+				'hrname' =>'required|max:50',
+				'exp' =>'required',
+				'skill' =>'required|max:20',
+				'postdate' =>'required',
+				'expdate' =>'required',
+				'location' =>'required|min:3',
+				'pack'=> 'required|max:6',
+				'desc' =>'required|max:70'
+			]);
+
+			$data = array('job_title'=>$title,'company_name'=>$companyname,'hr_name'=>$hrname,'experience'=>$exp, 'skills'=>$skills,'postdate'=>$postdate, 'expdate'=>$expdate,'location'=>$location,'package'=>$package,'job_desc'=>$description,'status'=>0,'del'=>0,'ip_address'=>$_SERVER['REMOTE_ADDR']);
+
+			DB::table('job_openings')->insert($data);
 
 
+			echo "Job Posted Successfully!!!";
 
-
-		$data = array('job_title'=>$title,'company_name'=>$companyname,'hr_name'=>$hrname,'experience'=>$exp, 'skills'=>$skills,'postdate'=>$postdate, 'expdate'=>$expdate,'location'=>$location,'package'=>$package,'job_desc'=>$description,'status'=>0,'del'=>0,'ip_address'=>$_SERVER['REMOTE_ADDR']);
-
-		DB::table('job_openings')->insert($data);
-
-
-		echo "Job Posted Successfully!!!";
-
-    }
-}
+		}
+	}
 
 
 	public function application(Request $request)
@@ -74,20 +69,20 @@ class JobController extends Controller
 
 
 	public function applicationSubmit(request $request)
-    {
-    	$user = Auth::user();
+	{
+		$user = Auth::user();
 
-    	if(!empty($request->file('fileupload'))){
-	        $this->validate($request,[
-	          'fileupload' =>'mimes:doc,docx,pdf']);
+		if(!empty($request->file('fileupload'))){
+			$this->validate($request,[
+				'fileupload' =>'mimes:doc,docx,pdf']);
 
-	        $filename = $request->file('fileupload')->getClientOriginalName();
+			$filename = $request->file('fileupload')->getClientOriginalName();
 
-	        $request->file('fileupload')->storeAs('resumes',$filename);
-	        
-    	} else {
-    		$fileupload= '';
-    	}
+			$request->file('fileupload')->storeAs('resumes',$filename);
+			
+		} else {
+			$fileupload= '';
+		}
 
 		$candidate = new Candidatedata;
 
@@ -121,52 +116,52 @@ class JobController extends Controller
 
 
 
-	 public function alljob (Request $request)
-    {
-        $jobs= job_opening::all();
-        return view('job.alljob',compact('jobs'));
-    }
+	public function alljob (Request $request)
+	{
+		$jobs= job_opening::all();
+		return view('job.alljob',compact('jobs'));
+	}
 
 
-    public function getdisplay(Request $request)
-    {
-        $description= job_opening::where('job_id' , $request->job_id)->first();
-        return view('job.details')->with(['job_opening'=>$description]);  
-    }
+	public function getdisplay(Request $request)
+	{
+		$description= job_opening::where('job_id' , $request->job_id)->first();
+		return view('job.details')->with(['job_opening'=>$description]);  
+	}
 
 
-    public function search(Request $request)
-    {
+	public function search(Request $request)
+	{
         //return view('job.search'); //,compact()
 
-        $searchkey= $request->search;
+		$searchkey= $request->search;
 
-        $job_search= job_opening::orderBy('job_id');
-        if($searchkey && !empty($searchkey)){
-                $job_search->where(function($query) use ($searchkey){
-                    $query->where('job_title' , 'like','%' .$searchkey. '%');
-                    $query->orWhere('skills' , 'like','%' .$searchkey. '%');
-                    $query->orwhere('company_name', 'LIKE', '%' .$searchkey. '%');
-                });
-        }
+		$job_search= job_opening::orderBy('job_id');
+		if($searchkey && !empty($searchkey)){
+			$job_search->where(function($query) use ($searchkey){
+				$query->where('job_title' , 'like','%' .$searchkey. '%');
+				$query->orWhere('skills' , 'like','%' .$searchkey. '%');
+				$query->orwhere('company_name', 'LIKE', '%' .$searchkey. '%');
+			});
+		}
 
-        $searchkey1=$request->get('place');
-        if($searchkey1){
-            $job_search->where('location' , 'like','%' .$searchkey1. '%');
-        }
-        $searchkey2=$request->get('exp1');
-        if($searchkey2){
-            $job_search->where('experience' , 'like','%' .$searchkey2. '%');
-        }  
+		$searchkey1=$request->get('place');
+		if($searchkey1){
+			$job_search->where('location' , 'like','%' .$searchkey1. '%');
+		}
+		$searchkey2=$request->get('exp1');
+		if($searchkey2){
+			$job_search->where('experience' , 'like','%' .$searchkey2. '%');
+		}  
 
-        $searchkey3=$request->get('sal');
-        if($searchkey3){
-            $job_search->where('package' , '=', $searchkey3);
-        }
-        
-        $job_search = $job_search->paginate(5);
-        
-        return view('job.search')->with(['searching'=>$job_search]); 
-    }
+		$searchkey3=$request->get('sal');
+		if($searchkey3){
+			$job_search->where('package' , '=', $searchkey3);
+		}
+		
+		$job_search = $job_search->paginate(5);
+		
+		return view('job.search')->with(['searching'=>$job_search]); 
+	}
 
 }
