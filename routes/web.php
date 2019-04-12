@@ -1,6 +1,5 @@
     <?php
 
-
 /*Authentication Controller*/
 Auth::routes();
 
@@ -55,13 +54,17 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'JobController@search']);
 
-    Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
-
     Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
 
 
+<<<<<<< HEAD
+=======
+
+
+   
+>>>>>>> 7164e198209c99aecd6da0d5281cffbed7727824
 });
 
 
@@ -101,8 +104,13 @@ Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('c
 //admin panel
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+
+//dashboard
+
 Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
+    
+    //video
 
     //video
     Route::get('/video/upload','VideoController@upload')->name('uploadfile');
@@ -122,6 +130,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
         'as' => 'videosave'
     ]);
 
+<<<<<<< HEAD
     //category
     Route::get('/category/page',[
         'uses' => 'VideoCategoryController@page',
@@ -147,6 +156,28 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     ]);
 
 
+=======
+    //admin jobs panel
 
+    Route::get('/jobs/active', ['as' => 'activejobs', 'uses' =>'AdminController@activejobs']);
+
+    Route::get('/post/applicants/{job_id}', ['as' => 'getapplicants', 'uses' => 'AdminController@getapplicants']);
+>>>>>>> 7164e198209c99aecd6da0d5281cffbed7727824
+
+    Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
+
+
+    //Route::post('/alljobs/details/{job_id}', ['as' => 'application', 'uses' =>'AdminController@application']);
+
+    });
+
+
+
+//Main Page Routes
+
+Route::group(['prefix' => 'main'], function () 
+{
+    Route::get('/currentLaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
 
 });
+

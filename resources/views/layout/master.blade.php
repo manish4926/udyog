@@ -83,7 +83,7 @@
 
 
             <li class="nav-item">
-               <a class="nav-link" href="#">Current Law Affecting Industry</a>
+               <a class="nav-link" href="{{route('currentLaw')}}">Current Law Affecting Industry</a>
                </li>
 
 
@@ -138,7 +138,7 @@
           <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:white"></i>
       </div>
 
-      <script type="text/javascript" src="/js/app.js"></script>
+      <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
       @stack('bottomscript')
 
    </body>

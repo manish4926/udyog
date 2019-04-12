@@ -18,11 +18,12 @@
 		<div class="form-group">
 			<fieldset>
 				<legend>Personal Details:</legend>
-				<label>First Name :</label><br>
-				<label>Last Name :</label><br>
-				<label>E-mail :</label>
+				<label>First Name :</label>{{$user->firstname}}<br>
+				<label>Last Name :</label>{{$user->lastname}}<br>
+				<label>E-mail :</label>{{$user->email}}
 			</fieldset>
 
+			<label>Mobile :  </label><input type="Mobile" name="mobile_no" placeholder="Enter mobile no" /><br>
 			<label>City :  </label><input type="text" name="city" placeholder="Enter City" /><br>
 			<label>State :  </label>                          
 			<select name="state">

@@ -39,4 +39,18 @@ class MainController extends Controller
 
         return view('video.video')->with('video',$video)->with('all',$all);
     }
+
+
+
+    //current Law function
+
+   public function currentLaw(Request $request)
+    {
+        return view('main.currentLaw'); 
+    }
+
+
+
+
+
 }
