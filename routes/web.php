@@ -59,6 +59,9 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
 
+
+
+
    
 });
 
@@ -103,7 +106,6 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
-
     
     //video
 
@@ -124,7 +126,6 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
         'as' => 'videosave'
     ]);
 
-
     //admin jobs panel
 
     Route::get('/jobs/active', ['as' => 'activejobs', 'uses' =>'AdminController@activejobs']);
@@ -134,8 +135,17 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
 
 
-    Route::post('/alljobs/details/{job_id}', ['as' => 'application', 'uses' =>'AdminController@application']);
+    //Route::post('/alljobs/details/{job_id}', ['as' => 'application', 'uses' =>'AdminController@application']);
+
+    });
 
 
+
+//Main Page Routes
+
+Route::group(['prefix' => 'main'], function () 
+{
+    Route::get('/currentLaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
 
 });
+

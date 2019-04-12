@@ -83,7 +83,7 @@
 
 
             <li class="nav-item">
-               <a class="nav-link" href="#">Current Law Affecting Industry</a>
+               <a class="nav-link" href="{{route('currentLaw')}}">Current Law Affecting Industry</a>
                </li>
 
 
