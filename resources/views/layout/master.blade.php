@@ -52,7 +52,7 @@
                <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Job Portal</a>
                <div class="dropdown-menu">
                   <a class="dropdown-item" href="{{ route('postjob') }}">Post a New Job</a>
-                  <a class="dropdown-item" href="{{ route('alljob') }}">Latest Jobs</a>
+                  <a class="dropdown-item" href="{{ route('latestjobs') }}">Latest Jobs</a>
                   <a class="dropdown-item" href="{{ route('searchjob') }}">Search a Job</a>
                   {{-- <a class="dropdown-item" href="{{ route('application') }}">Application Form</a> --}}
                </div>

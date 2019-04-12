@@ -186,5 +186,8 @@ Route::group(['prefix' => 'main'], function ()
 
     Route::get('/regarademarks', ['as' => 'regarademarks', 'uses' =>'MainController@regAradeMarks']);
 
+    Route::get('/latestjobs', ['as' => 'latestjobs', 'uses' =>'MainController@mainalljob']);
+
+
 });
 

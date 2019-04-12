@@ -115,5 +115,11 @@ class MainController extends Controller
     }
 
 
+     public function  mainalljob(Request $request)
+    {
+        $jobs = job_opening::all();        
+        return view('main.mainalljob',compact('jobs'));
+    }
+
 
 }
