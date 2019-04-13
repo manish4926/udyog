@@ -18277,9 +18277,9 @@ h6 {
   color: blue;
 }
 
-
 .green {
   color: #008000;
+}
 
 /*Footer*/
 
@@ -18389,7 +18389,6 @@ body {
 #myFooter {
   flex: 0 0 auto;
   -webkit-flex: 0 0 auto;
->>>>>>> 1de97654505faa837af33a4fab8d07586dbcfcc4
 }
 
 .navbar-laravel {

@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
 use Mail;
+use Illuminate\Http\Request;
 use App\Mail\verifyEmail;
+use App\Directory;
 
 class RegisterController extends Controller
 {
@@ -114,5 +116,41 @@ class RegisterController extends Controller
             return 'user not found';
         }
     }
+
+
+    public function companyregister()
+    {
+        return view("auth.companyRegister");
+    }
+
+    public function CompanyValidate(Request $request)
+    {
+
+        $cname = $request->input('cname');
+        $code = $request->input('code');
+
+         
+                if(!empty($cname))
+                {
+                    $ccode=Directory::where('cname',$cname)->value('ccode');
+
+                   if($ccode==$code)
+                    {
+                        return view('auth.Register');
+                    }
+                    else
+                    {
+                        return view('auth.companyRegister');
+                    } 
+
+                 }
+
+            else
+            {
+                 return view('auth.companyRegister');
+            }
+            
+    }
+
 }
 

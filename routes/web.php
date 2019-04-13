@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 
 /*Authentication Controller*/
@@ -17,7 +17,7 @@ Route::get('/', function () {
 });*/
 
 Route::get('/puneet', function () {
-    return view('Footer.footer');
+    return view('auth.companylogin');
 });
 
 /*
@@ -68,15 +68,8 @@ Route::group(['prefix' => 'job'], function ()
 /*Video Controller*/
 
 
-/*Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});*/
 
 
-
-Route::get('file','VideoController@showUploadForm')->name('uploadfile');
-
-Route::post('file','VideoController@storeFile');
 
 
 /*Route::get('/','FileController@display');*/
@@ -84,6 +77,13 @@ Route::post('file','VideoController@storeFile');
 Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
     //return $name;
 
+/*Company Admin */
+Route::group(['prefix' => 'company/panel'], function () 
+{
+    
+    Route::get('/',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
+
+});
 /*Microsite*/
 Route::group(['prefix' => 'company'], function () 
 {
@@ -91,5 +91,35 @@ Route::group(['prefix' => 'company'], function ()
         return view('main.index');
     });
     Route::get('/microweb/{slug}',['as'=>'microwebsite','uses'=>'MicrowebController@microweb']);
+
+});
+
+
+Route::get('/companylogin','Auth\RegisterController@companyregister');
+Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
+//admin panel
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
+    Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
+
+    Route::get('/video/upload','VideoController@upload')->name('uploadfile');
+    Route::post('/video/upload','VideoController@storeFile');
+
+    Route::get('/video/all','VideoController@fetch')->name('videoall');
+    Route::get('/video/delete/{id}',[
+        'uses' => 'VideoController@delete',
+        'as' => 'video.delete'
+    ]);
+    Route::get('/video/update/{id}',[
+        'uses' => 'VideoController@update',
+        'as' => 'video.update'
+    ]);
+    Route::post('/video/save/{id}',[
+        'uses' => 'VideoController@save',
+        'as' => 'videosave'
+    ]);
+
+
 
 });

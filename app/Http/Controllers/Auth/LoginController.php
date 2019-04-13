@@ -37,4 +37,4 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
     {
         $this->middleware('guest')->except('logout');
     }
-}
+    }

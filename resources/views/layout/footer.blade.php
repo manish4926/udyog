@@ -12,7 +12,7 @@
                     <ul>
                         <li><a href="#">Privacy & Policy</a></li>
                         <li><a href="#">Term & Condition </a></li>
-                        <li><a href="#">Company login</a></li>
+                        <li><a href="/companylogin">Company login</a></li>
                         <li><a href="#">FAQ</a></li>
                         
                     </ul>
