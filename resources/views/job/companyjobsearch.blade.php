@@ -124,16 +124,6 @@
 				  @endforeach
 				</select>
 		</div>
-
-		<label for="">Sectors</label>
-		<div>
-				<select class="form-control" name="sector">
-				  <option value="">Select</option>
-				  @foreach($sectors as $s)
-				  <option value="{{ $s->sector }}">{{ $s->sector }}</option>
-				  @endforeach
-				</select>
-		</div>
 		<br/>	
 		<input type="submit" name="submit" value="Search" class="btn btn-danger">
 	</form> 
