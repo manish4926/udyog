@@ -58,21 +58,10 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
 
-
-<<<<<<< HEAD
-=======
-
-
-   
->>>>>>> 7164e198209c99aecd6da0d5281cffbed7727824
 });
 
 
 /*Video Controller*/
-
-
-
-
 
 
 /*Route::get('/','FileController@display');*/
@@ -109,7 +98,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
-    
+
     //video
 
     //video
@@ -130,7 +119,6 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
         'as' => 'videosave'
     ]);
 
-<<<<<<< HEAD
     //category
     Route::get('/category/page',[
         'uses' => 'VideoCategoryController@page',
@@ -155,14 +143,16 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
         'as' => 'savecategory'
     ]);
 
+    //tostr notifications
 
-=======
+
+
+
     //admin jobs panel
 
     Route::get('/jobs/active', ['as' => 'activejobs', 'uses' =>'AdminController@activejobs']);
 
     Route::get('/post/applicants/{job_id}', ['as' => 'getapplicants', 'uses' => 'AdminController@getapplicants']);
->>>>>>> 7164e198209c99aecd6da0d5281cffbed7727824
 
     Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
 
@@ -175,7 +165,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
 
 //Main Page Routes
 
-Route::group(['prefix' => 'main'], function () 
+Route::group(['prefix' => 'main'], function ()
 {
     Route::get('/currentLaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
 
