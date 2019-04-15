@@ -74,11 +74,11 @@
 
 
             <li class="nav-item">
-               <a class="nav-link" href="#">Current affairs</a>
+               <a class="nav-link" href="{{route('currentaffairs')}}">Current affairs</a>
                </li>
 
                <li class="nav-item">
-               <a class="nav-link" href="#">Training's</a>
+               <a class="nav-link" href="{{route('training')}}">Training's</a>
                </li>
 
 

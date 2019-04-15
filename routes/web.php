@@ -168,6 +168,11 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
 Route::group(['prefix' => 'main'], function () 
 {
+    Route::get('/Currentaffairs', ['as' => 'currentaffairs', 'uses' =>'MainController@CurrentAffairs']);
+
+    Route::get('/training', ['as' => 'training', 'uses' =>'MainController@training']);
+
+
     Route::get('/currentlaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
 
     Route::get('/labourlaws', ['as' => 'labourlaws', 'uses' =>'MainController@labourLaws']);
