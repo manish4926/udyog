@@ -24,19 +24,20 @@ class JobController extends Controller
 
 		$jobpost = new job_opening;
 
-		$jobpost->job_title           = $request->title;
-		$jobpost->company_name     = $request->companyname;
-		$jobpost->hr_name          = $request->hrname;
-		$jobpost->experience             = $request->exp;
+		$jobpost->job_title       = $request->title;
+		$jobpost->company_name    = $request->companyname;
+		$jobpost->hr_name         = $request->hrname;
+		$jobpost->experience      = $request->exp;
 		$jobpost->skills          = $request->skill;
 		$jobpost->postdate        = $request->postdate;
 		$jobpost->expdate         = $request->expdate;
 		$jobpost->location        = $request->location;
 		$jobpost->package         = $request->pack;
-		$jobpost->job_desc            = $request->desc;
-        $jobpost->status=0;
-        $jobpost->del=0;
-        $jobpost->ip_address   =$_SERVER['REMOTE_ADDR'];
+		$jobpost->job_desc        = $request->desc;
+        $jobpost->status          =0;
+        $jobpost->del             =0;
+        $jobpost->ip_address      =$_SERVER['REMOTE_ADDR'];
+		
 		$jobpost->save();
 		
 		return redirect()->back();
@@ -158,4 +159,41 @@ class JobController extends Controller
 		return view('job.search')->with(['searching'=>$job_search]); 
 	}
 
+
+
+	public function candidatesearch(Request $request)
+
+	{
+		$searchkey= $request->search;
+
+		$job_search= job_opening::orderBy('job_id');
+		if($searchkey && !empty($searchkey)){
+			$job_search->where(function($query) use ($searchkey){
+				$query->where('job_title' , 'like','%' .$searchkey. '%');
+				$query->orWhere('skills' , 'like','%' .$searchkey. '%');
+				$query->orwhere('company_name', 'LIKE', '%' .$searchkey. '%');
+			});
+		}
+
+		$searchkey1=$request->get('place');
+		if($searchkey1){
+			$job_search->where('location' , 'like','%' .$searchkey1. '%');
+		}
+		$searchkey2=$request->get('exp1');
+		if($searchkey2){
+			$job_search->where('experience' , 'like','%' .$searchkey2. '%');
+		}  
+
+		$searchkey3=$request->get('sal');
+		if($searchkey3){
+			$job_search->where('package' , '=', $searchkey3);
+		}
+		
+		$job_search = $job_search->paginate(5);
+		
+		return view('job.companyjobsearch')->with(['searching'=>$job_search]); 
+		
+	}
+
 }
+

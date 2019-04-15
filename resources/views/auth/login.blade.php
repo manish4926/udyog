@@ -74,16 +74,7 @@
 </div>
 
 </form>
-                                   
-
-
-
-
-
-
-
-
-
+                        
 
 
 @push('bottomscript')
