@@ -14,8 +14,6 @@ use Carbon\Carbon;
 
 class JobController extends Controller
 {
-
-
 	public function postJob(Request $request)
 	{
 		return view('job.jobpost');	//,compact()
@@ -113,14 +111,11 @@ class JobController extends Controller
 
 	}
 
-
-
 	public function alljob (Request $request)
 	{
 		$jobs= job_opening::all();
 		return view('job.alljob',compact('jobs'));
 	}
-
 
 	public function getdisplay(Request $request)
 	{

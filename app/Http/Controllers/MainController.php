@@ -42,6 +42,28 @@ class MainController extends Controller
 
 
 
+
+     //Current affairs function
+
+   public function CurrentAffairs(Request $request)
+    {
+        return view('main.Currentaffairs'); 
+    }
+
+
+
+
+ //training's function
+
+   public function training(Request $request)
+    {
+        return view('main.training'); 
+    }
+
+
+
+
+
     //current Law function
 
    public function currentLaw(Request $request)
@@ -50,7 +72,76 @@ class MainController extends Controller
     }
 
 
+    //labour Laws function
 
+   public function labourLaws(Request $request)
+    {
+        return view('main.labourlaws'); 
+    }
+
+
+    //taxation function
+
+   public function taxation (Request $request)
+    {
+        return view('main.taxation'); 
+    }
+
+
+    //Presently Development function
+
+   public function presentlyDevelopment(Request $request)
+    {
+        return view('main.presentlydevelopment'); 
+    }
+
+
+    //new technology function
+
+    public function newTechnology(Request $request)
+    {
+        return view('main.newtechnology'); 
+    }
+
+
+    //new products function
+
+    public function newProducts(Request $request)
+    {
+        return view('main.newproducts'); 
+    }
+
+    
+    //health function
+
+    public function health(Request $request)
+    {
+        return view('main.health'); 
+    }
+
+
+    //how to grow business function
+
+    public function growBusiness(Request $request)
+    {
+        return view('main.growbusiness'); 
+    }
+
+    
+     //registerations and arade marks function 
+
+     public function regAradeMarks(Request $request)
+    {
+                 
+        return view('main.regarademarks');
+    }
+
+
+     public function  mainalljob(Request $request)
+    {
+        $jobs = job_opening::all();        
+        return view('main.mainalljob',compact('jobs'));
+    }
 
 
 }

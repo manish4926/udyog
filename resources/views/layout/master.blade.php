@@ -52,9 +52,9 @@
                <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Job Portal</a>
                <div class="dropdown-menu">
                   <a class="dropdown-item" href="{{ route('postjob') }}">Post a New Job</a>
-                  <a class="dropdown-item" href="{{ route('alljob') }}">Latest Jobs</a>
+                  <a class="dropdown-item" href="{{ route('latestjobs') }}">Latest Jobs</a>
                   <a class="dropdown-item" href="{{ route('searchjob') }}">Search a Job</a>
-                  <a class="dropdown-item" href="{{ route('application') }}">Application Form</a>
+                  {{-- <a class="dropdown-item" href="{{ route('application') }}">Application Form</a> --}}
                </div>
             </li>
 
@@ -74,11 +74,11 @@
 
 
             <li class="nav-item">
-               <a class="nav-link" href="#">Current affairs</a>
+               <a class="nav-link" href="{{route('currentaffairs')}}">Current affairs</a>
                </li>
 
                <li class="nav-item">
-               <a class="nav-link" href="#">Training's</a>
+               <a class="nav-link" href="{{route('training')}}">Training's</a>
                </li>
 
 
@@ -88,29 +88,29 @@
 
 
             <li class="nav-item">
-               <a class="nav-link" href="#">Labour Laws</a>
+               <a class="nav-link" href="{{route('labourlaws')}}">Labour Laws</a>
                </li>
 
             <li class="nav-item">
-               <a class="nav-link" href="#">taxation</a>
+               <a class="nav-link" href="{{route('taxation')}}">taxation</a>
                 </li>
                <li class="nav-item">
-               <a class="nav-link" href="#">Presently Development</a>
+               <a class="nav-link" href="{{route('presentlydevelopment')}}">Presently Development</a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="#">New Technology</a>
+               <a class="nav-link" href="{{route('newtechnology')}}">New Technology</a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="#">New Products</a>
+               <a class="nav-link" href="{{route('newproducts')}}">New Products</a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="#">Health</a>
+               <a class="nav-link" href="{{route('health')}}">Health</a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="#">How to grow business</a>
+               <a class="nav-link" href="{{route('growbusiness')}}">How to grow business</a>
                </li>
                <li class="nav-item">x
-               <a class="nav-link" href="#">Registerations & Arade Marks</a></li>
+               <a class="nav-link" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li>
                </ul>
 
          <!-- SIDE NAV BAR SHOULD END HERE!!!! -->

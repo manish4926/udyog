@@ -57,9 +57,11 @@ Route::group(['prefix' => 'job'], function ()
     Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
+<<<<<<< HEAD
 
+=======
+>>>>>>> aadb39c9d0d38cb1b4fc9f8530015b13d5d092b9
 });
-
 
 /*Video Controller*/
 
@@ -96,7 +98,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 //dashboard
 
-Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
+{
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
 
     //video
@@ -156,8 +159,12 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
 
     Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
 
+    Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
 
-    //Route::post('/alljobs/details/{job_id}', ['as' => 'application', 'uses' =>'AdminController@application']);
+    Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
+
+    Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
+
 
     });
 
@@ -167,7 +174,31 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
 
 Route::group(['prefix' => 'main'], function ()
 {
-    Route::get('/currentLaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
+    Route::get('/Currentaffairs', ['as' => 'currentaffairs', 'uses' =>'MainController@CurrentAffairs']);
+
+    Route::get('/training', ['as' => 'training', 'uses' =>'MainController@training']);
+
+
+    Route::get('/currentlaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
+
+    Route::get('/labourlaws', ['as' => 'labourlaws', 'uses' =>'MainController@labourLaws']);
+
+    Route::get('/taxation', ['as' => 'taxation', 'uses' =>'MainController@taxation']);
+
+    Route::get('/presentlydevelopment', ['as' => 'presentlydevelopment', 'uses' =>'MainController@presentlyDevelopment']);
+
+    Route::get('/newtechnology', ['as' => 'newtechnology', 'uses' =>'MainController@newTechnology']);
+
+    Route::get('/newproducts', ['as' => 'newproducts', 'uses' =>'MainController@newProducts']);
+
+    Route::get('/health', ['as' => 'health', 'uses' =>'MainController@health']);
+
+    Route::get('/growbusiness', ['as' => 'growbusiness', 'uses' =>'MainController@growBusiness']);
+
+    Route::get('/regarademarks', ['as' => 'regarademarks', 'uses' =>'MainController@regAradeMarks']);
+
+    Route::get('/latestjobs', ['as' => 'latestjobs', 'uses' =>'MainController@mainalljob']);
+
 
 });
 
