@@ -63,6 +63,7 @@ class JobController extends Controller
             'city' =>'required|max:20',
             'gender' =>'required',
             'dob' =>'required',
+            'skills'=>'required',
             'jobtitle' =>'required|max:20',
             'companyname' =>'required',
             'graduation' =>'required',
@@ -97,6 +98,7 @@ class JobController extends Controller
 		$candidate->city           = $request->city;
 		$candidate->gender         = $request->gender;
 		$candidate->dob            = $request->dob;
+		$candidate->skills         = $request->skills;
 		$candidate->jobtitle       = $request->jobtitle;
 		$candidate->companyname    = $request->companyname;
 		$candidate->graduation     = $request->graduation;
@@ -164,54 +166,34 @@ class JobController extends Controller
 	public function candidatesearch(Request $request)
 
 	{
-		$search=Directory::orderBy('c_id');//get data from table
-        $industry_type  = industry_type();
-        $business_type = business_type();
-        if(!empty($request->business_types))
-        {
-            $search = $search->orwhere('businesstype', $request->business_types);
-        }
-        if(!empty($request->industry_types))
-        {
-            $search = $search->orwhere('industrytype', $request->industry_types);
-        }
-        if(!empty($request->block))
-        {
-            $search = $search->orwhere('block', $request->block);
-        }
-        if(!empty($request->area))
-        {
-            $search = $search->orwhere('area', $request->area);
-        }
-        if(!empty($request->sector))
-        {
-            $search = $search->orwhere('sector', $request->sector);
-        }
-        if(!empty($request->material))
-        {
-            $search = $search->orwhere('material', $request->material);
-        }
-        if(!empty($request->company))
-        {
-            $search = $search->orwhere('cname', $request->company);
-        }
-        //$search = $search->paginate(5);
-        //dd($request->material);
-        $materials=Directory::whereNotNull('material')->groupBy('material')->get();
-        //******* search for material tags in cards *************
-        if(!empty($request->tag))
-        {
-            $search = $search->where('material', $request->tag);
-        }
-        // pagination
-        $search = $search->paginate(5);
-        //dd($request->material);
-        $materials=Directory::where('material','!=','')->groupBy('material')->get();
-        //dd($materials);
-        $sectors=Directory::whereNotNull('sector')->groupBy('sector')->get();
-        $areas=Directory::whereNotNull('area')->groupBy('area')->get();
-        $companys=Directory::whereNotNull('cname')->get();
-        return view('job.companyjobsearch',compact('search','materials','sectors','areas','companys','industry_type','business_type'));//sent data to view
+		$searchkey= $request->search;
+
+		$job_search= job_opening::orderBy('job_id');
+		if($searchkey && !empty($searchkey)){
+			$job_search->where(function($query) use ($searchkey){
+				$query->where('job_title' , 'like','%' .$searchkey. '%');
+				$query->orWhere('skills' , 'like','%' .$searchkey. '%');
+				$query->orwhere('company_name', 'LIKE', '%' .$searchkey. '%');
+			});
+		}
+
+		$searchkey1=$request->get('place');
+		if($searchkey1){
+			$job_search->where('location' , 'like','%' .$searchkey1. '%');
+		}
+		$searchkey2=$request->get('exp1');
+		if($searchkey2){
+			$job_search->where('experience' , 'like','%' .$searchkey2. '%');
+		}  
+
+		$searchkey3=$request->get('sal');
+		if($searchkey3){
+			$job_search->where('package' , '=', $searchkey3);
+		}
+		
+		$job_search = $job_search->paginate(5);
+		
+		return view('job.search')->with(['searching'=>$job_search]); 
 		
 	}
 

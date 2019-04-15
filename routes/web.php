@@ -149,6 +149,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
     //admin jobs panel
 
+    Route::get('/jobs/pending', ['as' => 'pendingjobs', 'uses' =>'AdminController@pendingjobs']);
+
     Route::get('/jobs/active', ['as' => 'activejobs', 'uses' =>'AdminController@activejobs']);
 
     Route::get('/post/applicants/{job_id}', ['as' => 'getapplicants', 'uses' => 'AdminController@getapplicants']);
