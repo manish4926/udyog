@@ -93,7 +93,9 @@ class JobController extends Controller
 
 
 		$candidate->user_id        = $user->id;
-		$candidate->mobile_no      = $request->mobile_no;
+		$candidate->firstname      = $user->firstname;
+		$candidate->lastname       = $user->lastname;
+		$candidate->email          = $user->email;
 		$candidate->state          = $request->state;
 		$candidate->city           = $request->city;
 		$candidate->gender         = $request->gender;
@@ -129,8 +131,6 @@ class JobController extends Controller
 
 	public function search(Request $request)
 	{
-        //return view('job.search'); //,compact()
-
 		$searchkey= $request->search;
 
 		$job_search= job_opening::orderBy('job_id');
@@ -161,39 +161,37 @@ class JobController extends Controller
 		return view('job.search')->with(['searching'=>$job_search]); 
 	}
 
-
-
 	public function candidatesearch(Request $request)
-
 	{
-		$searchkey= $request->search;
+       	$searchkey= $request->search;
 
-		$job_search= job_opening::orderBy('job_id');
+		$candidatesearch=Candidatedata::orderBy('id');//get data from table
+		
 		if($searchkey && !empty($searchkey)){
-			$job_search->where(function($query) use ($searchkey){
-				$query->where('job_title' , 'like','%' .$searchkey. '%');
-				$query->orWhere('skills' , 'like','%' .$searchkey. '%');
-				$query->orwhere('company_name', 'LIKE', '%' .$searchkey. '%');
+			$candidatesearch->where(function($query) use ($searchkey){
+				$query->Where('skills' , 'like','%' .$searchkey. '%');
 			});
 		}
 
-		$searchkey1=$request->get('place');
+		$searchkey1=$request->get('exp1');
 		if($searchkey1){
-			$job_search->where('location' , 'like','%' .$searchkey1. '%');
-		}
-		$searchkey2=$request->get('exp1');
-		if($searchkey2){
-			$job_search->where('experience' , 'like','%' .$searchkey2. '%');
+			$candidatesearch->where('experience' , 'like','%' .$searchkey2. '%');
 		}  
 
-		$searchkey3=$request->get('sal');
+		$searchkey2=$request->get('graduation');
+		if($searchkey2){
+			$candidatesearch->where('graduation' , '=', $searchkey3);
+		}
+
+		$searchkey3=$request->get('postgraduation');
 		if($searchkey3){
-			$job_search->where('package' , '=', $searchkey3);
+			$candidatesearch->where('postgraduation' , '=', $searchkey3);
 		}
 		
-		$job_search = $job_search->paginate(5);
 		
-		return view('job.search')->with(['searching'=>$job_search]); 
+		$candidatesearch = $candidatesearch->paginate(5);
+		
+		return view('job.searchcontent')->with(['searching'=>$candidatesearch]); 
 		
 	}
 

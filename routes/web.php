@@ -203,4 +203,5 @@ Route::group(['prefix' => 'main'], function ()
 
 //company job search 
 
-Route::get('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobController@candidatesearch']);
+Route::any('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobController@candidatesearch']);
+
