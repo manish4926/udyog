@@ -24,19 +24,20 @@ class JobController extends Controller
 
 		$jobpost = new job_opening;
 
-		$jobpost->job_title           = $request->title;
-		$jobpost->company_name     = $request->companyname;
-		$jobpost->hr_name          = $request->hrname;
-		$jobpost->experience             = $request->exp;
+		$jobpost->job_title       = $request->title;
+		$jobpost->company_name    = $request->companyname;
+		$jobpost->hr_name         = $request->hrname;
+		$jobpost->experience      = $request->exp;
 		$jobpost->skills          = $request->skill;
 		$jobpost->postdate        = $request->postdate;
 		$jobpost->expdate         = $request->expdate;
 		$jobpost->location        = $request->location;
 		$jobpost->package         = $request->pack;
-		$jobpost->job_desc            = $request->desc;
-        $jobpost->status=0;
-        $jobpost->del=0;
-        $jobpost->ip_address   =$_SERVER['REMOTE_ADDR'];
+		$jobpost->job_desc        = $request->desc;
+        $jobpost->status          =0;
+        $jobpost->del             =0;
+        $jobpost->ip_address      =$_SERVER['REMOTE_ADDR'];
+		
 		$jobpost->save();
 		
 		return redirect()->back();
@@ -62,6 +63,7 @@ class JobController extends Controller
             'city' =>'required|max:20',
             'gender' =>'required',
             'dob' =>'required',
+            'skills'=>'required',
             'jobtitle' =>'required|max:20',
             'companyname' =>'required',
             'graduation' =>'required',
@@ -91,11 +93,14 @@ class JobController extends Controller
 
 
 		$candidate->user_id        = $user->id;
-		$candidate->mobile_no      = $request->mobile_no;
+		$candidate->firstname      = $user->firstname;
+		$candidate->lastname       = $user->lastname;
+		$candidate->email          = $user->email;
 		$candidate->state          = $request->state;
 		$candidate->city           = $request->city;
 		$candidate->gender         = $request->gender;
 		$candidate->dob            = $request->dob;
+		$candidate->skills         = $request->skills;
 		$candidate->jobtitle       = $request->jobtitle;
 		$candidate->companyname    = $request->companyname;
 		$candidate->graduation     = $request->graduation;
@@ -126,8 +131,6 @@ class JobController extends Controller
 
 	public function search(Request $request)
 	{
-        //return view('job.search'); //,compact()
-
 		$searchkey= $request->search;
 
 		$job_search= job_opening::orderBy('job_id');
@@ -158,4 +161,39 @@ class JobController extends Controller
 		return view('job.search')->with(['searching'=>$job_search]); 
 	}
 
+	public function candidatesearch(Request $request)
+	{
+       	$searchkey= $request->search;
+
+		$candidatesearch=Candidatedata::orderBy('id');//get data from table
+		
+		if($searchkey && !empty($searchkey)){
+			$candidatesearch->where(function($query) use ($searchkey){
+				$query->Where('skills' , 'like','%' .$searchkey. '%');
+			});
+		}
+
+		$searchkey1=$request->get('exp1');
+		if($searchkey1){
+			$candidatesearch->where('experience' , 'like','%' .$searchkey2. '%');
+		}  
+
+		$searchkey2=$request->get('graduation');
+		if($searchkey2){
+			$candidatesearch->where('graduation' , '=', $searchkey3);
+		}
+
+		$searchkey3=$request->get('postgraduation');
+		if($searchkey3){
+			$candidatesearch->where('postgraduation' , '=', $searchkey3);
+		}
+		
+		
+		$candidatesearch = $candidatesearch->paginate(5);
+		
+		return view('job.searchcontent')->with(['searching'=>$candidatesearch]); 
+		
+	}
+
 }
+

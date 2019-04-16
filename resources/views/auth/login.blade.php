@@ -54,8 +54,12 @@
                                     Login
                                 </button>
                     </div>
+<<<<<<< HEAD
                     <input type="hidden" name="redirecturl" value="{{!empty($_REQUEST['redirecturl']) ? $_REQUEST['redirecturl']:'' }}">
                     <input type="hidden" name="passingid" value="{{!empty($_REQUEST['id']) ? $_REQUEST['redirecturl']:'' }}">
+=======
+                   
+>>>>>>> a083d08035d1a978c7ff2646aec3575279eb12ee
                     @if (Route::has('password.request'))
 
                     <div class="text-center p-t-12">
@@ -74,6 +78,7 @@
 </div>
 
 </form>
+<<<<<<< HEAD
 
 
 
@@ -84,6 +89,9 @@
 
 
 
+=======
+                        
+>>>>>>> a083d08035d1a978c7ff2646aec3575279eb12ee
 
 
 @push('bottomscript')

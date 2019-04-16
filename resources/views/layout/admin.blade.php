@@ -152,6 +152,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="{{ route('pendingjobs') }}"><i class="fa fa-list-ul"></i> Pending Jobs</a></li>
             <li><a href="{{ route('activejobs') }}"><i class="fa fa-list-ul"></i> Active Jobs</a></li>
             <li><a href="{{ route('expjobs') }}"><i class="fa fa-list-ul"></i> Expired Jobs</a></li>
           </ul>

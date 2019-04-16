@@ -16,11 +16,14 @@ class CreateCandidatedatasTable extends Migration
     {
         Schema::create('candidatedatas', function (Blueprint $table) {
             $table->bigInteger('mobile_no');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('email');
             $table->string('state');
             $table->string('city');
-            $table->string('email');
             $table->string('gender');
             $table->date('dob');
+            $table->string('skills');
             $table->string('experience');
             $table->string('salary');
             $table->string('jobtitle');
