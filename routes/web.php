@@ -57,10 +57,7 @@ Route::group(['prefix' => 'job'], function ()
     Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
-<<<<<<< HEAD
 
-=======
->>>>>>> aadb39c9d0d38cb1b4fc9f8530015b13d5d092b9
 });
 
 /*Video Controller*/
