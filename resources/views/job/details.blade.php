@@ -44,7 +44,8 @@
 
 @section('center-content')
 <div class="white-card">
-        <h1>{{ ucfirst($job_opening->job_title) }}</h1>
+         <h1>{{ ucfirst($job_opening->job_title) }}</h1>
+          {{ csrf_field() }}
 
         <div class="row">
               <div class="column" style="background-color:#aaa;">
@@ -72,11 +73,16 @@
                                 <p>{{$job_opening->expdate}}</p>
                                 <p>{{$job_opening->location}}</p>
                                 <p>{{$job_opening->package}}</p>
-                                <p>{{$job_opening->job_desc}}</p>  
+                                <p>{{$job_opening->job_desc}}</p> <br> 
+                        @if(Auth::guest() == true) 
+
+                            <a href="{{ route('login') }}?redirecturl=getdisplay&id={{$job_opening->job_id}}" class="btn btn-success">Apply Now</a>
+                        @else
+                            <a href="{{ route('application',['title'=>$job_opening->job_title])}}) }}" class="btn btn-success">Apply Now</a>
+                        @endif
                         
-                        <button type="button" class="btn btn-success">Apply Now</button>
             </div>
-        </div>
+          </div>
     </div>
 @endsection
 @section('right-content')

@@ -127,7 +127,7 @@
                                     </div>
 
                                     <-- LAYER NR. 3 -->
-                        -->
+                        
                                     <!-- LAYER NR. 3 -->
                                     <div class="tp-caption"
                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -280,7 +280,7 @@
 
                                     <-- LAYER NR. 3 -->
                                     <!-- LAYER NR. 3 -->
-\                                    <div class="tp-caption"
+                                   <div class="tp-caption"
                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
                                         data-y="['middle','middle','middle','middle']" data-voffset="['52','185','185','105']"
                                         data-transform_idle="o:1;"
@@ -668,7 +668,7 @@
                                         <p>On the other hand, We denounce ut with righteo indignation and dislike men who are so beguiled and demoralized.</p>
                                     </div>
                                 </div> <-- /.img -->
-                                </div> --><!-- /.img -->
+                                </div> <!-- /.img -->
             <!--                    <div class="member-name">
                                     <h6>Holly Vincenzini</h6>
                                     <p>Media Partner</p>
@@ -679,7 +679,7 @@
                                         <li><a href="#" class="tran3s round-border"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div> <-- /.member-name -->
-                                </div> --><!-- /.member-name -->
+                                </div> <!-- /.member-name -->
                             </div> <!-- /.single-team-member -->
                         </div> <!-- /float-left -->
 <!--
@@ -693,7 +693,7 @@
                                         <p>On the other hand, We denounce ut with righteo indignation and dislike men who are so beguiled and demoralized.</p>
                                     </div>
                                 </div> <-- /.img -->
-                                </div> --><!-- /.img -->
+                                </div> <!-- /.img -->
         <!--                        <div class="member-name">
                                     <h6>Ramirez Minita</h6>
                                     <p>Graphic Design</p>
@@ -704,7 +704,7 @@
                                         <li><a href="#" class="tran3s round-border"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div> <-- /.member-name -->
-                                </div> --><!-- /.member-name -->
+                                </div><!-- /.member-name -->
                             </div> <!-- /.single-team-member -->
                         </div> <!-- /float-left -->
                     </div> <!-- /.team-member-wrapper -->
@@ -774,12 +774,12 @@
                                             </div>
                                         </div>
                                     </div> <!- /.codeconSkills -->
-                               </div> <!-- /.habilidades_contenedor -->
-                            </div> <!-- /.skills-progress -->
-                        </div>
-                    </div> <!-- /.clear-fix -->
-                </div> <!-- /.container -->
-            </div> <!-- /#skill-section -->
+                              <!-- </div> --> <!-- /.habilidades_contenedor -->
+                            <!--</div>--><!-- /.skills-progress -->
+                       <!-- </div> -->
+                   <!-- </div> --> <!-- /.clear-fix -->
+               <!-- </div> --><!-- /.container -->
+            <!--</div> --><!-- /#skill-section -->
 
 
             <!--
@@ -839,8 +839,8 @@
                                 </ul>
                                 <a href="#" class="tran3s p-color-bg">BUY IT NOW</a>
                             </div> <-- /.single-price-table -->
-                            </div>--> <!-- /.single-price-table -->
-                        </div> <!-- /.col -->
+                           <!-- </div>--> <!-- /.single-price-table -->
+                        <!--</div>--> <!-- /.col -->
 <!--
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="single-price-table hvr-float-shadow">
@@ -856,8 +856,8 @@
                                 </ul>
                                 <a href="#" class="tran3s p-color-bg">BUY IT NOW</a>
                             </div> <-- /.single-price-table -->
-                            </div>--> <!-- /.single-price-table -->
-                        </div> <!-- /.col -->
+                           <!-- </div>--> <!-- /.single-price-table -->
+                       <!--  </div>--> <!-- /.col -->
 <!--
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="single-price-table hvr-float-shadow">
@@ -873,11 +873,11 @@
                                 </ul>
                                 <a href="#" class="tran3s p-color-bg">BUY IT NOW</a>
                             </div> <-- /.single-price-table -->
-                            </div>--> <!-- /.single-price-table -->
-                        </div> <!-- /.col -->
-                    </div>
-                </div> <!-- /.container -->
-            </div> <!-- /#pricing-section -->
+                           <!--  </div> --> <!-- /.single-price-table -->
+                        <!--</div>--> <!-- /.col -->
+                   <!--  </div>
+                </div>--> <!-- /.container -->
+           <!--  </div> --><!-- /#pricing-section -->
 
 
             <!--
@@ -892,7 +892,7 @@
                         <h2>OUR LATEST Blog</h2>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
                     </div> <-- /.theme-title -->
-                    </div> --><!-- /.theme-title -->
+                    <!--</div> --><!-- /.theme-title -->
 <!--
                     <div class="clear-fix">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -900,51 +900,51 @@
                                 <div class="img"><img src="images/blog/1.jpg" alt="Image">
                                     <a href="blog-details.html" class="opacity tran4s"><i class="fa fa-link" aria-hidden="true"></i></a>
                                 </div> <-- /.img -->
-                                </div>--> <!-- /.img -->
+                        <!--        </div>--> <!-- /.img -->
 <!--
                                 <div class="post">
                                     <h6><a href="blog-details.html" class="tran3s">Playback: Akufo-Addo speaks to business community</a></h6>
                                     <a href="blog-details.html">Posted by <span class="p-color">admin</span>  at 04 Feb, 2017</a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna sed accumsan... <a href="blog-details.html" class="tran3s">Read More</a></p>
                                 </div> <-- /.post -->
-                                </div>--> <!-- /.post -->
-                            </div> <!-- /.single-news-item -->
-                        </div> <!-- /.col- -->
+                                <!--</div>--> <!-- /.post -->
+                            <!--</div>-->  <!-- /.single-news-item -->
+                        <!--</div>-->  <!-- /.col- -->
 <!--
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="single-news-item">
                                 <div class="img"><img src="images/blog/2.jpg" alt="Image">
                                     <a href="blog-details.html" class="opacity tran4s"><i class="fa fa-link" aria-hidden="true"></i></a>
                                 </div> <-- /.img -->
-                                </div>--> <!-- /.img -->
+                                <!--</div>--> <!-- /.img -->
 <!--
                                 <div class="post">
                                     <h6><a href="blog-details.html" class="tran3s">Playback: Akufo-Addo speaks to business community</a></h6>
                                     <a href="blog-details.html">Posted by <span class="p-color">admin</span>  at 04 Feb, 2017</a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna sed accumsan... <a href="blog-details.html" class="tran3s">Read More</a></p>
                                 </div> <-- /.post -->
-                                </div>--> <!-- /.post -->
-                            </div> <!-- /.single-news-item -->
-                        </div> <!-- /.col- -->
+                               <!-- </div>--> <!-- /.post -->
+                           <!-- </div>-->  <!-- /.single-news-item -->
+                       <!-- </div> --> <!-- /.col- -->
 <!--
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="single-news-item">
                                 <div class="img"><img src="images/blog/3.jpg" alt="Image">
                                     <a href="blog-details.html" class="opacity tran4s"><i class="fa fa-link" aria-hidden="true"></i></a>
                                 </div> <-- /.img -->
-                               </div>--> <!-- /.img -->
+                              <!-- </div>--> <!-- /.img -->
 <!--
                                 <div class="post">
                                     <h6><a href="blog-details.html" class="tran3s">Playback: Akufo-Addo speaks to business community</a></h6>
                                     <a href="blog-details.html">Posted by <span class="p-color">admin</span>  at 04 Feb, 2017</a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna sed accumsan... <a href="blog-details.html" class="tran3s">Read More</a></p>
                                 </div> <-- /.post -->
-                                </div>--> <!-- /.post -->
-                            </div> <!-- /.single-news-item -->
-                        </div> <!-- /.col- -->
-                    </div> <!-- /.clear-fix -->
-                </div> <!-- /.container -->
-            </div> <!-- /#blog-section -->
+                             <!--   </div>--> <!-- /.post -->
+                         <!--   </div> --> <!-- /.single-news-item -->
+                         <!--</div> --> <!-- /.col- -->
+                     <!--</div> --> <!-- /.clear-fix -->
+                <!-- </div>-->  <!-- /.container -->
+            <!-- </div>-->  <!-- /#blog-section -->
 
 
             <!--
@@ -963,9 +963,9 @@
                         <div class="item"><img src="images/logo/p5.png" alt="logo"></div>
                         <div class="item"><img src="images/logo/p2.png" alt="logo"></div>
                     </div> <-- End .partner_logo -->
-                    </div>--> <!-- End .partner_logo -->
-                </div> <!-- /.container -->
-            </div> <!-- /#partner-section -->
+                <!--     </div>--> <!-- End .partner_logo -->
+              <!--   </div>-->  <!-- /.container -->
+            <!-- </div> --> <!-- /#partner-section -->
 
 
             <!--

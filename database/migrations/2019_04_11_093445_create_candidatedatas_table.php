@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCandidatedataTable extends Migration
+class CreateCandidatedatasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class CreateCandidatedataTable extends Migration
 
     public function up()
     {
-        Schema::create('candidatedata', function (Blueprint $table) {
-            $table->bigInteger('user_id');
+        Schema::create('candidatedatas', function (Blueprint $table) {
+            $table->bigInteger('mobile_no');
             $table->string('state');
             $table->string('city');
             $table->string('email');
@@ -44,6 +44,6 @@ class CreateCandidatedataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('candidatedata');
+        Schema::dropIfExists('candidatedatas');
     }
 }

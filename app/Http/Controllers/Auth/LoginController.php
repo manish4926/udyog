@@ -26,7 +26,19 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
      *
     * @var string
      */
+
+    /*if ( $user->isAdmin() ) {// do your margic here
+        return redirect()->route('dashboard');
+    }*/
+
+    
+    /*if(!session()->has('url.intended'))
+    {
+        session(['url.intended' => url()->previous()]);
+    }*/
     protected $redirectTo = '/';
+
+    
 
     /**
      * Create a new controller instance.

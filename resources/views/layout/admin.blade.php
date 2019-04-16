@@ -23,6 +23,7 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    @stack('topscript')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -118,7 +119,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('uploadfile') }}"><i class="fa fa-upload"></i> New Video</a></li>
-            <li><a href="{{ route('videoall') }}"><i class="fa fa-list-ul"></i> All Videos</a></li>
+            <li><a href="{{ route('videoall') }}"><i class="fa "></i> All Videos</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -128,6 +129,31 @@
             <span class="pull-right-container">
             </span>
           </a>
+        </li>
+        <li class="treeview">
+            <a href="#">
+              <i class="fa fa-list-ul"></i>
+              <span>Categories</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('categorypage') }}"><i class="fa fa-upload"></i> New Category</a></li>
+              <li><a href="{{ route('allcategory') }}"><i class="fa fa-list-ul"></i> All Categories</a></li>
+            </ul>
+          </li>
+          <a href="#">
+            <i class="fa fa-list-ul"></i>
+            <span>Jobs</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('activejobs') }}"><i class="fa fa-list-ul"></i> Active Jobs</a></li>
+            <li><a href="{{ route('expjobs') }}"><i class="fa fa-list-ul"></i> Expired Jobs</a></li>
+          </ul>
         </li>
       </ul>
 
@@ -141,7 +167,7 @@
 
     <!-- Content Here -->
     @yield('content')
-   
+
 
 </div>
 <!-- ./wrapper -->
@@ -167,5 +193,6 @@
 <script src="{{asset('admin/dist/js/pages/dashboard2.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin/dist/js/demo.js')}}"></script>
+@stack('bottomscript')
 </body>
 </html>
