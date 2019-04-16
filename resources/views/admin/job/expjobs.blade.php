@@ -1,6 +1,6 @@
 @extends('layout.admin')
 
-@section('title','Active Jobs')
+@section('title','Expired Jobs')
 
 @section('content')
 
@@ -20,7 +20,7 @@
             <!-- form start -->
             <div class="container"></div>
 
-            <form method="get" action="{{ route('activejobs') }}">  
+            <form method="get" action="{{ route('expjobs') }}">  
                     {{ csrf_field() }}
                     <table class="table table-hover table-striped table-bordered">
                         <thead class="thead-dark" align="center">

@@ -72,7 +72,7 @@
 										<p>{{ $job_opening->job_desc }} Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 									</div>
 									<div class="col-md-4">
-										<img src="{{ asset('img/udyog_logo.png') }}" style="width: 100px; float: right; position: absolute; right: 20px; margin-top: -10px;">
+										<img src="{{ asset('img/udyog_logo.png') }}" class="job-company-logo">
 									</div>
 									<div class="col-md-4">
 										<p><i class="fas fa-pen"></i> Skills: {{$job_opening->skills}}</p>

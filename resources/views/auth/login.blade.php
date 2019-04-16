@@ -56,6 +56,7 @@
                     </div>
                     <input type="hidden" name="redirecturl" value="{{!empty($_REQUEST['redirecturl']) ? $_REQUEST['redirecturl'] : '' }}">
                     <input type="hidden" name="passingid" value="{{!empty($_REQUEST['id']) ? $_REQUEST['id'] : ''}}">
+
                     @if (Route::has('password.request'))
 
                     <div class="text-center p-t-12">
@@ -74,9 +75,6 @@
 </div>
 
 </form>
-                                   
-
-
 
 @push('bottomscript')
 <script src="{{ asset('loginpage/js/tilt/tilt.jquery.min.js') }}"></script>

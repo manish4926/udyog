@@ -42,6 +42,28 @@ class MainController extends Controller
 
 
 
+
+     //Current affairs function
+
+   public function CurrentAffairs(Request $request)
+    {
+        return view('main.Currentaffairs'); 
+    }
+
+
+
+
+ //training's function
+
+   public function training(Request $request)
+    {
+        return view('main.training'); 
+    }
+
+
+
+
+
     //current Law function
 
    public function currentLaw(Request $request)

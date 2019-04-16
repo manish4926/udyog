@@ -143,6 +143,7 @@
               <li><a href="{{ route('allcategory') }}"><i class="fa fa-list-ul"></i> All Categories</a></li>
             </ul>
           </li>
+          <li class="treeview">
           <a href="#">
             <i class="fa fa-list-ul"></i>
             <span>Jobs</span>
@@ -151,6 +152,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="{{ route('pendingjobs') }}"><i class="fa fa-list-ul"></i> Pending Jobs</a></li>
             <li><a href="{{ route('activejobs') }}"><i class="fa fa-list-ul"></i> Active Jobs</a></li>
             <li><a href="{{ route('expjobs') }}"><i class="fa fa-list-ul"></i> Expired Jobs</a></li>
           </ul>

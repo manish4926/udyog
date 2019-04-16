@@ -62,10 +62,6 @@ Route::group(['prefix' => 'job'], function ()
 /*Video Controller*/
 
 
-
-
-
-
 /*Route::get('/','FileController@display');*/
 
 Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
@@ -98,9 +94,11 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 //dashboard
 
-Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () 
+Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
+
+    //video
 
     //video
     Route::get('/video/upload','VideoController@upload')->name('uploadfile');
@@ -144,8 +142,14 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
         'as' => 'savecategory'
     ]);
 
+    //tostr notifications
+
+
+
 
     //admin jobs panel
+
+    Route::get('/jobs/pending', ['as' => 'pendingjobs', 'uses' =>'AdminController@pendingjobs']);
 
     Route::get('/jobs/active', ['as' => 'activejobs', 'uses' =>'AdminController@activejobs']);
 
@@ -155,7 +159,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
     Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
 
-    Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);   
+    Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
 
     Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
 
@@ -166,8 +170,13 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
 //Main Page Routes
 
-Route::group(['prefix' => 'main'], function () 
+Route::group(['prefix' => 'main'], function ()
 {
+    Route::get('/Currentaffairs', ['as' => 'currentaffairs', 'uses' =>'MainController@CurrentAffairs']);
+
+    Route::get('/training', ['as' => 'training', 'uses' =>'MainController@training']);
+
+
     Route::get('/currentlaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
 
     Route::get('/labourlaws', ['as' => 'labourlaws', 'uses' =>'MainController@labourLaws']);
@@ -191,3 +200,7 @@ Route::group(['prefix' => 'main'], function ()
 
 });
 
+
+//company job search 
+
+Route::get('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobController@candidatesearch']);

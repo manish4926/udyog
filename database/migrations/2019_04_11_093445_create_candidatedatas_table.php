@@ -21,6 +21,7 @@ class CreateCandidatedatasTable extends Migration
             $table->string('email');
             $table->string('gender');
             $table->date('dob');
+            $table->string('skills');
             $table->string('experience');
             $table->string('salary');
             $table->string('jobtitle');

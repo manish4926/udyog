@@ -76,6 +76,10 @@
 
 		</div>
 		<div class="form-group">
+
+			<label>Skills :  </label><input type="text" name="skills" placeholder="Enter your skills" /><br>
+		</div>
+		<div class="form-group">
 			<fieldset>
 				<legend>Work Experience:</legend>
 				<label>Total Experience :</label>

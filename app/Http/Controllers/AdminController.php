@@ -14,6 +14,13 @@ use Carbon\Carbon;
 
 class AdminController extends Controller
 {
+
+    public function pendingjobs(Request $request)
+    {
+       
+        return view('admin.job.pendingjobs');
+    }
+
     public function activejobs(Request $request)
     {
         $joblist = job_opening::where('expdate','>=',Carbon::today()->toDateString())
