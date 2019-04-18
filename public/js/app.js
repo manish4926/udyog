@@ -36705,6 +36705,7 @@ __webpack_require__(/*! C:\Users\sanch\Desktop\Sanchit Files\Laravel5.8\main\res
 module.exports = __webpack_require__(/*! C:\Users\sanch\Desktop\Sanchit Files\Laravel5.8\main\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
+
 /***/ })
 
 /******/ });

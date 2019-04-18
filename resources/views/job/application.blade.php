@@ -11,18 +11,19 @@
 
 @section('center-content')
 <div class="white-card">
-	<h3>Create your profile & let the right recruiter find you.</h3>
+	<h3>Apply for {{ ucfirst($job_opening->job_title) }}</h3>
 	<form action="{{route('applicationsubmit')}}" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
 
 		<div class="form-group">
 			<fieldset>
 				<legend>Personal Details:</legend>
-				<label>First Name :</label><br>
-				<label>Last Name :</label><br>
-				<label>E-mail :</label>
+				<label>First Name :</label>{{$user->firstname}}<br>
+				<label>Last Name :</label>{{$user->lastname}}<br>
+				<label>E-mail :</label>{{$user->email}}
 			</fieldset>
 
+			<label>Mobile :  </label><input type="Mobile" name="mobile_no" placeholder="Enter mobile no" /><br>
 			<label>City :  </label><input type="text" name="city" placeholder="Enter City" /><br>
 			<label>State :  </label>                          
 			<select name="state">
@@ -73,6 +74,10 @@
 			<input type="radio" name="gender" value="female"> Female
 			<input type="radio" name="gender" value="other"> Other
 
+		</div>
+		<div class="form-group">
+
+			<label>Skills :  </label><input type="text" name="skills" placeholder="Enter your skills" /><br>
 		</div>
 		<div class="form-group">
 			<fieldset>

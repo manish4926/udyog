@@ -1,6 +1,5 @@
     <?php
 
-
 /*Authentication Controller*/
 Auth::routes();
 
@@ -55,21 +54,12 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'JobController@search']);
 
-    Route::get('/application', ['as' => 'jobapplication', 'uses' =>'JobController@jobapplication']);
-
     Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
-
-
 });
 
-
 /*Video Controller*/
-
-
-
-
 
 
 /*Route::get('/','FileController@display');*/
@@ -95,14 +85,22 @@ Route::group(['prefix' => 'company'], function ()
 });
 
 
+
 Route::get('/companylogin','Auth\RegisterController@companyregister');
 Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
 //admin panel
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
+
+//dashboard
+
+Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
+{
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
 
+    //video
+
+    //video
     Route::get('/video/upload','VideoController@upload')->name('uploadfile');
     Route::post('/video/upload','VideoController@storeFile');
 
@@ -120,6 +118,90 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
         'as' => 'videosave'
     ]);
 
+    //category
+    Route::get('/category/page',[
+        'uses' => 'VideoCategoryController@page',
+        'as' => 'categorypage'
+    ]);
+    Route::post('/category/add',[
+        'uses' => 'VideoCategoryController@add',
+        'as' => 'addcategory'
+    ]);
+    Route::get('/category/all','VideoCategoryController@fetch')->name('allcategory');
+
+    Route::get('/category/delete/{id}',[
+        'uses' => 'VideoCategoryController@delete',
+        'as' => 'category.delete'
+    ]);
+    Route::get('/category/update/{id}',[
+        'uses' => 'VideoCategoryController@update',
+        'as' => 'category.update'
+    ]);
+    Route::post('/category/save/{id}',[
+        'uses' => 'VideoCategoryController@save',
+        'as' => 'savecategory'
+    ]);
+
+    //tostr notifications
+
+
+
+
+    //admin jobs panel
+
+    Route::get('/jobs/pending', ['as' => 'pendingjobs', 'uses' =>'AdminController@pendingjobs']);
+
+    Route::get('/jobs/active', ['as' => 'activejobs', 'uses' =>'AdminController@activejobs']);
+
+    Route::get('/post/applicants/{job_id}', ['as' => 'getapplicants', 'uses' => 'AdminController@getapplicants']);
+
+    Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
+
+    Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
+
+    Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
+
+    Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
+
+
+    });
+
+
+
+//Main Page Routes
+
+Route::group(['prefix' => 'main'], function ()
+{
+    Route::get('/Currentaffairs', ['as' => 'currentaffairs', 'uses' =>'MainController@CurrentAffairs']);
+
+    Route::get('/training', ['as' => 'training', 'uses' =>'MainController@training']);
+
+
+    Route::get('/currentlaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
+
+    Route::get('/labourlaws', ['as' => 'labourlaws', 'uses' =>'MainController@labourLaws']);
+
+    Route::get('/taxation', ['as' => 'taxation', 'uses' =>'MainController@taxation']);
+
+    Route::get('/presentlydevelopment', ['as' => 'presentlydevelopment', 'uses' =>'MainController@presentlyDevelopment']);
+
+    Route::get('/newtechnology', ['as' => 'newtechnology', 'uses' =>'MainController@newTechnology']);
+
+    Route::get('/newproducts', ['as' => 'newproducts', 'uses' =>'MainController@newProducts']);
+
+    Route::get('/health', ['as' => 'health', 'uses' =>'MainController@health']);
+
+    Route::get('/growbusiness', ['as' => 'growbusiness', 'uses' =>'MainController@growBusiness']);
+
+    Route::get('/regarademarks', ['as' => 'regarademarks', 'uses' =>'MainController@regAradeMarks']);
+
+    Route::get('/latestjobs', ['as' => 'latestjobs', 'uses' =>'MainController@mainalljob']);
 
 
 });
+
+
+//company job search 
+
+Route::any('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobController@candidatesearch']);
+

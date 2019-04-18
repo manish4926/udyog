@@ -54,7 +54,7 @@
                                     Login
                                 </button>
                     </div>
-
+                   
                     @if (Route::has('password.request'))
 
                     <div class="text-center p-t-12">
@@ -73,16 +73,7 @@
 </div>
 
 </form>
-                                   
-
-
-
-
-
-
-
-
-
+                        
 
 
 @push('bottomscript')
