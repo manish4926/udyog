@@ -1,4 +1,5 @@
 <div class="sticky-header">
+
   <div class="google-language-box">
   <div id="google_translate_element"></div>
 
@@ -6,8 +7,7 @@
 </div>
 <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav">
 
-         <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
-         <i class="fas fa-bars"></i>
+
          </button> &nbsp;&nbsp;
          <a class="navbar-brand mr-1" href="/"><img class="img-fluid" alt="Udyog TV" src="{{asset('/img/udyog_logo.png')}}" width="90px"></a>
          <!-- Navbar Search -->
@@ -17,15 +17,15 @@
 
                <div class="input-group-append">
                   <button class="btn btn-light" type="button">
-                  <i class="fas fa-search"></i> 
-                 
+                  <i class="fas fa-search"></i>
+
                  </button>
 
                </div>
 
             </div>
           </form>
-    
+
         @if (Route::has('login'))
     <div class="top-right links">
         @auth
@@ -37,7 +37,7 @@
         @endif
         @endauth
     </div>
-    @endif     
+    @endif
 
 </nav>
 <div class="marquee-message">

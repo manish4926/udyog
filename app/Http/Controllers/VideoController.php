@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
-	
+
     public function dashboard()
     {
     	return view('admin.dashboard');
@@ -51,9 +51,8 @@ class VideoController extends Controller
 
             // $ffprobe = \FFMpeg\FFProbe::create();
             // $durationVid = $ffprobe->format('storage/upload/'.$filename)->get('duration');
-
             return 'done';
-            // dd(floor($durationVid));
+            // return response()->json(['success'=>'You have successfully upload file.']);            // dd(floor($durationVid));
     	}
     	return $request->all();
     }
