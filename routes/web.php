@@ -57,10 +57,7 @@ Route::group(['prefix' => 'job'], function ()
     Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
-<<<<<<< HEAD
 
-=======
->>>>>>> a083d08035d1a978c7ff2646aec3575279eb12ee
 });
 
 /*Video Controller*/
@@ -205,7 +202,7 @@ Route::group(['prefix' => 'main'], function ()
 });
 
 
-//company job search 
+//company job search
 
 Route::any('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobController@candidatesearch']);
 

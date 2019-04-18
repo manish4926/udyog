@@ -12,19 +12,21 @@
 
       <!-- Favicon Icon -->
       <link rel="icon" type="image/png" href="{{asset('/img/udyog_logo.png')}}">
-      <!-- Bootstrap core CSS-->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <!-- Custom styles for this template-->
+      <link rel="stylesheet" href="public/template/css/app.css">
+      <link rel="stylesheet" href="public/template/css/theme.css">
+      <link rel="stylesheet" href="public/template/css/font-awesome.min.css">
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="public/template/layerslider/css/layerslider.css">
+      <link rel="stylesheet" href="public/template/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="public/template/css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="public/template/css/responsive.css">
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
            @stack('topscript')
 
-      <!-- Owl Carousel -->
-      {{-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.carousel.css"> --}}
-      {{-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.theme.css"> --}}
 
       <script type="text/javascript">
       function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'hi', 
+        new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'hi',
             autoDisplay: false}, 'google_translate_element');
       }
       </script>
