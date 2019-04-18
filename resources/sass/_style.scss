@@ -18,13 +18,13 @@
 }
 
 .google-language-box {
-	height: 27px; 
+	height: 27px;
 	background-color: #fafafa;
 }
 
 .google-language-box #google_translate_element{
-	float: right; 
-	display: block; 
+	float: right;
+	display: block;
 	text-align: right;
 	height: 27px;
 }
@@ -54,7 +54,7 @@ max-width: 200;
 
 .card-head-directory {
 	font-size: 15px;
-	font-weight:bold; 
+	font-weight:bold;
 }
 
 .card-head-span-directory{
@@ -82,10 +82,10 @@ max-width: 200;
 }
 
 .job-company-logo {
-	width: 100px; 
-	float: right; 
-	position: absolute; 
-	right: 20px; 
+	width: 100px;
+	float: right;
+	position: absolute;
+	right: 20px;
 	margin-top: -10px;
 }
 
@@ -98,7 +98,7 @@ max-width: 200;
 
 .scroll:hover {
 	background: darkblue;
-} 
+}
 
 .no-padding {
 	padding: 0;
@@ -254,4 +254,8 @@ body{
 #myFooter{
 	flex: 0 0 auto;
     -webkit-flex: 0 0 auto;
+}
+
+.no-bullets {
+    list-style-type: none;
 }

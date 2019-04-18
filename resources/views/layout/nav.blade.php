@@ -1,48 +1,93 @@
+<head>
+        <link href="public/css/search.css" rel="stylesheet">
+</head>
+
 <div class="sticky-header">
 
-  <div class="google-language-box">
-  <div id="google_translate_element"></div>
 
     <div class="clearfix"></div>
 </div>
-<nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav">
 
 
-         </button> &nbsp;&nbsp;
-         <a class="navbar-brand mr-1" href="/"><img class="img-fluid" alt="Udyog TV" src="{{asset('/img/udyog_logo.png')}}" width="90px"></a>
-         <!-- Navbar Search -->
-         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
-            <div class="input-group">
-               <input type="text" class="form-control" placeholder="Search" align="left">
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <a class="navbar-brand mr-1" href="/"><img class="img-fluid" alt="Udyog TV" src="{{asset('/img/udyog_logo.png')}}" width="90px"></a>
 
-               <div class="input-group-append">
-                  <button class="btn btn-light" type="button">
-                  <i class="fas fa-search"></i>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
 
-                 </button>
 
-               </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
-            </div>
-          </form>
+                        <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                        Job Portal
+                        </a>
+                        <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('postjob') }}">Post a New Job</a>
+                                <a class="dropdown-item" href="{{ route('latestjobs') }}">Latest Jobs</a>
+                                <a class="dropdown-item" href="{{ route('searchjob') }}">Search a Job</a>
+                                {{-- <a class="dropdown-item" href="{{ route('application') }}">Application Form</a> --}}
+                            </div>
+                        </li>
 
-        @if (Route::has('login'))
-    <div class="top-right links">
-        @auth
-        <a href="{{ url('/home') }}">Home</a>
-        @else
-        <button  class="login_btn "><a class="text-dark" href="{{ route('login') }}">Login</a></button>
-        @if (Route::has('register'))
-        <button  class="reg_btn "><a class="text-dark" href="{{ route('register') }}">Register</a></button>
-        @endif
-        @endauth
+                         <li class="nav-item dropdown active">
+                                <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
+                                <div class="dropdown-menu">
+                                   <a class="dropdown-item" href="categories.html">Bawana</a>
+                                   <a class="dropdown-item" href="categories.html">Narela</a>
+                                   <a class="dropdown-item" href="categories.html">Others</a>
+                                </div>
+                             </li>
+                             <li class="nav-item active">
+                                    <a class="nav-link" href="{{route('IndustryList')}}">Directory</a>
+                            </li>
+                            <li class="nav-item dropdown active">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                                    Business
+                                    </a>
+                                    <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{route('IndustryList')}}">Directory</a>
+                                            <a class="dropdown-item" href="{{route('currentaffairs')}}">Current affairs</a>
+                                            <a class="dropdown-item" href="{{route('training')}}">Training's</a>
+                                            <a class="dropdown-item" href="{{route('labourlaws')}}">Labour Laws</a>
+                                            <a class="dropdown-item" href="{{route('taxation')}}">taxation</a>
+                                            <a class="dropdown-item" href="{{route('newtechnology')}}">New Technology</a>
+                                            <a class="dropdown-item" href="{{route('newproducts')}}">New Products</a>
+                                            <a class="dropdown-item" href="{{route('health')}}">Health</a>
+                                            <a class="dropdown-item" href="{{route('growbusiness')}}">How to grow business</a>
+                                            <a class="dropdown-item" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li>
+                                        </div>
+                                    </li>
+                            <li class="nav-item dropdown no-bullets">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                                Login / Register
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                @if (Route::has('login'))
+                                <div class="top-right links">
+                                    @auth
+                                    <a href="{{ url('/home') }}">Home</a>
+                                    @else
+                                    <button type="button" class="btn btn-block btn-success btn-flat"><a class="text-dark" href="{{ route('login') }}">Login</a></button>
+                                    @if (Route::has('register'))
+                                    <button type="button" class="btn btn-block btn-primary btn-flat"><a class="text-dark" href="{{ route('register') }}">Register</a></button>
+                                    @endif
+
+                                    @endauth
+                                </div>
+                                @endif
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Forget Password</a>
+                            </div>
+                            </li>
+      </ul>
     </div>
-    @endif
-
-</nav>
+  </nav>
 
 </div>
-<<<<<<< HEAD
-=======
+
 </div>
->>>>>>> 31c92751442d530dc41e08fedc1cb44f0a3a3ded
+
+
