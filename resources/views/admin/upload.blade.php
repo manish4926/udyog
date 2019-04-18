@@ -19,7 +19,7 @@
 			<br>
 			<!-- <div class="box box-primary">
             <div class="box-header with-border"> -->
-              <h3 class="box-title">Upload File</h3>
+              <h3 class="box-title">Upload Video</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -49,9 +49,14 @@
                   <input type="text" class="form-control" name="tags" id="tags" placeholder="Enter video tags">
                 </div>
                 <div class="form-group">
-                  <label for="videoFile">File Upload</label>
+                  <label for="videoFile">Video Upload</label>
                   <input type="file" name="videoFile">
                 </div>
+                <div class="form-group">
+                  <label for="thumbnail">Thumbnail Upload</label>
+                  <input type="file" name="thumbFile">
+                </div>
+
               </div>
               <!-- /.box-body -->
 

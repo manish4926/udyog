@@ -115,7 +115,7 @@
             <i class="fa fa-youtube-play"></i>
             <span>Video</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+              <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
@@ -136,7 +136,7 @@
               <i class="fa fa-list-ul"></i>
               <span>Categories</span>
               <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-angle-right pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
@@ -149,7 +149,7 @@
             <i class="fa fa-list-ul"></i>
             <span>Jobs</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+              <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
