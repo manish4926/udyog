@@ -5,6 +5,11 @@
 @section('content')
 
 @push('topscript')
+    <style>
+        .progress { position:relative; width:100%; border: 1px solid #7F98B2; padding: 1px; border-radius: 3px; height: 30px}
+        .bar { background-color: #B4F5B4; width:0%; height:55px; border-radius: 3px; }
+        .percent { position:absolute; display:inline-block; top:3px; left:48%; color: #7F98B2;}
+    </style>
 
     <link href="{{ asset('css/tagify.css') }}" rel="stylesheet">
 
@@ -53,6 +58,10 @@
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Upload</button>
               </div>
+                <br>
+                <div class="progress">
+                      <div id="progressBar"class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                    </div>
             </form>
         </div>
 		  </div>
@@ -61,30 +70,26 @@
 @push('bottomscript')
     <script src="{{ asset('js/jQuery.tagify.min.js') }}"></script>
 
+
     <script type="text/javascript">
                     // jQuery
-            $('[name=tags]').tagify();
 
+            //----------TAGS JAVASCRIPT----------
+            $('[name=tags]').tagify();
             // Vanilla JavaScript
             var input = document.querySelector('input[name=tags]'),
             tagify = new Tagify( input );
             $('[name=tags]').tagify({duplicates : false});
-
             var myInput = $('[name=tags]').tagify();
-
             // adds new tag
             // String (word, single or multiple with a delimiter) or an Array of Objects
             myInput.addTags();
-
             // removes a specific tag
             myInput.removeTag(DOM);
-
             // removes all tags
             myInput.removeAllTags();
-
             // destroy the plugin
             myInput.destroy();
-
             var myInput = $('[name=tags]').tagify();
 
         </script>

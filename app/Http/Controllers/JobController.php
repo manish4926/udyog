@@ -174,8 +174,10 @@ class JobController extends Controller
 		}
 
 		$searchkey1=$request->get('exp1');
+
 		if($searchkey1){
-			$candidatesearch->where('experience' , 'like','%' .$searchkey2. '%');
+			$searchkey1 = explode("-",$searchkey1);
+			$candidatesearch->whereBetween('experience', [$searchkey1[0],$searchkey1[1]])->get();
 		}  
 
 		$searchkey2=$request->get('graduation');

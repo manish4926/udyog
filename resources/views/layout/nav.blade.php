@@ -1,12 +1,13 @@
 <div class="sticky-header">
 
+  <div class="google-language-box">
+  <div id="google_translate_element"></div>
 
     <div class="clearfix"></div>
 </div>
 <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav">
 
-         <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
-         <i class="fas fa-bars"></i>
+
          </button> &nbsp;&nbsp;
          <a class="navbar-brand mr-1" href="/"><img class="img-fluid" alt="Udyog TV" src="{{asset('/img/udyog_logo.png')}}" width="90px"></a>
          <!-- Navbar Search -->
@@ -41,3 +42,7 @@
 </nav>
 
 </div>
+<<<<<<< HEAD
+=======
+</div>
+>>>>>>> 31c92751442d530dc41e08fedc1cb44f0a3a3ded

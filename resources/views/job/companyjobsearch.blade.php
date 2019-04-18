@@ -4,7 +4,7 @@
     <div id="jobsearch-form" class="form-container" data-form-container>
       <div class="row">
         <div class="form-title">
-         <legend>Search JOBS</legend>
+         <legend>Search Candidates</legend>
         </div>
       </div>
       <div class="input-container">
@@ -19,17 +19,17 @@
             <br><label>Select Experience :</label>
             <select name="exp1">
               <option value="">Select Experience</option> 
-              <option> less than 1 yr</option> 
-              <option> > 1 yr and < 2 yrs</option> 
-              <option> >2 yrs and < 3 yrs</option>
-              <option> >3 yrs and < 4 yrs</option>
-              <option> >4 yrs and < 5 yrs</option>
-              <option> >5 yrs and < 6 yrs</option>
-              <option> >6 yrs and < 7 yrs</option>
-              <option> >7 yrs and < 8 yrs</option>
-              <option> >8 yrs and < 9 yrs</option>
-              <option> >9 yrs and < 10 yrs</option>
-              <option> more than 10 yrs</option>
+              <option value="0-1"> less than 1 yr</option> 
+              <option value="1-2"> > 1 yr and < 2 yrs</option> 
+              <option value="2-3"> >2 yrs and < 3 yrs</option>
+              <option value="3-4"> >3 yrs and < 4 yrs</option>
+              <option value="4-5"> >4 yrs and < 5 yrs</option>
+              <option value="5-6"> >5 yrs and < 6 yrs</option>
+              <option value="6-7"> >6 yrs and < 7 yrs</option>
+              <option value="7-8"> >7 yrs and < 8 yrs</option>
+              <option value="8-9"> >8 yrs and < 9 yrs</option>
+              <option value="9-10"> >9 yrs and < 10 yrs</option>
+              <option value="10-100"> more than 10 yrs</option>
           </select>
           </span>
         </div>
@@ -102,7 +102,7 @@
           </span>
         </div>
         <div class="row submit-row">
-          <button type="button" class="btn btn-info">
+          <button type="submit" class="btn btn-info">
       		<span class="glyphicon glyphicon-search"></span> Search
     	  </button>
         </div>
