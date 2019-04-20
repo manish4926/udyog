@@ -48,6 +48,15 @@
                   <label for="tags">Tags</label>
                   <input type="text" class="form-control" name="tags" id="tags" placeholder="Enter video tags">
                 </div>
+
+                <div class="form-group">
+                  <label>Live Video Upload</label>
+                  <select class="form-control" name="visibility">
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+
                 <div class="form-group">
                   <label for="videoFile">Video Upload</label>
                   <input type="file" name="videoFile">

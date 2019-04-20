@@ -22,7 +22,8 @@
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.8"
+        "vue-template-compiler": "^2.6.8",
+        "vuedraggable": "^2.20.0"
     },
     "dependencies": {
         "ffmpeg": "0.0.4",

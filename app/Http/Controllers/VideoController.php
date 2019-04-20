@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Thumbnail;
 use App\Video;
+use App\Live_Video;
 use FFMpeg;
 use Illuminate\Http\Request;
 
@@ -43,6 +44,7 @@ class VideoController extends Controller
 
             $durationVid = 300;
     		$file = new Video;
+
             $file->name = $filename;
             $file->title = $request->title;
             $file->description = $request->description;
@@ -59,11 +61,29 @@ class VideoController extends Controller
 
     		$file->save();
 
+            $file = new Live_Video;
+
+            if($request->visibility == 'Yes')
+            {
+
+                
+                $file->name = $request->title;
+                $file->filename = $filename;
+                $file->description = $request->description;
+                $counter = Live_Video::get()->count();
+                $counter++;
+                $file->order = $counter;
+                $file->id = $counter;
+                $file->save();
+            }            
+        
+
+
             // Thumbnail::getThumbnail(public_path('/video/upload/'.$filename),public_path('video/thumbs/') ,$withoutExtFile.'.png', $durationVid/2);
 
             // $ffprobe = \FFMpeg\FFProbe::create();
             // $durationVid = $ffprobe->format('storage/upload/'.$filename)->get('duration');
-            return 'done';
+            return 'done;';
             // return response()->json(['success'=>'You have successfully upload file.']);            // dd(floor($durationVid));
     	}
     	return $request->all();

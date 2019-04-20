@@ -163,8 +163,10 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
     Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
 
-
     });
+
+    
+
 
 
 
@@ -205,3 +207,9 @@ Route::group(['prefix' => 'main'], function ()
 
 Route::any('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobController@candidatesearch']);
 
+
+//Admin Live Video Scheduler
+    
+    Route::resource('admin/videos','LivevideoController');
+    Route::delete('admin/deleteitem/{id}', 'LivevideoController@destroy')->name('videoinfo.delete');
+    Route::post('admin/videos/updateall', 'LivevideoController@updateAll')->name('videoupdateall');
