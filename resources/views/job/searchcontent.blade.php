@@ -9,8 +9,8 @@
 @section('center-content')
 
 <div class="row">
-  <div class="col-8">
-    <div class="white-card">
+  <div class="col-12">
+    <div class="white-card-candidate-search">
 
        <h3 class="center">Candidate List</h3><br />
 

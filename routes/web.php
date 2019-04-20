@@ -10,17 +10,33 @@ Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone
 /*General/Main Controller*/
 Route::get('/','MainController@index')->name('home');
 
-/*
-Route::get('/', function () {
-    return view('main.index');
-});*/
+Route::get('/Currentaffairs', ['as' => 'currentaffairs', 'uses' =>'MainController@CurrentAffairs']);
 
-Route::get('/puneet', function () {
-    return view('auth.companylogin');
-});
+Route::get('/training', ['as' => 'training', 'uses' =>'MainController@training']);
 
-/*
-Route::get('/home', 'HomeController@index')->name('home');*/
+
+Route::get('/currentlaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
+
+Route::get('/labourlaws', ['as' => 'labourlaws', 'uses' =>'MainController@labourLaws']);
+
+Route::get('/taxation', ['as' => 'taxation', 'uses' =>'MainController@taxation']);
+
+Route::get('/presentlydevelopment', ['as' => 'presentlydevelopment', 'uses' =>'MainController@presentlyDevelopment']);
+
+Route::get('/newtechnology', ['as' => 'newtechnology', 'uses' =>'MainController@newTechnology']);
+
+Route::get('/newproducts', ['as' => 'newproducts', 'uses' =>'MainController@newProducts']);
+
+Route::get('/health', ['as' => 'health', 'uses' =>'MainController@health']);
+
+Route::get('/growbusiness', ['as' => 'growbusiness', 'uses' =>'MainController@growBusiness']);
+
+Route::get('/regarademarks', ['as' => 'regarademarks', 'uses' =>'MainController@regAradeMarks']);
+
+Route::get('/latestjobs', ['as' => 'latestjobs', 'uses' =>'MainController@mainalljob']);
+
+
+
 
 /*Directory Listing*/
 Route::group(['prefix' => 'directory'], function ()
@@ -54,9 +70,6 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'JobController@search']);
 
-    Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
-
-    Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
 });
 
 /*Video Controller*/
@@ -74,6 +87,9 @@ Route::group(['prefix' => 'company/panel'], function ()
     Route::get('/',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
 
 });
+
+
+
 /*Microsite*/
 Route::group(['prefix' => 'company'], function ()
 {
@@ -92,8 +108,8 @@ Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('c
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
-//dashboard
 
+/*Admin*/
 Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
@@ -153,6 +169,10 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
     Route::get('/jobs/active', ['as' => 'activejobs', 'uses' =>'AdminController@activejobs']);
 
+    Route::post('/jobs/active/submit', ['as' => 'activejobssubmit', 'uses' =>'AdminController@activeJobsSubmit']);
+
+    Route::post('/jobs/delete/submit', ['as' => 'deletejobssubmit', 'uses' =>'AdminController@deleteJobsSubmit']);
+
     Route::get('/post/applicants/{job_id}', ['as' => 'getapplicants', 'uses' => 'AdminController@getapplicants']);
 
     Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
@@ -163,45 +183,15 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
     Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
 
-
+    
     });
 
 
 
-//Main Page Routes
 
-Route::group(['prefix' => 'main'], function ()
-{
-    Route::get('/Currentaffairs', ['as' => 'currentaffairs', 'uses' =>'MainController@CurrentAffairs']);
-
-    Route::get('/training', ['as' => 'training', 'uses' =>'MainController@training']);
-
-
-    Route::get('/currentlaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
-
-    Route::get('/labourlaws', ['as' => 'labourlaws', 'uses' =>'MainController@labourLaws']);
-
-    Route::get('/taxation', ['as' => 'taxation', 'uses' =>'MainController@taxation']);
-
-    Route::get('/presentlydevelopment', ['as' => 'presentlydevelopment', 'uses' =>'MainController@presentlyDevelopment']);
-
-    Route::get('/newtechnology', ['as' => 'newtechnology', 'uses' =>'MainController@newTechnology']);
-
-    Route::get('/newproducts', ['as' => 'newproducts', 'uses' =>'MainController@newProducts']);
-
-    Route::get('/health', ['as' => 'health', 'uses' =>'MainController@health']);
-
-    Route::get('/growbusiness', ['as' => 'growbusiness', 'uses' =>'MainController@growBusiness']);
-
-    Route::get('/regarademarks', ['as' => 'regarademarks', 'uses' =>'MainController@regAradeMarks']);
-
-    Route::get('/latestjobs', ['as' => 'latestjobs', 'uses' =>'MainController@mainalljob']);
-
-
-});
 
 
 //company job search 
 
-Route::any('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobController@candidatesearch']);
+Route::get('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobController@candidatesearch']);
 

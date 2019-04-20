@@ -34,8 +34,6 @@ class JobController extends Controller
 		$jobpost->location        = $request->location;
 		$jobpost->package         = $request->pack;
 		$jobpost->job_desc        = $request->desc;
-        $jobpost->status          =0;
-        $jobpost->del             =0;
         $jobpost->ip_address      =$_SERVER['REMOTE_ADDR'];
 		
 		$jobpost->save();
@@ -44,11 +42,11 @@ class JobController extends Controller
 }
 
 
-	public function application(Request $request)
+	public function application(Request $request, $job_title )
 	{
 		$user = Auth::user();
-		return view('job.application',compact('user'));	//,compact()
-	}
+		$job_opening = job_opening::where('title' , $job_title)->first();
+		return view('job.application',compact('user','job_opening'));	}
 
 
 	public function applicationSubmit(request $request)

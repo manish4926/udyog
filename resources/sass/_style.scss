@@ -6,6 +6,12 @@
 	width:100%;
 }
 
+.req-input input,select,h3
+{
+	padding-left:60px;
+	padding-right: 20px;
+}
+
 #wrapper {
 	margin-top: 150px;
 }
@@ -27,6 +33,16 @@
 	display: block; 
 	text-align: right;
 	height: 27px;
+}
+
+.white-card-candidate-search
+{
+	background: #fff;
+	display: block;
+	widows: 100%;
+	min-height: 200px;
+	width: 100%;
+	padding:20px;
 }
 
 .white-card {

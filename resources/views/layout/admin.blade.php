@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Admin | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -175,7 +176,8 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+{{-- <script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- FastClick -->
