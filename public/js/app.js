@@ -51795,12 +51795,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__(/*! C:\xampp\htdocs\laravelapps\bci_udyog\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravelapps\bci_udyog\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
 __webpack_require__(/*! C:\xampp\htdocs\BCI_UdyogTv\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\BCI_UdyogTv\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> a8e93268dd8f4a0e67edd85ec8a00a7eee622783
-
-
 /***/ })
 
 /******/ });
