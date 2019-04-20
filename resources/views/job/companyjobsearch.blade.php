@@ -1,21 +1,14 @@
+<div  class="col-6">
+		<div class="white-card-directory">
+		<form action="{{ route('candidatesearch') }}" method="get">
+		<h3>Search Candidate</h3>
 
-<div class="white-card">
-  <form method="post" action="{{ route('candidatesearch') }}"> {{ csrf_field() }}
-    <div id="jobsearch-form" class="form-container" data-form-container>
-      <div class="row">
-        <div class="form-title">
-         <legend>Search Candidates</legend>
-        </div>
-      </div>
-      <div class="input-container">
-        <div class="row">
-          <span class="req-input" >
-            <br><label>Search skills :</label>
+            <span class="req-input" >
+            <label>Search skills :</label>
             <input type="text" data-min-length="8" name="search" placeholder="Search skills">
           </span>
-        </div>    
-        <div class="row">
-          <span class="req-input">
+
+		 <span class="req-input">
             <br><label>Select Experience :</label>
             <select name="exp1">
               <option value="">Select Experience</option> 
@@ -32,9 +25,7 @@
               <option value="10-100"> more than 10 yrs</option>
           </select>
           </span>
-        </div>
-        <div class="row">
-          <span class="req-input">
+		<span class="req-input">
 				<label>Basic / Graduation :</label>
 
 				<select name="graduation">
@@ -71,7 +62,9 @@
 
 				</select>
 
-				<br><label>Post Graduation :</label>
+
+
+		<label>Post Graduation :</label>
 
 				<select name="postgraduation">
 					<option value="">Post Graduation</option>
@@ -100,13 +93,14 @@
 					<option value="Pg20">Post Graduation (Any)</option>
 				</select>
           </span>
-        </div>
-        <div class="row submit-row">
+
+				<br/>	
+				<br>
+
           <button type="submit" class="btn btn-info">
       		<span class="glyphicon glyphicon-search"></span> Search
     	  </button>
         </div>
-      </div>
-    </div>
-  </form>
-</div>
+
+	</form> 
+	</div> 
