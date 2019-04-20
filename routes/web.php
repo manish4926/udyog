@@ -70,6 +70,13 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'JobController@search']);
 
+<<<<<<< HEAD
+=======
+    Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
+
+    Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
+
+>>>>>>> 79187c1ea0335453861607cdd33dfffa6e6f1f45
 });
 
 /*Video Controller*/
@@ -191,7 +198,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
 
 
-//company job search 
+//company job search
 
 Route::get('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobController@candidatesearch']);
 

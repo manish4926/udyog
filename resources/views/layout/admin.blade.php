@@ -21,6 +21,7 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('admin/dist/css/skins/_all-skins.min.css')}}">
 
+
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -115,12 +116,12 @@
             <i class="fa fa-youtube-play"></i>
             <span>Video</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+              <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('uploadfile') }}"><i class="fa fa-upload"></i> New Video</a></li>
-            <li><a href="{{ route('videoall') }}"><i class="fa "></i> All Videos</a></li>
+            <li><a href="{{ route('videoall') }}"><i class="fa fa-list-ul"></i> All Videos</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -136,7 +137,7 @@
               <i class="fa fa-list-ul"></i>
               <span>Categories</span>
               <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-angle-right pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
@@ -149,7 +150,7 @@
             <i class="fa fa-list-ul"></i>
             <span>Jobs</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+              <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
-	
+
     public function dashboard()
     {
     	return view('admin.dashboard');
@@ -22,18 +22,26 @@ class VideoController extends Controller
 
     public function storeFile(request $request)
     {
-    	if($request->hasFile('videoFile'))
+    	if($request->hasFile('videoFile') && $request->hasFile('thumbFile'))
     	{
     		$filename = $request->file('videoFile')->getClientOriginalName();
+            $thumbname = $request->file('thumbFile')->getClientOriginalName();
             $withoutExtFile = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);
 
     		$filesize = $request->file('videoFile')->getClientSize(); // file size in bytes
     		$request->file('videoFile')->storeAs('video/upload',$filename);
+            $request->file('thumbFile')->storeAs('video/thumbs',$thumbname);
             //$videoUrl = storage_path('\\app\\public\\upload\\'.$filename);
             //$storageUrl = storage_path('\\app\\public\\upload\\thumbs\\');
 
-            $ffprobe = \FFMpeg\FFProbe::create();
-            $durationVid = $ffprobe->format('video/upload/'.$filename)->get('duration');
+
+            // ---------Uncomment Later----------
+            // $ffprobe = \FFMpeg\FFProbe::create();
+            // $durationVid = $ffprobe->format('video/upload/'.$filename)->get('duration');
+            // --------------------------------------
+
+
+            $durationVid = 300;
     		$file = new Video;
             $file->name = $filename;
             $file->title = $request->title;
@@ -44,16 +52,19 @@ class VideoController extends Controller
             $file->duration = $durationVid;
             $file->tags = $request->tags;
             $file->slug = hash('crc32',time());
-            $file->thumbnail = $withoutExtFile.'.png';
+            $file->thumbnail = $thumbname;
+            // ---------Uncomment Later----------
+            // $file->thumbnail = $withoutExtFile.'.png';
+             // --------------------------------------
+
     		$file->save();
 
-            Thumbnail::getThumbnail(public_path('/video/upload/'.$filename),public_path('video/thumbs/') ,$withoutExtFile.'.png', $durationVid/2);
+            // Thumbnail::getThumbnail(public_path('/video/upload/'.$filename),public_path('video/thumbs/') ,$withoutExtFile.'.png', $durationVid/2);
 
             // $ffprobe = \FFMpeg\FFProbe::create();
             // $durationVid = $ffprobe->format('storage/upload/'.$filename)->get('duration');
-
             return 'done';
-            // dd(floor($durationVid));
+            // return response()->json(['success'=>'You have successfully upload file.']);            // dd(floor($durationVid));
     	}
     	return $request->all();
     }

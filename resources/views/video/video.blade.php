@@ -28,9 +28,9 @@
 
                               <br>
                               <br>
-                             <span style="font-size: 30px;">{{ $video->description }}</span>
+                             <span style="font-size: 17px;">{{ $video->description }}</span>
                               <br>
-                              <span style="font-size: 18px;">Category: {{ $video->category }}</span>
+                              <span style="font-size: 12px;">Category: {{ $video->category }}</span>
                                 </p>
 
 
