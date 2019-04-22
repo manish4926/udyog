@@ -16,6 +16,7 @@ class CreateLivevideosTable extends Migration
         Schema::create('livevideos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('filename');
             $table->text('description');
             $table->integer('order');
             $table->timestamps();
