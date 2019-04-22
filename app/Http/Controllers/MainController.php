@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Video;
+use App\Live_Video;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Directory;
@@ -16,10 +17,12 @@ class MainController extends Controller
         //  $files = File::limit(6)->get();
         // return view('main.index')->with('files',$files);
          $videos = Video::limit(6)->get();
+         $live_videos = Live_Video::orderBy('order')->first(); 
          $directory=Directory::orderBy('c_id')->limit(3)->get();
 
           $jobs = job_opening::orderBy('job_id')->limit(5)->get();
-        return view('main.index',compact('directory','videos','jobs'));
+          
+        return view('main.index',compact('directory','videos','jobs', 'live_videos'));
 
 
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);
@@ -142,6 +145,5 @@ class MainController extends Controller
         $jobs = job_opening::all();        
         return view('main.mainalljob',compact('jobs'));
     }
-
 
 }

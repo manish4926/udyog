@@ -10,7 +10,8 @@
 			<div class="single-video-left">
 				<div class="single-video">
 					<video id="live-video" class="live-video" autoplay="on" controls>
-						<source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4">
+						{{-- <source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4"> --}}
+						<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">
 					</video>
 				</div>
 				<div class="single-video-title box mb-3">
