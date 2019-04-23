@@ -24,17 +24,18 @@ class JobController extends Controller
 
 		$jobpost = new job_opening;
 
-		$jobpost->job_title       = $request->title;
-		$jobpost->company_name    = $request->companyname;
-		$jobpost->hr_name         = $request->hrname;
-		$jobpost->experience      = $request->exp;
-		$jobpost->skills          = $request->skill;
-		$jobpost->postdate        = $request->postdate;
-		$jobpost->expdate         = $request->expdate;
-		$jobpost->location        = $request->location;
-		$jobpost->package         = $request->pack;
-		$jobpost->job_desc        = $request->desc;
-        $jobpost->ip_address      =$_SERVER['REMOTE_ADDR'];
+		$jobpost->job_title    = $request->title;
+		$jobpost->slug         = seoUrl($request->title."-".rand(10000,99999));
+		$jobpost->company_name = $request->companyname;
+		$jobpost->hr_name      = $request->hrname;
+		$jobpost->experience   = $request->exp;
+		$jobpost->skills       = $request->skill;
+		$jobpost->postdate     = $request->postdate;
+		$jobpost->expdate      = $request->expdate;
+		$jobpost->location     = $request->location;
+		$jobpost->package      = $request->pack;
+		$jobpost->job_desc     = $request->desc;
+		$jobpost->ip_address   = $_SERVER['REMOTE_ADDR'];
 		
 		$jobpost->save();
 		
@@ -45,7 +46,9 @@ class JobController extends Controller
 	public function application(Request $request, $job_title )
 	{
 		$user = Auth::user();
-		$job_opening = job_opening::where('title' , $job_title)->first();
+		$job_title = $request->title;
+		$job_opening = job_opening::where('job_id' , $job_title)->first();
+		
 		return view('job.application',compact('user','job_opening'));	}
 
 

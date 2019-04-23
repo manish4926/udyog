@@ -129,8 +129,12 @@
             <i class="fa fa-video-camera"></i>
             <span>Live Video</span>
             <span class="pull-right-container">
+               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('videos.index') }}"><i class="fa fa-upload"></i>Live Video Scheduler</a></li>
+          </ul>
         </li>
         <li class="treeview">
             <a href="#">

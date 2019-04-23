@@ -74,6 +74,8 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
 
+
+
 });
 
 /*Video Controller*/
@@ -186,16 +188,22 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
     Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
 
     Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
-
-    
     });
 
-
-
-
-
+    
 
 //company job search
 
 Route::get('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobController@candidatesearch']);
 
+
+//Admin Live Video Scheduler
+    
+    Route::resource('admin/videos','LivevideoController');
+    Route::delete('admin/deleteitem/{id}', 'LivevideoController@destroy')->name('videoinfo.delete');
+    Route::post('admin/videos/updateall', 'LivevideoController@updateAll')->name('videoupdateall');
+
+
+//userprofile
+
+    Route::get('/userprofile',['as' => 'userprofile', 'uses' =>'CandidatedataController@userprofile']);

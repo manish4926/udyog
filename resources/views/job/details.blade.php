@@ -78,7 +78,7 @@
 
                             <a href="{{ route('login') }}?redirecturl=getdisplay&id={{$job_opening->job_id}}" class="btn btn-success">Apply Now</a>
                         @else
-                            <a href="{{ route('application',['title'=>$job_opening->job_title])}}) }}" class="btn btn-success">Apply Now</a>
+                            <a href="{{ route('application',['title'=> $job_opening->job_id]) }}" class="btn btn-success">Apply Now</a>
                         @endif
                         
             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\job_opening;
+use App\Applicant;
 
 use DB;
 use Auth;
@@ -65,8 +66,9 @@ class AdminController extends Controller
 
 	public function getapplicants(Request $request)
     {
-        $applicants= job_opening::where('job_id' , $request->job_id)->get();
-        return view('admin.job.allapplicants')->with(['job_opening'=>$applicants]);  
+        $applicants= Applicant::where('job_id' , $request->job_id)->get();
+        
+        return view('admin.job.allapplicants')->with(['applicants'=>$applicants]);  
     }
 
 }
