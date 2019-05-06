@@ -49,16 +49,15 @@ class JobController extends Controller
 		$job_title = $request->title;
 		$job_opening = job_opening::where('job_id' , $job_title)->first();
 		
-		return view('job.application',compact('user','job_opening'));	}
+		return view('job.application',compact('user','job_opening'));	
+	}
 
 
 	public function applicationSubmit(request $request)
-
 	{
 		$user = Auth::user();
     	
 		$validatedData = $request->validate([
-
             'mobile_no' =>'required|max:10',
             'state' =>'required',
             'city' =>'required|max:20',
@@ -70,33 +69,29 @@ class JobController extends Controller
             'graduation' =>'required',
             'fileupload'=> 'required'
             ]);
-
 		if(!empty($request->file('fileupload'))){
 			$this->validate($request,[
 				'fileupload' =>'mimes:doc,docx,pdf']);
-
 			$filename = $request->file('fileupload')->getClientOriginalName();
-
 			$request->file('fileupload')->storeAs('resumes',$filename);
 			
 		} else {
 			$fileupload= '';
 		}
-
+		
 		$candidate = new Candidatedata;
 
-		$tyear          = $request->tyear;
-		$tmonth         = $request->tmonth;
-		$ddlSalaryLacs  = $request->ddlSalaryLacs;
-		$salThousand    = $request->salThousand;
-		$yearduration   = $request->yearduration;
-		$monthduration  = $request->monthduration;
-
-
+		$tyear                     = $request->tyear;
+		$tmonth                    = $request->tmonth;
+		$ddlSalaryLacs             = $request->ddlSalaryLacs;
+		$salThousand     		   = $request->salThousand;
+		$yearduration   		   = $request->yearduration;
+		$monthduration             = $request->monthduration;
 		$candidate->user_id        = $user->id;
 		$candidate->firstname      = $user->firstname;
 		$candidate->lastname       = $user->lastname;
 		$candidate->email          = $user->email;
+		$candidate->mobile_no      = $request->mobile_no;
 		$candidate->state          = $request->state;
 		$candidate->city           = $request->city;
 		$candidate->gender         = $request->gender;
@@ -104,17 +99,19 @@ class JobController extends Controller
 		$candidate->skills         = $request->skills;
 		$candidate->jobtitle       = $request->jobtitle;
 		$candidate->companyname    = $request->companyname;
+		$candidate->industry       = $request->industry;
 		$candidate->graduation     = $request->graduation;
 		$candidate->postgraduation = $request->postgraduation;
 		$candidate->doctorate      = $request->doctorate;
 		$candidate->certificate    = $request->certificate;
+		$candidate->resume   	   = $filename;
 		$candidate->experience     = $tyear.'.'.$tmonth;
 		$candidate->salary         = $ddlSalaryLacs.'.'.$salThousand;
 		$candidate->duration       = $yearduration.'.'.$monthduration;
+		
 		$candidate->save();
 		
 		return redirect()->back();
-
 	}
 
 	public function alljob (Request $request)
@@ -183,7 +180,7 @@ class JobController extends Controller
 
 		$searchkey2=$request->get('graduation');
 		if($searchkey2){
-			$candidatesearch->where('graduation' , '=', $searchkey3);
+			$candidatesearch->where('graduation' , '=', $searchkey2);
 		}
 
 		$searchkey3=$request->get('postgraduation');

@@ -7,7 +7,7 @@
 @endpush
 
 @section('center-content')
-@foreach($users as $userdata)
+
 <div class="white-card">
   <br/>
   <br/>
@@ -36,29 +36,43 @@
                         <div class="well well-sm">
                             <h4>PERSONAL DATA</h4>
                         </div>
-                    
                     <table class="table bio-table">
                         <tbody>
                             <tr>      
                                 <td>Firstname</td>
-                                <td>: {{$userdata->firstname}}</td>
+                                <td>: {{ $applicantinfo->firstname}}</td>
                             </tr>
                             <tr>    
                                 <td>Lastname</td>
-                                <td>: </td>
+                                <td>: {{ $applicantinfo->lastname}}</td>
                             </tr>
                             <tr>    
-                                <td>Date of Birthday</td>
-                                <td>: </td>       
+                                <td>Date of Birth</td>
+                                <td>: {{$applicantdetails->dob}}</td>       
                             </tr>
                             <tr>
                                 <td>Gender</td>
-                                <td>: </td>
+                                <td>:{{$applicantdetails->gender}} </td>
+                            </tr>
+                            <tr>
+                                <td>E mail</td>
+                                <td>: {{ $applicantinfo->email}}</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile no</td>
+                                <td>:{{$applicantdetails->mobile_no}} </td>
+                            </tr>
+                             <tr>
+                                <td>State</td>
+                                <td>:{{$applicantdetails->state}} </td>
+                            </tr>
+                             <tr>
+                                <td>City</td>
+                                <td>:{{$applicantdetails->city}} </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                
+                </div>         
                 <div class="tab-pane" id="tab_default_2">
                     <div class="well well-sm">
                         <h4>EDUCATIONAL BACKGROUND</h4>
@@ -68,15 +82,15 @@
                         <tbody>
                             <tr>
                                 <td>Under Graduate</td>
-                                <td>: </td>
+                                <td>: {{$applicantdetails->graduation}}</td>
                             </tr>
                             <tr>
                                 <td>Post Graduate</td>
-                                <td>: </td>
+                                <td>: {{$applicantdetails->postgraduation}} </td>
                             </tr>
                             <tr>
                                 <td>Doctor of Philosophy (PhD)</td>
-                                <td>: </td>
+                                <td>: {{$applicantdetails->doctorate}} </td>
                             </tr>
                         </tbody>
                     </table>
@@ -91,27 +105,31 @@
                         <tbody>
                             <tr>
                                 <td>Total Experience</td>
-                                <td>: </td>
+                                <td>:{{$applicantdetails->experience}} </td>
                             </tr>
                             <tr>      
-                                <td>Duration</td>
-                                <td>: </td>
+                                <td>Job Duration</td>
+                                <td>:{{$applicantdetails->duration}} </td>
                             </tr>
                             <tr>
                                 <td>Salary</td>
-                                <td>: </td>
+                                <td>:{{$applicantdetails->salary}} </td>
                             </tr>
                             <tr>
                                 <td>Job Title</td>
-                                <td>: </td>
+                                <td>:{{$applicantdetails->jobtitle}} </td>
                             </tr>
                             <tr>
                                 <td>Company Name</td>
-                                <td>: </td>
+                                <td>:{{$applicantdetails->companyname}} </td>
                             </tr>
                             <tr>
                                 <td>Industry Name</td>
-                                <td>: </td>
+                                <td>:{{$applicantdetails->industry}} </td>
+                            </tr>
+                            <tr>
+                                <td>Skills</td>
+                                <td>:{{$applicantdetails->skills}} </td>
                             </tr>
                         </tbody>
                     </table>
@@ -125,72 +143,36 @@
                     <table class="table bio-table">
                         <thead>
                             <tr>
-                                <th colspan="2"></th>
+                                <td> Certification details</td>
+                                <td>: {{$applicantdetails->certifcate}}</td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>   Line 1</td>
+                                <td> Certification Name</td>
                                 <td>: </td>
                             </tr>
                             <tr>
-                                <td>   Line 2</td>
+                                <td> Certification Company</td>
                                 <td>: </td>
                             </tr>
                             <tr>
-                                <td>   City</td>
-                                <td>: </td>
+                                <td>
+                            <select name="Year">
+                            <option value="">Year</option>
+                                <script type="text/javascript">
+                                    for (var i = 1960; i < 2020; i++) {
+                                        document.write('<option>'+i+'</option>');
+                                    }
+                                </script>
+                            </select>
+                        </td>
                             </tr>
-                            <tr>
-                                <td>   State</td>
-                                <td>: </td>
-                            </tr>
-                            <tr>
-                                <td>   Country</td>
-                                <td>: </td>
-                            </tr>
-                            <tr>
-                                <td>   Pin code</td>
-                                <td>: </td>
-                            </tr>
+                        
                         </tbody>
                     </table>
                     
                     <br/>
-
-                    <table class="table bio-table">
-                        <thead>
-                            <tr>
-                                <th colspan="2">Permanent Residential Address</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>   Plot No / Door No / Part No / Block No</td>
-                                <td>: </td>
-                            </tr>
-                            <tr>
-                                <td>   Street Name</td>
-                                <td>: </td>
-                            </tr>
-                            <tr>
-                                <td>   City</td>
-                                <td>: </td>
-                            </tr>
-                            <tr>
-                                <td>   State</td>
-                                <td>: </td>
-                            </tr>
-                            <tr>
-                                <td>   Country</td>
-                                <td>: </td>
-                            </tr>
-                            <tr>
-                                <td>   Pin code</td>
-                                <td>: </td>
-                            </tr>
-                        </tbody>
-                    </table>
                     
                 </div>
                 
@@ -209,7 +191,7 @@
         </div>
     </div>
 </div>
-@endforeach
+
 </div>
 @endsection
 @section('right-content')

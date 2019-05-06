@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Candidatedata;
 use App\Applicant;
 use Illuminate\Http\Request;
@@ -10,11 +11,16 @@ use Illuminate\Http\Request;
 
 class CandidatedataController extends Controller
 {
+
     public function userprofile(Request $request)
     {
-        $userdatas= Candidatedata::where('user_id',$request->id)->get();
-        return view('job.userprofile')->with(['users'=>$userdatas]);
+        $applicantinfo = User::where('id',$request->userid)->first();
+        $applicantdetails = Candidatedata::where('id',$request->userid)->first();
+        return view('job.userprofile')->with(['applicantinfo'=>$applicantinfo, 'applicantdetails'=> $applicantdetails]);
     }
+
+
+
 
     /**
      * Display a listing of the resource.

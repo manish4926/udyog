@@ -7,6 +7,7 @@ Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name(
 Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
 
+
 /*General/Main Controller*/
 Route::get('/','MainController@index')->name('home');
 
@@ -75,7 +76,6 @@ Route::group(['prefix' => 'job'], function ()
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
 
 
-
 });
 
 /*Video Controller*/
@@ -119,6 +119,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
+
+
 
     //video
 
@@ -188,7 +190,23 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
     Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
 
     Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
-    });
+
+
+    //Admin Event Panel
+
+    Route::get('/event/add', ['as' => 'addevent', 'uses' =>'AdminController@addevent']);
+
+    Route::post('/event/add/submit', ['as' => 'addeventSubmit', 'uses' =>'AdminController@addeventSubmit']);
+
+    Route::get('/event/all', ['as' => 'allevents', 'uses' =>'AdminController@allevents']);
+
+    Route::get('/event/update/{id}', ['as' => 'updateevent', 'uses' =>'AdminController@updateevent']);
+
+    Route::post('/events/delete/submit', ['as' => 'deleteEvent', 'uses' =>'AdminController@deleteEvent']);
+
+   
+
+});
 
     
 
@@ -206,4 +224,4 @@ Route::get('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobControll
 
 //userprofile
 
-    Route::get('/userprofile',['as' => 'userprofile', 'uses' =>'CandidatedataController@userprofile']);
+    Route::get('/userprofile/{userid}',['as' => 'userprofile', 'uses' =>'CandidatedataController@userprofile']);

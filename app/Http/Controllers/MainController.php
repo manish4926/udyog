@@ -21,8 +21,20 @@ class MainController extends Controller
          $directory=Directory::orderBy('c_id')->limit(3)->get();
 
           $jobs = job_opening::orderBy('job_id')->limit(5)->get();
+
+          //news
+
+          $feed = simplexml_load_file('https://news.google.com/news/rss');
+
+             $worldfeeds=[];
+             for($i=0;$i<5;$i++)
+            {
+                $worldfeeds[$i]= $feed->channel->item[$i];
+
+            }
+
           
-        return view('main.index',compact('directory','videos','jobs', 'live_videos'));
+        return view('main.index',compact('directory','videos','jobs', 'live_videos','worldfeeds'));
 
 
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);

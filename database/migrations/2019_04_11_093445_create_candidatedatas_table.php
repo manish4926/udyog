@@ -15,7 +15,9 @@ class CreateCandidatedatasTable extends Migration
     public function up()
     {
         Schema::create('candidatedatas', function (Blueprint $table) {
-            $table->bigInteger('mobile_no');
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('mobile_no');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email');
@@ -31,9 +33,9 @@ class CreateCandidatedatasTable extends Migration
             $table->string('industry');
             $table->string('duration');
             $table->string('graduation');
-            $table->string('postgraduation');
-            $table->string('doctorate');
-            $table->string('certificate');
+            $table->string('postgraduation')->nullable();
+            $table->string('doctorate')->nullable();
+            $table->string('certificate')->nullable();
             $table->string('resume');
             $table->timestamps();
         });

@@ -11,7 +11,7 @@
 				<div class="single-video">
 					<video id="live-video" class="live-video" autoplay="on" controls>
 						{{-- <source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4"> --}}
-						<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">
+						@if($live_videos)<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
 					</video>
 				</div>
 				<div class="single-video-title box mb-3">
@@ -97,6 +97,7 @@
 			@endforeach
 			{{--Latest Jobs End--}}
 
+
 		</div>
 
 
@@ -136,7 +137,13 @@
 					</div>
 				</div>
 			</div>
+
+			<!--News Feed-->
+
+			@include('job.news')
 		</div>
+
+
 	</div>
 </div>
 
