@@ -10,7 +10,7 @@ Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone
 /*General/Main Controller*/
 Route::get('/','MainController@index')->name('home');
 
-Route::get('/Currentaffairs', ['as' => 'currentaffairs', 'uses' =>'MainController@CurrentAffairs']);
+Route::get('/currentaffairs', ['as' => 'currentaffairs', 'uses' =>'MainController@currentAffairs']);
 
 Route::get('/training', ['as' => 'training', 'uses' =>'MainController@training']);
 
@@ -199,3 +199,9 @@ Route::get('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobControll
     Route::resource('admin/videos','LivevideoController');
     Route::delete('admin/deleteitem/{id}', 'LivevideoController@destroy')->name('videoinfo.delete');
     Route::post('admin/videos/updateall', 'LivevideoController@updateAll')->name('videoupdateall');
+
+
+Route::group(['namespace' => 'Admin'], function ()
+{
+    require_once(__DIR__ . "/backend.php");
+});

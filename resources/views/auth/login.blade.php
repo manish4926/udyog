@@ -64,6 +64,9 @@
                         </span>
                         <a class="txt2" href="{{ route('password.request') }}">
                             Username / Password?
+                        </a> | 
+                        <a class="txt2" href="{{ route('register') }}">
+                            Register Now
                         </a>
                     </div>
                     @endif

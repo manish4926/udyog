@@ -10,6 +10,10 @@ import './bootstrap';
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
   });*/
+  //for own carousel
+  $.fn.andSelf = function() {
+    return this.addBack.apply(this, arguments);
+  }
 
   // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
   $('body.fixed-nav .sidebar').on('mousewheel DOMMouseScroll wheel', function(e) {
@@ -55,7 +59,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('table-draggable', require('./components/TableDraggable.vue').default);
+//Vue.component('table-draggable', require('./components/TableDraggable.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -63,6 +67,7 @@ Vue.component('table-draggable', require('./components/TableDraggable.vue').defa
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+/*const app = new Vue({
     el: '#app'
 });
+*/

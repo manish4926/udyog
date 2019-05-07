@@ -1,82 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>BCI - Bawana Chamber of Industries</title>
+    
+    <link rel="icon" type="image/png" href="{{asset('/img/udyog_logo.png')}}">
 
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="layerslider/css/layerslider.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="Askbootstrap">
-      <meta name="author" content="Askbootstrap">
-     <meta name="csrf-token" content="{{ csrf_token() }}">
-      <title>@yield('title')</title>
+    @stack('topscript')
 
-      <!-- Favicon Icon -->
-      <link rel="icon" type="image/png" href="{{asset('/img/udyog_logo.png')}}">
-
-      <link href="public/css/search.css" rel="stylesheet">
-      <link href="public/sidebar/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-      <!-- Custom styles for this template -->
-      <link href="public/sidebar/css/simple-sidebar.css" rel="stylesheet">
-      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-           @stack('topscript')
-
-
-      <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'hi',
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'hi',
             autoDisplay: false}, 'google_translate_element');
-      }
-      </script>
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-   </head>
-   <body >
-      <div class='thetop'></div>
+</head>
+<body>
+<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <div class="google-language-box">
+            <div id="google_translate_element"></div>
+        </div>
+        <!--header-->
+        @include('layout.nav-mobile')
+        <div class="off-canvas-content" data-off-canvas-content>
+            @include('layout.nav')
+            
+            @yield('content')
+            
+            @include('layout.footer')
+            
+        </div><!--end off canvas content-->
+    </div><!--end off canvas wrapper inner-->
+</div><!--end off canvas wrapper-->
+<!-- script files -->
+<script type="text/javascript" src="/js/app.js"></script>
+{{-- <script src="bower_components/jquery/dist/jquery.js"></script> --}}
 
-      <!-- TOP NAV BAR -->
-
-     @include('layout.nav')
-
-         <div id="content-wrapper">
-            <div class="container-fluid pb-0" id="manish-test">
-               @yield('content')
-               @include('partials.content-divider')
-            </div>
-         </div>
-         <!-- /.container-fluid -->
-                 @include('layout.footer')
-
-
-         <!-- /.container-fluid -->
-      </div>
-         <!-- SIDE NAV BAR END -->
-
-
-         <!-- /#wrapper -->
-
-         <!-- Scroll to Top Button-->
-
-      <div class='scrolltop'>
-          <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:white"></i>
-      </div>
-
-      <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-      @stack('bottomscript')
-
-   </body>
-  <!-- Bootstrap core JavaScript -->
-  <script src="public/sidebar/vendor/jquery/jquery.min.js"></script>
-  <script src="public/sidebar/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Menu Toggle Script -->
+{{-- <script src="bower_components/what-input/what-input.js"></script> --}}
+<script src="bower_components/foundation-sites/dist/foundation.js"></script>
+<script src="js/jquery.showmore.src.js" type="text/javascript"></script>
+<script src="js/main.js"></script>
 
 
-  <!-- <div class='scrolltop'>
-      <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
-   </div>
-   <script type="text/javascript" src="/js/app.js"></script>
-   ody>-->
+<script src="layerslider/js/greensock.js" type="text/javascript"></script>
+
+<script src="layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
+<script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/inewsticker.js" type="text/javascript"></script>
+<script src="js/jquery.kyco.easyshare.js" type="text/javascript"></script>
+
+@stack('bottomscript')
+</body>
 </html>
