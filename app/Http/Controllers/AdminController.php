@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\job_opening;
+use App\Event;
 
 use DB;
 use Auth;
@@ -15,6 +16,67 @@ use Carbon\Carbon;
 class AdminController extends Controller
 {
 
+    public function addevent()
+    {
+        return view('admin.job.addevent');
+    }
+
+
+    public function addeventSubmit(request $request)
+    {
+       if(!empty($request->file('fileupload'))){
+            $this->validate($request,[
+                'fileupload' =>'mimes:jpeg,jpg,png']);
+            $filename = $request->file('fileupload')->getClientOriginalName();
+            $request->file('fileupload')->storeAs('eventphoto',$filename);
+            
+        } else {
+            $fileupload= '';
+        }
+
+        var_dump($filename);
+
+        $newevent = new Event;
+
+        $newevent->title        = $request->title;
+        $newevent->slug         = seoUrl($request->title."-".rand(10000,99999));
+        $newevent->description  = $request->description;
+        $newevent->author       = $request->author;
+
+        $newevent->photo        = $filename;
+        
+        
+        $newevent->save();
+        
+        return redirect()->back();
+    }    
+
+
+    public function allevents(Request $request)
+    {
+
+        $allevents= Event::all();
+        return view('admin.job.allevents',compact('allevents'));
+
+    }
+
+
+    public function updateevent(Request $request)
+    {
+       $update= Event::where('id' , $request->id)->first();
+        return view('admin.job.update')->with(['update
+            '=>$update]);  
+    }
+
+
+    public function deleteEvent(Request $request)
+    {
+        $id =$request->eventid;
+        Event::where('id',$id)
+                        ->update(['status' => 'INACTIVE']);
+
+        return json_encode('success');
+    }
     
     public function pendingjobs(Request $request)
     {

@@ -3,26 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Video;
-use App\Live_Video;
 use App\Http\Controllers\Controller;
 use DB;
+use Auth;
+
+use App\Video;
+use App\Live_Video;
 use App\Directory;
 use App\job_opening;
 
 
 class MainController extends Controller
 {
+    
+    public function __construct()
+    {
+        //$user = Auth::user();    
+        
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();            
+            view()->share('user', $user);
+            return $next($request);
+        });
+    }
+
+
     public function index() {
+        
+
         //  $files = File::limit(6)->get();
         // return view('main.index')->with('files',$files);
-         $videos = Video::limit(6)->get();
-         $live_videos = Live_Video::orderBy('order')->first(); 
-         $directory=Directory::orderBy('c_id')->limit(3)->get();
+        $videos      = Video::limit(6)->get();
+        $live_videos = Live_Video::orderBy('order')->first(); 
+        $directory   = Directory::orderBy('c_id')->limit(3)->get();
+        $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
+        
+        $recommended = Video::inRandomOrder()->limit(10)->get();
 
-          $jobs = job_opening::orderBy('job_id')->limit(5)->get();
-          
-        return view('main.index',compact('directory','videos','jobs', 'live_videos'));
+
+
+        return view('main.index',compact('directory','videos','jobs', 'live_videos','recommended'));
 
 
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);

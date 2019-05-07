@@ -7,6 +7,7 @@ use App\Video;
 use App\Live_Video;
 use FFMpeg;
 use Illuminate\Http\Request;
+use Session;
 
 class VideoController extends Controller
 {
@@ -83,8 +84,10 @@ class VideoController extends Controller
 
             // $ffprobe = \FFMpeg\FFProbe::create();
             // $durationVid = $ffprobe->format('storage/upload/'.$filename)->get('duration');
-            return 'done;';
+            
             // return response()->json(['success'=>'You have successfully upload file.']);            // dd(floor($durationVid));
+            Session::flash('successMessage', 'Video Added Successfully');
+            return redirect()->back();
     	}
     	return $request->all();
     }
