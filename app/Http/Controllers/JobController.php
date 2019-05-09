@@ -54,7 +54,7 @@ class JobController extends Controller
 }
 
 
-	public function application(Request $request, $job_title )
+	public function application(Request $request )
 	{
 		$user = Auth::user();
 		$job_title = $request->title;

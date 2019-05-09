@@ -1,5 +1,4 @@
-<div  class="col-6">
-		<div class="white-card-directory">
+<div class="white-card">
 		<form action="{{ route('candidatesearch') }}" method="get">
 		<h3>Search Candidate</h3>
 
@@ -100,7 +99,6 @@
           <button type="submit" class="btn btn-info">
       		<span class="glyphicon glyphicon-search"></span> Search
     	  </button>
-        </div>
-
 	</form> 
-	</div> 
+
+</div> 

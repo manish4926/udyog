@@ -11,6 +11,9 @@ use App\Video;
 use App\Live_Video;
 use App\Directory;
 use App\job_opening;
+use App\Event;
+
+
 
 
 class MainController extends Controller
@@ -37,6 +40,7 @@ class MainController extends Controller
         $live_videos = Live_Video::orderBy('order')->first(); 
         $directory   = Directory::orderBy('c_id')->limit(3)->get();
         $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
+        $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
         
         $recommended = Video::inRandomOrder()->limit(10)->get();
 
@@ -48,7 +52,7 @@ class MainController extends Controller
             $worldfeeds[$i]= $feed->channel->item[$i];
         }
 
-        return view('main.index',compact('directory','videos','jobs', 'live_videos','worldfeeds','recommended'));
+        return view('main.index',compact('directory','videos','jobs','event', 'live_videos','worldfeeds','recommended'));
 
 
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);

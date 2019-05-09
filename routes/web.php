@@ -185,11 +185,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
     Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
 
-    Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
-
-    /*Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);*/
-
-    Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
+    Route::get('/all', ['as' => 'alljobs', 'uses' =>'AdminController@alljobs']);
 
 
     //Admin Event Panel

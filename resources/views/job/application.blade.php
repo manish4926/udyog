@@ -11,7 +11,7 @@
 
 @section('center-content')
 <div class="white-card">
-	<h3>Apply for {{ ucfirst($job_opening->job_title) }}</h3>
+	
 	<form action="{{route('applicationsubmit')}}" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
 

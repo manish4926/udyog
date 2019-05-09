@@ -17,6 +17,12 @@ use Carbon\Carbon;
 class AdminController extends Controller
 {    
 
+    public function alljobs(Request $request)
+    {
+        $jobs= job_opening::all();
+        return view('admin.job.alljobs',compact('jobs'));
+    }
+
     public function addevent()
     {
         return view('admin.job.addevent');
@@ -43,6 +49,8 @@ class AdminController extends Controller
         $newevent->slug         = seoUrl($request->title."-".rand(10000,99999));
         $newevent->description  = $request->description;
         $newevent->author       = $request->author;
+        $newevent->date         = $request->date;
+
 
         $newevent->photo        = $filename;
         

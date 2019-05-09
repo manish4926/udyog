@@ -36,14 +36,12 @@
         <!--header-->
         @include('layout.nav-mobile')
         <div class="off-canvas-content" data-off-canvas-content>
-            @include('layout.nav')
-            
+            @include('layout.nav')          
             @yield('content')
             @include('partials.content-divider')
-            
-            @include('layout.footer')
-            
-        </div><!--end off canvas content-->
+        </div><!--end off canvas content--> 
+        <!--Footer-->
+        @include('layout.footer')     
     </div><!--end off canvas wrapper inner-->
 </div><!--end off canvas wrapper-->
 <!-- script files -->

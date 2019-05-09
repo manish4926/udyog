@@ -115,6 +115,30 @@
                             <span><i class="fa fa-play"></i>Watch Video</span>
                         </a>
                     </div>
+                    <div class="item">
+                        <figure class="premium-img">
+                            <img src="http://placehold.it/400x300" alt="carousel">
+                            <figcaption>
+                                <h5>ICE Age 5 upcoming Movie</h5>
+                                <p>Movies Trailer</p>
+                            </figcaption>
+                        </figure>
+                        <a href="single-video-v1.html" class="hover-posts">
+                            <span><i class="fa fa-play"></i>Watch Video</span>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <figure class="premium-img">
+                            <img src="http://placehold.it/400x300" alt="carousel">
+                            <figcaption>
+                                <h5>ICE Age 5 upcoming Movie</h5>
+                                <p>Movies Trailer</p>
+                            </figcaption>
+                        </figure>
+                        <a href="single-video-v1.html" class="hover-posts">
+                            <span><i class="fa fa-play"></i>Watch Video</span>
+                        </a>
+                    </div>
                 </div>
             </section><!-- End Premium Videos -->
             <section class="mainContentv3">
@@ -259,6 +283,10 @@
                             <div class="sidebarBg"></div>
                             <div class="row">
                                 @include('partials.news')
+
+                                <!-- Events -->
+                                @include('partials.events')
+                                <!-- End Events -->
 
 
                                 <!-- search Widget -->

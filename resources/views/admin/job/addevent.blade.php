@@ -38,6 +38,10 @@
                   <textarea class="form-control" rows="3" name="description" placeholder="Enter event description"></textarea>
                 </div>
                 <div class="form-group">
+                  <label for="date">Event Date</label>
+                  <input type="date" class="form-control" name="date" placeholder="Enter event date">
+                </div>
+                <div class="form-group">
                   <label for="author">Add Author</label>
                   <input type="text" class="form-control" name="author" placeholder="Enter event author">
                 </div>
