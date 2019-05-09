@@ -1,10 +1,11 @@
-    <?php
+<?php
 
 /*Authentication Controller*/
 Auth::routes();
 
 Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+
 
 
 /*General/Main Controller*/
@@ -44,7 +45,7 @@ Route::group(['prefix' => 'directory'], function ()
     Route::get('/details',['as'=>'create','uses'=>'DirectoryController@create']);
     Route::post('/store',['as'=>'store','uses'=>'DirectoryController@store']);
 
-    Route::get('/industrylist/{tag?}',['as'=>'IndustryList', 'uses'=>'DirectoryController@index']);
+    Route::get('/industrylist/{tag?}',['as'=>'industrylist', 'uses'=>'DirectoryController@index']);
 
      /*   Route::get('/microweb', function () {
         return view('microweb');
@@ -73,6 +74,8 @@ Route::group(['prefix' => 'job'], function ()
     Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
+
+
 });
 
 /*Video Controller*/
@@ -116,6 +119,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
+
+
 
     //video
 
@@ -182,10 +187,26 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
     Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
 
-    Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
+    /*Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);*/
 
     Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
-    });
+
+
+    //Admin Event Panel
+
+    Route::get('/event/add', ['as' => 'addevent', 'uses' =>'AdminController@addevent']);
+
+    Route::post('/event/add/submit', ['as' => 'addeventSubmit', 'uses' =>'AdminController@addeventSubmit']);
+
+    Route::get('/event/all', ['as' => 'allevents', 'uses' =>'AdminController@allevents']);
+
+    Route::get('/event/update/{id}', ['as' => 'updateevent', 'uses' =>'AdminController@updateevent']);
+
+    Route::post('/events/delete/submit', ['as' => 'deleteEvent', 'uses' =>'AdminController@deleteEvent']);
+
+   
+
+});
 
     
 
@@ -201,7 +222,12 @@ Route::get('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobControll
     Route::post('admin/videos/updateall', 'LivevideoController@updateAll')->name('videoupdateall');
 
 
+
 Route::group(['namespace' => 'Admin'], function ()
 {
     require_once(__DIR__ . "/backend.php");
 });
+
+
+//userprofile
+Route::get('/userprofile/{userid}',['as' => 'userprofile', 'uses' =>'CandidatedataController@userprofile']);

@@ -20,7 +20,8 @@
             </div>
             <div class="medium-2 columns">
                 <div class="top-button">
-                    @if(!empty($user))
+
+                    @if(Auth::guest())
                     <ul class="menu float-right">
                         <li>
                             <a href="{{ route('register') }}">Register</a>
@@ -32,7 +33,12 @@
                     @else
                     <ul class="menu float-right">
                         <li>
-                            <a href="{{ route('home') }}">No Menu</a>
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi! {{ $user->firstname }}</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Edit Profile</a>
+                                <a class="dropdown-item" href="#">Edit Company Details</a>
+                                <a class="dropdown-item" href="#">Logout</a>
+                            </div>
                         </li>
                     </ul>
                     @endif
@@ -48,7 +54,7 @@
                     <div class="large-12 columns">
                         <div class="title-bar title-bar-dark" data-responsive-toggle="beNav" data-hide-for="large">
                             <button class="menu-icon" type="button" data-toggle="offCanvas"></button>
-                            <div class="title-bar-title"><img src="images/logo-small.png" alt="logo"></div>
+                            <div class="title-bar-title"><img src="{{ asset('images/logo.png') }}" alt="logo"></div>
                         </div>
 
                         <div class="top-bar show-for-large topbar-light-dark" id="beNav" style="width: 100%;">
@@ -92,10 +98,10 @@
                                             <li><a href="submit-post.html"><i class="fa fa-film"></i>submit post</a></li>
                                         </ul> --}}
                                     </li>
-                                    <li><a href="categories.html"><i class="fa fa-th"></i>Industries</a></li>
+                                    <li><a href="{{ route('industrylist') }}"><i class="fa fa-th"></i>Industries</a></li>
+                                    <li><a href="{{ route('alljob') }}"><i class="fa fa-th"></i>Jobs</a></li>
                                     <li><a href="#"><i class="fa fa-magic"></i>Business</a>
                                         <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
-                                            <li><a class="dropdown-item" href="{{route('IndustryList')}}">Directory</a></li>
                                             <li><a class="dropdown-item" href="{{route('currentaffairs')}}">Current affairs</a></li>
                                             <li><a class="dropdown-item" href="{{route('training')}}">Training's</a></li>
                                             <li><a class="dropdown-item" href="{{route('labourlaws')}}">Labour Laws</a></li>

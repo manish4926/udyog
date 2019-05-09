@@ -3,6 +3,7 @@ $color-red: #ff516b;
 
 $theme-color: #303030;
 $theme-color-light: rgb(68, 68, 68);
+$theme-color-text-black-light: #8e8e8e;
 
 .manish {
 	display:block;
@@ -370,4 +371,41 @@ body{
 
 .thumb-slider .thumbs .ver-thumbnail a {
 	opacity: 1;
+}
+
+/* Home Page */
+.news-feeds.home-news .description {
+  display: block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em;
+  line-height: 1.8em;
+}
+
+.home-news .news-section{
+	border-bottom: 1px solid #e0e0e0;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+}
+
+.home-news .news-section a{
+	color: $theme-color-text-black-light;
+}
+
+.dropdown-menu {
+	background: transparent;
+	max-width: 300px;
+    border: solid 1px #ccc;
+    padding: 0;
+}
+
+.dropdown-menu a.dropdown-item{
+	margin: 0;
+}
+
+.section-top {
+	position: relative;
+    margin-top: 150px;
 }

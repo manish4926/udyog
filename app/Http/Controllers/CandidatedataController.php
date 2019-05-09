@@ -2,11 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Candidatedata;
+use App\Applicant;
 use Illuminate\Http\Request;
+
+
 
 class CandidatedataController extends Controller
 {
+
+    public function userprofile(Request $request)
+    {
+        $applicantinfo = User::where('id',$request->userid)->first();
+        $applicantdetails = Candidatedata::where('id',$request->userid)->first();
+        return view('job.userprofile')->with(['applicantinfo'=>$applicantinfo, 'applicantdetails'=> $applicantdetails]);
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -26,18 +41,7 @@ class CandidatedataController extends Controller
     {
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
+    
     /**
      * Display the specified resource.
      *

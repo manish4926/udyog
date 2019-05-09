@@ -8,9 +8,9 @@
                             <div class="main-image">
                                 <div class="image 1">
                                     
-                                    <video id="live-video" class="live-video" controls>
-                                        <source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4">
-                                        {{-- @if($live_videos)<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif --}}
+                                    <video id="live-video" class="live-video" autoplay="" controls>
+                                        {{-- <source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4"> --}}
+                                        @if($live_videos)<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
                                     </video>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                 <p>{{ $file->category }}</p>
                             </figcaption>
                         </figure>
-                        <a href="single-video-v1.html" class="hover-posts">
+                        <a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}" class="hover-posts">
                             <span><i class="fa fa-play"></i>Watch Video</span>
                         </a>
                     </div>
@@ -129,7 +129,7 @@
                                     <div class="medium-8 small-8 columns">
                                         <div class="head-title">
                                             <i class="fa fa-industry"></i>
-                                            <h4>Trending Companies</h4>
+                                            <h4>Companies for You</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -185,6 +185,7 @@
                             <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
                         </div><!-- End ad Section -->
 
+
                         <!-- popular video -->
                         <section class="content content-with-sidebar">
                             <!-- popular Videos -->
@@ -210,8 +211,8 @@
                                                             <div class="card-body">
                                                                 <div class="row">
                                                                     <div class="col-md-8">
-                                                                        <h5 class="card-title"><i class="fas fa-bolt red"></i> <a href="#">{{ ucfirst($job_opening->job_title) }}</a></h5>
-                                                                        <p>Company: <a class="link-red" href="#"><u>{{ ucfirst($job_opening->company_name) }}</u></a> </p>
+                                                                        <h5 class="card-title"><i class="fas fa-bolt red"></i> <a href="{{ route('getdisplay',['job_id' => $job_opening->job_id]) }}">{{ ucfirst($job_opening->job_title) }}</a></h5>
+                                                                        <p>Company: <a class="link-red" href="{{ route('getdisplay',['job_id' => $job_opening->job_id]) }}"><u>{{ ucfirst($job_opening->company_name) }}</u></a> </p>
                                                                         <p>{{ $job_opening->job_desc }} Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                                                     </div>
                                                                     <div class="col-md-4">
@@ -257,8 +258,11 @@
                         <aside class="sidebar">
                             <div class="sidebarBg"></div>
                             <div class="row">
+                                @include('partials.news')
+
+
                                 <!-- search Widget -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                                {{-- <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
                                             <h5>Search Videos</h5>
@@ -272,10 +276,10 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div><!-- End search Widget -->
+                                </div> --}}<!-- End search Widget -->
 
                                 <!-- most view Widget -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                                {{-- <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
                                             <h5>Most View Videos</h5>
@@ -347,7 +351,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div><!-- end most view Widget -->
+                                </div> --}}<!-- end most view Widget -->
 
                                 <!-- social Fans Widget -->
                                 <div class="large-12 medium-7 medium-centered columns">
@@ -358,27 +362,27 @@
                                         <div class="widgetContent">
                                             <div class="social-links">
                                                 <a class="socialButton" href="#">
-                                                    <i class="fa fa-facebook"></i>
+                                                    <i class="fab fa-facebook"></i>
                                                     <span>698K</span>
                                                     <span>fans</span>
                                                 </a>
                                                 <a class="socialButton" href="#">
-                                                    <i class="fa fa-twitter"></i>
+                                                    <i class="fab fa-twitter"></i>
                                                     <span>598</span>
                                                     <span>followers</span>
                                                 </a>
                                                 <a class="socialButton" href="#">
-                                                    <i class="fa fa-google-plus"></i>
+                                                    <i class="fab fa-google-plus"></i>
                                                     <span>98k</span>
                                                     <span>followers</span>
                                                 </a>
                                                 <a class="socialButton" href="#">
-                                                    <i class="fa fa-youtube"></i>
+                                                    <i class="fab fa-youtube"></i>
                                                     <span>168k</span>
                                                     <span>followers</span>
                                                 </a>
                                                 <a class="socialButton" href="#">
-                                                    <i class="fa fa-vimeo"></i>
+                                                    <i class="fab fa-vimeo"></i>
                                                     <span>498</span>
                                                     <span>followers</span>
                                                 </a>
@@ -572,9 +576,15 @@
                                 </figure>
                             </div>
 
+
                         </div><!-- end carousel -->
                     </div>
                 </div>
             </section> --}}<!-- End movie -->
+            <!--News Feed-->
+
+            
 
 @endsection
+
+            

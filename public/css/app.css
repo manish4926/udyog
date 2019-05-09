@@ -28601,6 +28601,45 @@ body {
   opacity: 1;
 }
 
+/* Home Page */
+
+.news-feeds.home-news .description {
+  display: block;
+  /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em;
+  line-height: 1.8em;
+}
+
+.home-news .news-section {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+
+.home-news .news-section a {
+  color: #8e8e8e;
+}
+
+.dropdown-menu {
+  background: transparent;
+  max-width: 300px;
+  border: solid 1px #ccc;
+  padding: 0;
+}
+
+.dropdown-menu a.dropdown-item {
+  margin: 0;
+}
+
+.section-top {
+  position: relative;
+  margin-top: 150px;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

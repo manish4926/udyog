@@ -40,9 +40,15 @@ class MainController extends Controller
         
         $recommended = Video::inRandomOrder()->limit(10)->get();
 
+        //news
+        $feed = simplexml_load_file('https://news.google.com/news/rss');
+        $worldfeeds=[];
+        for($i=0;$i<5;$i++)
+        {
+            $worldfeeds[$i]= $feed->channel->item[$i];
+        }
 
-
-        return view('main.index',compact('directory','videos','jobs', 'live_videos','recommended'));
+        return view('main.index',compact('directory','videos','jobs', 'live_videos','worldfeeds','recommended'));
 
 
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);

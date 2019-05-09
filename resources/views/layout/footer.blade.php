@@ -129,7 +129,7 @@
             </footer><!-- footer -->
             <div id="footer-bottom">
                 <div class="logo text-center">
-                    <img src="images/footerlogo.png" alt="footer logo">
+                    <img src="{{ asset('images/footerlogo.png') }}" alt="footer logo">
                 </div>
                 <div class="btm-footer-text text-center">
                     <p>2016 © Betube video wordpress theme.</p>

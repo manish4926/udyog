@@ -8,7 +8,7 @@
                             <div class="main-image">
                                 <div class="image 1">
                                     
-                                    <video id="live-video" class="live-video" autoplay="on" controls>
+                                    <video id="live-video" class="live-video" autoplay="" controls>
                                         <source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4">
                                         {{-- @if($live_videos)<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif --}}
                                     </video>

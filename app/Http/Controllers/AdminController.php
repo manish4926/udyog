@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\job_opening;
+use App\Applicant;
 use App\Event;
 
 use DB;
@@ -14,7 +15,7 @@ use Carbon\Carbon;
 
 
 class AdminController extends Controller
-{
+{    
 
     public function addevent()
     {
@@ -77,7 +78,7 @@ class AdminController extends Controller
 
         return json_encode('success');
     }
-    
+
     public function pendingjobs(Request $request)
     {
         $joblist = job_opening::where('expdate','>=',Carbon::today()->toDateString())
@@ -127,8 +128,9 @@ class AdminController extends Controller
 
 	public function getapplicants(Request $request)
     {
-        $applicants= job_opening::where('job_id' , $request->job_id)->get();
-        return view('admin.job.allapplicants')->with(['job_opening'=>$applicants]);  
+        $applicants= Applicant::where('job_id' , $request->job_id)->get();
+        
+        return view('admin.job.allapplicants')->with(['applicants'=>$applicants]);  
     }
 
 }

@@ -10,6 +10,9 @@ import './bootstrap';
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
   });*/
+
+  window.$ = window.jQuery = require('jquery');
+  
   //for own carousel
   $.fn.andSelf = function() {
     return this.addBack.apply(this, arguments);

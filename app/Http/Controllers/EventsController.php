@@ -14,5 +14,5 @@ class EventsController extends Controller
         return $event;
 
     }
-
 }
+

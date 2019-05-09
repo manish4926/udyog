@@ -48800,7 +48800,8 @@ __webpack_require__.r(__webpack_exports__);
    $("body").toggleClass("sidebar-toggled");
    $(".sidebar").toggleClass("toggled");
   });*/
-  //for own carousel
+
+  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); //for own carousel
 
   $.fn.andSelf = function () {
     return this.addBack.apply(this, arguments);
