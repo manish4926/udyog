@@ -1,9 +1,4 @@
-$color-red: #ff516b;
-
-
-$theme-color: #303030;
-$theme-color-light: rgb(68, 68, 68);
-$theme-color-text-black-light: #8e8e8e;
+/* Variable Moved to App.scss */
 
 .manish {
 	display:block;
@@ -409,3 +404,25 @@ body{
 	position: relative;
     margin-top: 150px;
 }
+
+/* .video-side-list {
+	background: $theme-color-light;
+
+} */
+
+.video-side-list ul {
+	list-style-type: none;
+}
+
+	.video-side-list ul li a {
+		text-decoration: none;
+		background: $theme-color-light;
+		color: #8e8e8e;
+		-webkit-transition: all 0.3s ease-in-out;
+  		transition: all 0.3s ease-in-out;
+	}
+
+	.video-side-list ul li:hover a {
+		background: #fff;
+		color: $color-red;
+	}

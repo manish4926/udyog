@@ -15,6 +15,22 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 
+
+//Theme 1(Dark Theme)
+/* $theme-color: #303030;
+$theme-color-light: rgb(68, 68, 68);
+$theme-color-text-black-light: #8e8e8e;
+$color-red: #ff516b; */
+
+//Theme 2(Light Theme)
+$theme-color: #303030;
+/* $theme-color-light: rgb(68, 68, 68); */
+$theme-color-light: #444444;
+$theme-color-text-black-light: #8e8e8e;
+$color-red: #ff516b;
+
+
+
 // Video and Main CSS
 @import 'main';
 @import 'theme';

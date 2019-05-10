@@ -9,3 +9,4 @@
     	@yield('right-content')
     
 </div>
+</div>

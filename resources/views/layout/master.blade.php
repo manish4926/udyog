@@ -47,7 +47,7 @@
     </div><!--end off canvas wrapper inner-->
 </div><!--end off canvas wrapper-->
 <!-- script files -->
-<script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 {{-- <script src="bower_components/jquery/dist/jquery.js"></script> --}}
 
 {{-- <script src="bower_components/what-input/what-input.js"></script> --}}
