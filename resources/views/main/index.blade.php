@@ -376,9 +376,9 @@
                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
-                                            <h5>social fans</h5>
+                                            <h5>Notices & Circulars</h5>
                                         </div>
-                                        <div class="widgetContent">
+                                        {{-- <div class="widgetContent">
                                             <div class="social-links">
                                                 <a class="socialButton" href="#">
                                                     <i class="fab fa-facebook"></i>
@@ -406,7 +406,7 @@
                                                     <span>followers</span>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div><!-- End social Fans Widget -->
 
