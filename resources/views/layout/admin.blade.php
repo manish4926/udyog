@@ -131,7 +131,7 @@
           </a>
         </li>
         <li class="treeview">
-<<<<<<< HEAD
+
             <a href="#">
               <i class="fa fa-list-ul"></i>
               <span>Categories</span>
@@ -144,7 +144,7 @@
               <li><a href="{{ route('allcategory') }}"><i class="fa fa-list-ul"></i> All Categories</a></li>
             </ul>
           </li>
-=======
+
           <a href="#">
             <i class="fa fa-list-ul"></i>
             <span>Jobs</span>
@@ -157,7 +157,6 @@
             <li><a href="{{ route('expjobs') }}"><i class="fa fa-list-ul"></i> Expired Jobs</a></li>
           </ul>
         </li>
->>>>>>> 7164e198209c99aecd6da0d5281cffbed7727824
       </ul>
 
     </section>
