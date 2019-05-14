@@ -21,7 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('author')->nullable();
             $table->string('photo')->nullable();
             $table->enum('status', ['ACTIVE', 'INACTIVE'])->default('ACTIVE');
-             $table->string('slug')->unique();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

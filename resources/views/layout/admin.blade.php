@@ -166,6 +166,19 @@
             <li><a href="{{ route('expjobs') }}"><i class="fa fa-list-ul"></i> Expired Jobs</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-list-ul"></i>
+            <span>Event</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('addevent') }}"><i class="fa fa-list-ul"></i> Add New Event</a></li>
+            <li><a href="{{ route('allevents') }}"><i class="fa fa-list-ul"></i> All events</a></li>
+          </ul>
+        </li>
       </ul>
 
     </section>

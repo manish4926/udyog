@@ -11,6 +11,16 @@ use Illuminate\Http\Request;
 
 class CandidatedataController extends Controller
 {
+    public function __construct()
+    {
+        //$user = Auth::user();    
+        
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();            
+            view()->share('user', $user);
+            return $next($request);
+        });
+    }
 
     public function userprofile(Request $request)
     {
