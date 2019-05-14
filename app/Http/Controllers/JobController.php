@@ -127,7 +127,7 @@ class JobController extends Controller
 
 	public function alljob (Request $request)
 	{
-		$jobs= job_opening::all();
+		$jobs= job_opening::paginate(5);
 		return view('job.alljob',compact('jobs'));
 	}
 
@@ -197,6 +197,8 @@ class JobController extends Controller
 		if($searchkey3){
 			$candidatesearch->where('postgraduation' , '=', $searchkey3);
 		}
+
+		
 		
 		
 		$candidatesearch = $candidatesearch->paginate(5);

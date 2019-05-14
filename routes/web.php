@@ -65,7 +65,7 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
 
-    Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
+    Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
 
     Route::any('/search',  ['as' => 'searchjob', 'uses' =>'JobController@search']);
 
@@ -227,3 +227,10 @@ Route::group(['namespace' => 'Admin'], function ()
 
 //userprofile
 Route::get('/userprofile/{userid}',['as' => 'userprofile', 'uses' =>'CandidatedataController@userprofile']);
+
+
+//uploadAd
+Route::get('/uploadad',['as' => 'uploadad', 'uses' =>'MainController@uploadad']);
+
+//uploadAd
+Route::post('/uploadadsubmit',['as' => 'uploadadsubmit', 'uses' =>'MainController@uploadadsubmit']);

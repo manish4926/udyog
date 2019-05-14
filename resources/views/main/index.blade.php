@@ -266,7 +266,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center row-btn">
-                                        <a class="button radius" href="all-video.html">View All Jobs</a>
+                                        <a class="button radius" href={{route('alljob')}}>View All Jobs</a>
                                     </div>
                                 </div>
                             </div>

@@ -12,6 +12,7 @@ use App\Live_Video;
 use App\Directory;
 use App\job_opening;
 use App\Event;
+use App\Advertisement;
 
 
 
@@ -71,6 +72,58 @@ class MainController extends Controller
         $all = Video::limit(6)->get();
 
         return view('video.video')->with('video',$video)->with('all',$all);
+    }
+
+
+    //upload ad
+
+     public function uploadad(Request $request)
+    {
+        return view('ad.uploadAd'); 
+    }
+
+
+    public function uploadadsubmit(Request $request)
+    {
+        if(!empty($request->file('fileupload1'))){
+            $this->validate($request,[
+                'fileupload1' =>'mimes:jpg,jpeg,png']);
+            $filename1 = $request->file('fileupload1')->getClientOriginalName();
+            $request->file('fileupload1')->storeAs('Advertisement',$filename1);
+            
+        } else {
+            $fileupload1= '';
+        }
+        
+         if(!empty($request->file('fileupload2'))){
+            $this->validate($request,[
+                'fileupload2' =>'mimes:jpg,jpeg,png']);
+            $filename2 = $request->file('fileupload2')->getClientOriginalName();
+            $request->file('fileupload2')->storeAs('Advertisement',$filename2);
+            
+        } else {
+            $fileupload2= '';
+        }
+        
+         if(!empty($request->file('fileupload3'))){
+            $this->validate($request,[
+                'fileupload3' =>'mimes:jpg,jpeg,png']);
+            $filename3 = $request->file('fileupload3')->getClientOriginalName();
+            $request->file('fileupload3')->storeAs('Advertisement',$filename3);
+            
+        } else {
+            $fileupload3= '';
+        }
+
+        $ad = new Advertisement;
+
+        $ad->ad_middle          = $filename1;
+        $ad->ad_right           = $filename2;
+        $ad->ad_bottom          = $filename3;
+     
+        $ad->save();
+        
+        return redirect()->back();
     }
 
 

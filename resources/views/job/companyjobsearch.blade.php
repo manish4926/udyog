@@ -24,6 +24,8 @@
               <option value="10-100"> more than 10 yrs</option>
           </select>
           </span>
+
+          
 		<span class="req-input">
 				<label>Basic / Graduation :</label>
 
@@ -45,20 +47,9 @@
 					<option value="BSC">B.Sc</option>
 					<option value="BE">B.Tech/B.E</option>
 					<option value="BVSC">B.V.S.C</option>
-					<option value="DbCourse_Code">DbCourse_Name</option>
-					<option value="DIPLOMA">Dilpoma</option>
-					<option value="Gra31">Fashion Design</option>
-					<option value="Gra18">Graduation (Any)</option>
-					<option value="Gra29">ITI</option>
-					<option value="LLB">L.L.B</option>
+				    <option value="LLB">L.L.B</option>
 					<option value="MBBS">M.B.B.S</option>
 					<option value="Gra23">Mass Com.</option>
-					<option value="NPG">Not Pursuing Graduation</option>
-					<option value="Gra25">NTT</option>
-					<option value="OTH">Others</option>
-					<option value="Gra24">PGT</option>
-					<option value="Gra26">PRT</option>
-
 				</select>
 
 

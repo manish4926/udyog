@@ -1,4 +1,4 @@
-<div class="large-12 medium-7 medium-centered columns">
+<div class="large-12 medium-7 medium-centered columns event-section">
     <div class="widgetBox">
         <div class="widgetTitle">
             <h5>Events</h5>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="media-object-section">
                     <div class="media-content">
-                        <h5><a href="#">{{$events->title}}</a></h5>
+                        <h5><a href="#">{{ ucfirst($events->title) }}</a></h5>
                         <h6>{{$events->description}}</h6>
                         <p><i class="fa fa-clock-o"></i><span>{{$events->date}}</span></p>
                     </div>

@@ -5,6 +5,9 @@ $theme-color: #303030;
 $theme-color-light: rgb(68, 68, 68);
 $theme-color-text-black-light: #8e8e8e;
 
+
+
+
 .manish {
 	display:block;
 }
@@ -391,6 +394,10 @@ body{
 }
 
 .home-news .news-section a{
+	color: $theme-color-text-black-light;
+}
+
+.event-section a {
 	color: $theme-color-text-black-light;
 }
 

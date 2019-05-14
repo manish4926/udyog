@@ -82,11 +82,6 @@
     </div>
 
 @endsection
-
-@section('right-content')
-  @include('job.companyjobsearch')
-@endsection
-
             
 @push('bottomscript')
     <script type="text/javascript" src="{{asset('js/bootstrap-datepicker.min.js')}}"></script>

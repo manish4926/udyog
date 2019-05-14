@@ -35,9 +35,10 @@
                         <li>
                             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi! {{ $user->firstname }}</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#" >User Profile</a>
                                 <a class="dropdown-item" href="{{route('application')}}">Edit Profile</a>
                                 <a class="dropdown-item" href="#">Edit Company Details</a>
-                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -99,8 +100,15 @@
                                         </ul> --}}
                                     </li>
                                     <li><a href="{{ route('industrylist') }}"><i class="fa fa-th"></i>Industries</a></li>
-                                    <li><a href="{{ route('alljob') }}"><i class="fa fa-th"></i>Jobs</a>
+                                    @if(Auth::check() AND $user->hasRole('Company'))
+                                        <li><a href="{{ route('postjob') }}"><i class="fa fa-th"></i>Post A Job</a>
+                                        <li><a href="{{ route('candidatesearch') }}"><i class="fa fa-th"></i>Search Candidates</a>
                                     </li>
+                                    @else
+                                        <li><a href="{{ route('alljob') }}"><i class="fa fa-th"></i>Jobs</a>
+
+                                    </li>
+                                    @endif
                                     <li><a href="#"><i class="fa fa-magic"></i>Business</a>
                                         <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
                                             <li><a class="dropdown-item" href="{{route('currentaffairs')}}">Current affairs</a></li>

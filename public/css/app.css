@@ -28624,6 +28624,10 @@ body {
   color: #8e8e8e;
 }
 
+.event-section a {
+  color: #8e8e8e;
+}
+
 .dropdown-menu {
   background: transparent;
   max-width: 300px;
