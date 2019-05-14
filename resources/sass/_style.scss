@@ -1,9 +1,32 @@
+$color-red: #ff516b;
+
+
+$theme-color: #303030;
+$theme-color-light: rgb(68, 68, 68);
+$theme-color-text-black-light: #8e8e8e;
+
+
+
+
 .manish {
 	display:block;
 }
 
+#navBar .top-bar .menu-text {
+	padding: 0 !important;
+}
+.menu img {
+    width: 90px;
+}
+
 .live-video {
 	width:100%;
+}
+
+.req-input input,select,h3
+{
+	padding-left:60px;
+	padding-right: 20px;
 }
 
 #wrapper {
@@ -18,15 +41,34 @@
 }
 
 .google-language-box {
-	height: 27px; 
-	background-color: #fafafa;
+	height: 27px;
+	background-color: $theme-color-light;
 }
 
 .google-language-box #google_translate_element{
-	float: right; 
-	display: block; 
+	float: right;
+	display: block;
 	text-align: right;
 	height: 27px;
+}
+
+
+#google_translate_element select{
+	padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 21px;
+}
+
+.white-card-candidate-search
+{
+	background: #fff;
+	display: block;
+	widows: 100%;
+	min-height: 200px;
+	width: 100%;
+	padding:20px;
 }
 
 .white-card {
@@ -54,7 +96,7 @@ max-width: 200;
 
 .card-head-directory {
 	font-size: 15px;
-	font-weight:bold; 
+	font-weight:bold;
 }
 
 .card-head-span-directory{
@@ -81,6 +123,14 @@ max-width: 200;
     height:200px;
 }
 
+.job-company-logo {
+	width: 100px;
+	float: right;
+	position: absolute;
+	right: 20px;
+	margin-top: -10px;
+}
+
 .scroll {
 	/* padding: 10px; */
 	padding: 10px 13px;
@@ -90,7 +140,7 @@ max-width: 200;
 
 .scroll:hover {
 	background: darkblue;
-} 
+}
 
 .no-padding {
 	padding: 0;
@@ -107,17 +157,85 @@ max-width: 200;
 }
 
 .marquee-message {
-	background: #ddd;
-	border-top:    0px solid #ff0000;
-	border-right:  8px solid #ff0000;
-	border-bottom: 0px solid #ff0000;
-	border-left:   8px solid #ff0000;
+	/* background: #ddd; */
+	border-top:    0px solid #ddd;
+	border-right:  2px solid #ddd;
+	border-bottom: 0px solid #ddd;
+	border-left:   2px solid #ddd;
 	/* margin-top: 2px; */
 	display: block;
-	color:  #ff0000;
+	color:  #ddd;
 	font-weight: bold;
 	padding-top: 5px;
 }
+
+.card-title a {
+	color: $color-red;
+    text-decoration: none!important;
+    font-size: 22px;
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.link-red {
+	color: $color-red;
+}
+
+/* .marquee-message {
+  color:  #ddd;
+  position:relative;
+  display:block;
+  padding:0 0 0 0.5em;
+  border-color:#ddd;
+  border-width:2px;
+  border-style:solid;
+  white-space: nowrap;
+  border-width:2px 0;
+} */
+
+/* .marquee-message:before {
+  content: "";
+  display:inline-block;
+  border-bottom-width:2px;
+  border-left-width:2px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  -webkit-transform-origin: 0% 100%;
+  -moz-transform-origin: 0% 100%;
+  -ms-transform-origin: 0% 100%;
+  -o-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+  position:absolute;
+  top:-50%;
+  bottom:50%;
+  left:1.6em;
+  right:0;
+}
+
+.marquee-message:after {
+  content: "";
+  display:inline-block;
+  border-bottom-width:2px;
+  border-right-width:2px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  position:absolute;
+  top:-50%;
+  bottom:50%;
+  left:0;
+  right:1.6em;
+} */
 
 
 /*Color*/
@@ -246,4 +364,55 @@ body{
 #myFooter{
 	flex: 0 0 auto;
     -webkit-flex: 0 0 auto;
+}
+
+
+.no-bullets {
+    list-style-type: none;
+}
+
+
+.thumb-slider .thumbs .ver-thumbnail a {
+	opacity: 1;
+}
+
+/* Home Page */
+.news-feeds.home-news .description {
+  display: block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em;
+  line-height: 1.8em;
+}
+
+.home-news .news-section{
+	border-bottom: 1px solid #e0e0e0;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+}
+
+.home-news .news-section a{
+	color: $theme-color-text-black-light;
+}
+
+.event-section a {
+	color: $theme-color-text-black-light;
+}
+
+.dropdown-menu {
+	background: transparent;
+	max-width: 300px;
+    border: solid 1px #ccc;
+    padding: 0;
+}
+
+.dropdown-menu a.dropdown-item{
+	margin: 0;
+}
+
+.section-top {
+	position: relative;
+    margin-top: 150px;
 }

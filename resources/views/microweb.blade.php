@@ -25,7 +25,25 @@
             <script src="vendor/html5shiv.js"></script>
             <script src="vendor/respond.js"></script>
         <![endif]-->
-            
+            <style type="text/css">
+                #home {
+                    background: #000;
+                    width: 100%;
+                    height: 500px;
+                }
+
+                #home img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    position: relative;
+                }
+
+                .theme-main-header {
+                    background: rgba(0,0,0,0.7);
+                }
+            </style>
     </head>
 
     <body>
@@ -73,232 +91,7 @@
             =====================================================
             -->
             <div id="home" class="banner">
-                <div class="rev_slider_wrapper" style="overflow: visible; height:700px;">
-                    <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
-                        <div id="main-banner-slider" class="rev_slider video-slider-initialised tp-simpleresponsive" data-version="5.0.7" style="margin-top: 0px; margin-bottom: 0px;height:700px;">
-                            <ul class="tp-revslider-mainul" style="visibility: visible;display: block; overflow: hidden; width: 695px; height: 100%; max-height: none;left: 0px;">
-
-                                <!-- SLIDE1  -->
-                                <li data-index="rs-280" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-title="Title Goes Here" data-description="">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="https://5.imimg.com/data5/OK/KT/GLADMIN-2825054/bike-brake-linings-500x500.png"  alt="image" class="rev-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="20000" data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0" data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100" data-scalestart="140">
-                                    <!-- LAYERS -->
-
-                                    <!-- LAYER NR. 1 -->
-                                    <div class="tp-caption" 
-                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                                        data-y="['middle','middle','middle','middle']" data-voffset="['-58','-58','0','-50']" 
-                                        data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-                                        data-transform_idle="o:1;"
-                             
-                                        data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                                        data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                                        data-mask_in="x:0px;y:[100%];" 
-                                        data-mask_out="x:inherit;y:inherit;" 
-                                        data-start="1000" 
-                                        data-splitin="none" 
-                                        data-splitout="none" 
-                                        data-responsive_offset="on" 
-                                        style="z-index: 6; white-space: nowrap;">
-                                        <h1>{{$companydetail->companyname}}</h1>
-                                    </div>
-
-                                    <!-- LAYER NR. 2 -->
-                        <!--            <div class="tp-caption" 
-                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                                        data-y="['middle','middle','middle','middle']" data-voffset="['-05','-05','63','0']"
-                                        data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-                                        data-transform_idle="o:1;"
-                             
-                                        data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                                        data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                                        data-mask_in="x:0px;y:[100%];" 
-                                        data-mask_out="x:inherit;y:inherit;" 
-                                        data-start="2000" 
-                                        data-splitin="none" 
-                                        data-splitout="none" 
-                                        data-responsive_offset="on" 
-                                        style="z-index: 6; white-space: nowrap;">
-                                        <h6></h6>
-                                    </div>
-
-                                    <-- LAYER NR. 3 -->
-                        -->
-                                    <!-- LAYER NR. 3 -->
-                                    <div class="tp-caption"
-                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                                        data-y="['middle','middle','middle','middle']" data-voffset="['52','52','125','80']"
-                                        data-transform_idle="o:1;"
-                             
-                                        data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                                        data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                                        data-mask_in="x:0px;y:[100%];" 
-                                        data-mask_out="x:inherit;y:inherit;" 
-                                        data-start="3000" 
-                                        data-splitin="none" 
-                                        data-splitout="none" 
-                                        data-responsive_offset="on">
-                                        <a href="contact-us.html" class="project-button hvr-bounce-to-right">Our Projects</a>
-                                    </div>
-                                
-                                </li>
-
-                                <!-- SLIDE2  -->
-                                <li data-index="rs-20" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="video/drinkwinecover.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Title Goes Here" data-description="">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="https://cpimg.tistatic.com/01356719/b/4/Mitsubishi-Canter-Truck-Mirror.jpg"  alt="image" class="rehttps://cpimg.tistatic.com/01356719/b/4/Mitsubishi-Canter-Truck-Mirror.jpgv-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="20000" data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0" data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100" data-scalestart="140">
-                                    <!-- LAYERS -->
-
-                                    <!-- BACKGROUND VIDEO LAYER -->
-                                    <div class="rs-background-video-layer" 
-                                        data-forcerewind="on" 
-                                        data-volume="mute" 
-                                        data-videowidth="100%" 
-                                        data-videoheight="100%" 
-                                        data-videomp4="video/Drink-Wine.mp4" 
-                                        data-videopreload="preload" 
-                                        data-videoloop="loopandnoslidestop" 
-                                        data-forceCover="1" 
-                                        data-aspectratio="16:9" 
-                                        data-autoplay="true" 
-                                        data-autoplayonlyfirsttime="false" 
-                                        data-nextslideatend="true" 
-                                    ></div>
-
-                                    <!-- LAYER NR. 1 -->
-                                    <div class="tp-caption" 
-                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                                        data-y="['middle','middle','middle','middle']" data-voffset="['-58','-33','-33','-100']" 
-                                        data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-                                        data-transform_idle="o:1;"
-                             
-                                        data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                                        data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                                        data-mask_in="x:0px;y:[100%];" 
-                                        data-mask_out="x:inherit;y:inherit;" 
-                                        data-start="1000" 
-                                        data-splitin="none" 
-                                        data-splitout="none" 
-                                        data-responsive_offset="on" 
-                                        style="z-index: 6; white-space: nowrap;">
-                                        <h1>{{$companydetail->companyname}}</h1>
-                                    </div>
-
-                                    <!-- LAYER NR. 2 -->
-                            <!--        <div class="tp-caption" 
-                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                                        data-y="['middle','middle','middle','middle']" data-voffset="['-05','93','93','20']"
-                                        data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-                                        data-transform_idle="o:1;"
-                             
-                                        data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                                        data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                                        data-mask_in="x:0px;y:[100%];" 
-                                        data-mask_out="x:inherit;y:inherit;" 
-                                        data-start="2000" 
-                                        data-splitin="none" 
-                                        data-splitout="none" 
-                                        data-responsive_offset="on" 
-                                        style="z-index: 6; white-space: nowrap;">
-                                        <h6></h6>
-                                    </div>
-
-                                    <-- LAYER NR. 3 -->
-                                    <!-- LAYER NR. 3 -->
-                                    <div class="tp-caption"
-                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                                        data-y="['middle','middle','middle','middle']" data-voffset="['52','185','185','105']"
-                                        data-transform_idle="o:1;"
-                             
-                                        data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                                        data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                                        data-mask_in="x:0px;y:[100%];" 
-                                        data-mask_out="x:inherit;y:inherit;" 
-                                        data-start="3000" 
-                                        data-splitin="none" 
-                                        data-splitout="none" 
-                                        data-responsive_offset="on">
-                                        <a href="contact-us.html" class="project-button hvr-bounce-to-right">Our Projects</a>
-                                    </div>
-                                </li>
-
-                                <!-- SLIDE3  -->
-                                <li data-index="rs-18" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="images/home/slide-2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Title Goes Here" data-description="">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="https://4.imimg.com/data4/UH/GP/NSDMERP-65125850/breaklining-250x250.png"  alt="image" class="rev-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="20000" data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0" data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100" data-scalestart="140">
-                                    <!-- LAYERS -->
-
-                                    <!-- LAYER NR. 1 -->
-                                    <div class="tp-caption" 
-                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                                        data-y="['middle','middle','middle','middle']" data-voffset="['-58','-33','-33','-100']" 
-                                        data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-                                        data-transform_idle="o:1;"
-                             
-                                        data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                                        data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                                        data-mask_in="x:0px;y:[100%];" 
-                                        data-mask_out="x:inherit;y:inherit;" 
-                                        data-start="1000" 
-                                        data-splitin="none" 
-                                        data-splitout="none" 
-                                        data-responsive_offset="on" 
-                                        style="z-index: 6; white-space: nowrap;">
-                                        <h1>{{$companydetail->companyname}}</h1>
-                                    </div>
-
-                                    <!-- LAYER NR. 2 -->
-                            <!--        <div class="tp-caption" 
-                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                                        data-y="['middle','middle','middle','middle']" data-voffset="['-05','93','93','20']"
-                                        data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-                                        data-transform_idle="o:1;"
-                             
-                                        data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                                        data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                                        data-mask_in="x:0px;y:[100%];" 
-                                        data-mask_out="x:inherit;y:inherit;" 
-                                        data-start="2000" 
-                                        data-splitin="none" 
-                                        data-splitout="none" 
-                                        data-responsive_offset="on" 
-                                        style="z-index: 6; white-space: nowrap;">
-                                        <h6></h6>
-                                    </div>
-
-                                    <-- LAYER NR. 3 -->
-                                    <!-- LAYER NR. 3 -->
-\                                    <div class="tp-caption"
-                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                                        data-y="['middle','middle','middle','middle']" data-voffset="['52','185','185','105']"
-                                        data-transform_idle="o:1;"
-                             
-                                        data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                                        data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                                        data-mask_in="x:0px;y:[100%];" 
-                                        data-mask_out="x:inherit;y:inherit;" 
-                                        data-start="3000" 
-                                        data-splitin="none" 
-                                        data-splitout="none" 
-                                        data-responsive_offset="on">
-                                        <a href="contact-us.html" class="project-button hvr-bounce-to-right">Our Projects</a>
-                                    </div>
-                                </li>
-                            </ul>   
-                        </div>
-                    </div><!-- END REVOLUTION SLIDER -->
+                <img src="{{ asset('images/800.png') }}">
             </div> <!--  /#banner -->
 
 

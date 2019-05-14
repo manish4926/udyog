@@ -1,152 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="Askbootstrap">
-      <meta name="author" content="Askbootstrap">
-     <meta name="csrf-token" content="{{ csrf_token() }}">
-      <title>@yield('title')</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>BCI - Bawana Chamber of Industries</title>
+    
+    <link rel="icon" type="image/png" href="{{asset('/img/udyog_logo.png')}}">
 
-      <!-- Favicon Icon -->
-      <link rel="icon" type="image/png" href="{{asset('/img/udyog_logo.png')}}">
-      <!-- Bootstrap core CSS-->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <!-- Custom styles for this template-->
-      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-           @stack('topscript')
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{ asset('layerslider/css/layerslider.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
 
-      <!-- Owl Carousel -->
-      {{-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.carousel.css"> --}}
-      {{-- <link rel="stylesheet" href="/vendor/owl-carousel/owl.theme.css"> --}}
+    @stack('topscript')
 
-      <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'hi', 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'hi',
             autoDisplay: false}, 'google_translate_element');
-      }
-      </script>
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-   </head>
-   <body >
-      <div class='thetop'></div>
+</head>
+<body>
+<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <div class="google-language-box">
+            <div id="google_translate_element"></div>
+        </div>
+        <!--header-->
+        @include('layout.nav-mobile')
+        <div class="off-canvas-content" data-off-canvas-content>
+            @include('layout.nav')          
+            @yield('content')
+            @include('partials.content-divider')
+        </div><!--end off canvas content--> 
+        <!--Footer-->
+        @include('layout.footer')     
+    </div><!--end off canvas wrapper inner-->
+</div><!--end off canvas wrapper-->
+<!-- script files -->
+<script type="text/javascript" src="/js/app.js"></script>
+{{-- <script src="bower_components/jquery/dist/jquery.js"></script> --}}
 
-      <!-- TOP NAV BAR -->
-
-     @include('layout.nav')
-
-
-      <!-- TOP NAV BAR END -->
-
-
-      <div id="wrapper">
-         <!-- Sidebar -->
-         <ul class="sidebar navbar-nav">
-            <li class="nav-item active">
-               <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Job Portal</a>
-               <div class="dropdown-menu">
-                  <a class="dropdown-item" href="{{ route('postjob') }}">Post a New Job</a>
-                  <a class="dropdown-item" href="{{ route('alljob') }}">Latest Jobs</a>
-                  <a class="dropdown-item" href="{{ route('searchjob') }}">Search a Job</a>
-                  <a class="dropdown-item" href="{{ route('application') }}">Application Form</a>
-               </div>
-            </li>
-
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
-               <div class="dropdown-menu">
-                  <a class="dropdown-item" href="categories.html">Bhawana</a>
-                  <a class="dropdown-item" href="categories.html">Narela</a>
-                  <a class="dropdown-item" href="categories.html">Others</a>
-               </div>
-            </li>
+{{-- <script src="bower_components/what-input/what-input.js"></script> --}}
+<script src="{{ asset('bower_components/foundation-sites/dist/foundation.js') }}"></script>
+<script src="{{ asset('js/jquery.showmore.src.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 
 
-            <li class="nav-item">
-               <a class="nav-link" href="{{route('IndustryList')}}">Directory</a>
-            </li>
+<script src="{{ asset('layerslider/js/greensock.js') }}" type="text/javascript"></script>
 
+<script src="{{ asset('layerslider/js/layerslider.transitions.js') }}" type="text/javascript"></script>
+<script src="{{ asset('layerslider/js/layerslider.kreaturamedia.jquery.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('js/inewsticker.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/jquery.kyco.easyshare.js') }}" type="text/javascript"></script>
 
-            <li class="nav-item">
-               <a class="nav-link" href="#">Current affairs</a>
-               </li>
-
-               <li class="nav-item">
-               <a class="nav-link" href="#">Training's</a>
-               </li>
-
-
-            <li class="nav-item">
-               <a class="nav-link" href="{{route('currentLaw')}}">Current Law Affecting Industry</a>
-               </li>
-
-
-            <li class="nav-item">
-               <a class="nav-link" href="{{route('labourlaws')}}">Labour Laws</a>
-               </li>
-
-            <li class="nav-item">
-               <a class="nav-link" href="{{route('taxation')}}">taxation</a>
-                </li>
-               <li class="nav-item">
-               <a class="nav-link" href="{{route('presentlydevelopment')}}">Presently Development</a>
-               </li>
-               <li class="nav-item">
-               <a class="nav-link" href="{{route('newtechnology')}}">New Technology</a>
-               </li>
-               <li class="nav-item">
-               <a class="nav-link" href="{{route('newproducts')}}">New Products</a>
-               </li>
-               <li class="nav-item">
-               <a class="nav-link" href="{{route('health')}}">Health</a>
-               </li>
-               <li class="nav-item">
-               <a class="nav-link" href="{{route('growbusiness')}}">How to grow business</a>
-               </li>
-               <li class="nav-item">x
-               <a class="nav-link" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li>
-               </ul>
-
-         <!-- SIDE NAV BAR SHOULD END HERE!!!! -->
-
-         <div id="content-wrapper">
-            <div class="container-fluid pb-0" id="manish-test">
-               @yield('content')
-               @include('partials.content-divider')
-            </div>
-         </div>
-         <!-- /.container-fluid -->
-                 @include('layout.footer')
-
-
-         <!-- /.container-fluid -->
-      </div>
-         <!-- SIDE NAV BAR END -->
-
-
-         <!-- /#wrapper -->
-
-         <!-- Scroll to Top Button-->
-
-      <div class='scrolltop'>
-          <div class='scroll icon '><i class="fas fa-chevron-up" style="font-size:20px;color:white"></i>
-      </div>
-
-      <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-      @stack('bottomscript')
-
-   </body>
-
-
-  <!-- <div class='scrolltop'>
-      <div class='scroll icon '><i class="fa fa-4x fa-angle-up rounded"></i></div>
-   </div>
-   <script type="text/javascript" src="/js/app.js"></script>
-   ody>-->
+@stack('bottomscript')
+</body>
 </html>

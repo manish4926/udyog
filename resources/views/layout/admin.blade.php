@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Admin | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -19,6 +20,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('admin/dist/css/skins/_all-skins.min.css')}}">
+
 
   <!-- Google Font -->
   <link rel="stylesheet"
@@ -114,12 +116,12 @@
             <i class="fa fa-youtube-play"></i>
             <span>Video</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+              <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('uploadfile') }}"><i class="fa fa-upload"></i> New Video</a></li>
-            <li><a href="{{ route('videoall') }}"><i class="fa "></i> All Videos</a></li>
+            <li><a href="{{ route('videoall') }}"><i class="fa fa-list-ul"></i> All Videos</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -127,8 +129,12 @@
             <i class="fa fa-video-camera"></i>
             <span>Live Video</span>
             <span class="pull-right-container">
+               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('videos.index') }}"><i class="fa fa-upload"></i>Live Video Scheduler</a></li>
+          </ul>
         </li>
         <li class="treeview">
 
@@ -136,7 +142,7 @@
               <i class="fa fa-list-ul"></i>
               <span>Categories</span>
               <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-angle-right pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
@@ -144,15 +150,18 @@
               <li><a href="{{ route('allcategory') }}"><i class="fa fa-list-ul"></i> All Categories</a></li>
             </ul>
           </li>
+          <li class="treeview">
 
           <a href="#">
             <i class="fa fa-list-ul"></i>
             <span>Jobs</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+              <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="{{ route('alljobs') }}"><i class="fa fa-list-ul"></i> View Jobs</a></li>
+            <li><a href="{{ route('pendingjobs') }}"><i class="fa fa-list-ul"></i> Pending Jobs</a></li>
             <li><a href="{{ route('activejobs') }}"><i class="fa fa-list-ul"></i> Active Jobs</a></li>
             <li><a href="{{ route('expjobs') }}"><i class="fa fa-list-ul"></i> Expired Jobs</a></li>
           </ul>
@@ -175,7 +184,8 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+{{-- <script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- FastClick -->

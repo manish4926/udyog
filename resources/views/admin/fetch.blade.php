@@ -12,7 +12,7 @@
                      <div class="col-md-11">
                      <div class="box">
             <div class="box-header">
-              <h3 class="box-title"><button type="button" class="btn btn-block btn-default btn-flat">Add Video</button></h3>
+            <h3 class="box-title"><a href="{{route('uploadfile')}}"><button type="button" class="btn btn-block btn-primary btn-flat">Add Video</button></a></h3>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -34,7 +34,10 @@
                      <td>{{$video->title}}</td>
                      <td>{{$video->description}}</td>
                      <td>{{$video->category}}</td>
-                     <td>{{$video->tags}}</td>
+                     <td>
+                        @foreach(json_decode($video->tags) as $tags)
+                             {{$tags->value}},
+                        @endforeach</td>
                      <td><a href="{{route('video.update',['id'=>$video->id])}}" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
                      <td><a href="{{route('video.delete',['id'=>$video->id])}}" class="btn btn-danger">X</a></td>
                      </tr>

@@ -3,23 +3,57 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Video;
 use App\Http\Controllers\Controller;
 use DB;
+use Auth;
+
+use App\Video;
+use App\Live_Video;
 use App\Directory;
 use App\job_opening;
+use App\Event;
+use App\Advertisement;
+
+
 
 
 class MainController extends Controller
 {
+    
+    public function __construct()
+    {
+        //$user = Auth::user();    
+        
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();            
+            view()->share('user', $user);
+            return $next($request);
+        });
+    }
+
+
     public function index() {
+        
+
         //  $files = File::limit(6)->get();
         // return view('main.index')->with('files',$files);
-         $videos = Video::limit(6)->get();
-         $directory=Directory::orderBy('c_id')->limit(3)->get();
+        $videos      = Video::limit(6)->get();
+        $live_videos = Live_Video::orderBy('order')->first(); 
+        $directory   = Directory::orderBy('c_id')->limit(3)->get();
+        $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
+        $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
+        
+        $recommended = Video::inRandomOrder()->limit(10)->get();
 
-          $jobs = job_opening::orderBy('job_id')->limit(5)->get();
-        return view('main.index',compact('directory','videos','jobs'));
+        //news
+        $feed = simplexml_load_file('https://news.google.com/news/rss');
+        $worldfeeds=[];
+        for($i=0;$i<5;$i++)
+        {
+            $worldfeeds[$i]= $feed->channel->item[$i];
+        }
+
+        return view('main.index',compact('directory','videos','jobs','event', 'live_videos','worldfeeds','recommended'));
 
 
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);
@@ -39,6 +73,80 @@ class MainController extends Controller
 
         return view('video.video')->with('video',$video)->with('all',$all);
     }
+
+
+    //upload ad
+
+     public function uploadad(Request $request)
+    {
+        return view('ad.uploadAd'); 
+    }
+
+
+    public function uploadadsubmit(Request $request)
+    {
+        if(!empty($request->file('fileupload1'))){
+            $this->validate($request,[
+                'fileupload1' =>'mimes:jpg,jpeg,png']);
+            $filename1 = $request->file('fileupload1')->getClientOriginalName();
+            $request->file('fileupload1')->storeAs('Advertisement',$filename1);
+            
+        } else {
+            $fileupload1= '';
+        }
+        
+         if(!empty($request->file('fileupload2'))){
+            $this->validate($request,[
+                'fileupload2' =>'mimes:jpg,jpeg,png']);
+            $filename2 = $request->file('fileupload2')->getClientOriginalName();
+            $request->file('fileupload2')->storeAs('Advertisement',$filename2);
+            
+        } else {
+            $fileupload2= '';
+        }
+        
+         if(!empty($request->file('fileupload3'))){
+            $this->validate($request,[
+                'fileupload3' =>'mimes:jpg,jpeg,png']);
+            $filename3 = $request->file('fileupload3')->getClientOriginalName();
+            $request->file('fileupload3')->storeAs('Advertisement',$filename3);
+            
+        } else {
+            $fileupload3= '';
+        }
+
+        $ad = new Advertisement;
+
+        $ad->ad_middle          = $filename1;
+        $ad->ad_right           = $filename2;
+        $ad->ad_bottom          = $filename3;
+     
+        $ad->save();
+        
+        return redirect()->back();
+    }
+
+
+
+
+     //Current affairs function
+
+   public function CurrentAffairs(Request $request)
+    {
+        return view('main.Currentaffairs'); 
+    }
+
+
+
+
+ //training's function
+
+   public function training(Request $request)
+    {
+        return view('main.training'); 
+    }
+
+
 
 
 
@@ -115,5 +223,10 @@ class MainController extends Controller
     }
 
 
+     public function  mainalljob(Request $request)
+    {
+        $jobs = job_opening::all();        
+        return view('main.mainalljob',compact('jobs'));
+    }
 
 }

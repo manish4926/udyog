@@ -25,33 +25,23 @@
                     <table class="table table-hover table-striped table-bordered">
                         <thead class="thead-dark" align="center">
                             <tr>
-                                <th>Job ID</th>
-                                <th>Job Title</th>
-                                <th>Company Name</th>
-                                <th>HR Name</th>
-                                <th>Experience</th>
-                                <th>Skills</th>
-                                <th>Post Date</th>
-                                <th>Expiry Date</th>
-                                <th>Location</th>
-                                <th>Package</th>
-                                <th>Details</th>
+                                <th>S. No.</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>View Profile</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($job_opening as $job_opening)
+                            @foreach($applicants as $applicant)
                                 <tr>
-                                    <td>{{$job_opening->job_id}}</td>
-                                    <td>{{$job_opening->job_title}}</td>
-                                    <td>{{$job_opening->company_name}}</td>
-                                    <td>{{$job_opening->hr_name}}</td>
-                                    <td>{{$job_opening->experience}}</td>
-                                    <td>{{$job_opening->skills}}</td>
-                                    <td>{{$job_opening->postdate}}</td>
-                                    <td>{{$job_opening->expdate}}</td>
-                                    <td>{{$job_opening->location}}</td>
-                                    <td>{{$job_opening->package}}</td>
-                                    <td><a href="{{ route('getdisplay',['job_id'=>$job_opening->job_id])}}">View details</a></td>  
+                                    <td>{{ $applicant->id }}</td>
+                                    <td>{{ $applicant->getUser()->firstname }}</td>
+                                    <td>{{ $applicant->getUser()->lastname }}</td>
+                                    <td>{{ $applicant->getUser()->email }}</td>
+                                    <td><a href="{{ route('userprofile',['userid'=> $applicant->id]) }}" class="btn btn-success">User Profile</a></td>
+                                    
                                 </tr>
                             @endforeach
                         </tbody>

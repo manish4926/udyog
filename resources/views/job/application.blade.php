@@ -11,7 +11,7 @@
 
 @section('center-content')
 <div class="white-card">
-	<h3>Create your profile & let the right recruiter find you.</h3>
+	
 	<form action="{{route('applicationsubmit')}}" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
 
@@ -74,6 +74,10 @@
 			<input type="radio" name="gender" value="female"> Female
 			<input type="radio" name="gender" value="other"> Other
 
+		</div>
+		<div class="form-group">
+
+			<label>Skills :  </label><input type="text" name="skills" placeholder="Enter your skills" /><br>
 		</div>
 		<div class="form-group">
 			<fieldset>
@@ -224,16 +228,25 @@
 
 				</select>
 			</fieldset>
-		</div>                            	
+		</div> 
 		<div class="form-group">
 			<fieldset>
 				<legend>Educational Details:</legend>
-				<label>Basic / Graduation :</label>
+				<label>Basic Graduation :</label>
+
+				<select name="basicgraduation">
+					<option value="">Basic Graduation</option>
+					<option value="basicgra21">8th </option>
+					<option value="basicgra21">10th (Higher Secondary)</option>
+					<option value="basicgra22">12th (Senior Secondary)</option>
+					
+				</select>
+
+		                           
+				<br><label>Graduation :</label>
 
 				<select name="graduation">
-					<option value="">Basic/Graduation</option>
-					<option value="Gra21">10th (Higher Secondary)</option>
-					<option value="Gra22">12th (Senior Secondary)</option>
+					<option value="">Graduation</option>
 					<option value="BA">B.A</option>
 					<option value="BARCH">B.Arch</option>
 					<option value="BBA">B.B.A</option>
@@ -248,17 +261,14 @@
 					<option value="BSC">B.Sc</option>
 					<option value="BE">B.Tech/B.E</option>
 					<option value="BVSC">B.V.S.C</option>
-					<option value="DbCourse_Code">DbCourse_Name</option>
+				</select>
+
+
+			   <br><label>Diploma :</label>
+			   <select name="Diploma">
 					<option value="DIPLOMA">Dilpoma</option>
-					<option value="Gra31">Fashion Design</option>
-					<option value="Gra18">Graduation (Any)</option>
 					<option value="Gra29">ITI</option>
-					<option value="LLB">L.L.B</option>
-					<option value="MBBS">M.B.B.S</option>
-					<option value="Gra23">Mass Com.</option>
-					<option value="NPG">Not Pursuing Graduation</option>
 					<option value="Gra25">NTT</option>
-					<option value="OTH">Others</option>
 					<option value="Gra24">PGT</option>
 					<option value="Gra26">PRT</option>
 
@@ -270,7 +280,6 @@
 					<option value="">Post Graduation</option>
 					<option value="CA">C.A</option>
 					<option value="CS">C.S</option>
-					<option value="DbCourse_Code">DbCourse_Name</option>
 					<option value="ICWA">I.C.W.A</option>
 					<option value="INTPG">Integrated PG</option>
 					<option value="Pg23">Journalism</option>
@@ -288,20 +297,6 @@
 					<option value="MSC">M.Sc</option>
 					<option value="MTECH">M.Tech</option>
 					<option value="MVSC">M.V.S.C</option>
-					<option value="OTH">Other</option>
-					<option value="PGD">PG Diploma</option>
-					<option value="Pg20">Post Graduation (Any)</option>
-				</select>
-
-
-				<br><label>   Doctorate / Phd :</label>
-
-				<select name="doctorate" id="doctorate" style="width:250px;">
-					<option value="Doctorate">Doctorate</option>
-					<option value="DbCourse_Code">DbCourse_Name</option>
-					<option value="PHD">Ph.d/Doctorate</option>
-					<option value="MPHIL">MPHIL</option>
-					<option value="OTH">Other</option>
 				</select>
 
 				<br><label>Certified Course(s):</label>

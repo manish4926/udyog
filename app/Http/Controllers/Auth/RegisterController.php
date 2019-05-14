@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers\Auth ;
 
-use App\User;
-use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
-use Mail;
+
+use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use App\Mail\verifyEmail;
 use App\Directory;
+
+use Mail;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -35,7 +38,7 @@ class RegisterController extends Controller
     *  @var string
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -57,14 +60,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'lastname' => ['required', 'string', 'max:255'],
             'firstname' => ['required', 'string', 'max:255'],
-            
-
-            'lastname' => ['required', 'string', 'max:255'],
-            'firstname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'lastname'  => ['required', 'string', 'max:255'],
+            'email'     => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password'  => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -78,20 +77,19 @@ class RegisterController extends Controller
     {
         
         $user =  User::create([
-                'firstname' => $data['firstname'],
-                'lastname' => $data['lastname'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'verifyToken'=>Str::random(40),
-                'status' => 0,
+                'firstname'   => $data['firstname'],
+                'lastname'    => $data['lastname'],
+                'email'       => $data['email'],
+                'password'    => Hash::make($data['password']),
+                'verifyToken' => Str::random(40),
+                'status'      => 0,
             ]);
         
 
         $user->roles()->attach(Role::where('name','General User')->first());
+        //$thisUser = User::findOrFail($user->id);
 
-        $thisUser = User::findOrFail($user->id);
-
-        return redirect()->route('home');
+        //return redirect()->route('home');
         //$this->sendEmail($thisUser);
     }
 
