@@ -13,6 +13,7 @@ use App\Directory;
 use App\job_opening;
 use App\Event;
 use App\Advertisement;
+use App\CompanyDetail;
 
 
 
@@ -127,6 +128,51 @@ class MainController extends Controller
     }
 
 
+    public function mainsearch(Request $request)
+    {
+
+        $searchkey= $request->search;
+
+        $videos      = Video::limit(6)->get();
+        $live_videos = Live_Video::orderBy('order')->first(); 
+        $directory   = Directory::orderBy('c_id')->limit(3)->get();
+        $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
+        $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
+
+        
+        if($searchkey && !empty($searchkey)){
+            $jobs->where(function($query) use ($searchkey){
+                $query->where('job_title' , 'like','%' .$searchkey. '%');
+                $query->orWhere('skills' , 'like','%' .$searchkey. '%');
+                $query->orwhere('company_name', 'LIKE', '%' .$searchkey. '%');
+            });
+       
+            $videos->where(function($query) use ($searchkey){
+                $query->where('title' , 'like','%' .$searchkey. '%');
+                $query->orWhere('tags' , 'like','%' .$searchkey. '%');
+                $query->orwhere('name', 'LIKE', '%' .$searchkey. '%');
+            });
+
+
+            $live_videos->where(function($query) use ($searchkey){
+                $query->where('filename' , 'like','%' .$searchkey. '%');
+                $query->orwhere('name', 'LIKE', '%' .$searchkey. '%');
+            });
+
+            $directory->where(function($query) use ($searchkey){
+                $query->where('cname' , 'like','%' .$searchkey. '%');
+                $query->orWhere('industrytype' , 'like','%' .$searchkey. '%');
+                $query->orwhere('businesstype', 'LIKE', '%' .$searchkey. '%');
+            });
+
+            $event->where(function($query) use ($searchkey){
+                $query->where('title' , 'like','%' .$searchkey. '%');
+            });
+
+        }
+        
+        return view('main.search',compact('directory','videos','jobs','event', 'live_videos'));
+    }
 
 
      //Current affairs function

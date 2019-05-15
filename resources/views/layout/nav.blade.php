@@ -161,7 +161,7 @@
                     </div>
                 </div>
                 <div id="search-bar" class="clearfix search-bar-light search-bar-dark">
-                    <form method="post">
+                    <form method="post" action="{{ route('mainsearch') }}"> {{ csrf_field() }}
                         <div class="search-input float-left">
                             <input type="search" name="search" placeholder="Seach Here">
                         </div>

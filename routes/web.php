@@ -234,3 +234,11 @@ Route::get('/uploadad',['as' => 'uploadad', 'uses' =>'MainController@uploadad'])
 
 //uploadAd
 Route::post('/uploadadsubmit',['as' => 'uploadadsubmit', 'uses' =>'MainController@uploadadsubmit']);
+
+//Main Search
+
+Route::any('/search',['as' => 'mainsearch', 'uses' =>'MainController@mainsearch']);
+
+Route::post('/searchresult',['as' => 'mainsearchresult', 'uses' =>'MainController@mainsearch']);
+
+
