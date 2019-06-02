@@ -4,15 +4,18 @@ namespace App\Http\Controllers\Auth ;
 
 use App\User;
 use App\Role;
+use App\Directory;
+use App\CompanyDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
 use Mail;
+
 use Illuminate\Http\Request;
 use App\Mail\verifyEmail;
-use App\Directory;
+
 
 class RegisterController extends Controller
 {
@@ -56,15 +59,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //dd($data);
         return Validator::make($data, [
-            'lastname' => ['required', 'string', 'max:255'],
+            'lastname'  => ['required', 'string', 'max:255'],
             'firstname' => ['required', 'string', 'max:255'],
-            
-
-            'lastname' => ['required', 'string', 'max:255'],
-            'firstname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email'     => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password'  => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -78,19 +78,33 @@ class RegisterController extends Controller
     {
         
         $user =  User::create([
-                'firstname' => $data['firstname'],
-                'lastname' => $data['lastname'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'verifyToken'=>Str::random(40),
-                'status' => 0,
+                'firstname'   => $data['firstname'],
+                'lastname'    => $data['lastname'],
+                'email'       => $data['email'],
+                'password'    => Hash::make($data['password']),
+                'verifyToken' => Str::random(40),
+                'status'      => 0,
             ]);
         
 
-        $user->roles()->attach(Role::where('name','General User')->first());
+        if(!empty($data['company_code'])) {
+            
+            $companydetail= new CompanyDetail;
+            $companydetail->userid      = $user->id;
+            $companydetail->companycode = $data['company_code'];
+            $companydetail->save();
+            
+            $user->roles()->attach(Role::where('name','Company')->first());
+            dd('dffdf');
+        } 
+
+        else {
+            $user->roles()->attach(Role::where('name','General User')->first());    
+        }
+        
 
         $thisUser = User::findOrFail($user->id);
-
+        
         return redirect()->route('home');
         //$this->sendEmail($thisUser);
     }
@@ -110,7 +124,7 @@ class RegisterController extends Controller
         $user=User::where(['email'=>$email,'verifyToken'=>$verifyToken])->first();
         if($user)
         {
-            return user::where(['email'=>$email,'verifyToken'=>$verifyToken])->update(['status'=>'1','verifyToken'=>NULL]);
+            return User::where(['email'=>$email,'verifyToken'=>$verifyToken])->update(['status'=>'1','verifyToken'=>NULL]);
         }
         else{
             return 'user not found';
@@ -120,15 +134,16 @@ class RegisterController extends Controller
 
     public function companyregister()
     {
-        return view("auth.companyRegister");
+    
+        return view("auth.companyuserRegister");
     }
 
-    public function CompanyValidate(Request $request)
+    /*public function CompanyValidate(Request $request)
     {
-
+$check=1;
         $cname = $request->input('cname');
         $code = $request->input('code');
-
+        
          
                 if(!empty($cname))
                 {
@@ -136,7 +151,7 @@ class RegisterController extends Controller
 
                    if($ccode==$code)
                     {
-                        return view('auth.Register');
+                        return view('auth.companyuserRegister');
                     }
                     else
                     {
@@ -151,6 +166,39 @@ class RegisterController extends Controller
             }
             
     }
+    public Cvalidation(Request $request)
+    {
+        $validation= $request->validate( [
+            'firstname' => 'required|max:100|string',
+            'lastname' => 'required|max:100|string',
+            'email' => 'required|max:50|email',
+            'password'=>'required|max:10',
+        
+        ]);
+        // print_r($validation);
+        if($validation->true){}
+            $firstname = $request->input('firstname');
+        $lastname = $request->input('lastname');
+        $email = $request->input('email');
+        $password = Hash::make('password');
+        
+        $data = array('first'=>$firstname, 'lastname' => $lastname,'email'=>$email,'password'=>$password);
+        create($data,$request);
+        DB::table('user')->insert($data);
+        echo "Record inserted successfully.<br/>";
+    }
+    */
 
+    public function checkCompany(Request $request) {
+        $companyCount = Directory::where('cname' , $request->company_name)
+                        ->Where('ccode', $request->company_code)
+                        ->count();
+
+        if($companyCount == 1) {
+            return json_encode('true');
+        } else {
+            return json_encode('false');
+        }
+    }
 }
 

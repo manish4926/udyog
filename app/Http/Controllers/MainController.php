@@ -15,10 +15,10 @@ class MainController extends Controller
     public function index() {
         //  $files = File::limit(6)->get();
         // return view('main.index')->with('files',$files);
-         $videos = Video::limit(6)->get();
-         $directory=Directory::orderBy('c_id')->limit(3)->get();
-
-          $jobs = job_opening::orderBy('job_id')->limit(5)->get();
+          $videos    = Video::limit(6)->get();
+          $directory = Directory::orderBy('c_id')->limit(3)->get();
+          
+          $jobs      = job_opening::orderBy('job_id')->limit(5)->get();
         return view('main.index',compact('directory','videos','jobs'));
 
 

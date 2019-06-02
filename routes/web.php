@@ -4,6 +4,12 @@
 /*Authentication Controller*/
 Auth::routes();
 
+//Route::post('/companyuserregister','Auth\RegisterController@CompanyuserValidate')->name('curegister');
+
+Route::get('/companylogin','Auth\RegisterController@companyregister')->name('clogin');
+//Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
+Route::post('/checkcompany','Auth\RegisterController@checkCompany')->name('checkcompany');
+
 Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
@@ -95,8 +101,6 @@ Route::group(['prefix' => 'company'], function ()
 });
 
 
-Route::get('/companylogin','Auth\RegisterController@companyregister');
-Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
 //admin panel
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

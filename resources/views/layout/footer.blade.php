@@ -4,7 +4,7 @@
                 <div class="col-sm-4 myCols">
                     <h5>About us</h5>
                     <ul>
-                      its bhawana industry website
+                      its Bawana industry website
                     </ul>
                 </div>
                 <div class="col-sm-4 myCols">
@@ -12,7 +12,7 @@
                     <ul>
                         <li><a href="#">Privacy & Policy</a></li>
                         <li><a href="#">Term & Condition </a></li>
-                        <li><a href="#">Company login</a></li>
+                        <li><a href="{{Route('clogin')}}">Company login</a></li>
                         <li><a href="#">FAQ</a></li>
                         
                     </ul>
