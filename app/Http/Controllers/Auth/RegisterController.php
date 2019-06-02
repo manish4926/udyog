@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
 use Mail;
-
+use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use App\Mail\verifyEmail;
-
+use Mail;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -38,7 +40,7 @@ class RegisterController extends Controller
     *  @var string
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -61,8 +63,8 @@ class RegisterController extends Controller
     {
         //dd($data);
         return Validator::make($data, [
-            'lastname'  => ['required', 'string', 'max:255'],
             'firstname' => ['required', 'string', 'max:255'],
+            'lastname'  => ['required', 'string', 'max:255'],
             'email'     => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password'  => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -106,6 +108,9 @@ class RegisterController extends Controller
         $thisUser = User::findOrFail($user->id);
         
         return redirect()->route('home');
+        //$thisUser = User::findOrFail($user->id);
+
+        //return redirect()->route('home');
         //$this->sendEmail($thisUser);
     }
 

@@ -17,7 +17,7 @@
 
 // Video and Main CSS
 @import 'main';
-
+@import 'theme';
 
 @import 'style';
 
@@ -25,4 +25,8 @@
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.my-handle {
+	cursor:move;
 }

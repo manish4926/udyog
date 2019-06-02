@@ -15,6 +15,8 @@
 					{{ csrf_field() }}
 				<input type="file" name="videoFile">
                 <br>
+                <br>
+                <label for="tags">Tags: </label>
                 <input type="text" name="tags" placeholder="Tags">
 
 				<br><br>
@@ -27,34 +29,34 @@
 
     <script src="{{ asset('js/jQuery.tagify.min.js') }}"></script>
 
-<script type="text/javascript">
-                // jQuery
-        $('[name=tags]').tagify();
+    <script type="text/javascript">
+                    // jQuery
+            $('[name=tags]').tagify();
 
-        // Vanilla JavaScript
-        var input = document.querySelector('input[name=tags]'),
-        tagify = new Tagify( input );
-        $('[name=tags]').tagify({duplicates : false});
+            // Vanilla JavaScript
+            var input = document.querySelector('input[name=tags]'),
+            tagify = new Tagify( input );
+            $('[name=tags]').tagify({duplicates : false});
 
-        var myInput = $('[name=tags]').tagify();
+            var myInput = $('[name=tags]').tagify();
 
-        // adds new tag
-        // String (word, single or multiple with a delimiter) or an Array of Objects
-        myInput.addTags();
+            // adds new tag
+            // String (word, single or multiple with a delimiter) or an Array of Objects
+            myInput.addTags();
 
-        // removes a specific tag
-        myInput.removeTag(DOM);
+            // removes a specific tag
+            myInput.removeTag(DOM);
 
-        // removes all tags
-        myInput.removeAllTags();
+            // removes all tags
+            myInput.removeAllTags();
 
-        // destroy the plugin
-        myInput.destroy();
+            // destroy the plugin
+            myInput.destroy();
 
-        var myInput = $('[name=tags]').tagify();
+            var myInput = $('[name=tags]').tagify();
 
 
-    </script>
+        </script>
 
 @endpush
 

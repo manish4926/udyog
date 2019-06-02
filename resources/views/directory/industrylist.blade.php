@@ -14,7 +14,7 @@
 		side content
 	</div>
 @endsection--}}
-
+<section class="section-top">
 <div class="row">
   <div class="col-8">
 <div class="white-card-directory">
@@ -39,7 +39,7 @@
 			
 						<h2 class="card-head-directory" >{{  ucfirst($set->cname) }}</h2>
 						<h3 class="card-head-directory" > <span > 
-							  <a href="{{ route('IndustryList', ['tag' => $set->material ]) }}" class="btn btn-primary btn-sm">{{$set->material}}</a>
+							  <a href="{{ route('industrylist', ['tag' => $set->material ]) }}" class="btn btn-primary btn-sm">{{$set->material}}</a>
 						</span></h3>
 						<div class="card-desc">Approx 3 Lines of Text</div>
 							<hr>
@@ -72,7 +72,7 @@
   
   <div  class="col-4">
 		<div class="white-card-directory">
-		<form action="{{ route('IndustryList') }}" method="get">
+		<form action="{{ route('industrylist') }}" method="get">
 		<h2>Advanced Filters</h2>
 
 		<label for="">Business Type</label>
@@ -140,4 +140,5 @@
 	</div> 
 	</div>
 </div> 
+</section>
 @endsection

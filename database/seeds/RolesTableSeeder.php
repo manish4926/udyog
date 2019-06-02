@@ -29,6 +29,13 @@ class RolesTableSeeder extends Seeder
             'name' => 'General User',
             'description' => '',
         	]);
+
+            DB::table('roles')->insert(
+            
+            [
+            'name' => 'Company',
+            'description' => '',
+            ]);
         	 
              DB::table('roles')->insert(
             

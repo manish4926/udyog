@@ -12,14 +12,16 @@
                 font-size: 15px;
                 font-style: bold;
                 align-content: center;
+                border-bottom: solid 1px #ddd; 
             }
 
             /* Create two equal columns that floats next to each other */
             .column {
               float: left;
-              width: 20%;
+              width: 50%;
               padding: 10px;
-              height: 500px; /* Should be removed. Only for demonstration */
+              border: solid 1px #ccc;
+              /* height: 500px; */
             }
 
             /* Clear floats after the columns */
@@ -44,10 +46,10 @@
 
 @section('center-content')
 <div class="white-card">
-        <h1>{{ ucfirst($job_opening->job_title) }}</h1>
+         <h1>{{ ucfirst($job_opening->job_title) }}</h1>
 
         <div class="row">
-              <div class="column" style="background-color:#aaa;">
+              <div class="column" style="background-color:#eee;">
                     <p>JOBs ID</p>
                     <p>JOB TITLE</p>
                     <p>COMPANY NAME</p>
@@ -60,7 +62,7 @@
                     <p>PACKAGE</p>
                     <h2>Click Here to Apply....</h2>
               </div>
-              <div class="column" style="background-color:#bbb;">
+              <div class="column" style="">
                        
                                 <p>{{$job_opening->job_id}}</p>
                                 <p>{{$job_opening->job_title}}</p>
@@ -72,11 +74,16 @@
                                 <p>{{$job_opening->expdate}}</p>
                                 <p>{{$job_opening->location}}</p>
                                 <p>{{$job_opening->package}}</p>
-                                <p>{{$job_opening->job_desc}}</p>  
+                                <p>{{$job_opening->job_desc}}</p> <br> 
+                        @if(Auth::guest() == true) 
+
+                            <a href="{{ route('login') }}?redirecturl=getdisplay&id={{$job_opening->job_id}}" class="btn btn-success">Apply Now</a>
+                        @else
+                            <a href="{{ route('application',['title'=> $job_opening->job_id]) }}" class="btn btn-success">Apply Now</a>
+                        @endif
                         
-                        <button type="button" class="btn btn-success">Apply Now</button>
             </div>
-        </div>
+          </div>
     </div>
 @endsection
 @section('right-content')

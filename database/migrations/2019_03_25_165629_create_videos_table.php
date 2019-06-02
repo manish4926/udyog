@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateVideosTable extends Migration
 {
     /**
@@ -18,17 +16,15 @@ class CreateVideosTable extends Migration
             $table->string('title');
             $table->longText('description');
             $table->string('category');
-            $table->string('tags');         
+            $table->string('tags');
             $table->string('name');
             $table->string('size');
             $table->string('slug');
             $table->decimal('duration',8,2);
-            $table->string('tags');
             $table->string('thumbnail');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
