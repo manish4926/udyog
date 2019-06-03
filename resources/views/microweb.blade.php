@@ -25,7 +25,25 @@
             <script src="vendor/html5shiv.js"></script>
             <script src="vendor/respond.js"></script>
         <![endif]-->
-            
+            <style type="text/css">
+                #home {
+                    background: #000;
+                    width: 100%;
+                    height: 500px;
+                }
+
+                #home img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    position: relative;
+                }
+
+                .theme-main-header {
+                    background: rgba(0,0,0,0.7);
+                }
+            </style>
     </head>
 
     <body>

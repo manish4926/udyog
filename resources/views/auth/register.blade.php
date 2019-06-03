@@ -4,10 +4,10 @@
 		
 		
 		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="Registerpage/css/style.css">
+		<link rel="stylesheet" href="registerpage/css/style.css">
 
 
-		<div class="wrapper" style="background-image: url('Registerpage/images/bg-registration-form-2.jpg');">
+		<div class="wrapper" style="">{{-- background-image: url('registerpage/images/bg-registration-form-2.jpg'); --}}
 			<div class="inner">
 				<!--<form action="">-->
                 <form method="POST" action="{{ route('register') }}">
@@ -56,12 +56,14 @@
 						<label for="">Confirm Password</label>
 						<input type="password" class="form-control" name="password_confirmation">
 					</div>
-					<div class="checkbox">
+					<input type="checkbox"> I accept the Terms of Use & Privacy Policy.
+					{{-- <div class="checkbox">
+
 						<label>
-							<input type="checkbox"> I accept the Terms of Use & Privacy Policy.
+							
 							<span class="checkmark"></span>
 						</label>
-					</div>
+					</div> --}}
 
                     <button type="submit" class="btn btn-primary">
                                     {{ __('Register Now') }}

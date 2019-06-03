@@ -1,81 +1,95 @@
-@extends('layout.master')
+<div class="white-card">
+		<form action="{{ route('candidatesearch') }}" method="get">
+		<h3>Search Candidate</h3>
 
-@section('title','Candidate Search')
+            <span class="req-input" >
+            <label>Search skills :</label>
+            <input type="text" data-min-length="8" name="search" placeholder="Search skills">
+          </span>
 
-@section('content')
+		 <span class="req-input">
+            <br><label>Select Experience :</label>
+            <select name="exp1">
+              <option value="">Select Experience</option> 
+              <option value="0-1"> less than 1 yr</option> 
+              <option value="1-2"> > 1 yr and < 2 yrs</option> 
+              <option value="2-3"> >2 yrs and < 3 yrs</option>
+              <option value="3-4"> >3 yrs and < 4 yrs</option>
+              <option value="4-5"> >4 yrs and < 5 yrs</option>
+              <option value="5-6"> >5 yrs and < 6 yrs</option>
+              <option value="6-7"> >6 yrs and < 7 yrs</option>
+              <option value="7-8"> >7 yrs and < 8 yrs</option>
+              <option value="8-9"> >8 yrs and < 9 yrs</option>
+              <option value="9-10"> >9 yrs and < 10 yrs</option>
+              <option value="10-100"> more than 10 yrs</option>
+          </select>
+          </span>
 
-<div class="row">
-	<div class="col-8">
-		<div class="white-card-directory">
-	   		<h3 class="center">Search Result</h3><br />
-	     		<div class="table-responsive">
-			      	<table >
-			       		<tbody>
-						
-				   		</tbody>
-			      	</table>
-				</div>		
-		 <div>
-	</div>
-</div>    
+          
+		<span class="req-input">
+				<label>Basic / Graduation :</label>
 
-  <div  class="col-4">
-		<div class="white-card-directory">
-				<form action="{{ route('candidatesearch') }}" method="get">
-					<h2>Search Candidates</h2>
+				<select name="graduation">
+					<option value="">Basic/Graduation</option>
+					<option value="Gra21">10th (Higher Secondary)</option>
+					<option value="Gra22">12th (Senior Secondary)</option>
+					<option value="BA">B.A</option>
+					<option value="BARCH">B.Arch</option>
+					<option value="BBA">B.B.A</option>
+					<option value="BCA">B.C.A</option>
+					<option value="BCOM">B.Com</option>
+					<option value="BDS">B.D.S</option>
+					<option value="BED">B.Ed</option>
+					<option value="BHM">B.H.M</option>
+					<option value="Gra28">B.Lib.</option>
+					<option value="Gra27">B.Pd</option>
+					<option value="BPHARMA">B.Pharma</option>
+					<option value="BSC">B.Sc</option>
+					<option value="BE">B.Tech/B.E</option>
+					<option value="BVSC">B.V.S.C</option>
+				    <option value="LLB">L.L.B</option>
+					<option value="MBBS">M.B.B.S</option>
+					<option value="Gra23">Mass Com.</option>
+				</select>
 
-					<label for="">Experience</label>
-						<div>
-								<select class="form-control" name="business_types">
-										<option value="">Select</option>
-								        @foreach($business_type as $s)
-										<option value="{{ $s }}">{{ $s }}</option>
-										@endforeach
-								</select>
-						</div>
 
-					<label for="">Graduation</label>
-						<div>
-								<select class="form-control" name="industry_types">
-										<option value="">Select</option>
-								    @foreach($industry_type as $s)
-										<option value="{{ $s }}">{{ $s }}</option>
-										@endforeach 
-								</select>
-						</div>
 
-					<label for="">Post Graduation</label>
-						<div>
-								<select class="form-control" name="material">
-										<option value="">Select</option>
-										@foreach($materials as $s)
-										<option value="{{ $s->material }}">{{ $s->material }}</option>
-										@endforeach
-								</select>
-						</div>
+		<label>Post Graduation :</label>
 
-					<label for="">Company</label>
-						<div>
-								<select class="form-control" name="company">
-										<option value="">Select</option>
-										@foreach($companys as $s)
-										<option value="{{ $s->cname }}">{{ $s->cname }}</option>
-										@endforeach
-								</select>
-						</div>
+				<select name="postgraduation">
+					<option value="">Post Graduation</option>
+					<option value="CA">C.A</option>
+					<option value="CS">C.S</option>
+					<option value="DbCourse_Code">DbCourse_Name</option>
+					<option value="ICWA">I.C.W.A</option>
+					<option value="INTPG">Integrated PG</option>
+					<option value="Pg23">Journalism</option>
+					<option value="LLM">L.L.M</option>
+					<option value="MA">M.A</option>
+					<option value="MARCH">M.Arch</option>
+					<option value="MBA">M.B.A/PGDM</option>
+					<option value="MCA">M.C.A</option>
+					<option value="MCM">M.C.M</option>
+					<option value="MCOM">M.Com</option>
+					<option value="MED">M.Ed</option>
+					<option value="Pg24">M.Lib,</option>
+					<option value="MPHARMA">M.Pharma</option>
+					<option value="MS">M.S</option>
+					<option value="MSC">M.Sc</option>
+					<option value="MTECH">M.Tech</option>
+					<option value="MVSC">M.V.S.C</option>
+					<option value="OTH">Other</option>
+					<option value="PGD">PG Diploma</option>
+					<option value="Pg20">Post Graduation (Any)</option>
+				</select>
+          </span>
 
-					<label for="">Area</label>
-						<div>
-								<select class="form-control" name="area">
-								  <option value="">Select</option>
-								  @foreach($areas as $s)
-								  <option value="{{ $s->area }}">{{ $s->area }}</option>
-								  @endforeach
-								</select>
-						</div>
 				<br/>	
-				<input type="submit" name="submit" value="Search" class="btn btn-danger">
-			</form> 
-		</div> 
-	</div>
-@endsection
+				<br>
+
+          <button type="submit" class="btn btn-info">
+      		<span class="glyphicon glyphicon-search"></span> Search
+    	  </button>
+	</form> 
+
+</div> 

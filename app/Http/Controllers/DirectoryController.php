@@ -4,8 +4,21 @@ use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use DB;
 use App\Directory;
+use Auth;
+
 class DirectoryController extends Controller
 {
+    public function __construct()
+    {
+        //$user = Auth::user();    
+        
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();            
+            view()->share('user', $user);
+            return $next($request);
+        });
+    }
+
 //***** for inputing new industry data through form ******//
     public function create()
     {

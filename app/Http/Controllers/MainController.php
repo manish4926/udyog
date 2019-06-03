@@ -3,23 +3,58 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Video;
 use App\Http\Controllers\Controller;
 use DB;
+use Auth;
+
+use App\Video;
+use App\Live_Video;
 use App\Directory;
 use App\job_opening;
+use App\Event;
+use App\Advertisement;
+use App\CompanyDetail;
+
+
 
 
 class MainController extends Controller
 {
+    
+    public function __construct()
+    {
+        //$user = Auth::user();    
+        
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();            
+            view()->share('user', $user);
+            return $next($request);
+        });
+    }
+
+
     public function index() {
+        
+
         //  $files = File::limit(6)->get();
         // return view('main.index')->with('files',$files);
-         $videos = Video::limit(6)->get();
-         $directory=Directory::orderBy('c_id')->limit(3)->get();
+        $videos      = Video::limit(6)->get();
+        $live_videos = Live_Video::orderBy('order')->first(); 
+        $directory   = Directory::orderBy('c_id')->limit(3)->get();
+        $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
+        $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
+        
+        $recommended = Video::inRandomOrder()->limit(10)->get();
 
-          $jobs = job_opening::orderBy('job_id')->limit(5)->get();
-        return view('main.index',compact('directory','videos','jobs'));
+        //news
+        $feed = simplexml_load_file('https://news.google.com/news/rss');
+        $worldfeeds=[];
+        for($i=0;$i<5;$i++)
+        {
+            $worldfeeds[$i]= $feed->channel->item[$i];
+        }
+
+        return view('main.index',compact('directory','videos','jobs','event', 'live_videos','worldfeeds','recommended'));
 
 
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);
@@ -41,6 +76,103 @@ class MainController extends Controller
     }
 
 
+    //upload ad
+
+     public function uploadad(Request $request)
+    {
+        return view('ad.uploadAd'); 
+    }
+
+
+    public function uploadadsubmit(Request $request)
+    {
+        if(!empty($request->file('fileupload1'))){
+            $this->validate($request,[
+                'fileupload1' =>'mimes:jpg,jpeg,png']);
+            $filename1 = $request->file('fileupload1')->getClientOriginalName();
+            $request->file('fileupload1')->storeAs('Advertisement',$filename1);
+            
+        } else {
+            $fileupload1= '';
+        }
+        
+         if(!empty($request->file('fileupload2'))){
+            $this->validate($request,[
+                'fileupload2' =>'mimes:jpg,jpeg,png']);
+            $filename2 = $request->file('fileupload2')->getClientOriginalName();
+            $request->file('fileupload2')->storeAs('Advertisement',$filename2);
+            
+        } else {
+            $fileupload2= '';
+        }
+        
+         if(!empty($request->file('fileupload3'))){
+            $this->validate($request,[
+                'fileupload3' =>'mimes:jpg,jpeg,png']);
+            $filename3 = $request->file('fileupload3')->getClientOriginalName();
+            $request->file('fileupload3')->storeAs('Advertisement',$filename3);
+            
+        } else {
+            $fileupload3= '';
+        }
+
+        $ad = new Advertisement;
+
+        $ad->ad_middle          = $filename1;
+        $ad->ad_right           = $filename2;
+        $ad->ad_bottom          = $filename3;
+     
+        $ad->save();
+        
+        return redirect()->back();
+    }
+
+
+    public function mainsearch(Request $request)
+    {
+
+        $searchkey= $request->search;
+
+        $videos      = Video::limit(6)->get();
+        $live_videos = Live_Video::orderBy('order')->first(); 
+        $directory   = Directory::orderBy('c_id')->limit(3)->get();
+        $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
+        $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
+
+        
+        if($searchkey && !empty($searchkey)){
+            $jobs->where(function($query) use ($searchkey){
+                $query->where('job_title' , 'like','%' .$searchkey. '%');
+                $query->orWhere('skills' , 'like','%' .$searchkey. '%');
+                $query->orwhere('company_name', 'LIKE', '%' .$searchkey. '%');
+            });
+       
+            $videos->where(function($query) use ($searchkey){
+                $query->where('title' , 'like','%' .$searchkey. '%');
+                $query->orWhere('tags' , 'like','%' .$searchkey. '%');
+                $query->orwhere('name', 'LIKE', '%' .$searchkey. '%');
+            });
+
+
+            $live_videos->where(function($query) use ($searchkey){
+                $query->where('filename' , 'like','%' .$searchkey. '%');
+                $query->orwhere('name', 'LIKE', '%' .$searchkey. '%');
+            });
+
+            $directory->where(function($query) use ($searchkey){
+                $query->where('cname' , 'like','%' .$searchkey. '%');
+                $query->orWhere('industrytype' , 'like','%' .$searchkey. '%');
+                $query->orwhere('businesstype', 'LIKE', '%' .$searchkey. '%');
+            });
+
+            $event->where(function($query) use ($searchkey){
+                $query->where('title' , 'like','%' .$searchkey. '%');
+            });
+
+        }
+        
+        return view('main.search',compact('directory','videos','jobs','event', 'live_videos'));
+    }
 
 
      //Current affairs function
@@ -142,6 +274,5 @@ class MainController extends Controller
         $jobs = job_opening::all();        
         return view('main.mainalljob',compact('jobs'));
     }
-
 
 }

@@ -1,58 +1,75 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.master')
+    
+@section('content')
 
-        <title>{{config('app.name','UDYOGTV')}}</title>
+@push('topscript')
+   
+@endpush
 
-        
-    </head>
-    <body>
+@section('center-content')
 
-        <form method="get" action="{{ route('searchcontent') }}">  
-       {{ csrf_field() }}
-       
-        <div>
-          <div>
-        <table align="center" border-spacing= "2px" bgcolor="" order-color= "gray">
-          <tr>
-            <th>JOB TITLE</th>
-            <th>company name</th>
-            <th>hr name</th>
-            <th>experience</th>
-            <th>Skills</th>
-            <th>postdate</th>
-            <th>expirydate</th>
-            <th>location</th>
-            <th>package</th>
-          </tr>
+<div class="row">
+  <div class="col-12">
+    <div class="white-card-candidate-search">
 
-          @if(count($searching)>0)
-          @foreach($searching as $job_opening)
-            
-           
-            <tr>
-              <td>{{$job_opening->job_title}}</td>
-              <td>{{$job_opening->company_name}}</td>
-              <td>{{$job_opening->hr_name}}</td>
-              <td>{{$job_opening->experience}}</td>
-              <td>{{$job_opening->skills}}</td>
-              <td>{{$job_opening->postdate}}</td>
-              <td>{{$job_opening->expdate}}</td>
-              <td>{{$job_opening->location}}</td>
-              <td>{{$job_opening->package}}</td>
-              {{-- <td><a href="{{url('/post/alljobs/details'.$job_opening->job_id)}}" >View details</a></td>   --}}
-              <td><a href="{{ route('getdisplay',['job_id'=>$job_opening->job_id])}}">View details</a></td>  
+       <h3 class="center">Candidate List</h3><br />
+
+         <div class="table-responsive">
+          <table >
+
+           <tbody>
+            @if(count($searching)>0)
+               @foreach($searching as $candidatedata)
+                  <?php $exp = explode('.', $candidatedata->experience); ?>
+                    <tr>
+                        <div class="card mb-3">
+                            <div class="row no-gutters">
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class="card-block card-info">
+                                      <h3 class="card-head-name">{{  ucfirst($candidatedata->firstname ." ". $candidatedata->lastname)}}</h3>
+                                      <br>
+                                      <div class="fas fa-archive">
+                                        {{ $exp[0]." Years " }}{{ $exp[1] != 0 ? $exp[1]." Months" : ""}}
+                                        </div>
+                                        <div class="fas fa-graduation-cap" style="float: right">
+                                          {{$candidatedata->graduation .", ". $candidatedata->postgraduation}}
+                                        </div>
+                                        <br/>
+                                        <div class="fas fa-pen"><span >{{$candidatedata->skills}}</span></div>
+                                        <hr>
+                                        <div class="row">
+                                        <div class="col-md-6 no-padding">
+                                          @if(!empty($candidatedata->email))
+                                        <div><i class="fa fa-envelope blue"></i><span> {{ $candidatedata->email }}</span>
+                                        </div>
+                                          @endif
+                                          @if(!empty($candidatedata->mobile_no))
+                                          <div><i class="fa fa-phone green"></i><span> {{ $candidatedata->mobile_no }}</span>
+                                          </div>
+                                          @endif
+                                        </div>
+                                        <div class="col-md-6 no-padding">
+                                          <a target="_blank" href="{{ asset('resumes/'.$candidatedata->resume) }}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm">Download Resume</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
             </tr>
-        @endforeach
-        @endif
-      </table>
+            @endforeach
+          @endif
+          </tbody>
+        </table>
       </div>
-    </form>
+      {{ $searching->links() }}
+    </div>    
   </div>
-  </div>
-        
-        
-    </body>
-</html>
+</div>
+@endsection
+@section('right-content')
+  @include('job.companyjobsearch')
+@endsection
+@endsection

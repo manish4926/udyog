@@ -15,7 +15,7 @@
                         @csrf
 
 
-                
+
                     <span class="login100-form-title">
                         Member Login
                     </span>
@@ -27,7 +27,7 @@
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                         </span>
 
-                           
+
                     </div>
                     @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
@@ -42,21 +42,20 @@
                             <i class="fa fa-lock" aria-hidden="true"></i>
                         </span>
                     </div>
-      
+
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                     <div class="container-login100-form-btn">
-                       
+
                                    <button  class="login100-form-btn" type="submit" class="btn btn-primary">
                                     Login
                                 </button>
                     </div>
                     <input type="hidden" name="redirecturl" value="{{!empty($_REQUEST['redirecturl']) ? $_REQUEST['redirecturl'] : '' }}">
                     <input type="hidden" name="passingid" value="{{!empty($_REQUEST['id']) ? $_REQUEST['id'] : ''}}">
-
                     @if (Route::has('password.request'))
 
                     <div class="text-center p-t-12">
@@ -65,11 +64,14 @@
                         </span>
                         <a class="txt2" href="{{ route('password.request') }}">
                             Username / Password?
+                        </a> 
+                        <a class="txt2" href="{{ route('register') }}">
+                            Register Now
                         </a>
                     </div>
                     @endif
 
-                 
+
                 </form>
             </div>
 </div>
