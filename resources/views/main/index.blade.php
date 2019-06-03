@@ -47,7 +47,7 @@
                         </div>
                     </div> --}}
                     <div class="large-8">
-                        <video id="live-video" class="live-video" autoplay="" controls>
+                        <video id="live-video" class="live-video" autoplay="off" controls>
                             @if($live_videos)<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
                         </video>
                     </div>

@@ -426,3 +426,7 @@ body{
 		background: #fff;
 		color: $color-red;
 	}
+
+	.sticky.topnav {
+		background: $theme-color-light !important;
+	}

@@ -301,8 +301,8 @@ input[type=checkbox]:checked + .customLabel:before {
         color: #e96969; }
 
 .topBarBlack {
-  background: #303030;
-  border-color: #303030; }
+  background: $theme-shade-color;
+  border-color: $theme-shade-color; }
   .topBarBlack .socialLinks a {
     background: $theme-color-light;
     border: 1px solid #444;
@@ -1379,7 +1379,7 @@ input[type=checkbox]:checked + .customLabel:before {
 	8- footer
    ========================================================================== */
 footer {
-  background: $theme-color-light;
+  background: $theme-footer-color-light;
   padding: 80px 0; }
   footer .widgetBox .widgetTitle {
     margin-bottom: 40px; }
