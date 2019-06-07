@@ -118,23 +118,23 @@ $(document).ready(function() {
 	$("#verifyCompany").click(function(){
         var company_name = $('#company_name').val();
 		var company_code = $('#company_code').val();
-            $.ajax({
-               type:'POST',
-               url:'{{ route('checkcompany') }}',
-               dataType: 'json',
-               data:{company_name: company_name ,company_code : company_code},
-               success:function(data) {
-                  //$("#msg").html(data.msg);
-                  console.log(data);
-                  if(data == 'true') {
-                  	$('.hidden-form').show();
-                  	$("#verifyCompany").hide();
+		$.ajax({
+			type:'POST',
+			url:'{{ route('checkcompany') }}',
+			dataType: 'json',
+			data:{company_name: company_name ,company_code : company_code},
+			success:function(data) {
+				//$("#msg").html(data.msg);
+				console.log(data);
+				if(data == 'true') {
+				$('.hidden-form').show();
+				$("#verifyCompany").hide();
 
-                  	$('#company_name').prop("readonly",true);
-                  	$('#company_code').prop("readonly",true);
-                  }
-               }
-            });
+				$('#company_name').prop("readonly",true);
+				$('#company_code').prop("readonly",true);
+				}
+			}
+		});
          
     }); 
 
@@ -154,6 +154,10 @@ $(document).ready(function() {
 
 });
 </script>
+
+
+
+
 @endpush
 @endsection
 

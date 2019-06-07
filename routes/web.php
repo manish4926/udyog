@@ -114,8 +114,8 @@ Route::group(['prefix' => 'company'], function ()
 
 
 
-Route::get('/companylogin','Auth\RegisterController@companyregister');
-Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
+//Route::get('/companylogin','Auth\RegisterController@companyregister');
+//Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
 //admin panel
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

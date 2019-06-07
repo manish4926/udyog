@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!--    <footer id="myFooter">
         <div class="container">
             <div class="row">
@@ -82,6 +82,7 @@
                             </div>
                         </div>
                     </div>
+                
                     <div class="media-object">
                         <div class="media-object-section">
                             <div class="recent-img">
@@ -101,6 +102,7 @@
                 </div>
             </div>
         </div>
+    
         <div class="large-3 medium-6 columns">
             <div class="widgetBox">
                 <div class="widgetTitle">

@@ -12,11 +12,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
 use Mail;
-use App\User;
-use App\Role;
 use Illuminate\Http\Request;
 use App\Mail\verifyEmail;
-use Mail;
 use Auth;
 
 class RegisterController extends Controller
