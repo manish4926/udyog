@@ -1,11 +1,16 @@
 
+
     <footer id="myFooter">
+<!--    <footer id="myFooter">
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 myCols">
                     <h5>About us</h5>
                     <ul>
+
                       its bhawana industry website
+                
                     </ul>
                 </div>
                 <div class="col-sm-4 myCols">
@@ -13,7 +18,11 @@
                     <ul>
                         <li><a href="#">Privacy & Policy</a></li>
                         <li><a href="#">Term & Condition </a></li>
+
                         <li><a href="/companylogin">Company login</a></li>
+
+                        <li><a href="">Company login</a></li>
+
                         <li><a href="#">FAQ</a></li>
                         
                     </ul>
@@ -29,8 +38,13 @@
             <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
             <a href="#" class="Google"><i class="fab fa-google"></i></a>
         </ul>
+
     </div>
- <!--   
+ 
+=======
+=======
+ footer -->
+
 <footer>
     <div class="row">
         <div class="large-3 medium-6 columns">
@@ -81,6 +95,7 @@
                             </div>
                         </div>
                     </div>
+                
                     <div class="media-object">
                         <div class="media-object-section">
                             <div class="recent-img">
@@ -101,6 +116,7 @@
             </div>
 >>>>>>> 2142c7a833f42a40cf031af5c7e7b3f0bc46a0dc
         </div>
+    
         <div class="large-3 medium-6 columns">
             <div class="widgetBox">
                 <div class="widgetTitle">

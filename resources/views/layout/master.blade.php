@@ -45,11 +45,68 @@
     </div><!--end off canvas wrapper inner-->
 </div><!--end off canvas wrapper-->
 <!-- script files -->
-<script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(jQuery){
+    "use strict";
+    /*Layer slider trigger*/
+    //login register click
+    jQuery(".loginReg").on("click", function(e){
+        e.preventDefault();
+        jQuery(this).next().slideToggle();
+        jQuery(this).toggleClass("active");
+    });
+
+    //search bar
+    jQuery(".search").on("click", function(){
+        if(jQuery(this).children().hasClass("fa-search")){
+            jQuery(this).children().removeClass("fa-search");
+            jQuery(this).children().addClass("fa-times");
+        }else{
+            jQuery(this).children().removeClass("fa-times");
+            jQuery(this).children().addClass("fa-search");
+        }
+        jQuery(this).toggleClass("search-active");
+        jQuery("#search-bar").slideToggle();
+
+    });
+
+    
+    //grid system
+    
+    //back to top
+    var backtotop = '#back-to-top';
+    if (jQuery(backtotop).length) {
+        var scrollTrigger = 100, // px
+            backToTop = function () {
+                var scrollTop = jQuery(window).scrollTop();
+                if (scrollTop > scrollTrigger) {
+                    jQuery(backtotop).addClass('show');
+                } else {
+                    jQuery(backtotop).removeClass('show');
+                }
+            };
+        backToTop();
+        jQuery(window).on('scroll', function () {
+            backToTop();
+        });
+        jQuery('#back-to-top').on('click', function (e) {
+            e.preventDefault();
+            jQuery('html,body').animate({
+                scrollTop: 0
+            }, 700);
+        });
+    }
+    
+    
+
+});
+</script>
+@stack('bottomscript')
 {{-- <script src="bower_components/jquery/dist/jquery.js"></script> --}}
 
 {{-- <script src="bower_components/what-input/what-input.js"></script> --}}
-<script src="{{ asset('bower_components/foundation-sites/dist/foundation.js') }}"></script>
+{{-- <script src="{{ asset('bower_components/foundation-sites/dist/foundation.js') }}"></script>
 <script src="{{ asset('js/jquery.showmore.src.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 
@@ -61,7 +118,7 @@
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/inewsticker.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.kyco.easyshare.js') }}" type="text/javascript"></script>
+ --}}
 
-@stack('bottomscript')
 </body>
 </html>

@@ -12,26 +12,6 @@ jQuery(document).ready(function(jQuery){
         skinsPath: '../layerslider/skins/'
     });
     //login register click
-    jQuery(".loginReg").on("click", function(e){
-        e.preventDefault();
-        jQuery(this).next().slideToggle();
-        jQuery(this).toggleClass("active");
-    });
-
-    //search bar
-    jQuery(".search").on("click", function(){
-        if(jQuery(this).children().hasClass("fa-search")){
-            jQuery(this).children().removeClass("fa-search");
-            jQuery(this).children().addClass("fa-times");
-        }else{
-            jQuery(this).children().removeClass("fa-times");
-            jQuery(this).children().addClass("fa-search");
-        }
-        jQuery(this).toggleClass("search-active");
-        jQuery("#search-bar").slideToggle();
-
-    });
-
      //Premium carousel
     jQuery('.owl-carousel').each(function(){
         var owl = jQuery(this);
@@ -111,29 +91,6 @@ jQuery(document).ready(function(jQuery){
         }
     });
 
-    //back to top
-    var backtotop = '#back-to-top';
-    if (jQuery(backtotop).length) {
-        var scrollTrigger = 100, // px
-            backToTop = function () {
-                var scrollTop = jQuery(window).scrollTop();
-                if (scrollTop > scrollTrigger) {
-                    jQuery(backtotop).addClass('show');
-                } else {
-                    jQuery(backtotop).removeClass('show');
-                }
-            };
-        backToTop();
-        jQuery(window).on('scroll', function () {
-            backToTop();
-        });
-        jQuery('#back-to-top').on('click', function (e) {
-            e.preventDefault();
-            jQuery('html,body').animate({
-                scrollTop: 0
-            }, 700);
-        });
-    }
     //newsTicker
     jQuery('#newsBar').inewsticker({
         speed       : 2500,

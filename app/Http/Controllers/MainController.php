@@ -36,8 +36,6 @@ class MainController extends Controller
     public function index() {
         
 
-        //  $files = File::limit(6)->get();
-        // return view('main.index')->with('files',$files);
         $videos      = Video::limit(6)->get();
         $live_videos = Live_Video::orderBy('order')->first(); 
         $directory   = Directory::orderBy('c_id')->limit(3)->get();
