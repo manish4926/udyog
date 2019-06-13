@@ -92,12 +92,24 @@ Route::group(['prefix' => 'job'], function ()
 Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
     //return $name;
 
-/*Company Admin */
+/*Company Admin 
 Route::group(['prefix' => 'company/panel'], function ()
 {
 
     Route::get('/',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
 
+}); */
+
+/*Company Admin */
+Route::group(['prefix' => 'company/panel'], function ()
+{
+    Route::get('/dashboard',['as'=>'dashboard','uses'=>'MicrowebController@dashboard']);
+    Route::get('/companyedit',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
+    Route::get('/materialedit',['as'=>'materialpanel','uses'=>'MicrowebController@materialPanel']);
+    Route::get('/ceopanel',['as'=>'ceopanel','uses'=>'MicrowebController@ceoPanel']); 
+    Route::get('/aboutus',['as'=>'aboutuspanel','uses'=>'MicrowebController@aboutus']); 
+    Route::get('/testimonialpanel',['as'=>'testimonialpanel','uses'=>'MicrowebController@testimonial']); 
+    Route::post('/dashboard',['as'=>'dashboard2','uses'=>'MicrowebController@makechanges']);
 });
 
 
