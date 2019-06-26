@@ -43,10 +43,5 @@ class RolesTableSeeder extends Seeder
             'name' => 'Company',
             'description' => '',
             ]);
-             
-    
-                                                                                                                                                                                                                                                                               
-    
-
 }
 }

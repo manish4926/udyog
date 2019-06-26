@@ -36,8 +36,7 @@
                   </div>
                 </div>
               </div>
-          <!--  {{ $companydetail->getDirectory()->material }}
-            {{ $companydetail->getDirectory()->cemp }}   -->
+          
         </form>
         </div>
     </div>

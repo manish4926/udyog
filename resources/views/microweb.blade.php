@@ -431,7 +431,7 @@
                         <div class="float-left">
                             <div class="single-team-member">
                                 <div class="img">
-                                    <img src="{{ asset('microweb/images/team/1.jpg') }}" alt="Image">
+                                    <img src="{{ asset('microweb/images/team/3.jpg') }}" alt="Image">
                                     <div class="opacity tran4s">
                                         <h4>Sant Kumar Sharma</h4>
                                         <span>CEO</span>
@@ -800,7 +800,7 @@
                             <div class="map-area">
                                 <h2>Our Location</h2>
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6992.909035671204!2d77.03489342527185!3d28.795526229414907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390da9f621ace391%3A0xb18a2afb574734b6!2sSHARMA+AUTO+PRODUCTS!5e0!3m2!1sen!2sin!4v1554711196742!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.019341339903!2d77.10664051494741!3d28.71896798238373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d014e7953d073%3A0xa1df99c8551f3812!2sJagan+Institute+of+Management+Studies+-+JIMS+Rohini!5e0!3m2!1sen!2sin!4v1554708915211!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                              <!--  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.019341339903!2d77.10664051494741!3d28.71896798238373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d014e7953d073%3A0xa1df99c8551f3812!2sJagan+Institute+of+Management+Studies+-+JIMS+Rohini!5e0!3m2!1sen!2sin!4v1554708915211!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
                             </div> <!-- /.map-area -->
                         </div> <!-- /.col- -->
                     </div> <!-- /.contact-address-content -->

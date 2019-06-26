@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\CompanyDetail;
-
 use App\MicrowebCompanyProduct;
 use App\MicrowebCompanyDetails;
 use App\MicrowebTestimonial;
 use App\Directory;
 use DB;
 use Auth;
+use Illuminate\Http\Request;
+
+use App\CompanyDetail;
+/* use Searchy;
+use Illuminate\Http\Request; */
 
 class MicrowebController extends Controller
 {
@@ -52,7 +53,7 @@ class MicrowebController extends Controller
         $companydetail = CompanyDetail::where('user_id',$user->id)->first();
         
         return view('company.companyedit',compact('companydetail'));
-    }
+    } 
 
     public function materialPanel(Request $request)
     {
