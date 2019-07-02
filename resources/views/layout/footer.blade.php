@@ -1,6 +1,6 @@
 
 
-    <footer id="myFooter">
+   
 <!--    <footer id="myFooter">
 
         <div class="container">
@@ -114,7 +114,7 @@
                     </div>
                 </div>
             </div>
->>>>>>> 2142c7a833f42a40cf031af5c7e7b3f0bc46a0dc
+
         </div>
     
         <div class="large-3 medium-6 columns">
@@ -175,7 +175,7 @@
         </div>
     </div>
     <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-double-up"></i></a>
-</footer>--><!-- footer -->
+</footer><!-- footer -->
 <!---
 <div id="footer-bottom">
     <div class="logo text-center">
