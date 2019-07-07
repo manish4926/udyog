@@ -11,8 +11,7 @@ use Auth;
 use Illuminate\Http\Request;
 
 use App\CompanyDetail;
-/* use Searchy;
-use Illuminate\Http\Request; */
+
 
 class MicrowebController extends Controller
 {
@@ -118,11 +117,8 @@ class MicrowebController extends Controller
             'image' => 'required|file',]);
 
                 $c_emp = $request->input('cemp');
-                $request->image->store('ceoimages');
-            
-             /*   var_dump(request('cemp'));
-                 var_dump(request('image'));*/
-            Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp]);
+
+                Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp]);
         }
 
 // to update company's material

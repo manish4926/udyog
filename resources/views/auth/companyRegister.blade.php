@@ -1,5 +1,8 @@
 @extends('layout.master')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
+
 @section('content')
 @push('topscript')
 <link rel="stylesheet" type="text/css" href="{{ asset('loginpage/css/main.css') }}">
@@ -21,20 +24,21 @@
                     </span>
 
                     <div class="wrap-input100 validate-input" >
-                        <input class="input100 {{ $errors->has('cid') ? ' is-invalid' : '' }}" type="text" name="code" placeholder="company code">
+                        <input class="input100" type="text" name="cname" placeholder="Company name">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                         </span>
-
+                    </div>   
                            
                     
                     <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                        <input class="input100" type="text" name="cname" placeholder="Company name">
+                        <input class="input100 {{ $errors->has('cid') ? ' is-invalid' : '' }}" type="text" name="code" placeholder="company code">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                         </span>
+
                     </div>
       
                                 <div class="container-login100-form-btn">

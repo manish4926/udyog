@@ -1,11 +1,16 @@
 
+
+   
 <!--    <footer id="myFooter">
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 myCols">
                     <h5>About us</h5>
                     <ul>
-                      its Bawana industry website
+
+                      its bhawana industry website
+                
                     </ul>
                 </div>
                 <div class="col-sm-4 myCols">
@@ -13,7 +18,11 @@
                     <ul>
                         <li><a href="#">Privacy & Policy</a></li>
                         <li><a href="#">Term & Condition </a></li>
+
+                        <li><a href="/companylogin">Company login</a></li>
+
                         <li><a href="">Company login</a></li>
+
                         <li><a href="#">FAQ</a></li>
                         
                     </ul>
@@ -29,8 +38,12 @@
             <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
             <a href="#" class="Google"><i class="fab fa-google"></i></a>
         </ul>
+
+    </div>
+ 
 =======
-<!-- footer -->
+=======
+ footer -->
 
 <footer>
     <div class="row">
@@ -101,6 +114,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     
        <div class="large-3 medium-6 columns">
@@ -162,11 +176,21 @@
     </div>
     <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-double-up"></i></a>
 </footer><!-- footer -->
+<<<<<<< HEAD
  <!--   <div id="footer-bottom">
+=======
+<!---
+<div id="footer-bottom">
+>>>>>>> be243fb7c66d0adceeffdc895f2a2d58543937b5
     <div class="logo text-center">
         <img src="{{ asset('images/footerlogo.png') }}" alt="footer logo">
     </div>
    <div class="btm-footer-text text-center">
         <p>2016 © Betube video wordpress theme.</p>
+<<<<<<< HEAD
     </div>  -->
 </div>
+=======
+    </div>
+</div>-->
+>>>>>>> be243fb7c66d0adceeffdc895f2a2d58543937b5
