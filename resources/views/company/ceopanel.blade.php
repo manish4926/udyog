@@ -8,13 +8,13 @@
         <div class="white-card">
         <h2> {{ $companydetail->getDirectory()->cemp }} </h2>
             <div class="col-md-4">
-            <form method="post" action="{{route('dashboard2')}}">
+            <form method="post" action="{{route('dashboard2')}}" enctype="multipart/form-data">
             @csrf
             <input type="text" class="form-control" name="cemp" placeholder="Enter Edited Name">
             </div>
             <div class="col-md-4">
             <H4>CEO IMAGE</H4>
-            <input name="image" type="file" class="form-control" id="gameimageid" placeholder="choose file...." class="custom-file-input">
+            <input name="image" type="file" class="form-control" id="imageid" placeholder="choose file...." class="custom-file-input">
                 <span style="margin-left: 15px; width: 480px;" class="custom-file-control"></span>
             </div>
             <div class="col-md-4">

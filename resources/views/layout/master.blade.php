@@ -39,10 +39,10 @@
             @include('layout.nav')          
             @yield('content')
             @include('partials.content-divider')
-        </div><!--end off canvas content--> 
+        </div> <!--end off canvas content--> 
         <!--Footer-->
         @include('layout.footer')     
-    </div><!--end off canvas wrapper inner-->
+    </div> <!--end off canvas wrapper inner-->
 </div><!--end off canvas wrapper-->
 <!-- script files -->
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>

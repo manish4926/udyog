@@ -37,17 +37,17 @@
         <div class="large-3 medium-6 columns">
             <div class="widgetBox">
                 <div class="widgetTitle">
-                    <h5>About Bhawana Chamber</h5>
+                    <h4>About Bawana Chamber</h4>
                 </div>
                 <div class="textwidget">
-                    Betube video wordpress theme lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s book.
+                    Company where prooducts are available and manufactured very easily.
                 </div>
             </div>
         </div>
         <div class="large-3 medium-6 columns">
             <div class="widgetBox">
                 <div class="widgetTitle">
-                    <h5>Recent Videos</h5>
+                    <h4>Recent Videos</h4>
                 </div>
                 <div class="widgetContent">
                     <div class="media-object">
@@ -103,8 +103,8 @@
             </div>
         </div>
     
-        <div class="large-3 medium-6 columns">
-            <div class="widgetBox">
+       <div class="large-3 medium-6 columns">
+          <!--   <div class="widgetBox">
                 <div class="widgetTitle">
                     <h5>Tags</h5>
                 </div>
@@ -121,12 +121,12 @@
                     <a href="#">Music</a>
                     <a href="#">Recreation</a>
                 </div>
-            </div>
-        </div>
+            </div>  -->
+        </div>  
         <div class="large-3 medium-6 columns">
             <div class="widgetBox">
                 <div class="widgetTitle">
-                    <h5>Subscribe Now</h5>
+                    <h4>Subscribe Now</h4>
                 </div>
                 <div class="widgetContent">
                     <form data-abide novalidate method="post">
@@ -151,9 +151,9 @@
                         <a class="secondary-button" href="#"><i class="fa fa-twitter"></i></a>
                         <a class="secondary-button" href="#"><i class="fa fa-google-plus"></i></a>
                         <a class="secondary-button" href="#"><i class="fa fa-instagram"></i></a>
-                        <a class="secondary-button" href="#"><i class="fa fa-vimeo"></i></a>
+               <!--         <a class="secondary-button" href="#"><i class="fa fa-vimeo"></i></a>  -->
                         <a class="secondary-button" href="#"><i class="fa fa-youtube"></i></a>
-                        <a class="secondary-button" href="#"><i class="fa fa-flickr"></i></a>
+                     <!--   <a class="secondary-button" href="#"><i class="fa fa-flickr"></i></a>  -->
 
                     </div>
                 </div>
@@ -162,11 +162,11 @@
     </div>
     <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-double-up"></i></a>
 </footer><!-- footer -->
-<div id="footer-bottom">
+ <!--   <div id="footer-bottom">
     <div class="logo text-center">
         <img src="{{ asset('images/footerlogo.png') }}" alt="footer logo">
     </div>
-    <div class="btm-footer-text text-center">
+   <div class="btm-footer-text text-center">
         <p>2016 © Betube video wordpress theme.</p>
-    </div>
+    </div>  -->
 </div>

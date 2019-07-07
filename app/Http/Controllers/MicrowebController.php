@@ -98,7 +98,7 @@ class MicrowebController extends Controller
 
         $companydetail = CompanyDetail::where('user_id',$user->id)->first();
 
-       
+// to update company's name       
         if(!empty($request->cname))
         {
             $validation= $request->validate( [
@@ -109,17 +109,23 @@ class MicrowebController extends Controller
         Directory::where('c_id',$companydetail->company_id)->update(['cname'=> $c_name]);
         }
 
+
+// to update company's ceo name and image 
          if(!empty($request->cemp)|| !empty($request->image))
         {
            $validation= $request->validate( [
-            'cemp' => 'required|max:100|string']);
+            'cemp' => 'required|max:100|string',
+            'image' => 'required|file',]);
 
                 $c_emp = $request->input('cemp');
-                /* var_dump(request('cemp'));
+                $request->image->store('ceoimages');
+            
+             /*   var_dump(request('cemp'));
                  var_dump(request('image'));*/
-        Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp]);
+            Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp]);
         }
 
+// to update company's material
          if(!empty($request->material))
         {
             $validation= $request->validate( [
@@ -130,6 +136,8 @@ class MicrowebController extends Controller
         Directory::where('c_id',$companydetail->company_id)->update(['material'=> $c_material]);
         }
 
+
+        // to update company's testimonial  
          if(!empty($request->testimonial))
         {
             $validation= $request->validate( [

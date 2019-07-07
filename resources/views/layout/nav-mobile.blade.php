@@ -72,7 +72,7 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div>  
     <div class="off-social">
         <h6>Get Socialize</h6>
         <a href="#"><i class="fa fa-facebook"></i></a>

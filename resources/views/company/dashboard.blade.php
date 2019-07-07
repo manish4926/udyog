@@ -1,11 +1,13 @@
 @extends('layout.master')
 
 @section('content')
-<style>
+
+{{-- <style>
 section {
-    padding: 20px 0;
+    padding: 40px 0;
 }
-</style>
+
+</style> --}}
 <section>
 <div class="row">
     @include('company.sidemenu')      
