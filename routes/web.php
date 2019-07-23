@@ -3,6 +3,12 @@
 /*Authentication Controller*/
 Auth::routes();
 
+//Route::post('/companyuserregister','Auth\RegisterController@CompanyuserValidate')->name('curegister');
+
+Route::get('/companylogin','Auth\RegisterController@companyregister')->name('clogin');
+//Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
+Route::post('/checkcompany','Auth\RegisterController@checkCompany')->name('checkcompany');
+
 Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
@@ -65,7 +71,7 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
 
-    Route::get('/post/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
+    Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);
 
     Route::any('/search',  ['as' => 'searchjob', 'uses' =>'JobController@search']);
 
@@ -86,12 +92,24 @@ Route::group(['prefix' => 'job'], function ()
 Route::get('video/{id}/{slug?}', 'MainController@videothumb')->name('videothumb');
     //return $name;
 
-/*Company Admin */
+/*Company Admin 
 Route::group(['prefix' => 'company/panel'], function ()
 {
 
     Route::get('/',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
 
+}); */
+
+/*Company Admin */
+Route::group(['prefix' => 'company/panel'], function ()
+{
+    Route::get('/dashboard',['as'=>'dashboard','uses'=>'MicrowebController@dashboard']);
+    Route::get('/companyedit',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
+    Route::get('/materialedit',['as'=>'materialpanel','uses'=>'MicrowebController@materialPanel']);
+    Route::get('/ceopanel',['as'=>'ceopanel','uses'=>'MicrowebController@ceoPanel']); 
+    Route::get('/aboutus',['as'=>'aboutuspanel','uses'=>'MicrowebController@aboutus']); 
+    Route::get('/testimonialpanel',['as'=>'testimonialpanel','uses'=>'MicrowebController@testimonial']); 
+    Route::post('/dashboard',['as'=>'dashboard2','uses'=>'MicrowebController@makechanges']);
 });
 
 
@@ -108,8 +126,8 @@ Route::group(['prefix' => 'company'], function ()
 
 
 
-Route::get('/companylogin','Auth\RegisterController@companyregister');
-Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
+//Route::get('/companylogin','Auth\RegisterController@companyregister');
+//Route::post('/companylogin2','Auth\RegisterController@CompanyValidate')->name('cregister');
 //admin panel
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -185,11 +203,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
 
     Route::get('/jobs/expired', ['as' => 'expjobs', 'uses' =>'AdminController@expjobs']);
 
-    Route::get('/all', ['as' => 'alljob', 'uses' =>'JobController@alljob']);
-
-    /*Route::get('/alljobs/details/{job_id}', ['as' => 'getdisplay', 'uses' => 'JobController@getdisplay']);*/
-
-    Route::get('/apply/details/{title}', ['as' => 'application', 'uses' =>'JobController@application']);
+    Route::get('/all', ['as' => 'alljobs', 'uses' =>'AdminController@alljobs']);
 
 
     //Admin Event Panel
@@ -231,3 +245,18 @@ Route::group(['namespace' => 'Admin'], function ()
 
 //userprofile
 Route::get('/userprofile/{userid}',['as' => 'userprofile', 'uses' =>'CandidatedataController@userprofile']);
+
+
+//uploadAd
+Route::get('/uploadad',['as' => 'uploadad', 'uses' =>'MainController@uploadad']);
+
+//uploadAd
+Route::post('/uploadadsubmit',['as' => 'uploadadsubmit', 'uses' =>'MainController@uploadadsubmit']);
+
+//Main Search
+
+Route::any('/search',['as' => 'mainsearch', 'uses' =>'MainController@mainsearch']);
+
+Route::post('/searchresult',['as' => 'mainsearchresult', 'uses' =>'MainController@mainsearch']);
+
+

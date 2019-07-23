@@ -27,13 +27,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($categories as $category)
-                     <tr>
-                     <td>{{$category->id}}</td>
-                     <td>{{$category->category}}</td>
-                     <td><a href="{{route('category.update',['id'=>$category->id])}}" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
-                     <td><a href="{{route('category.delete',['id'=>$category->id])}}" class="btn btn-danger">X</a></td>
-                     </tr>
+                    @foreach($categories as $category)
+                       <tr>
+                         <td>{{$category->id}}</td>
+                         <td>{{$category->category}}</td>
+                         <td><a href="{{route('category.update',['id'=>$category->id])}}" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
+                         <td><a href="{{route('category.delete',['id'=>$category->id])}}" class="btn btn-danger">X</a></td>
+                       </tr>
                      @endforeach
                 </tbody>
 

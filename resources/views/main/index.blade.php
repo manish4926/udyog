@@ -134,6 +134,30 @@
                             <span><i class="fa fa-play"></i>Watch Video</span>
                         </a>
                     </div>
+                    <div class="item">
+                        <figure class="premium-img">
+                            <img src="http://placehold.it/400x300" alt="carousel">
+                            <figcaption>
+                                <h5>ICE Age 5 upcoming Movie</h5>
+                                <p>Movies Trailer</p>
+                            </figcaption>
+                        </figure>
+                        <a href="single-video-v1.html" class="hover-posts">
+                            <span><i class="fa fa-play"></i>Watch Video</span>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <figure class="premium-img">
+                            <img src="http://placehold.it/400x300" alt="carousel">
+                            <figcaption>
+                                <h5>ICE Age 5 upcoming Movie</h5>
+                                <p>Movies Trailer</p>
+                            </figcaption>
+                        </figure>
+                        <a href="single-video-v1.html" class="hover-posts">
+                            <span><i class="fa fa-play"></i>Watch Video</span>
+                        </a>
+                    </div>
                 </div>
             </section><!-- End Premium Videos -->
             <section class="mainContentv3">
@@ -261,7 +285,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center row-btn">
-                                        <a class="button radius" href="all-video.html">View All Jobs</a>
+                                        <a class="button radius" href={{route('alljob')}}>View All Jobs</a>
                                     </div>
                                 </div>
                             </div>
@@ -278,6 +302,10 @@
                             <div class="sidebarBg"></div>
                             <div class="row">
                                 @include('partials.news')
+
+                                <!-- Events -->
+                                @include('partials.events')
+                                <!-- End Events -->
 
 
                                 <!-- search Widget -->
@@ -603,7 +631,21 @@
             <!--News Feed-->
 
             
+@push('bottomscript')
+<script src="{{ asset('bower_components/foundation-sites/dist/foundation.js') }}"></script>
+<script src="{{ asset('js/jquery.showmore.src.js') }}" type="text/javascript"></script>
 
+<script src="{{ asset('js/main.js') }}"></script>
+
+<script src="{{ asset('layerslider/js/greensock.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('layerslider/js/layerslider.transitions.js') }}" type="text/javascript"></script>
+<script src="{{ asset('layerslider/js/layerslider.kreaturamedia.jquery.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('js/inewsticker.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/jquery.kyco.easyshare.js') }}" type="text/javascript"></script>
+
+@endpush
 @endsection
 
             

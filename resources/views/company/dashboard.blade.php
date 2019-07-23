@@ -1,16 +1,18 @@
 @extends('layout.master')
 
 @section('content')
+
+{{-- <style>
+section {
+    padding: 40px 0;
+}
+
+</style> --}}
+<section>
 <div class="row">
-    @include('company.sidemenu')
-
-    <div class="col-md-8">
-        <div class="white-card">
-            {{ $companydetail->getDirectory()->cname }}
-        </div>
-    </div>
+    @include('company.sidemenu')      
 </div>
-
+</section>
 @push('bottomscript')
 @endpush
 @endsection

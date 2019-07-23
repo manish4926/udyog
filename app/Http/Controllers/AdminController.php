@@ -12,10 +12,27 @@ use App\Event;
 use DB;
 use Auth;
 use Carbon\Carbon;
+use Session;
 
 
 class AdminController extends Controller
-{    
+{   
+    public function __construct()
+    {
+        //$user = Auth::user();    
+        
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();            
+            view()->share('user', $user);
+            return $next($request);
+        });
+    } 
+
+    public function alljobs(Request $request)
+    {
+        $jobs= job_opening::all();
+        return view('admin.job.alljobs',compact('jobs'));
+    }
 
     public function addevent()
     {
@@ -23,7 +40,7 @@ class AdminController extends Controller
     }
 
 
-    public function addeventSubmit(request $request)
+    public function addeventSubmit(Request $request)
     {
        if(!empty($request->file('fileupload'))){
             $this->validate($request,[
@@ -35,21 +52,23 @@ class AdminController extends Controller
             $fileupload= '';
         }
 
-        var_dump($filename);
 
         $newevent = new Event;
 
         $newevent->title        = $request->title;
-        $newevent->slug         = seoUrl($request->title."-".rand(10000,99999));
+        $newevent->slug         = str_slug($request->title, '-');
         $newevent->description  = $request->description;
         $newevent->author       = $request->author;
+        $newevent->date         = $request->date;
+
 
         $newevent->photo        = $filename;
-        
-        
+    
         $newevent->save();
+
+        Session::flash('success', 'New Event is added successfully!');
         
-        return redirect()->back();
+        return redirect()->route('allevents');
     }    
 
 

@@ -17,10 +17,11 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
+            $table->date('date');
             $table->string('author')->nullable();
             $table->string('photo')->nullable();
             $table->enum('status', ['ACTIVE', 'INACTIVE'])->default('ACTIVE');
-             $table->string('slug')->unique();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

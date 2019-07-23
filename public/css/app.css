@@ -28261,12 +28261,50 @@ article.page-content ol li span {
   padding: 0 !important;
 }
 
+#navBar .navBlack .topbar-light-dark .search-btn li.search i {
+  background: transparent;
+  border: none;
+  color: #01008D;
+}
+
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
+  border-color: transparent transparent transparent #fff;
+}
+
 .menu img {
   width: 90px;
 }
 
 .live-video {
   width: 100%;
+}
+
+.topBarBlack {
+  background: #01008D;
+  border-color: #01008D;
+}
+
+.topBarBlack .socialLinks a {
+  border: none;
+  background: transparent;
+  color: #fff;
+}
+
+.topBar .socialLinks a i {
+  color: #fff;
+}
+
+#navBar .top-bar li.active a i {
+  color: #01008D;
+}
+
+#navBar .navBlack .topbar-light-dark .menu > li:not(.menu-text) > a {
+  color: #01008D;
+}
+
+#navBar .navBlack .topbar-light-dark .dropdown.menu .submenu li a {
+  background: #01008D !important;
+  color: #fff;
 }
 
 .req-input input,
@@ -28289,7 +28327,7 @@ h3 {
 
 .google-language-box {
   height: 27px;
-  background-color: #fff;
+  background-color: #303030;
 }
 
 .google-language-box #google_translate_element {
@@ -28401,13 +28439,13 @@ h3 {
 
 .marquee-message {
   /* background: #ddd; */
-  border-top: 0px solid #ddd;
-  border-right: 2px solid #ddd;
-  border-bottom: 0px solid #ddd;
-  border-left: 2px solid #ddd;
+  border-top: 0px solid #fff;
+  border-right: 2px solid #fff;
+  border-bottom: 0px solid #fff;
+  border-left: 2px solid #fff;
   /* margin-top: 2px; */
   display: block;
-  color: #ddd;
+  color: #fff;
   font-weight: bold;
   padding-top: 5px;
 }
@@ -28635,6 +28673,10 @@ body {
   color: #8e8e8e;
 }
 
+.event-section a {
+  color: #8e8e8e;
+}
+
 .dropdown-menu {
   background: transparent;
   max-width: 300px;
@@ -28663,7 +28705,8 @@ body {
 .video-side-list ul li a {
   text-decoration: none;
   background: #fff;
-  color: #8e8e8e;
+  /* color: #8e8e8e; */
+  color: #01008D;
   transition: all 0.3s ease-in-out;
 }
 
@@ -28674,6 +28717,12 @@ body {
 
 .sticky.topnav {
   background: #fff !important;
+  border-bottom: solid 2px #01008D;
+}
+
+#verticalSlider {
+  background: #fff;
+  margin-top: 62px;
 }
 
 .navbar-laravel {

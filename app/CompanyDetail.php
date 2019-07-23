@@ -15,7 +15,7 @@ class CompanyDetail extends Model
 
     public function directory()
     {
-        return $this->hasOne('App\Search','c_id','company_id');
+        return $this->hasOne('App\Directory','c_id','company_id');
     }
 
 
