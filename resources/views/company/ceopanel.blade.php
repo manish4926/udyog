@@ -8,11 +8,8 @@
         <div class="white-card">
         <h2> {{ $companydetail->getDirectory()->cemp }} </h2>
             <div class="col-md-4">
-<<<<<<< HEAD
+
             <form method="post" action="{{route('dashboard2')}}" enctype="multipart/form-data">
-=======
-            <form method="post" action="{{route('dashboard2')}}" >
->>>>>>> be243fb7c66d0adceeffdc895f2a2d58543937b5
             @csrf
             <input type="text" class="form-control" name="cemp" placeholder="Enter Edited Name">
             </div>
