@@ -114,14 +114,36 @@
                                                 </ul>
                                             </li>
                                         
-                                    <li class="has-submenu" data-dropdown-menu="example1">
-                                        <a href="#"><i class="fa fa-film"></i>Videos</a>
+                                    
+                                    <li><a href="{{ route('industrylist') }}"><i class="fa fa-briefcase"></i>Business</a>
                                         <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
-                                            <li><a class="dropdown-item" href="#">Industry</a></li>
-                                            <li><a class="dropdown-item" href="#">Latest</a></li>
-                        {{--                     <li><a href="single-video-v3.html"><i class="fa fa-film"></i>single video v3</a></li>
-                                            <li><a href="submit-post.html"><i class="fa fa-film"></i>submit post</a></li>
- --}}                                        </ul>
+                                             <li><a class="dropdown-item" href="#">Search</a>
+                                                <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                            <li><a class="dropdown-item" href="{{ route('industrylist') }}">Product</a></li>
+                                            <li><a class="dropdown-item" href="#">Industrial Property</a></li>
+                                            </ul>
+                                             </li>
+                                            <li><a class="dropdown-item" href="#">upload your product</a></li>
+                                            {{--      @if(Auth::check() AND $user->hasRole('Company'))
+                                                    <li><a href="{{ route('postjob') }}"><i class="fa fa-th"></i>Post A Job</a>
+                                                    <li><a href="{{ route('candidatesearch') }}"><i class="fa fa-th"></i>Search Candidates</a>
+                                                </li>
+                                                @else
+                                                    <li><a href="{{ route('alljob') }}"><i class="fa fa-th"></i>Jobs</a>
+
+                                                </li>
+                                                @endif  --}}
+
+                                            {{-- <li><a class="dropdown-item" href="{{route('currentaffairs')}}">Current affairs</a></li>
+                                            <li><a class="dropdown-item" href="{{route('training')}}">Training's</a></li>
+                                            <li><a class="dropdown-item" href="{{route('labourlaws')}}">Labour Laws</a></li>
+                                            <li><a class="dropdown-item" href="{{route('taxation')}}">taxation</a></li>
+                                            <li><a class="dropdown-item" href="{{route('newtechnology')}}">New Technology</a></li>
+                                            <li><a class="dropdown-item" href="{{route('newproducts')}}">New Products</a></li>
+                                            <li><a class="dropdown-item" href="{{route('health')}}">Health</a></li>
+                                            <li><a class="dropdown-item" href="{{route('growbusiness')}}">How to grow business</a></li>
+                                            <li><a class="dropdown-item" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li> --}}
+                                        </ul>
                                     </li>
                                     <li><a href="{{ route('industrylist') }}"><i class="fa fa-industry"></i>Industries</a>
                                         <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
@@ -151,38 +173,17 @@
                                         </ul>
                                     </li>
                                 
-
-
-                                    <li><a href="{{ route('industrylist') }}"><i class="fa fa-briefcase"></i>Business</a>
+                                    <li class="has-submenu" data-dropdown-menu="example1">
+                                        <a href="#"><i class="fa fa-film"></i>Videos</a>
                                         <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
-                                             <li><a class="dropdown-item" href="#">Search</a>
-                                                <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
-                                            <li><a class="dropdown-item" href="{{ route('industrylist') }}">Product</a></li>
-                                            <li><a class="dropdown-item" href="#">Industrial Property</a></li>
-                                            </ul>
-                                             </li>
-                                            <li><a class="dropdown-item" href="#">upload your product</a></li>
-                                            {{--      @if(Auth::check() AND $user->hasRole('Company'))
-                                        <li><a href="{{ route('postjob') }}"><i class="fa fa-th"></i>Post A Job</a>
-                                        <li><a href="{{ route('candidatesearch') }}"><i class="fa fa-th"></i>Search Candidates</a>
-                                    </li>
-                                    @else
-                                        <li><a href="{{ route('alljob') }}"><i class="fa fa-th"></i>Jobs</a>
-
-                                    </li>
-                                    @endif  --}}
-
-{{--                                             <li><a class="dropdown-item" href="{{route('currentaffairs')}}">Current affairs</a></li>
-                                            <li><a class="dropdown-item" href="{{route('training')}}">Training's</a></li>
-                                            <li><a class="dropdown-item" href="{{route('labourlaws')}}">Labour Laws</a></li>
-                                            <li><a class="dropdown-item" href="{{route('taxation')}}">taxation</a></li>
-                                            <li><a class="dropdown-item" href="{{route('newtechnology')}}">New Technology</a></li>
-                                            <li><a class="dropdown-item" href="{{route('newproducts')}}">New Products</a></li>
-                                            <li><a class="dropdown-item" href="{{route('health')}}">Health</a></li>
-                                            <li><a class="dropdown-item" href="{{route('growbusiness')}}">How to grow business</a></li>
-                                            <li><a class="dropdown-item" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li> --}}
+                                            <li><a class="dropdown-item" href="#">Industry</a></li>
+                                            <li><a class="dropdown-item" href="#">Latest</a></li>
+                                            {{-- <li><a href="single-video-v3.html"><i class="fa fa-film"></i>single video v3</a></li>
+                                            <li><a href="submit-post.html"><i class="fa fa-film"></i>submit post</a></li> --}} 
                                         </ul>
                                     </li>
+
+                                    
 
                                      <li class="has-submenu" data-dropdown-menu="example1">
                                         <a href="#"><i class="fa fa-male"></i>Employment Exchnage</a>

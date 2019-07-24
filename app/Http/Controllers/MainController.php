@@ -37,7 +37,7 @@ class MainController extends Controller
         
 
         $videos      = Video::limit(6)->get();
-        $live_videos = Live_Video::orderBy('order')->first(); 
+        $live_videos = Live_Video::orderBy('order','desc')->first(); 
         $directory   = Directory::orderBy('c_id')->limit(3)->get();
         $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
         $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
