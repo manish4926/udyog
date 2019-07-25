@@ -176,21 +176,14 @@
     </div>
     <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-double-up"></i></a>
 </footer><!-- footer -->
-<<<<<<< HEAD
- <!--   <div id="footer-bottom">
-=======
-<!---
-<div id="footer-bottom">
->>>>>>> be243fb7c66d0adceeffdc895f2a2d58543937b5
-    <div class="logo text-center">
+
+{{-- <div id="footer-bottom">
+  <div class="logo text-center">
         <img src="{{ asset('images/footerlogo.png') }}" alt="footer logo">
     </div>
    <div class="btm-footer-text text-center">
         <p>2016 © Betube video wordpress theme.</p>
-<<<<<<< HEAD
-    </div>  -->
+    </div> 
 </div>
-=======
-    </div>
-</div>-->
->>>>>>> be243fb7c66d0adceeffdc895f2a2d58543937b5
+ --}}
+
