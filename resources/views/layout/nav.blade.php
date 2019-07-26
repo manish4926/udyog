@@ -50,7 +50,7 @@
     <!--Navber-->
     <section id="navBar">
         <nav class="sticky-container navBlack" data-sticky-container>
-            <div class="sticky topnav" data-sticky data-top-anchor="navBar" data-btm-anchor="footer-bottom:bottom" data-margin-top="0" data-margin-bottom="0" style="width: 100%; background: #444;" data-sticky-on="large">
+            <div class="topnav" data-sticky data-top-anchor="navBar" data-btm-anchor="footer-bottom:bottom" data-margin-top="0" data-margin-bottom="0" style="width: 100%; background: #fff;" data-sticky-on="large">
                 <div class="row">
                     <div class="large-12 columns">
                         <div class="title-bar title-bar-dark" data-responsive-toggle="beNav" data-hide-for="large">
@@ -73,10 +73,14 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="top-bar-right">
+                          <div class="top-bar-right">
                                 <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
                                     <li class="has-submenu active">
                                         <a href="{{ route('home') }}"><i class="fa fa-home"></i>Home</a>
+                                        <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                            <li><a class="dropdown-item" href="#">About us</a></li>
+                                            <li><a class="dropdown-item" href="#">about chairman</a></li>
+                                       </ul>
                                         {{-- <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
                                             <li><a href="index.html"><i class="fa fa-home"></i>Home page v1</a></li>
                                             <li><a href="home-v2.html"><i class="fa fa-home"></i>Home page v2</a></li>
@@ -90,28 +94,47 @@
                                             <li><a href="home-v10.html"><i class="fa fa-home"></i>Home page v10</a></li>
                                         </ul> --}}
                                     </li>
-                                    <li class="has-submenu" data-dropdown-menu="example1">
-                                        <a href="#"><i class="fa fa-film"></i>Videos</a>
-                                        {{-- <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
-                                            <li><a href="single-video-v1.html"><i class="fa fa-film"></i>single video v1</a></li>
-                                            <li><a href="single-video-v2.html"><i class="fa fa-film"></i>single video v2</a></li>
-                                            <li><a href="single-video-v3.html"><i class="fa fa-film"></i>single video v3</a></li>
-                                            <li><a href="submit-post.html"><i class="fa fa-film"></i>submit post</a></li>
-                                        </ul> --}}
-                                    </li>
-                                    <li><a href="{{ route('industrylist') }}"><i class="fa fa-th"></i>Industries</a></li>
-                                    @if(Auth::check() AND $user->hasRole('Company'))
-                                        <li><a href="{{ route('postjob') }}"><i class="fa fa-th"></i>Post A Job</a>
-                                        <li><a href="{{ route('candidatesearch') }}"><i class="fa fa-th"></i>Search Candidates</a>
-                                    </li>
-                                    @else
-                                        <li><a href="{{ route('alljob') }}"><i class="fa fa-th"></i>Jobs</a>
 
-                                    </li>
-                                    @endif
-                                    <li><a href="#"><i class="fa fa-magic"></i>Business</a>
+                                     <li class="has-submenu" data-dropdown-menu="example1">
+                                        <a href="#"><i class="fa fa-wrench"></i>TRAININGS</a>
+                                             <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                                    <li><a class="dropdown-item" href="#">PERSONALITY</a></li>
+                                                    <li><a class="dropdown-item" href="#">TECHNICAL</a></li>
+                                                    <li><a class="dropdown-item" href="#">OFFICE</a></li>
+                                                    <li><a class="dropdown-item" href="#">SALES</a></li>
+                                                    <li><a class="dropdown-item" href="http://indiantradeportal.in/">EXPORT/ IMPORT</a></li>
+                                                    <li><a class="dropdown-item" href="#">INSURANCE</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.investindia.gov.in/taxation">TAXATION</a></li>
+                                                    <li><a class="dropdown-item" href="https://clc.gov.in/clc/labour-law">LABOUR LAW</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.mca.gov.in/">CO. LAW</a></li>
+                                                    <li><a class="dropdown-item" href="#">REGISTRATIONS</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.ipindia.nic.in/">INTELLECTUAL PROPERTY RIGHTS</a></li>
+                                                    <li><a class="dropdown-item" href="https://labdirectory.bis.gov.in/">LABORITORIES</a></li>
+                                                    <li><a class="dropdown-item" href="https://data.gov.in/keywords/subsidy">SUBSIDIES</a></li>
+                                                </ul>
+                                            </li>
+                                        
+                                    
+                                    <li><a href="{{ route('industrylist') }}"><i class="fa fa-briefcase"></i>Business</a>
                                         <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
-                                            <li><a class="dropdown-item" href="{{route('currentaffairs')}}">Current affairs</a></li>
+                                             <li><a class="dropdown-item" href="#">Search</a>
+                                                <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                            <li><a class="dropdown-item" href="{{ route('industrylist') }}">Product</a></li>
+                                            <li><a class="dropdown-item" href="#">Industrial Property</a></li>
+                                            </ul>
+                                             </li>
+                                            <li><a class="dropdown-item" href="#">upload your product</a></li>
+                                            {{--      @if(Auth::check() AND $user->hasRole('Company'))
+                                                    <li><a href="{{ route('postjob') }}"><i class="fa fa-th"></i>Post A Job</a>
+                                                    <li><a href="{{ route('candidatesearch') }}"><i class="fa fa-th"></i>Search Candidates</a>
+                                                </li>
+                                                @else
+                                                    <li><a href="{{ route('alljob') }}"><i class="fa fa-th"></i>Jobs</a>
+
+                                                </li>
+                                                @endif  --}}
+
+                                            {{-- <li><a class="dropdown-item" href="{{route('currentaffairs')}}">Current affairs</a></li>
                                             <li><a class="dropdown-item" href="{{route('training')}}">Training's</a></li>
                                             <li><a class="dropdown-item" href="{{route('labourlaws')}}">Labour Laws</a></li>
                                             <li><a class="dropdown-item" href="{{route('taxation')}}">taxation</a></li>
@@ -119,9 +142,76 @@
                                             <li><a class="dropdown-item" href="{{route('newproducts')}}">New Products</a></li>
                                             <li><a class="dropdown-item" href="{{route('health')}}">Health</a></li>
                                             <li><a class="dropdown-item" href="{{route('growbusiness')}}">How to grow business</a></li>
-                                            <li><a class="dropdown-item" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li>
+                                            <li><a class="dropdown-item" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li> --}}
                                         </ul>
                                     </li>
+                                    <li><a href="{{ route('industrylist') }}"><i class="fa fa-industry"></i>Industries</a>
+                                        <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                            <li><a class="dropdown-item">Industrty Related Authority/Ministry</a>
+                                                <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                                    <li><a class="dropdown-item" href="https://msme.gov.in/">MSME MIN</a></li>
+                                                    <li><a class="dropdown-item" href="https://labour.gov.in/">LABOUR  MIN</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.dsiidc.org/">DSIIDC</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.mcd.gov.in/">MCD</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.tatapower-ddl.com/">TPDDL</a></li>
+                                                    <li><a class="dropdown-item" href="http://djb.gov.in/DJBPortal/portals/DJBCustomer.portal">DJB</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.dpcc.delhigovt.nic.in/">DPCC</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.epfindia.gov.in/site_en/index.php">EPFO</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.esic.in/ESICInsurance1/ESICInsurancePortal/PortalLogin.aspx">ESIC</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="dropdown-item">Fin/Support</a>
+                                                <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                                    <li><a class="dropdown-item" href="https://www.sidbi.in/en">SIDBI</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.nsic.co.in/">NSIC</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.standupmitra.in/">STANDUP INDIA</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.mudra.org.in/">MUDRA</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.sbi.co.in/portal/web/interest-rates/loan-schemes">BANK LOAN</a></li>
+                                                    <li><a class="dropdown-item" href="https://rbi.org.in/Scripts/BS_NBFCList.aspx">NBFC</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                
+                                    <li class="has-submenu" data-dropdown-menu="example1">
+                                        <a href="#"><i class="fa fa-film"></i>Videos</a>
+                                        <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                            <li><a class="dropdown-item" href="#">Industry</a></li>
+                                            <li><a class="dropdown-item" href="#">Latest</a></li>
+                                            {{-- <li><a href="single-video-v3.html"><i class="fa fa-film"></i>single video v3</a></li>
+                                            <li><a href="submit-post.html"><i class="fa fa-film"></i>submit post</a></li> --}} 
+                                        </ul>
+                                    </li>
+
+                                    
+
+                                     <li class="has-submenu" data-dropdown-menu="example1">
+                                        <a href="#"><i class="fa fa-male"></i>Employment Exchnage</a>
+                                        <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                            <li><a class="dropdown-item" href="#">Employee</a></li>
+                                            <li><a class="dropdown-item" href="#">employer</a></li>
+                                      </ul>
+                                    </li>
+
+                                    <li><a href="contact-us.html"><i class="fa fa-envelope"></i>contact</a></li>
+
+                                    <li class="has-submenu" data-dropdown-menu="example1">
+                                        <a href="#"><i class="fa fa-archive"></i>Archive</a>
+                                        <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                            <li><a class="dropdown-item" href="#">video</a>
+                                                <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                            <li><a class="dropdown-item" href="#">Year</a></li>
+                                            <li><a class="dropdown-item" href="#">Month</a></li>
+                                        </ul>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Content</a>
+                                                 <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
+                                            <li><a class="dropdown-item" href="#">Year</a></li>
+                                            <li><a class="dropdown-item" href="#">Month</a></li>
+                                        </ul>
+                                            </li>
+                                       </ul>
+                                      </li> 
                                     {{-- <li>
                                         <a href="blog.html"><i class="fa fa-edit"></i>blog</a>
                                         <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
@@ -154,7 +244,7 @@
                                         </ul>
                                     </li> --}}
                                     {{-- <li><a href="about-us.html"><i class="fa fa-user"></i>about</a></li> --}}
-                                    <li><a href="contact-us.html"><i class="fa fa-envelope"></i>contact</a></li>
+                                  {{--   <li><a href="contact-us.html"><i class="fa fa-envelope"></i>contact</a></li> --}}
                                 </ul>
                             </div>
                         </div>

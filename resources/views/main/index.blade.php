@@ -1,16 +1,17 @@
 @extends('layout.master')
 @section('content')
-<!-- verticle thumb slider -->
-<section id="verticalSlider">
-    <div class="row">
-        <div class="large-12 columns">
-            <div class="thumb-slider">
-                <div class="main-image">
-                    <div class="image 1">
-                        <video id="live-video" class="live-video" autoplay="autoplay" controls style="height:300px;">
-                            {{-- <source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4"> --}}
-                                {{-- @if($live_videos)<source id="mp4video" src="" type="video/mp4">@endif --}}
-                                    @if($live_videos) <source id="mp4video" src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
+
+            <!-- verticle thumb slider -->
+            <section id="verticalSlider">
+                <div class="row">
+                    {{-- <div class="large-12 columns">
+                        <div class="thumb-slider">
+                            <div class="main-image">
+                                <div class="image 1">
+                                    
+                                    <video id="live-video" class="live-video" autoplay="" controls>
+                                        @if($live_videos)<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
+
                                     </video>
                                 </div>
                             </div>
@@ -45,6 +46,26 @@
                                 <a class="down" href="javascript:void(0)"><i class="fa fa-angle-down"></i></a>
                             </div>
                             <div class="clearfix"></div>
+                        </div>
+                    </div> --}}
+                    <div class="large-8">
+                        <video id="live-video" class="live-video" autoplay="off" controls>
+                            @if($live_videos)<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
+                        </video>
+                    </div>
+                    <div class="large-4">
+                        <div class="video-side-list">
+                            <ul class="list-group">
+                                <li><a class="list-group-item" href="{{route('currentaffairs')}}">Current affairs</a></li>
+                                <li><a class="list-group-item" href="{{route('training')}}">Training's</a></li>
+                                <li><a class="list-group-item" href="{{route('labourlaws')}}">Labour Laws</a></li>
+                                <li><a class="list-group-item" href="{{route('taxation')}}">taxation</a></li>
+                                <li><a class="list-group-item" href="{{route('newtechnology')}}">New Technology</a></li>
+                                <li><a class="list-group-item" href="{{route('newproducts')}}">New Products</a></li>
+                                <li><a class="list-group-item" href="{{route('health')}}">Health</a></li>
+                                <li><a class="list-group-item" href="{{route('growbusiness')}}">How to grow business</a></li>
+                                <li><a class="list-group-item" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -385,9 +406,9 @@
                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
-                                            <h5>social fans</h5>
+                                            <h5>Notices & Circulars</h5>
                                         </div>
-                                        <div class="widgetContent">
+                                        {{-- <div class="widgetContent">
                                             <div class="social-links">
                                                 <a class="socialButton" href="#">
                                                     <i class="fab fa-facebook"></i>
@@ -415,7 +436,7 @@
                                                     <span>followers</span>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div><!-- End social Fans Widget -->
 

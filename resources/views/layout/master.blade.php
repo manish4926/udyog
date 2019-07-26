@@ -40,13 +40,14 @@
             @include('layout.nav')          
             @yield('content')
             @include('partials.content-divider')
-        </div><!--end off canvas content--> 
+        </div> <!--end off canvas content--> 
         <!--Footer-->
         @include('layout.footer')     
-    </div><!--end off canvas wrapper inner-->
+    </div> <!--end off canvas wrapper inner-->
 </div><!--end off canvas wrapper-->
 <!-- script files -->
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
 <script type="text/javascript">
 jQuery(document).ready(function(jQuery){
     "use strict";
@@ -104,6 +105,7 @@ jQuery(document).ready(function(jQuery){
 });
 </script>
 @stack('bottomscript')
+
 {{-- <script src="bower_components/jquery/dist/jquery.js"></script> --}}
 
 {{-- <script src="bower_components/what-input/what-input.js"></script> --}}

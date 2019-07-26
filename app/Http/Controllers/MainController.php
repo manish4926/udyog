@@ -49,6 +49,7 @@ class MainController extends Controller
         //$live_videos = Live_Video::all();
         //dd($live_videos->last());
         //dd($live_videos[0]->getOriginal()); 
+
         $directory   = Directory::orderBy('c_id')->limit(3)->get();
         $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
         $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();

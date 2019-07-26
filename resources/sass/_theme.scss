@@ -180,7 +180,7 @@ p{
   border-bottom: 1px solid #ececec; }
 
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-  background: #444444 !important; }
+  background: $theme-color-light !important; }
 
 .owl-theme .owl-dots .owl-dot span {
   background: #e96969 !important;
@@ -301,10 +301,10 @@ input[type=checkbox]:checked + .customLabel:before {
         color: #e96969; }
 
 .topBarBlack {
-  background: #303030;
-  border-color: #303030; }
+  background: $theme-shade-color;
+  border-color: $theme-shade-color; }
   .topBarBlack .socialLinks a {
-    background: #444444;
+    background: $theme-color-light;
     border: 1px solid #444;
     color: #aaaaaa; }
     .topBarBlack .socialLinks a:hover {
@@ -407,22 +407,22 @@ input[type=checkbox]:checked + .customLabel:before {
     .top-button .menu li.dropdown-login .login-form-dark h6 {
       color: #aaaaaa; }
     .top-button .menu li.dropdown-login .login-form-dark .input-group .input-group-label {
-      background: #444444;
-      border-color: #444444; }
+      background: $theme-color-light;
+      border-color: $theme-color-light; }
       .top-button .menu li.dropdown-login .login-form-dark .input-group .input-group-label i {
         font-size: 13px;
         color: #aaaaaa; }
     .top-button .menu li.dropdown-login .login-form-dark .input-group input {
       background: #303030;
-      border-color: #444444; }
+      border-color: $theme-color-light; }
     .top-button .menu li.dropdown-login .login-form-dark fieldset label {
       color: #aaaaaa !important; }
     .top-button .menu li.dropdown-login .login-form-dark .checkbox label {
       color: #aaaaaa; }
     .top-button .menu li.dropdown-login .login-form-dark input[type="submit"] {
-      background: #444444;
+      background: $theme-color-light;
       color: #aaaaaa;
-      border-color: #444444; }
+      border-color: $theme-color-light; }
     .top-button .menu li.dropdown-login .login-form-dark p a.newaccount {
       color: #aaaaaa; }
 
@@ -541,7 +541,7 @@ input[type=checkbox]:checked + .customLabel:before {
           border-right: 1px solid #ececec;
           margin-right: 10px;
           padding-right: 10px;
-          color: #444444;
+          color: $theme-color-light;
           font-weight: 600; }
         #navBar .topbar-full .topnews .newsTicker #newsBar {
           list-style: none;
@@ -604,17 +604,17 @@ input[type=checkbox]:checked + .customLabel:before {
     background: #303030;
     border: 1px solid #303030; }
     #navBar .topbar-dark .btn-toggle .secondary-button {
-      background: #444444; }
+      background: $theme-color-light; }
     #navBar .topbar-dark .topnews .newsTicker i {
       color: #e96969; }
     #navBar .topbar-dark .topnews .newsTicker span {
       border-right: 1px solid #444; }
     #navBar .topbar-dark .topsearch .search-bar-full input[type="search"] {
       background: none;
-      border-color: #444444; }
+      border-color: $theme-color-light; }
     #navBar .topbar-dark .topsearch .search-bar-full .icon-btn .button {
-      background: #444444;
-      border-color: #444444; }
+      background: $theme-color-light;
+      border-color: $theme-color-light; }
   #navBar .search-bar-light {
     display: none;
     position: absolute;
@@ -640,18 +640,18 @@ input[type=checkbox]:checked + .customLabel:before {
         margin: 0;
         border-radius: 5px; }
   #navBar .search-bar-dark {
-    border: 1px solid #444444;
+    border: 1px solid $theme-color-light;
     background: #303030; }
     #navBar .search-bar-dark .search-input input[type="search"] {
       background: #303030;
-      border-color: #444444; }
+      border-color: $theme-color-light; }
   #navBar .navBlack {
-    background: #444444;
-    border-color: #444444; }
+    background: $theme-color-light;
+    border-color: $theme-color-light; }
     #navBar .navBlack .topbar-light-dark {
-      background: #444444; }
+      background: $theme-color-light; }
       #navBar .navBlack .topbar-light-dark ul {
-        background: #444444; }
+        background: $theme-color-light; }
       #navBar .navBlack .topbar-light-dark .menu > li:not(.menu-text) > a {
         color: #aaaaaa; }
       #navBar .navBlack .topbar-light-dark .dropdown.menu .submenu {
@@ -802,7 +802,7 @@ input[type=checkbox]:checked + .customLabel:before {
     #navBar .navFull-v2 .top-bar-light .search-btn {
       padding: 6px 0 0 0; }
       #navBar .navFull-v2 .top-bar-light .search-btn li.search i {
-        background: #444444;
+        background: $theme-color-light;
         width: 30px;
         height: 30px;
         line-height: 30px; }
@@ -1056,7 +1056,7 @@ input[type=checkbox]:checked + .customLabel:before {
     font-weight: normal;
     line-height: 13px; }
     .content .post .post-des h6 a {
-      color: #444444 !important;
+      color: $theme-color-light !important;
       font-size: 13px; 
   	font-weight: 600;}
       .content .post .post-des h6 a:hover {
@@ -1150,7 +1150,7 @@ input[type=checkbox]:checked + .customLabel:before {
       color: #aaaaaa;
       font-size: 12px; }
   .content .head-text h4 {
-    color: #444444; }
+    color: $theme-color-light; }
     .content .head-text h4 i {
       display: inline-block;
       color: #e96969;
@@ -1379,7 +1379,7 @@ input[type=checkbox]:checked + .customLabel:before {
 	8- footer
    ========================================================================== */
 footer {
-  background: #444444;
+  background: $theme-footer-color-light;
   padding: 80px 0; }
   footer .widgetBox .widgetTitle {
     margin-bottom: 40px; }
@@ -1605,9 +1605,9 @@ footer {
           font-size: 13px;
           color: #aaaaaa; }
         .sidebar .widgetBox .widgetContent .accordion .accordion-content ul li a:hover {
-          color: #444444; }
+          color: $theme-color-light; }
           .sidebar .widgetBox .widgetContent .accordion .accordion-content ul li a:hover span {
-            color: #444444; }
+            color: $theme-color-light; }
       .sidebar .widgetBox .widgetContent .accordion .accordion-content ul li:last-of-type a {
         border-bottom: none; }
     .sidebar .widgetBox .widgetContent .video-box {
@@ -1633,7 +1633,7 @@ footer {
           font-size: 13px;
           font-weight: normal;
           margin-bottom: 15px;
-          color: #444444 !important; }
+          color: $theme-color-light !important; }
           .sidebar .widgetBox .widgetContent .video-box .video-box-content h6 a:hover {
             color: #222222; }
         .sidebar .widgetBox .widgetContent .video-box .video-box-content p span {
@@ -1712,7 +1712,7 @@ footer {
           font-size: 18px; }
       .sidebar .widgetBox .widgetContent .media-object .media-object-section .media-content h6 a {
         font-size: 13px;
-        color: #444444;
+        color: $theme-color-light;
         font-weight: normal; }
         .sidebar .widgetBox .widgetContent .media-object .media-object-section .media-content h6 a:hover {
           color: #222222; }
@@ -1867,7 +1867,7 @@ footer {
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px; }
         .sidebar .widgetBox .newsLetter input[type="submit"]:hover {
-          background: #444444; }
+          background: $theme-color-light; }
     .sidebar .widgetBox .category-heading {
       padding-bottom: 5px;
       margin-bottom: 20px;
@@ -2057,15 +2057,15 @@ footer {
   border-color: transparent #aaa transparent transparent; }
 
 .dark-off-menu {
-  background: #444444;
-  border-color: #444444; }
+  background: $theme-color-light;
+  border-color: $theme-color-light; }
   .dark-off-menu .off-menu li a {
     color: #aaaaaa;
     border-color: #6c6c6c; }
   .dark-off-menu .off-menu li .submenu li {
     background: #303030; }
     .dark-off-menu .off-menu li .submenu li a {
-      border-color: #444444; }
+      border-color: $theme-color-light; }
   .dark-off-menu .off-social {
     margin-bottom: 25px; }
     .dark-off-menu .off-social h6 {
@@ -2075,7 +2075,7 @@ footer {
     .dark-off-menu .top-button .menu li:first-of-type a:hover {
       background: #e96969; }
   .dark-off-menu .is-drilldown-submenu.is-active {
-    background: #444444; }
+    background: $theme-color-light; }
 
 /* ==========================================================================
 	12- open heading
@@ -2295,7 +2295,7 @@ footer {
         .SinglePostStats .media-object .author-img-sec p a {
           font-size: 12px;
           font-weight: 600;
-          color: #444444; }
+          color: $theme-color-light; }
     .SinglePostStats .media-object .author-des {
       width: 100%;
       border-bottom: 1px solid #ececec;
@@ -2304,7 +2304,7 @@ footer {
         float: left;
         display: inline; }
         .SinglePostStats .media-object .author-des .post-title h4 {
-          color: #444444;
+          color: $theme-color-light;
           font-weight: 600;
           margin-bottom: 15px;
           line-height: 18px; }
@@ -2569,7 +2569,7 @@ footer {
       color: #aaaaaa; }
       .main-comment .media-object .comment-desc .comment-title .name a {
         font-size: inherit;
-        color: #444444;
+        color: $theme-color-light;
         font-weight: bold; }
     .main-comment .media-object .comment-desc .comment-title .time {
       font-size: 12px;
@@ -2940,7 +2940,7 @@ footer {
           margin: 15px 0;
           line-height: 16px; }
           .profile-inner .profile-videos .profile-video .media-object .video-content h5 a {
-            color: #444444; }
+            color: $theme-color-light; }
             .profile-inner .profile-videos .profile-video .media-object .video-content h5 a:hover {
               color: #303030; }
         .profile-inner .profile-videos .profile-video .media-object .video-content p {
@@ -3286,10 +3286,10 @@ footer {
       .registration .middle-text p span {
         display: inline-block;
         margin: 0 23px;
-        color: #444444;
+        color: $theme-color-light;
         font-weight: bold; }
       .registration .middle-text p i.active {
-        color: #444444; }
+        color: $theme-color-light; }
   .registration .register-form h5 {
     font-weight: 600;
     margin-bottom: 30px; }
@@ -3345,12 +3345,12 @@ footer {
     .registration .user-contacts .contact-stats i {
       display: inline-block;
       font-size: 14px;
-      color: #444444;
+      color: $theme-color-light;
       margin-right: 10px; }
     .registration .user-contacts .contact-stats h6 {
       display: inline-block;
       font-size: 14px;
-      color: #444444;
+      color: $theme-color-light;
       margin-bottom: 20px;
       text-transform: capitalize; }
     .registration .user-contacts .contact-stats p {
@@ -3490,7 +3490,7 @@ article.page-content {
     .blog-post .blog-post-heading h3 {
       margin-bottom: 20px; }
       .blog-post .blog-post-heading h3 a {
-        color: #444444; }
+        color: $theme-color-light; }
         .blog-post .blog-post-heading h3 a:hover {
           color: #e96969; }
     .blog-post .blog-post-heading p {

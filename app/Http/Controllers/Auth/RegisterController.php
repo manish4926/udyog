@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth ;
 use App\User;
 use App\Role;
 use App\Directory;
+use App\companyverify;
 use App\CompanyDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -192,7 +193,7 @@ $check=1;
     */
 
     public function checkCompany(Request $request) {
-        $companyCount = Directory::where('cname' , $request->company_name)
+        $companyCount = companyverify::where('cname' , $request->company_name)
                         ->Where('ccode', $request->company_code)
                         ->count();
 
@@ -204,3 +205,4 @@ $check=1;
     }
 }
 
+    

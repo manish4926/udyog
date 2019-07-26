@@ -1,9 +1,4 @@
-$color-red: #ff516b;
-
-
-$theme-color: #303030;
-$theme-color-light: rgb(68, 68, 68);
-$theme-color-text-black-light: #8e8e8e;
+/* Variable Moved to App.scss */
 
 
 
@@ -15,12 +10,47 @@ $theme-color-text-black-light: #8e8e8e;
 #navBar .top-bar .menu-text {
 	padding: 0 !important;
 }
+#navBar .navBlack .topbar-light-dark .search-btn li.search i {
+	background: transparent;
+    border: none;
+    color: $dark-blue;
+}
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
+	border-color: transparent transparent transparent #fff;
+}
 .menu img {
     width: 90px;
 }
 
 .live-video {
 	width:100%;
+}
+
+.topBarBlack {
+  background: $dark-blue;
+  border-color: $dark-blue; }
+
+.topBarBlack .socialLinks a {
+	border: none;
+    background: transparent;
+    color: $theme-color-light;
+}
+
+.topBar .socialLinks a i {
+	color: $theme-color-light;
+}
+
+#navBar .top-bar li.active a i {
+	color: $dark-blue;
+}
+
+#navBar .navBlack .topbar-light-dark .menu > li:not(.menu-text) > a {
+	color: $dark-blue;
+}
+
+#navBar .navBlack .topbar-light-dark .dropdown.menu .submenu li a {
+	background: $dark-blue !important;
+    color: #fff;
 }
 
 .req-input input,select,h3
@@ -42,7 +72,7 @@ $theme-color-text-black-light: #8e8e8e;
 
 .google-language-box {
 	height: 27px;
-	background-color: $theme-color-light;
+	background-color: $theme-color;
 }
 
 .google-language-box #google_translate_element{
@@ -158,13 +188,13 @@ max-width: 200;
 
 .marquee-message {
 	/* background: #ddd; */
-	border-top:    0px solid #ddd;
-	border-right:  2px solid #ddd;
-	border-bottom: 0px solid #ddd;
-	border-left:   2px solid #ddd;
+	border-top:    0px solid #fff;
+	border-right:  2px solid #fff;
+	border-bottom: 0px solid #fff;
+	border-left:   2px solid #fff;
 	/* margin-top: 2px; */
 	display: block;
-	color:  #ddd;
+	color:  #fff;
 	font-weight: bold;
 	padding-top: 5px;
 }
@@ -417,6 +447,36 @@ body{
     margin-top: 150px;
 }
 
-.title-bar.title-bar-dark {
-	display: none;
+
+/* .video-side-list {
+	background: $theme-color-light;
+
+} */
+
+.video-side-list ul {
+	list-style-type: none;
 }
+
+	.video-side-list ul li a {
+		text-decoration: none;
+		background: $theme-color-light;
+		/* color: #8e8e8e; */
+		color: $dark-blue;
+		-webkit-transition: all 0.3s ease-in-out;
+  		transition: all 0.3s ease-in-out;
+	}
+
+	.video-side-list ul li:hover a {
+		background: #fff;
+		color: $color-red;
+	}
+
+	.sticky.topnav {
+		background: $theme-color-light !important;
+		border-bottom: solid 2px $dark-blue;
+	}
+
+	#verticalSlider {
+		background: #fff;
+		margin-top: 62px;
+	}
