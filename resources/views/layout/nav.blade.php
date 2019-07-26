@@ -145,7 +145,7 @@
                                             <li><a class="dropdown-item" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li> --}}
                                         </ul>
                                     </li>
-                                    <li><a href="{{ route('industrylist') }}"><i class="fa fa-industry"></i>Industries</a>
+                                    <li><a href="#"><i class="fa fa-industry"></i>Industries</a>
                                         <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
                                             <li><a class="dropdown-item">Industrty Related Authority/Ministry</a>
                                                 <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">

@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <div class="form-wrapper">
                             <label for="">Company name</label>
-                            <input type="text" class="form-control" name="companyname">
+                            <input type="text" class="form-control" name="cname">
                             @if ($errors->has('companyname'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('companyname') }}</strong>
@@ -26,47 +26,109 @@
                         </div>
                         <div class="form-wrapper">
                             <label for="">Director Name</label>
-                            <input type="text" class="form-control" name="directorname">
+                            <input type="text" class="form-control" name="cemp">
                             @if ($errors->has('directorname'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('directorname') }}</strong>
                                 </span>
                             @endif
                         </div>
+                        <div class="form-wrapper">
+                            <label for="">Industry type</label>
+                            <input type="text" class="form-control" name="industrytype">
+                            @if ($errors->has('industrytype'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('industrytype') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-wrapper">
+                            <label for="">Business type</label>
+                            <input type="text" class="form-control" name="businesstype">
+                            @if ($errors->has('businesstype'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('businesstype') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-wrapper">
+                            <label for="">Material</label>
+                            <input type="text" class="form-control" name="material">
+                            @if ($errors->has('material'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('material') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                     </div>
                     <div class="form-wrapper">
-                        <label for="">Company Email</labecompanyl>
+                        <label for="">Company Email</label>
                         <input type="text" class="form-control" name="companyemail">
                         @if ($errors->has('companyemail'))
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('companyemail') }}<company/strong>
+                                <strong>{{ $errors->first('companyemail') }}</strong>
                             </span>
                         @endif
                     </div>
 
                     <div class="form-wrapper">
-                        <label for="">Company address</labecompanyl>
-                        <input type="text" class="form-control" name="companyaddress">
-                        @if ($errors->has('companyaddress'))
+                        <label for="">Company address</label>
+                        <div class="form-wrapper">
+                        <label for="">Block</label>
+                        <input type="text" class="form-control" name="block">
+                        @if ($errors->has('block'))
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('companyaddress') }}<company/strong>
+                                <strong>{{ $errors->first('block') }}</strong>
                             </span>
                         @endif
                     </div>
+                    <div class="form-wrapper">
+                        <label for="">Sector</label>
+                        <input type="text" class="form-control" name="sector">
+                        @if ($errors->has('sector'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('sector') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Area</label>
+                        <input type="text" class="form-control" name="area">
+                        @if ($errors->has('area'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('area') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">State</label>
+                        <input type="text" class="form-control" name="state">
+                        @if ($errors->has('state'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('state') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                 </div>
+                    <div class="form-wrapper">
+                        <label for="">Phone number</label>
+                        <input type="text" class="form-control" name="phoneno">
+                        @if ($errors->has('phoneno'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('phoneno') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <!-- <div class="form-wrapper">
+                        <label for="">Upload Image</label>
+                        <input name="image" type="file" class="form-control" id="imageid" placeholder="choose file...." class="custom-file-input">
+                        @if ($errors->has('image'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('image') }}</strong>
+                            </span>
+                        @endif
+                    </div> -->
                     
-                    <div class="form-wrapper">
-                        <label for="">Password</label>
-                        <input type="password" class="form-control" name="password">
-                        @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-wrapper">
-                        <label for="">Confirm Password</label>
-                        <input type="password" class="form-control" name="password_confirmation">
-                    </div>
                     <div class="checkbox">
                         <label>
                             <input type="checkbox"> I accept the Terms of Use & Privacy Policy.
@@ -84,4 +146,3 @@
         
 
 @endsection
-

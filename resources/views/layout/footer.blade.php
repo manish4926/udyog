@@ -54,6 +54,7 @@
                 </div>
                 <div class="textwidget">
                     Company where prooducts are available and manufactured very easily.
+                    <a href="{{ route('clogin') }}">Register</a>
                 </div>
             </div>
         </div>
