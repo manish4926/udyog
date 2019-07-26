@@ -28,6 +28,7 @@
 
 </head>
 <body>
+<div id="app"></div>
 <div class="off-canvas-wrapper">
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
         <div class="google-language-box">

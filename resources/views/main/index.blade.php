@@ -1,16 +1,16 @@
 @extends('layout.master')
 @section('content')
-            <!-- verticle thumb slider -->
-            <section id="verticalSlider">
-                <div class="row">
-                    <div class="large-12 columns">
-                        <div class="thumb-slider">
-                            <div class="main-image">
-                                <div class="image 1">
-                                    
-                                    <video id="live-video" class="live-video" autoplay="" controls>
-                                        {{-- <source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4"> --}}
-                                        @if($live_videos)<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
+<!-- verticle thumb slider -->
+<section id="verticalSlider">
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="thumb-slider">
+                <div class="main-image">
+                    <div class="image 1">
+                        <video id="live-video" class="live-video" autoplay="autoplay" controls style="height:300px;">
+                            {{-- <source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4"> --}}
+                                {{-- @if($live_videos)<source id="mp4video" src="" type="video/mp4">@endif --}}
+                                    @if($live_videos) <source id="mp4video" src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
                                     </video>
                                 </div>
                             </div>
@@ -167,7 +167,7 @@
                                                 <div class="card">
                                                     <div class="row ">
                                                         <div class="col-md-4">
-                                                            <img src="https://cdn.shopify.com/s/files/1/0252/1347/products/IMG_3420.JPG?v=1486859233" class="card-img card-img-padding" alt="{{ ucfirst($list->cname) }}">
+                                                            <img src="https://picsum.photos/200/300" class="card-img card-img-padding" alt="{{ ucfirst($list->cname) }}">
                                                         </div>
                                                         <div class="col-md-8 px-3">
                                                             <div class="card-block card-info">
@@ -176,16 +176,16 @@
                                                                 <div class="card-desc">Approx 3 Lines of Text</div>
                                                                 <hr>
                                                                 <div class="col-md-12">
-                                                                <div class="row">
-                                                                <div class="col-md-6 no-padding">
-                                                                    <div><i class="fa fa-map-marker-alt red"></i><span class="card-head-span"> {{ $list->block}} {{ $list->sector }} {{ $list->area}} </span></div>
-                                                                    @if(!empty($list->email))<div><i class="fa fa-envelope blue" ></i><span> {{ $list->email }}</span></div>@endif
-                                                                    @if(!empty($list->phoneno))<div><i class="fa fa-phone green" ></i><span> {{ $list->phoneno }}</span></div>@endif
-                                                                </div>
-                                                                <div class="col-md-6 no-padding">
-                                                                    <a href="{{route('microwebsite', ['site'=> $list->slug ])}}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm"> Visit Site</a>
-                                                                </div>
-                                                                </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-6 no-padding">
+                                                                            <div><i class="fa fa-map-marker-alt red"></i><span class="card-head-span"> {{ $list->block}} {{ $list->sector }} {{ $list->area}} </span></div>
+                                                                            @if(!empty($list->email))<div><i class="fa fa-envelope blue" ></i><span> {{ $list->email }}</span></div>@endif
+                                                                            @if(!empty($list->phoneno))<div><i class="fa fa-phone green" ></i><span> {{ $list->phoneno }}</span></div>@endif
+                                                                        </div>
+                                                                        <div class="col-md-6 no-padding">
+                                                                            <a href="{{route('microwebsite', ['site'=> $list->slug ])}}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm"> Visit Site</a>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -612,21 +612,116 @@
             <!--News Feed-->
 
             
-@push('bottomscript')
-<script src="{{ asset('bower_components/foundation-sites/dist/foundation.js') }}"></script>
-<script src="{{ asset('js/jquery.showmore.src.js') }}" type="text/javascript"></script>
+            @push('bottomscript')
+            <script src="{{ asset('bower_components/foundation-sites/dist/foundation.js') }}"></script>
+            <script src="{{ asset('js/jquery.showmore.src.js') }}" type="text/javascript"></script>
 
-<script src="{{ asset('js/main.js') }}"></script>
+            <script src="{{ asset('js/main.js') }}"></script>
 
-<script src="{{ asset('layerslider/js/greensock.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('layerslider/js/greensock.js') }}" type="text/javascript"></script>
 
-<script src="{{ asset('layerslider/js/layerslider.transitions.js') }}" type="text/javascript"></script>
-<script src="{{ asset('layerslider/js/layerslider.kreaturamedia.jquery.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('js/inewsticker.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/jquery.kyco.easyshare.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('layerslider/js/layerslider.transitions.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('layerslider/js/layerslider.kreaturamedia.jquery.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+            <script src="{{ asset('js/inewsticker.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('js/jquery.kyco.easyshare.js') }}" type="text/javascript"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-@endpush
-@endsection
 
-            
+            {{-- <script>
+                var nextVideo = "{{ asset('video/upload/'.$live_videos->last()->filename)}}";
+                $("#live-video").load(nextVideo #live-video.src ); 
+            </script> --}}
+
+
+            <script type="text/javascript">
+
+               
+
+                function FetchData(filename) {
+
+                   /* $('#live-video').get(0).pause();
+                    $('#mp4video').attr('src', "video/upload/".filename);
+                    $('#live-video').get(0).load();
+                    $('#live-video').get(0).play();*/
+
+var videocontainer = document.getElementById('live-video');
+var videosource = document.getElementById('mp4video');
+
+ console.log('{{ asset("video/upload/")}}'+"/"+filename);
+
+    videocontainer.pause();
+    videosource.setAttribute('src','{{ asset("video/upload/")}}'+"/"+filename);
+     /*var d =  new Date();
+    var temp = '{{ $live_videos->starttime }}'.split(/[- :]/);
+    console.log(temp[4]);
+    var hour = d.getHours()-temp[3];
+    var min = d.getMinutes()-temp[4];
+    var sec = d.getSeconds()-temp[5];
+    document.getElementById('live-video').currentTime = hour*3600+min*60+sec;
+    console.log(hour*3600+min*60+sec);*/
+    videocontainer.load();
+    /*document.getElementById('live-video').currentTime =*/ 
+    //videocontainer.setAttribute('poster', newposter); //Changes video poster image
+    videocontainer.play();
+    
+
+
+
+                     /*$('#live-video')[0].pause();
+                     $('#live-video source').attr('src', "video/upload/".filename);
+                    $('#live-video')[0].load();
+                     $('#live-video')[0].play();*/
+
+                    console.log(filename);
+                }
+
+
+                    $(document).ready(function(){
+
+                        $('#live-video').on('ended',function(){
+                          console.log('Video has ended!');
+                          var endtime = '{{ $live_videos->endtime }}';
+
+                              $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+
+
+                            $.ajax({
+                                type    : 'POST',
+                                url     : '{{ route('getnextvideo') }}',
+                                data : {starttime: endtime },
+                                success: function(result){
+                                    console.log(result);
+                                    var video = $.parseJSON(result);
+                                    var filename = video.filename;
+                                    var duration = video.duration;
+                                    var endtime = video.endtime;
+
+                                    FetchData(filename);   
+                                }           
+                            });
+                        });
+
+                        var starttime = parseInt('{{ strtotime($live_videos->starttime) }}');
+                        if(starttime != 0) {
+                            var dt = new Date();
+                            var currenttime = Math.floor(dt.getTime()/1000);
+                            var difference = currenttime - starttime;
+                            document.getElementById('live-video').addEventListener('loadedmetadata', function() {
+                              this.currentTime = difference;
+                            }, false);
+                        }
+
+                    });
+
+
+
+            </script>
+
+        @endpush
+        @endsection
+

@@ -1,80 +1,81 @@
-@extends('admin.videos.master')
+@extends('layout.admin')
 @section('content')
-<div class="vue-section"  id="app">
-<div class='row'>
-	<div class="col-lg-12 margin-tb" style="margin-top: 20px">
-		<div class="pull-left">
-			<h2>Live Videos Scheduler </h2>
-		</div>
-		<div class="pull-right">
-			{{-- <a href="{{route('videos.create')}}" class="btn btn-success">Create New Videos Info</a> --}}
-		</div>
+
+<div class = 'container'>
+	<h1><center>Live Video Scheduler</h1>	
+	<div class = 'col-md-6'>
+		<h3>All Videos </h3>
+		<table class="table table-bordered table-dark">
+		  <thead style ="background-color:gray; color:white;" class="thead-dark">
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Title</th>
+		      <th scope="col">Duration</th>
+		      <th scope="col">Move to Live </th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		   @foreach($videos as $videos)
+		   	<tr>
+		   		<td>{{$videos->id}}</td>
+		   		<td>{{$videos->title}}</td>
+		   		<td>{{$videos->duration}}</td>
+		   		<td><button class="btn btn-success" onclick="move('{{$videos->id}}')"><i class="fa fa-check"></i></button></td>
+		   	</tr>
+          @endforeach      
+          </tbody>
+		</table>
+	</div>
+	<div class = 'col-md-6'>
+		<h3>Live Videos</h3>
+		<table class="table table-bordered table-dark">
+		  <thead style ="background-color:gray; color:white;" class="thead-dark">
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Title</th>
+		      <th scope="col">Start Time</th>
+		      <th scope="col">End Time</th>
+		      <th scope="col">Duration</th>
+		    </tr>
+		  </thead>
+		   <tbody>
+		   @foreach($livevideos as $livevideos)
+		   	<tr>
+		   		<td>{{$livevideos->id}}</td>
+		   		<td>{{$livevideos->name}}</td>
+		   		<td>{{$livevideos->starttime}}</td>
+		   		<td>{{$livevideos->endtime}}</td>
+		   		<td>{{$livevideos->duration}}</td>
+
+		   	</tr>
+          @endforeach      
+          </tbody>
+		 </table>
 	</div>
 </div>
 
-{{-- <div class="table-responsive">
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>No.</th>
-				<th>Name</th>
-				<th>Description</th>
-				<th>Order</th>
-				<th width="300px">Action</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach($videos as $video)
-			<tr>
-				<td>{{$video->id}}</td>
-				<td>{{$video->name}}</td>
-				<td>{{$video->description}}</td>
-				<td>{{$video->order}}</td>
-				<td>
-					<a href="{{route('videos.show', $video->id)}}" class="btn btn-info">Show</a>
-					<a href="{{route('videos.edit', $video->id)}}" class="btn btn-primary">Edit</a>
-					<form action="{{ route('videoinfo.delete', $video->id) }}" method="POST">
-	                                {{ csrf_field() }}
-	                                {!! method_field('delete') !!}
+@push('bottomscript')
+<script>
+function move(id) {
 
-	                                <button type="submit" class="btn btn-danger">Delete</button>
-	                </form>
-				</td>
-			</tr>
-			@endforeach
-		</tbody>
-	</table> --}}
-
-	<hr>
-	<br>
-
-	<table-draggable :videos="{{$videos}}" ></table-draggable>
-
-</div>
-</div>
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-	$(".delete-item").click(function(){
-		var id = $(this).data('id');
-		//alert(id);
-
-    $.ajax({
-        url: "{{route('deleteitem')}}",
-        type: "post",
-        data: { id : id },
-        success: function(data){
-            //$("#employees").html(data);
-            location.reload();
+  $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
         }
     });
-});
-</script> --}}
 
+
+	$.ajax({
+	    type    : 'POST',
+	    url     : '{{ route('moveToLive') }}',
+	    data : {id: id },
+	    success: function(result){
+	        console.log(result);
+	        location.reload();
+	        
+	    }           
+	});
+}
+</script>
+@endpush
 @endsection
