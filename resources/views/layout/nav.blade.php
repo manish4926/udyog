@@ -102,15 +102,15 @@
                                                     <li><a class="dropdown-item" href="#">TECHNICAL</a></li>
                                                     <li><a class="dropdown-item" href="#">OFFICE</a></li>
                                                     <li><a class="dropdown-item" href="#">SALES</a></li>
-                                                    <li><a class="dropdown-item" href="#">EXPORT/ IMPORT</a></li>
+                                                    <li><a class="dropdown-item" href="http://indiantradeportal.in/">EXPORT/ IMPORT</a></li>
                                                     <li><a class="dropdown-item" href="#">INSURANCE</a></li>
-                                                    <li><a class="dropdown-item" href="#">TAXATION</a></li>
-                                                    <li><a class="dropdown-item" href="#">LABOUR LAW</a></li>
-                                                    <li><a class="dropdown-item" href="#">CO. LAW</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.investindia.gov.in/taxation">TAXATION</a></li>
+                                                    <li><a class="dropdown-item" href="https://clc.gov.in/clc/labour-law">LABOUR LAW</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.mca.gov.in/">CO. LAW</a></li>
                                                     <li><a class="dropdown-item" href="#">REGISTRATIONS</a></li>
-                                                    <li><a class="dropdown-item" href="#">INTELECTUAL PROPERTY RIGHTS</a></li>
-                                                    <li><a class="dropdown-item" href="#">LABORITORIES</a></li>
-                                                    <li><a class="dropdown-item" href="#">SUBSIDIES</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.ipindia.nic.in/">INTELLECTUAL PROPERTY RIGHTS</a></li>
+                                                    <li><a class="dropdown-item" href="https://labdirectory.bis.gov.in/">LABORITORIES</a></li>
+                                                    <li><a class="dropdown-item" href="https://data.gov.in/keywords/subsidy">SUBSIDIES</a></li>
                                                 </ul>
                                             </li>
                                         
@@ -149,25 +149,25 @@
                                         <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
                                             <li><a class="dropdown-item">Industrty Related Authority/Ministry</a>
                                                 <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
-                                                    <li><a class="dropdown-item" href="#">MSME MIN</a></li>
-                                                    <li><a class="dropdown-item" href="#">LABOUR  MIN</a></li>
-                                                    <li><a class="dropdown-item" href="#">DSIIDC</a></li>
-                                                    <li><a class="dropdown-item" href="#}">MCD</a></li>
-                                                    <li><a class="dropdown-item" href="#">TPDDL</a></li>
-                                                    <li><a class="dropdown-item" href="#">DJB</a></li>
-                                                    <li><a class="dropdown-item" href="#">DPCC</a></li>
-                                                    <li><a class="dropdown-item" href="#">EPFO</a></li>
-                                                    <li><a class="dropdown-item" href="#">ESIC</a></li>
+                                                    <li><a class="dropdown-item" href="https://msme.gov.in/">MSME MIN</a></li>
+                                                    <li><a class="dropdown-item" href="https://labour.gov.in/">LABOUR  MIN</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.dsiidc.org/">DSIIDC</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.mcd.gov.in/">MCD</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.tatapower-ddl.com/">TPDDL</a></li>
+                                                    <li><a class="dropdown-item" href="http://djb.gov.in/DJBPortal/portals/DJBCustomer.portal">DJB</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.dpcc.delhigovt.nic.in/">DPCC</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.epfindia.gov.in/site_en/index.php">EPFO</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.esic.in/ESICInsurance1/ESICInsurancePortal/PortalLogin.aspx">ESIC</a></li>
                                                 </ul>
                                             </li>
                                             <li><a class="dropdown-item">Fin/Support</a>
                                                 <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
-                                                    <li><a class="dropdown-item" href="#">SIDBI</a></li>
-                                                    <li><a class="dropdown-item" href="#">NSIC</a></li>
-                                                    <li><a class="dropdown-item" href="#">STANDUP INDIA</a></li>
-                                                    <li><a class="dropdown-item" href="#">MUDRA</a></li>
-                                                    <li><a class="dropdown-item" href="#">BANK LOAN</a></li>
-                                                    <li><a class="dropdown-item" href="#">NBFC</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.sidbi.in/en">SIDBI</a></li>
+                                                    <li><a class="dropdown-item" href="http://www.nsic.co.in/">NSIC</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.standupmitra.in/">STANDUP INDIA</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.mudra.org.in/">MUDRA</a></li>
+                                                    <li><a class="dropdown-item" href="https://www.sbi.co.in/portal/web/interest-rates/loan-schemes">BANK LOAN</a></li>
+                                                    <li><a class="dropdown-item" href="https://rbi.org.in/Scripts/BS_NBFCList.aspx">NBFC</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -193,7 +193,7 @@
                                       </ul>
                                     </li>
 
- <li><a href="contact-us.html"><i class="fa fa-envelope"></i>contact</a></li>
+                                    <li><a href="contact-us.html"><i class="fa fa-envelope"></i>contact</a></li>
 
                                     <li class="has-submenu" data-dropdown-menu="example1">
                                         <a href="#"><i class="fa fa-archive"></i>Archive</a>

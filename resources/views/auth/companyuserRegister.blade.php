@@ -42,7 +42,10 @@
                         @endif
 					</div>
 					</div>
-					<button id="verifyCompany" type="button" >Verify</button>
+					<button id="verifyCompany" type="button" class="btn btn-primary">
+                                    {{ __('verify') }}
+                                </button>
+					
 					<div class="hidden-form">
 					<div class="form-group">						
 						
