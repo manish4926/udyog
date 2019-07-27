@@ -106,6 +106,7 @@ Route::group(['prefix' => 'company/panel'], function ()
     Route::get('/dashboard',['as'=>'dashboard','uses'=>'MicrowebController@dashboard']);
     Route::get('/companyedit',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
     Route::get('/materialedit',['as'=>'materialpanel','uses'=>'MicrowebController@materialPanel']);
+    Route::post('/materialedit/submit',['as'=>'materialpanelsubmit','uses'=>'MicrowebController@materialPanelSubmit']);
     Route::get('/ceopanel',['as'=>'ceopanel','uses'=>'MicrowebController@ceoPanel']); 
     Route::get('/aboutus',['as'=>'aboutuspanel','uses'=>'MicrowebController@aboutus']); 
     Route::get('/testimonialpanel',['as'=>'testimonialpanel','uses'=>'MicrowebController@testimonial']); 
