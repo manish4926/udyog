@@ -19,47 +19,54 @@ class DirectoryController extends Controller
         });
     }
 
-//***** for inputing new industry data through form ******//
+//***** for inputing new industry data for directory listing through form ******//
     public function create()
     {
         return view("directory.create"); 
     }
+
     public function store(Request $request)
     {
-        $validation= $request->validate( [
-            'name' => 'required|max:100|string',
-            'ename' => 'required|max:100|string',
-            'cno' => 'required|min:10|max:12|numeric',
-            'cemail' => 'required|max:50|email',
-            'businesstype' => 'required|max:20|string',
-            'industrytype'=>'required|max:20|String',
-            'block'=>'required|max:10|String',
-            'sector'=>'required|max:20|String',
-            'area'=>'required|max:20|String',
-            'state'=>'required|max:20|String'
-            /*'cuan' => 'required|max:12|min:12|alpha_num',
-            'crn' => 'required|max:8|min:8|alpha_num',
-            'cgin' => 'required|max:15|min:15|alpha_num'*/
-        ]);
-        // print_r($validation);
-        if($validation->true){}
-            $c_name = $request->input('name');
-        $c_emp = $request->input('cemp');
-        $c_no = $request->input('cno');
-        $c_email = $request->input('cemail');
-        $slug = seoUrl($request->input('name'));
-        $c_industry = $request->input('industrytype');
-        $c_business = $request->input('businesstype');
-        $c_block = $request->input('block');
-        $c_sector = $request->input('sector');
-        $c_area = $request->input('area');
-        $c_state = $request->input('state');
-        /*  $c_uan = $request->input('cuan');
-        $c_rn = $request->input('crn');
-        $c_gin = $request->input('cgin');*/
-        $data = array('cname'=>$c_name, 'slug' => $slug,'cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industryttype'=>$c_industry,'businesstype'=>$c_business);
-        DB::table('cdetails')->insert($data);
-        echo "Record inserted successfully.<br/>";
+        $countCOMPANY = Directory::where('cname',$request->cname)->count();
+
+        if($countCOMPANY==0){
+            $validation= $request->validate( [
+                'cname' => 'required|max:100|string',
+                'cemp' => 'required|max:100|string',         
+                'businesstype' => 'required|max:20|string',
+                'industrytype'=>'required|max:20|String',
+                'companyemail' => 'required|max:50|email',
+                'block'=>'required|max:10|String',
+                'sector'=>'required|max:20|String',
+                'area'=>'required|max:20|String',
+                'state'=>'required|max:20|String',
+                'phoneno' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+                'image' => 'required|mimes:jpeg,png,jpg'
+            ]);
+            
+                   
+            $c_name = $request->input('cname');
+            $c_emp = $request->input('cemp');
+            $c_no = $request->input('phoneno');
+            $c_email = $request->input('companyemail');
+            $slug = seoUrl($request->input('cname'));
+            $c_industry = $request->input('industrytype');
+            $c_business = $request->input('businesstype');
+            $c_block = $request->input('block');
+            $c_sector = $request->input('sector');
+            $c_area = $request->input('area');
+            $c_state = $request->input('state');
+            $path = $request->file('image')->store('microweb\images\team');
+           
+            $data = array('cname'=>$c_name, 'slug' => $slug,'cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industrytype'=>$c_industry,'businesstype'=>$c_business, 'image'=>$path);
+            DB::table('cdetails')->insert($data);
+            return view('home');
+        }
+        
+        else
+        {
+        return json_encode('company name already exist');
+        }
     }
 
     //******* For showing list of industries ********//

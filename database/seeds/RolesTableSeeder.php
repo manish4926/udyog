@@ -37,11 +37,6 @@ class RolesTableSeeder extends Seeder
             'description' => '',
             ]);
         	 
-             DB::table('roles')->insert(
             
-            [
-            'name' => 'Company',
-            'description' => '',
-            ]);
 }
 }

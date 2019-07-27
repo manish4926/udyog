@@ -15,7 +15,7 @@
 					
 					
 					
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}" id="registartion_form">
   
                         @csrf
 
@@ -42,7 +42,10 @@
                         @endif
 					</div>
 					</div>
-					<button id="verifyCompany" type="button" >Verify</button>
+					<button id="verifyCompany" type="button" class="btn btn-primary">
+                                    {{ __('verify') }}
+                                </button>
+					
 					<div class="hidden-form">
 					<div class="form-group">						
 						
@@ -153,6 +156,11 @@ $(document).ready(function() {
          }
 
 });
+
+	 $(document).ready(function(){  
+    $('#registartion_form').parsley();
+ 
+  });
 </script>
 
 
