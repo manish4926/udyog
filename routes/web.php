@@ -3,6 +3,8 @@
 /*Authentication Controller*/
 Auth::routes();
 
+Route::get('admin/videos/getcurrentvideo', 'LivevideoController@getcurrentvideo')->name('getcurrentvideo');
+
 //Route::post('/companyuserregister','Auth\RegisterController@CompanyuserValidate')->name('curegister');
 
 Route::get('/companylogin','Auth\RegisterController@companyregister')->name('clogin');
@@ -235,6 +237,11 @@ Route::get('/candidatesearch', ['as' => 'candidatesearch', 'uses' =>'JobControll
     Route::resource('admin/videos','LivevideoController');
     Route::delete('admin/deleteitem/{id}', 'LivevideoController@destroy')->name('videoinfo.delete');
     Route::post('admin/videos/updateall', 'LivevideoController@updateAll')->name('videoupdateall');
+    //Route::patch('admin/videos/liveVideos/{id}','LivevideoController@updateLive')->name('updateLiveVideo');
+    Route::post('admin/videos/updateAllLive', 'LivevideoController@updateAllLive')->name('videoupdatealllive');
+    Route::post('admin/videos/getnextvideo', 'LivevideoController@getNextVideo')->name('getnextvideo');
+// moving from all to live video
+    Route::any('admin/videos/liveVideos/{id?}','LivevideoController@moveToLive')->name('moveToLive');
 
 
 

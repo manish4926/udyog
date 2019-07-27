@@ -38,12 +38,10 @@ class VideoController extends Controller
 
 
             // ---------Uncomment Later----------
-            // $ffprobe = \FFMpeg\FFProbe::create();
-            // $durationVid = $ffprobe->format('video/upload/'.$filename)->get('duration');
+            $ffprobe = \FFMpeg\FFProbe::create();
+            $durationVid = $ffprobe->format('video/upload/'.$filename)->get('duration');
             // --------------------------------------
-
-
-            $durationVid = 300;
+            //$durationVid = 300;
     		$file = new Video;
 
             $file->name = $filename;
@@ -56,30 +54,12 @@ class VideoController extends Controller
             $file->tags = $request->tags;
             $file->slug = hash('crc32',time());
             $file->thumbnail = $thumbname;
+            $file->visible = 1;
             // ---------Uncomment Later----------
             // $file->thumbnail = $withoutExtFile.'.png';
              // --------------------------------------
 
-    		$file->save();
-
-            $file = new Live_Video;
-
-            if($request->visibility == 'Yes')
-            {
-
-                
-                $file->name = $request->title;
-                $file->filename = $filename;
-                $file->description = $request->description;
-                $counter = Live_Video::get()->count();
-                $counter++;
-                $file->order = $counter;
-                $file->id = $counter;
-                $file->save();
-            }            
-        
-
-
+    		$file->save();   
             // Thumbnail::getThumbnail(public_path('/video/upload/'.$filename),public_path('video/thumbs/') ,$withoutExtFile.'.png', $durationVid/2);
 
             // $ffprobe = \FFMpeg\FFProbe::create();
