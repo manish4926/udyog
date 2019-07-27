@@ -193,15 +193,25 @@ $check=1;
     */
 
     public function checkCompany(Request $request) {
+
+        $companydetail = CompanyDetail::Where('companycode', $request->company_code)
+                        ->count();
+                        if($companydetail==0)
+                        {
         $companyCount = companyverify::where('cname' , $request->company_name)
                         ->Where('ccode', $request->company_code)
                         ->count();
-
+                        $companydetail = CompanyDetail::Where('companycode', $request->company_code)
+                        ->count();
         if($companyCount == 1) {
             return json_encode('true');
         } else {
             return json_encode('false');
         }
+    }
+    else{
+        return json_encode('false');
+    }
     }
 }
 
