@@ -11,11 +11,8 @@
 		<link rel="stylesheet" href="Registerpage/css/style.css">
 		<div class="wrapper" style="background-image: url('Registerpage/images/bg-registration-form-2.jpg');">
 			<div class="inner">
-				<!--<form action="">-->
-					
-					
-					
-                <form method="POST" action="{{ route('register') }}" id="registartion_form">
+			
+                <form method="POST" action="{{ route('register') }}">
   
                         @csrf
 
@@ -42,23 +39,18 @@
                         @endif
 					</div>
 					</div>
-					<button id="verifyCompany" type="button" class="btn btn-primary">
-                                    {{ __('verify') }}
-                                </button>
-					
+					<button id="verifyCompany" type="button" >Verify</button>
 					<div class="hidden-form">
-					<div class="form-group">						
-						
-					
-						<div class="form-wrapper">
-							<label for="">First Name</label>
-							<input type="text" class="form-control" name="firstname">
-                            @if ($errors->has('firstname'))
+						<div class="form-group">						
+							<div class="form-wrapper">
+							 <label for="">First Name</label>
+							 <input type="text" class="form-control" name="firstname">
+                             @if ($errors->has('firstname'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('firstname') }}</strong>
                                 </span>
-                            @endif
-						</div>
+                             @endif
+						    </div>
 						<div class="form-wrapper">
 							<label for="">Last Name</label>
 							<input type="text" class="form-control" name="lastname">
@@ -69,7 +61,7 @@
                             @endif
 						</div>
 					</div>
-					<div class="form-wrapper">
+					 <div class="form-wrapper">
 						<label for="">Email</label>
 						<input type="text" class="form-control" name="email">
                         @if ($errors->has('email'))

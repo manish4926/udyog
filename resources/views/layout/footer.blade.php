@@ -180,7 +180,7 @@
     <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-double-up"></i></a>
 </footer><!-- footer -->
 
-{{-- <div id="footer-bottom">
+<!-- <div id="footer-bottom">
   <div class="logo text-center">
         <img src="{{ asset('images/footerlogo.png') }}" alt="footer logo">
     </div>
@@ -188,5 +188,5 @@
         <p>2016 © Betube video wordpress theme.</p>
     </div> 
 </div>
- --}}
+ -->
 

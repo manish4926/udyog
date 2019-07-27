@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Auth;
+use Carbon\Carbon;
 
 use App\Video;
 use App\Live_Video;
@@ -14,7 +15,6 @@ use App\job_opening;
 use App\Event;
 use App\Advertisement;
 use App\CompanyDetail;
-
 
 
 
@@ -35,9 +35,21 @@ class MainController extends Controller
 
     public function index() {
         
+        $currenttime = Carbon::now();
+        //dd($currenttime);
 
         $videos      = Video::limit(6)->get();
-        $live_videos = Live_Video::orderBy('order','desc')->first(); 
+        $live_videos = Live_Video::where('endtime','>=', $currenttime)->orderBy('starttime','asc')->first();
+        if(empty($live_videos)) {
+            $live_videos = Video::inRandomOrder()->first();
+            //$live_videos = Video::first();
+            $live_videos->filename = $live_videos->name;
+        }
+        //dd($live_videos);
+        //$live_videos = Live_Video::all();
+        //dd($live_videos->last());
+        //dd($live_videos[0]->getOriginal()); 
+
         $directory   = Directory::orderBy('c_id')->limit(3)->get();
         $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
         $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
@@ -51,7 +63,8 @@ class MainController extends Controller
         {
             $worldfeeds[$i]= $feed->channel->item[$i];
         }
-
+        
+//dd($live_videos);
         return view('main.index',compact('directory','videos','jobs','event', 'live_videos','worldfeeds','recommended'));
 
 
