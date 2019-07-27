@@ -15,10 +15,14 @@ class CreateLivevideosTable extends Migration
     {
         Schema::create('livevideos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigIncrements('video_id');
             $table->string('name');
             $table->string('filename');
             $table->text('description');
             $table->integer('order');
+            $table->decimal('duration',8,2);
+            $table->timestamp('starttime');
+            $table->timestamp('endtime');
             $table->timestamps();
         });
     }

@@ -59,9 +59,33 @@ class MicrowebController extends Controller
         $user = Auth::user();
 
         $companydetail = CompanyDetail::where('user_id',$user->id)->first();
+        $companyproucts = DB::table('companyproduct')->where('company_id',$companydetail->company_id)->get();
         
-        return view('company.materialedit',compact('companydetail'));
+        return view('company.materialedit',compact('companydetail','companyproucts'));
 
+    }
+
+
+    public function materialPanelSubmit(Request $request)
+    {
+        $user = Auth::user();
+        $companydetail = CompanyDetail::where('user_id',$user->id)->first();
+
+        $file = $request->file('image');
+        $destinationPath = 'products';
+        $filename = rand(10,100)."-".$file->getClientOriginalName();
+        // dd($filename);
+        $file->move($destinationPath,$filename);
+
+         $id = $request->input('id');
+        $company_id = $companydetail->company_id;
+        $product_name = $request->input('material');
+        $slug = seoUrl($request->input('name'));
+         $data = array('id'=>$id, 'company_id' => $company_id,'product_name'=>$product_name,'image'=>$filename,'slug'=>$slug);
+        DB::table('companyproduct')->insert($data);
+
+        return redirect()->back();
+        
     }
 
     public function ceoPanel(Request $request)
@@ -114,11 +138,11 @@ class MicrowebController extends Controller
         {
            $validation= $request->validate( [
             'cemp' => 'required|max:100|string',
-            'image' => 'required|file',]);
+            'image' => 'required|mimes:jpeg,png,jpg',]);
 
                 $c_emp = $request->input('cemp');
-
-                Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp]);
+                $path = $request->file('image')->store('microweb\images\team');
+                Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp , 'image'=>$path]);
         }
 
 // to update company's material

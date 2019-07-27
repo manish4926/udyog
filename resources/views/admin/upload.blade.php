@@ -50,14 +50,6 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Live Video Upload</label>
-                  <select class="form-control" name="visibility">
-                    <option>Yes</option>
-                    <option>No</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
                   <label for="videoFile">Video Upload</label>
                   <input type="file" name="videoFile">
                 </div>

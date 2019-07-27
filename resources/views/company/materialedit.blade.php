@@ -1,49 +1,116 @@
 @extends('layout.master')
 
 @section('content')
+<!-- <style type="text/css">
+	.hidden-form {
+		display: none;
+	}
+</style>		 -->
+
 <div class="row">
     @include('company.sidemenu')
 
     <div class="col-md-8">
         <div class="white-card">
-        <h2> {{ $companydetail->getDirectory()->material }} </h2>
-            <div class="col-md-4">
-            <form method="post" action="{{route('dashboard2')}}">
+        <h2> Enter Your Products </h2>
+            <!-- <div class="col-md-4"> -->
+            <form method="post" action="{{route('materialpanelsubmit')}}" enctype="multipart/form-data" id="material_form">
             @csrf
-            <input type="text" class="form-control" name="material" placeholder="Enter Edited Name">
+            <div class="form-group">
+              <input type="text" class="form-control" name="material" id="material" placeholder="Enter Edited Name">
             </div>
-            <div class="col-md-4">
-            <br>
-            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter">Submit</button>
+            <div class="form-group">
+              <input type="file" name="image" id="image" class="form-control">
             </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">MAKE CHANGE</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      Are you sure you want to do changes?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-          <!--  {{ $companydetail->getDirectory()->material }}
-            {{ $companydetail->getDirectory()->cemp }}   -->
-        </form>
+
+            <input type="submit" name="insert" id="insert" class="btn btn-primary" value="Upload" />
+            {{-- <input type="button" name="save" class="btn btn-primary" value="Save to database" id="butsave"/> --}}
+            </form>
+            
+            <!-- </div> -->
+        </div>
+        <hr>
+        <div class="white-card">
+        <h2> Product List </h2>
+            <table class="table table-bordered table-striped table-hover" id="table1">
+              <thead>
+                <th>S.No</th>
+                <th>Product Name</th>
+                <th>Product Image</th>
+                <th>Delete</th>
+              </thead>
+              <tbody>
+              @php $i = 0 @endphp
+              @foreach($companyproucts as $companyprouct)
+              <tr>
+                <td>{{ ++$i }}</td>
+                <td>{{ $companyprouct->product_name }}</td>
+                <td><img src="{{ asset('products/'.$companyprouct->image) }}" style="width: 100px;"></td>
+                <td><a href="javascript:void(0);" class="remCF">Remove</a></td>
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
         </div>
     </div>
 </div>
 
 @push('bottomscript')
+
+{{-- <script>
+$(document).ready(function() {
+    var id = 1;  
+    /* Assigning id and class for tr and td tags for separation. */
+
+    $("#insert").click(function() {
+        var newid = id++; 
+        $("#table1").append('<tr valign="top" id="'+newid+'">\n\
+            <td width="100px" >' + newid + '</td>\n\
+            <td width="100px" class="name'+newid+'">' + $("#material").val() + '</td>\n\
+            <td width="100px" class="age'+newid+'">' + $("#image").val() + '</td>\n\
+            <td width="100px"><a href="javascript:void(0);" class="remCF">Remove</a></td>\n\
+        </tr>');
+
+    });
+
+    var serializedData = $('#material_form').serialize();
+
+    $.ajax({
+        url: "MicrowebController.php",
+        type: "post",
+        data: serializedData
+    });
+
+    $("#table1").on('click', '.remCF', function() {
+        $(this).parent().parent().remove();
+    });
+
+   /* crating new click event for save button*/
+
+    $("#butsave").click(function() {
+        var lastRowId = $('#table1 tr:last').attr("id"); /* finds id of the last row inside table */
+
+
+        var material = new Array();  
+        var image = new Array();   
+        for ( var i = 1; i <= lastRowId; i++) {
+            material.push($("#"+i+" .material"+i).html());  /* pushing all the names listed in the table */
+            image.push($("#"+i+" .image"+i).html());   /* pushing all the ages listed in the table */
+        }
+        var sendMaterial = JSON.stringify(material);  
+        var sendImage = JSON.stringify(image);
+        $.ajax({
+            url: "MicrowebController.php",
+            type: "post",
+            data: {material : sendMaterial , image : sendImage},
+            success : function(data){
+                alert(data);    /* alerts the response from php. */
+                }
+        });
+        });
+});
+</script>
+ --}}
 @endpush
 @endsection
 

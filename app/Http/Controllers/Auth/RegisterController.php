@@ -95,7 +95,8 @@ class RegisterController extends Controller
             $companydetail->save();
             
             $user->roles()->attach(Role::where('name','Company')->first());
-            dd('dffdf');
+            // dd('dffdf');
+            companydetails();
         } 
 
         else {
@@ -121,6 +122,12 @@ class RegisterController extends Controller
     {
         return view('email.verifyEmailFirst');
     }
+
+    public function companydetails()
+    {
+        return view('directory.create');
+    }
+
 
     public function sendEmailDone($email,$verifyToken)
     {

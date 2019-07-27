@@ -4,69 +4,82 @@
         
         
         <!-- STYLE CSS -->
+        <script src="http://parsleyjs.org/dist/parsley.js"></script>
         <link rel="stylesheet" href="Registerpage/css/style.css">
+        <script src="http://parsleyjs.org/dist/parsley.js"></script>
 
 
         <div class="wrapper" style="background-image: url('Registerpage/images/bg-registration-form-2.jpg');">
             <div class="inner">
-                <!--<form action="">-->
-                <form method="POST" action="{{ route('store') }}">
+              
+                <form method="POST" action="{{ route('store') }}" id="validate_form" enctype="multipart/form-data">
                         @csrf
-
+                        
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
                 <h3>Company Registration</h3>
                     <div class="form-group">
                         <div class="form-wrapper">
                             <label for="">Company name</label>
-                            <input type="text" class="form-control" name="companyname">
-                            @if ($errors->has('companyname'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('companyname') }}</strong>
-                                </span>
-                            @endif
+                            <input type="text"  data-parsley-trigger="keyup" class="form-control" name="cname" required >
                         </div>
                         <div class="form-wrapper">
                             <label for="">Director Name</label>
-                            <input type="text" class="form-control" name="directorname">
-                            @if ($errors->has('directorname'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('directorname') }}</strong>
-                                </span>
-                            @endif
+                            <input type="text" class="form-control" name="cemp" data-parsley-trigger="keyup" data-parsley-required>
+                        </div>
+                        <div class="form-wrapper">
+                            <label for="">Industry type</label>
+                            <input type="text" class="form-control" name="industrytype" data-parsley-trigger="keyup" data-parsley-required>
+                        </div>
+                        <div class="form-wrapper">
+                            <label for="">Business type</label>
+                            <input type="text" class="form-control" name="businesstype" data-parsley-trigger="keyup" data-parsley-required>
+                        </div>
+                        <div class="form-wrapper">
+                            <label for="">Material</label>
+                            <input type="text" class="form-control" name="material" data-parsley-trigger="keyup" data-parsley-required>
                         </div>
                     </div>
                     <div class="form-wrapper">
-                        <label for="">Company Email</labecompanyl>
-                        <input type="text" class="form-control" name="companyemail">
-                        @if ($errors->has('companyemail'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('companyemail') }}<company/strong>
-                            </span>
-                        @endif
+                        <label for="">Company Email</label>
+                        <input type="email" class="form-control" name="companyemail" data-parsley-trigger="keyup" data-parsley-required>
                     </div>
 
                     <div class="form-wrapper">
-                        <label for="">Company address</labecompanyl>
-                        <input type="text" class="form-control" name="companyaddress">
-                        @if ($errors->has('companyaddress'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('companyaddress') }}<company/strong>
-                            </span>
-                        @endif
+                        <label for="">Company address</label>
+                        <div class="form-wrapper">
+                        <label for="">Block</label>
+                        <input type="text" class="form-control" name="block" validateString data-parsley-trigger="keyup" data-parsley-required>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Sector</label>
+                        <input type="text" class="form-control" name="sector" validateString data-parsley-trigger="keyup" data-parsley-required>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Area</label>
+                        <input type="text" class="form-control" name="area" validateString data-parsley-trigger="keyup" data-parsley-required>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">State</label>
+                        <input type="text" class="form-control" name="state" validateString data-parsley-trigger="keyup" data-parsley-required >
+                    </div>
+                 </div>
+                    <div class="form-wrapper">
+                        <label for="">Phone number</label>
+                        <input type="text" class="form-control" name="phoneno" data-parsley-pattern="\+?\d[\d -]{8,12}\d" data-parsley-required>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Upload Image</label>
+                        <input name="image" type="file" class="form-control" id="imageid" placeholder="choose file...." class="custom-file-input" data-parsley-trigger="keyup" data-parsley-required>
                     </div>
                     
-                    <div class="form-wrapper">
-                        <label for="">Password</label>
-                        <input type="password" class="form-control" name="password">
-                        @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-wrapper">
-                        <label for="">Confirm Password</label>
-                        <input type="password" class="form-control" name="password_confirmation">
-                    </div>
                     <div class="checkbox">
                         <label>
                             <input type="checkbox"> I accept the Terms of Use & Privacy Policy.
@@ -75,13 +88,18 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">
-                                    {{ __('Register Now') }}
+                    Submit
                                 </button>
                 
                 </form>
             </div>
         </div>
-        
+    
 
+    <script>
+            $(document).ready(function(){  
+    $('#validate_form').parsley();
+ 
+  });
+    </script>
 @endsection
-
