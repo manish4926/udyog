@@ -42,21 +42,11 @@
 					</div>
 					<button id="verifyCompany" type="button" >Verify</button>
 					<div class="hidden-form">
-<<<<<<< HEAD
-					<div class="form-group">						
-						
-					
-						<div class="form-wrapper">
-							<label for="">First Name</label>
-							<input type="text" class="form-control" name="firstname" required ">
-                            @if ($errors->has('firstname'))
-=======
 						<div class="form-group">						
 							<div class="form-wrapper">
 							 <label for="">First Name</label>
 							 <input type="text" class="form-control" name="firstname">
                              @if ($errors->has('firstname'))
->>>>>>> f89b1ad3d689c3d78d4c9c325742b65ee5d00e7b
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('firstname') }}</strong>
                                 </span>
