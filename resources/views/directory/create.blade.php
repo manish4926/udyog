@@ -4,6 +4,7 @@
         
         
         <!-- STYLE CSS -->
+        <script src="http://parsleyjs.org/dist/parsley.js"></script>
         <link rel="stylesheet" href="Registerpage/css/style.css">
         <script src="http://parsleyjs.org/dist/parsley.js"></script>
 

@@ -138,11 +138,11 @@ class MicrowebController extends Controller
         {
            $validation= $request->validate( [
             'cemp' => 'required|max:100|string',
-            'image' => 'required|file',]);
+            'image' => 'required|mimes:jpeg,png,jpg',]);
 
                 $c_emp = $request->input('cemp');
-
-                Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp]);
+                $path = $request->file('image')->store('microweb\images\team');
+                Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp , 'image'=>$path]);
         }
 
 // to update company's material

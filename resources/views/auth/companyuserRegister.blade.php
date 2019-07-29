@@ -5,7 +5,8 @@
 	.hidden-form {
 		display: none;
 	}
-</style>		
+</style>		<script src="http://parsleyjs.org/dist/parsley.js"></script>
+
 		
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="Registerpage/css/style.css">
@@ -21,7 +22,7 @@
 
 					<div class="form-wrapper">
 						<label for="">Company name</label>
-						<input type="text" class="form-control" name="company_name" id="company_name">
+						<input type="text" class="form-control" name="company_name" id="company_name" required>
                         @if ($errors->has('cname'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('cname') }}</strong>
@@ -41,11 +42,21 @@
 					</div>
 					<button id="verifyCompany" type="button" >Verify</button>
 					<div class="hidden-form">
+<<<<<<< HEAD
+					<div class="form-group">						
+						
+					
+						<div class="form-wrapper">
+							<label for="">First Name</label>
+							<input type="text" class="form-control" name="firstname" required ">
+                            @if ($errors->has('firstname'))
+=======
 						<div class="form-group">						
 							<div class="form-wrapper">
 							 <label for="">First Name</label>
 							 <input type="text" class="form-control" name="firstname">
                              @if ($errors->has('firstname'))
+>>>>>>> f89b1ad3d689c3d78d4c9c325742b65ee5d00e7b
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('firstname') }}</strong>
                                 </span>
@@ -53,7 +64,7 @@
 						    </div>
 						<div class="form-wrapper">
 							<label for="">Last Name</label>
-							<input type="text" class="form-control" name="lastname">
+							<input type="text" class="form-control" name="lastname" required>
                             @if ($errors->has('lastname'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('lastname') }}</strong>
@@ -63,16 +74,17 @@
 					</div>
 					 <div class="form-wrapper">
 						<label for="">Email</label>
-						<input type="text" class="form-control" name="email">
+						<input type="email" class="form-control" name="email" required>
                         @if ($errors->has('email'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('email') }}</strong>
                             </span>
                         @endif
-					</div>
 					<div class="form-wrapper">
+					</div>
 						<label for="">Password</label>
-						<input type="password" class="form-control" name="password">
+						<input type="password" class="form-control" name="password" required minlength="8"	HTML5
+data-parsley-minlength="8">
                         @if ($errors->has('password'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('password') }}</strong>
@@ -82,7 +94,8 @@
 				
 					<div class="form-wrapper">
 						<label for="">Confirm Password</label>
-						<input type="password" class="form-control" name="password_confirmation">
+						<input type="password" class="form-control" name="password_confirmation" required minlength="8"	HTML5
+data-parsley-minlength="8">
 					</div>
 					<div class="checkbox">
 						<label>
@@ -95,13 +108,21 @@
                                     {{ __('Register Now') }}
                                 </button>
 					</div>
+					
 				</form>
+				
 
 			</div>
+			
 		</div>
-		
+	
 @push('bottomscript')
 <script type="text/javascript">
+
+$(document).ready(function(){
+ $('form').parsley();
+});
+
 $(document).ready(function() {
 
 	$.ajaxSetup({
@@ -148,6 +169,11 @@ $(document).ready(function() {
          }
 
 });
+
+	 $(document).ready(function(){  
+    $('#registartion_form').parsley();
+ 
+  });
 </script>
 
 

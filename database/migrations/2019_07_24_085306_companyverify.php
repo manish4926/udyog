@@ -14,6 +14,7 @@ class Companyverify extends Migration
     public function up()
     {
         Schema::create('companyverify', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('ccode');
             $table->string('cname');
             
