@@ -90,23 +90,22 @@ class RegisterController extends Controller
         if(!empty($data['company_code'])) {
             
             $companydetail= new CompanyDetail;
-            $companydetail->userid      = $user->id;
+            $companydetail->user_id      = $user->id;
             $companydetail->companycode = $data['company_code'];
             $companydetail->save();
             
             $user->roles()->attach(Role::where('name','Company')->first());
-            // dd('dffdf');
-            companydetails();
-        } 
 
+        } 
         else {
             $user->roles()->attach(Role::where('name','General User')->first());    
         }
         
-
-        $thisUser = User::findOrFail($user->id);
+        //$thisUser = User::findOrFail($user->id);
+        return $user;
         
-        return redirect()->route('home');
+        
+        //return redirect()->route('home');
         //$thisUser = User::findOrFail($user->id);
 
         //return redirect()->route('home');
@@ -144,7 +143,7 @@ class RegisterController extends Controller
 
     public function companyregister()
     {
-    
+        
         return view("auth.companyuserRegister");
     }
 
@@ -203,22 +202,33 @@ $check=1;
 
         $companydetail = CompanyDetail::Where('companycode', $request->company_code)
                         ->count();
-                        if($companydetail==0)
-                        {
-        $companyCount = companyverify::where('cname' , $request->company_name)
-                        ->Where('ccode', $request->company_code)
-                        ->count();
-                        $companydetail = CompanyDetail::Where('companycode', $request->company_code)
-                        ->count();
-        if($companyCount == 1) {
-            return json_encode('true');
-        } else {
+        
+        if($companydetail==0) {
+            $companyCount = companyverify::where('cname' , $request->company_name)
+                            ->Where('ccode', $request->company_code)
+                            ->count();
+            
+            $companydetail = CompanyDetail::Where('companycode', $request->company_code)
+                            ->count();
+        
+            if($companyCount == 1) {
+                return json_encode('true');
+            } else {
+                return json_encode('false');
+            }
+        }
+        else{
             return json_encode('false');
         }
     }
-    else{
-        return json_encode('false');
-    }
+
+    public function redirectTo()
+    {
+        if (auth()->user()->hasRole('Company')) {
+            return route('directorycreate');
+        } else {
+            return '/home';
+        }
     }
 }
 

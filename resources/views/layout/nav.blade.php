@@ -1,3 +1,4 @@
+
 <header>
     <!-- Top -->
     <section id="top" class="topBar topBarBlack show-for-large">
@@ -37,7 +38,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="#" >User Profile</a>
                                 <a class="dropdown-item" href="{{route('application')}}">Edit Profile</a>
-                                <a class="dropdown-item" href="#">Edit Company Details</a>
+                                @if($user->hasRole('Company'))<a class="dropdown-item" href="{{ route('companydashboard') }}">Edit Company Details</a>@endif
                                 <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                             </div>
                         </li>

@@ -8,7 +8,7 @@ section {
 }
 
 </style> --}}
-<section>
+<section class="main-section">
 <div class="row">
     @include('company.sidemenu')      
 </div>

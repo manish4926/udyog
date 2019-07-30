@@ -104,12 +104,12 @@ jQuery(document).ready(function(jQuery){
 
 });
 </script>
-@stack('bottomscript')
+
 
 {{-- <script src="bower_components/jquery/dist/jquery.js"></script> --}}
 
 {{-- <script src="bower_components/what-input/what-input.js"></script> --}}
-{{-- <script src="{{ asset('bower_components/foundation-sites/dist/foundation.js') }}"></script>
+<script src="{{ asset('bower_components/foundation-sites/dist/foundation.js') }}"></script>
 <script src="{{ asset('js/jquery.showmore.src.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 
@@ -121,7 +121,9 @@ jQuery(document).ready(function(jQuery){
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/inewsticker.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.kyco.easyshare.js') }}" type="text/javascript"></script>
- --}}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+@stack('bottomscript')
+<script src="http://parsleyjs.org/dist/parsley.js"></script>
 </body>
 </html>
