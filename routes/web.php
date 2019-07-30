@@ -113,6 +113,7 @@ Route::group(['prefix' => 'company/panel'], function ()
     Route::get('/aboutus',['as'=>'aboutuspanel','uses'=>'MicrowebController@aboutus']); 
     Route::get('/testimonialpanel',['as'=>'testimonialpanel','uses'=>'MicrowebController@testimonial']); 
     Route::post('/dashboard',['as'=>'dashboard2','uses'=>'MicrowebController@makechanges']);
+    Route::get('/delete/{id}',['as'=>'delete','uses'=>'MicrowebController@deletion']); 
 });
 
 

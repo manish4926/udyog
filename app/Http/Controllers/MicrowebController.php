@@ -31,7 +31,7 @@ class MicrowebController extends Controller
 
         if(!empty($request->slug))
         {
-            $companydetail = MicrowebCompanyDetails::where('slug',$request->slug)->first();
+            $companydetail = Directory::where('slug',$request->slug)->first();
             $companyproduct = MicrowebCompanyProduct::where('slug',$request->slug)->first();
             $testimonials = MicrowebTestimonial::where('slug',$request->slug)->first(); 
         }
@@ -80,7 +80,7 @@ class MicrowebController extends Controller
          $id = $request->input('id');
         $company_id = $companydetail->company_id;
         $product_name = $request->input('material');
-        $slug = seoUrl($request->input('name'));
+        $slug = $companydetail->slug;
          $data = array('id'=>$id, 'company_id' => $company_id,'product_name'=>$product_name,'image'=>$filename,'slug'=>$slug);
         DB::table('companyproduct')->insert($data);
 
@@ -146,15 +146,15 @@ class MicrowebController extends Controller
         }
 
 // to update company's material
-         if(!empty($request->material))
-        {
-            $validation= $request->validate( [
-            'material' => 'required|max:100|string']);
+        //  if(!empty($request->material))
+        // {
+        //     $validation= $request->validate( [
+        //     'material' => 'required|max:100|string']);
 
-                $c_material = $request->input('material');
+        //         $c_material = $request->input('material');
 
-        Directory::where('c_id',$companydetail->company_id)->update(['material'=> $c_material]);
-        }
+        // Directory::where('c_id',$companydetail->company_id)->update(['material'=> $c_material]);
+        // }
 
 
         // to update company's testimonial  
@@ -169,6 +169,12 @@ class MicrowebController extends Controller
         }
         
                // dd($companydetail->company_id);
-               return view('company.dashboard'); 
+               return  redirect('company/panel/dashboard')->with('status', 'Successfully updated!');; 
     }
+
+    public function deletion($id) {
+       
+            DB::table("companyproduct")->delete($id);
+            return  redirect('company/panel/materialedit')->with('status', 'Product Deleted!');
+        }
 }

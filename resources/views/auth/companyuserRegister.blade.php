@@ -46,7 +46,7 @@
 
 					<div class="form-wrapper">
 						<label for="">First Name</label>
-						<input type="text" class="form-control" name="firstname" required ">
+						<input type="text" class="form-control" name="firstname" required >
 						@if ($errors->has('firstname'))
 
 						<span class="invalid-feedback" role="alert">
