@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Companydetails extends Migration
+class CreateAdvertisementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class Companydetails extends Migration
      */
     public function up()
     {
-        Schema::create('companydetails', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('userid');
-            $table->integer('companycode');
-            $table->timestamps();
-            
-            
-        });
+        Schema::create('advertisements', function (Blueprint $table) {
+         $table->increments('id');
+         $table->string('ad_middle');
+         $table->string('ad_right');
+         $table->string('ad_bottom');
+         $table->timestamps();
+     });
     }
 
     /**
@@ -30,6 +29,6 @@ class Companydetails extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companydetails');
+        Schema::dropIfExists('advertisements');
     }
 }

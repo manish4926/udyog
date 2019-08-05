@@ -634,7 +634,7 @@
 
             
             @push('bottomscript')
-            <script src="{{ asset('bower_components/foundation-sites/dist/foundation.js') }}"></script>
+            {{-- <script src="{{ asset('bower_components/foundation-sites/dist/foundation.js') }}"></script>
             <script src="{{ asset('js/jquery.showmore.src.js') }}" type="text/javascript"></script>
 
             <script src="{{ asset('js/main.js') }}"></script>
@@ -646,7 +646,7 @@
             <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
             <script src="{{ asset('js/inewsticker.js') }}" type="text/javascript"></script>
             <script src="{{ asset('js/jquery.kyco.easyshare.js') }}" type="text/javascript"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
 
 
             {{-- <script>

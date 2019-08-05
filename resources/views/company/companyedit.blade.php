@@ -6,7 +6,7 @@
 
     <div class="col-md-8">
         <div class="white-card">
-        <h2> {{ $companydetail->getDirectory()->cname }} </h2>
+        <h2> {{ $companydetail->cname }} </h2>
             <div class="col-md-4">
             <form method="post" action="{{route('dashboard2')}}">
             @csrf

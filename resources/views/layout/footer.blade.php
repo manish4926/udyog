@@ -1,4 +1,4 @@
-
+ 
 
    
 <!--    <footer id="myFooter">
@@ -50,11 +50,11 @@
         <div class="large-3 medium-6 columns">
             <div class="widgetBox">
                 <div class="widgetTitle">
-                    <h4>About Bawana Chamber</h4>
+                    <h5>About Bawana Chamber</h5>
                 </div>
                 <div class="textwidget">
                     Company where prooducts are available and manufactured very easily.
-                    <button type="submit" class="btn btn-light">
+                    
                     <a href="{{ route('clogin') }}">Register</a>
                                 </button>  
                 </div>
@@ -63,7 +63,7 @@
         <div class="large-3 medium-6 columns">
             <div class="widgetBox">
                 <div class="widgetTitle">
-                    <h4>Recent Videos</h4>
+                    <h5>Recent Videos</h5>
                 </div>
                 <div class="widgetContent">
                     <div class="media-object">
@@ -121,7 +121,7 @@
         </div>
     
        <div class="large-3 medium-6 columns">
-          <!--   <div class="widgetBox">
+            <div class="widgetBox">
                 <div class="widgetTitle">
                     <h5>Tags</h5>
                 </div>
@@ -138,12 +138,12 @@
                     <a href="#">Music</a>
                     <a href="#">Recreation</a>
                 </div>
-            </div>  -->
+            </div> 
         </div>  
         <div class="large-3 medium-6 columns">
             <div class="widgetBox">
                 <div class="widgetTitle">
-                    <h4>Subscribe Now</h4>
+                    <h5>Subscribe Now</h5>
                 </div>
                 <div class="widgetContent">
                     <form data-abide novalidate method="post">
@@ -164,13 +164,13 @@
                     </form>
                     <div class="social-links">
                         <h5>We’re a Social Bunch</h5>
-                        <a class="secondary-button" href="#"><i class="fa fa-facebook"></i></a>
-                        <a class="secondary-button" href="#"><i class="fa fa-twitter"></i></a>
-                        <a class="secondary-button" href="#"><i class="fa fa-google-plus"></i></a>
-                        <a class="secondary-button" href="#"><i class="fa fa-instagram"></i></a>
-               <!--         <a class="secondary-button" href="#"><i class="fa fa-vimeo"></i></a>  -->
-                        <a class="secondary-button" href="#"><i class="fa fa-youtube"></i></a>
-                     <!--   <a class="secondary-button" href="#"><i class="fa fa-flickr"></i></a>  -->
+                        <a class="secondary-button" href="#"><i class="fab fa-facebook"></i></a>
+                        <a class="secondary-button" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="secondary-button" href="#"><i class="fab fa-google-plus"></i></a>
+                        <a class="secondary-button" href="#"><i class="fab fa-instagram"></i></a>
+               <!--         <a class="secondary-button" href="#"><i class="fab fa-vimeo"></i></a>  -->
+                        <a class="secondary-button" href="#"><i class="fab fa-youtube"></i></a>
+                     <!--   <a class="secondary-button" href="#"><i class="fab fa-flickr"></i></a>  -->
 
                     </div>
                 </div>

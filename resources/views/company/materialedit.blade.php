@@ -30,7 +30,13 @@
             <!-- </div> -->
         </div>
         <hr>
+
         <div class="white-card">
+        @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
         <h2> Product List </h2>
             <table class="table table-bordered table-striped table-hover" id="table1">
               <thead>
@@ -46,7 +52,7 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $companyprouct->product_name }}</td>
                 <td><img src="{{ asset('products/'.$companyprouct->image) }}" style="width: 100px;"></td>
-                <td><a href="javascript:void(0);" class="remCF">Remove</a></td>
+                <td><a href="{{route('delete', ['id'=> $companyprouct->id ])}}" class="remCF">Remove</a></td>
               </tr>
               @endforeach
               </tbody>
@@ -68,7 +74,7 @@ $(document).ready(function() {
             <td width="100px" >' + newid + '</td>\n\
             <td width="100px" class="name'+newid+'">' + $("#material").val() + '</td>\n\
             <td width="100px" class="age'+newid+'">' + $("#image").val() + '</td>\n\
-            <td width="100px"><a href="javascript:void(0);" class="remCF">Remove</a></td>\n\
+            <td width="100px"><a href="{{route('delete', ['id'=> $companyprouct->id ])}}" class="remCF">Remove</a></td>\n\
         </tr>');
 
     });
@@ -81,9 +87,9 @@ $(document).ready(function() {
         data: serializedData
     });
 
-    $("#table1").on('click', '.remCF', function() {
-        $(this).parent().parent().remove();
-    });
+    // $("#table1").on('click', '.remCF', function() {
+    //     $(this).parent().parent().remove();
+    // });
 
    /* crating new click event for save button*/
 

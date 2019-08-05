@@ -22,11 +22,17 @@ class DirectoryController extends Controller
 //***** for inputing new industry data for directory listing through form ******//
     public function create()
     {
-        return view("directory.create"); 
+        $industry_type  = industry_type();
+        $business_type = business_type();
+        return view("directory.create", compact('industry_type','business_type')); 
     }
 
     public function store(Request $request)
     {
+        $user = Auth::user();
+        
+        //$companydetail = Directory::where('user_id',$user->id)->first();
+
         $countCOMPANY = Directory::where('cname',$request->cname)->count();
 
         if($countCOMPANY==0){
@@ -52,15 +58,18 @@ class DirectoryController extends Controller
             $slug = seoUrl($request->input('cname'));
             $c_industry = $request->input('industrytype');
             $c_business = $request->input('businesstype');
+            $c_about = $request->input('about');
             $c_block = $request->input('block');
             $c_sector = $request->input('sector');
             $c_area = $request->input('area');
             $c_state = $request->input('state');
             $path = $request->file('image')->store('microweb\images\team');
+
            
-            $data = array('cname'=>$c_name, 'slug' => $slug,'cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industrytype'=>$c_industry,'businesstype'=>$c_business, 'image'=>$path);
-            DB::table('cdetails')->insert($data);
-            return view('home');
+            $data = array('cname'=>$c_name, 'slug' => $slug,'cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industrytype'=>$c_industry,'businesstype'=>$c_business,'about'=>$c_about, 'image'=>$path);
+            Directory::where('user_id',$user->id)->update($data);
+          //  DB::table('cdetails')->insert($data);
+            return view('company.dashboard');
         }
         
         else
@@ -83,6 +92,11 @@ class DirectoryController extends Controller
         if(!empty($request->industry_types))
         {
             $search = $search->orwhere('industrytype', $request->industry_types);
+        }
+
+        if(!empty($request->about))
+        {
+            $search = $search->orwhere('about', $request->about);
         }
 
         if(!empty($request->block))

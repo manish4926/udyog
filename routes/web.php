@@ -50,7 +50,7 @@ Route::get('/latestjobs', ['as' => 'latestjobs', 'uses' =>'MainController@mainal
 /*Directory Listing*/
 Route::group(['prefix' => 'directory'], function ()
 {
-    Route::get('/details',['as'=>'create','uses'=>'DirectoryController@create']);
+    Route::get('/details',['as'=>'directorycreate','uses'=>'DirectoryController@create']);
     Route::post('/store',['as'=>'store','uses'=>'DirectoryController@store']);
 
     Route::get('/industrylist/{tag?}',['as'=>'industrylist', 'uses'=>'DirectoryController@index']);
@@ -105,7 +105,7 @@ Route::group(['prefix' => 'company/panel'], function ()
 /*Company Admin */
 Route::group(['prefix' => 'company/panel'], function ()
 {
-    Route::get('/dashboard',['as'=>'dashboard','uses'=>'MicrowebController@dashboard']);
+    Route::get('/dashboard',['as'=>'companydashboard','uses'=>'MicrowebController@dashboard']);
     Route::get('/companyedit',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
     Route::get('/materialedit',['as'=>'materialpanel','uses'=>'MicrowebController@materialPanel']);
     Route::post('/materialedit/submit',['as'=>'materialpanelsubmit','uses'=>'MicrowebController@materialPanelSubmit']);
@@ -113,6 +113,7 @@ Route::group(['prefix' => 'company/panel'], function ()
     Route::get('/aboutus',['as'=>'aboutuspanel','uses'=>'MicrowebController@aboutus']); 
     Route::get('/testimonialpanel',['as'=>'testimonialpanel','uses'=>'MicrowebController@testimonial']); 
     Route::post('/dashboard',['as'=>'dashboard2','uses'=>'MicrowebController@makechanges']);
+    Route::get('/delete/{id}',['as'=>'delete','uses'=>'MicrowebController@deletion']); 
 });
 
 
