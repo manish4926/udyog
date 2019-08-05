@@ -89,9 +89,9 @@ class RegisterController extends Controller
 
         if(!empty($data['company_code'])) {
             
-            $companydetail= new CompanyDetail;
-            $companydetail->user_id      = $user->id;
-            $companydetail->companycode = $data['company_code'];
+            $companydetail = new Directory;
+            $companydetail->user_id = $user->id;
+            $companydetail->ccode = $data['company_code'];
             $companydetail->save();
             
             $user->roles()->attach(Role::where('name','Company')->first());

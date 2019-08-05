@@ -36,11 +36,21 @@
                         </div>
                         <div class="form-wrapper">
                             <label for="">Industry type</label>
-                            <input type="text" class="form-control" name="industrytype" data-parsley-trigger="keyup" data-parsley-required>
+                                <select class="form-control" name="industrytype" data-parsley-trigger="keyup" data-parsley-required>
+						    <option value="">Select</option>
+				            @foreach($industry_type as $s)
+						    <option value="{{ $s }}">{{ $s }}</option>
+						    @endforeach 
+				                </select>
                         </div>
                         <div class="form-wrapper">
                             <label for="">Business type</label>
-                            <input type="text" class="form-control" name="businesstype" data-parsley-trigger="keyup" data-parsley-required>
+                             <select class="form-control"  name="businesstype" data-parsley-trigger="keyup" data-parsley-required>
+						    <option value="">Select</option>
+				            @foreach($business_type as $s)
+						    <option value="{{ $s }}">{{ $s }}</option>
+						    @endforeach
+				                </select>
                         </div>
                         <div class="form-wrapper">
                             <label for="">Material</label>

@@ -49,7 +49,7 @@ class MicrowebController extends Controller
     {
         $user = Auth::user();
         
-        $companydetail = CompanyDetail::where('user_id',$user->id)->first();
+        $companydetail = Directory::where('user_id',$user->id)->first();
         
         return view('company.companyedit',compact('companydetail'));
     } 
@@ -58,7 +58,7 @@ class MicrowebController extends Controller
     {
         $user = Auth::user();
 
-        $companydetail = CompanyDetail::where('user_id',$user->id)->first();
+        $companydetail = Directory::where('user_id',$user->id)->first();
         $companyproucts = DB::table('companyproduct')->where('company_id',$companydetail->company_id)->get();
         
         return view('company.materialedit',compact('companydetail','companyproucts'));
@@ -69,7 +69,7 @@ class MicrowebController extends Controller
     public function materialPanelSubmit(Request $request)
     {
         $user = Auth::user();
-        $companydetail = CompanyDetail::where('user_id',$user->id)->first();
+        $companydetail = Directory::where('user_id',$user->id)->first();
 
         $file = $request->file('image');
         $destinationPath = 'products';
@@ -92,7 +92,7 @@ class MicrowebController extends Controller
     {
         $user = Auth::user();
 
-        $companydetail = CompanyDetail::where('user_id',$user->id)->first();
+        $companydetail = Directory::where('user_id',$user->id)->first();
 
         return view('company.ceopanel',compact('companydetail'));
     }    
@@ -101,7 +101,7 @@ class MicrowebController extends Controller
     {
         $user = Auth::user();
 
-        $companydetail = CompanyDetail::where('user_id',$user->id)->first();
+        $companydetail = Directory::where('user_id',$user->id)->first();
 
         return view('company.aboutus',compact('companydetail'));
     }
@@ -110,7 +110,7 @@ class MicrowebController extends Controller
     {
         $user = Auth::user();
 
-        $companydetail = CompanyDetail::where('user_id',$user->id)->first();
+        $companydetail = Directory::where('user_id',$user->id)->first();
 
         return view('company.testimonialpanel',compact('companydetail'));
     }
@@ -119,7 +119,7 @@ class MicrowebController extends Controller
     {
         $user = Auth::user();
 
-        $companydetail = CompanyDetail::where('user_id',$user->id)->first();
+        $companydetail = Directory::where('user_id',$user->id)->first();
 
 // to update company's name       
         if(!empty($request->cname))

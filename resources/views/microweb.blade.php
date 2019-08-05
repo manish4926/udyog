@@ -57,7 +57,7 @@
             -->
             <header class="theme-main-header">
                 <div class="container">
-                    <a href="index.html" class="logo float-left tran4s"><img src="https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/072011/untitled-1_114.png?itok=HxFV7s-N"height="50" width="60" alt="Logo"></a>
+                    <a href="#home" class="logo float-left tran4s"><img src="https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/072011/untitled-1_114.png?itok=HxFV7s-N"height="50" width="60" alt="Logo"></a>
                     
                     <!-- ========================= Theme Feature Page Menu ======================= -->
                     <nav class="navbar float-right theme-main-menu one-page-menu">

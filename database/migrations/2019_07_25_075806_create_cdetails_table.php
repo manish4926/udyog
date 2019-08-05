@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Cdetails extends Migration
+class CreateCdetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,12 @@ class Cdetails extends Migration
     {
         Schema::create('cdetails', function (Blueprint $table) {
             $table->increments('c_id');
+            $table->integer('ccode');
             $table->string('cname');
             $table->string('slug')->unique();
             $table->string('cemp');
             $table->string('material');
+            $table->string('about');
             $table->string('block');
             $table->string('sector');
             $table->string('area');
@@ -28,7 +30,8 @@ class Cdetails extends Migration
             $table->string('industrytype');
             $table->string('businesstype');
             $table->string('image');
-            $table->string('updated_at');
+            $table->timestamps();
+            
         });
     }
 
