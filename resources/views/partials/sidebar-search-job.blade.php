@@ -2,7 +2,7 @@
   <form method="post" action="{{ route('searchjob') }}"> {{ csrf_field() }}
     <div>
         <div class="form-title">
-          <span>Search JOBS</span>
+          <h3>Search Jobs</h3>
         </div>
       <div>
           <span>
@@ -87,7 +87,7 @@
           </span>
         </div>
         <div>
-          <button type="submit" class="btn btn-block submit-form">Submit</button>
+          <button type="submit" class="btn btn-block btn-info submit-form" align="center">Submit</button>
         </div>
       </div>
     </div>

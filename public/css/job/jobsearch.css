@@ -311,10 +311,10 @@
 }
 
 .form-container select,option, input[type=text], .form-container input[type=password], .form-container input[type=email],input[type=tel], form-container select{
-  width:calc(100% - 50px);
+  width:100%;
   border-radius:0px;
-  border:0px solid #ddd;
-  padding:0px 9px;
+  border:1px solid  #cacaca;
+ /* padding:0px 9px;*/
   height:40px;
   line-height:40px;
   color:#777;
