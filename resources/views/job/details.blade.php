@@ -86,8 +86,8 @@
           </div>
     </div>
 @endsection
-@section('right-content')
+<!-- @section('right-content')
 @include('partials.sidebar-search-job')
-@endsection
+@endsection -->
 
 @endsection

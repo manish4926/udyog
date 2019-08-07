@@ -6,11 +6,11 @@
 
     <div class="col-md-8">
         <div class="white-card">
-        <h2> {{ $companydetail->abt }} </h2>
+        <h2> {{ $companydetail->about }} </h2>
             <div class="col-md-4">
             <form method="post" action="{{route('dashboard2')}}">
             @csrf
-            <input type="text" class="form-control" name="cname" placeholder="Enter data">
+            <input type="text" class="form-control" name="cname" placeholder="Enter dataP">
             </div>
             <div class="col-md-4">
             <br>
