@@ -64,9 +64,9 @@
       </table>
 	 </div>
 	 {{ $search->links() }}
-	 <div>
+{{-- 	 <div>
 			<a class="btn btn-success" href="{{ route('create') }}">New Entry</a>
-	 </div>
+	 </div> --}}
     </div>    
    </div>
   

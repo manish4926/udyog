@@ -20,11 +20,11 @@
 				<legend>Personal Details:</legend>
 				<label>First Name :</label>{{$user->firstname}}<br>
 				<label>Last Name :</label>{{$user->lastname}}<br>
-				<label>E-mail :</label>{{$user->email}}
+				<label>E-mail :</label>{{$user->email}}<br>
 			</fieldset>
 
 			<label>Mobile :  </label><input type="Mobile" name="mobile_no" placeholder="Enter mobile no" /><br>
-			<label>City :  </label><input type="text" name="city" placeholder="Enter City" /><br>
+			<label>City :  </label><input type="text" name="city" placeholder="Enter City" />
 			<label>State :  </label>                          
 			<select name="state">
 				<option value="">State</option>
@@ -69,16 +69,17 @@
 			<br><label>Date of Birth</label>
 			<input type="date" name="dob" format="dd-mm-yyyy">
 
-			<br><label>Gender :</label>
+			<label>Gender :</label>
 			<input type="radio" name="gender" value="male"> Male
 			<input type="radio" name="gender" value="female"> Female
 			<input type="radio" name="gender" value="other"> Other
-
+<br>
+		<label>Skills :  </label><input type="text" name="skills" placeholder="Enter your skills" /><br>
 		</div>
-		<div class="form-group">
+	{{-- 	<div class="form-group">
 
-			<label>Skills :  </label><input type="text" name="skills" placeholder="Enter your skills" /><br>
-		</div>
+			
+		</div> --}}
 		<div class="form-group">
 			<fieldset>
 				<legend>Work Experience:</legend>
@@ -109,7 +110,7 @@
 						}
 					</script>
 				</select>
-				<select name="salThousand" id="salary" style="width:125px;">
+				<select name="salThousand" id="salary">
 					<option value="">Thousands</option>
 					<script type="text/javascript">
 						for (var i = 0; i < 100; i++) {
@@ -117,18 +118,19 @@
 						}
 					</script>
 				</select>
+
 			</fieldset>
+			<br>
 		</div>
+
 		<div class="form-group">
 			<fieldset>
 				<legend>Current / Latest Job Details</legend>
 
 				<label>Job Title :</label>
 				<input name="jobtitle" type="text">
-				<br>
 				<label>Company Name :</label>
 				<input name="companyname" type="text">
-				<br>
 				<label>Industry :</label>
 				<select name="industry">
 					<option selected="selected" value="Industry">Industry</option>
@@ -228,6 +230,7 @@
 
 				</select>
 			</fieldset>
+			<br>
 		</div> 
 		<div class="form-group">
 			<fieldset>
@@ -303,14 +306,16 @@
 
 				<br><textarea name="certificate" rows="2" cols="20" id="certificate" style="height:80px;width:250px;">
 				</textarea>
-				<br><label>Upload Resume:</label>
+				<label>Upload Resume:</label>
 				<input type="file" name="fileupload" />
-
+			</fieldset>
+				<br>
+			</div>
 				<div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit Application" name="submitApplication"/>
             	</div>
-			</fieldset>
-		</div>
+		{{-- 	</fieldset>
+		</div> --}}
 	</form>
 </div>
 @endsection

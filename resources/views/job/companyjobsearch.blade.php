@@ -87,7 +87,7 @@
 				<br/>	
 				<br>
 
-          <button type="submit" class="btn btn-info">
+          <button type="submit" class="btn btn-danger">
       		<span class="glyphicon glyphicon-search"></span> Search
     	  </button>
 	</form> 
