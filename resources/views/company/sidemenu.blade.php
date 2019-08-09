@@ -6,6 +6,7 @@
             <li class="list-group-item"><a href="{{route('ceopanel')}}" class="btn btn-outline-primary lg-btn-padding">    CEO     </a></li>  
             <li class="list-group-item"><a href="{{route('aboutuspanel')}}" class="btn btn-outline-primary lg-btn-padding">  About us  </a></li>
             <li class="list-group-item"><a href="{{route('testimonialpanel')}}" class="btn btn-outline-primary lg-btn-padding"> Testimonial</a></li>
+            <li class="list-group-item"><a href="{{route('postjob')}}" class="btn btn-outline-primary lg-btn-padding"> Post Job Openings</a></li>
         </ul>
     </div>
 </div>

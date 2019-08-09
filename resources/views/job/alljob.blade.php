@@ -17,7 +17,7 @@
                                     <div class="col-md-8">
                                         <h5 class="card-title"><i class="fas fa-bolt red"></i> <a href="{{ route('getdisplay',['job_id'=>$job_opening->job_id])}}">{{ ucfirst($job_opening->job_title) }}</a></h5>
                                         <p>Company: <a href="#"><u>{{ ucfirst($job_opening->company_name) }}</u></a> </p>
-                                        <p>{{ $job_opening->job_desc }} Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        <p>{{ $job_opening->job_desc }} </p>
                                     </div>
                                     <div class="col-md-4">
                                         <img src="{{ asset('img/udyog_logo.png') }}" class="job-company-logo">

@@ -4,6 +4,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use DB;
 use App\Directory;
+
 use Auth;
 
 class DirectoryController extends Controller
@@ -78,6 +79,7 @@ class DirectoryController extends Controller
         }
     }
 
+
     //******* For showing list of industries ********//
     function index(Request $request)
     {
@@ -141,4 +143,6 @@ class DirectoryController extends Controller
         $companys=Directory::whereNotNull('cname')->get();
         return view('directory.industrylist',compact('search','materials','sectors','areas','companys','industry_type','business_type'));//sent data to view
     }
+
+
 }

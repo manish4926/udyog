@@ -27,16 +27,17 @@ class JobController extends Controller
     
 	public function postJob(Request $request)
 	{
+		$user = Auth::user();
 		return view('job.jobpost');	//,compact()
 	}
     
     public function postJobSubmit(request $request)
     {
-
+    	$user = Auth::user();
 		$jobpost = new job_opening;
 
 		$jobpost->job_title    = $request->title;
-		$jobpost->slug         = seoUrl($request->title."-".rand(10000,99999));
+		// $jobpost->slug         = seoUrl($request->title."-".rand(10000,99999));
 		$jobpost->company_name = $request->companyname;
 		$jobpost->hr_name      = $request->hrname;
 		$jobpost->experience   = $request->exp;
@@ -160,10 +161,18 @@ class JobController extends Controller
 		}  
 
 		$searchkey3=$request->get('sal');
-		$searchto=$searchkey3-10000;
-		//dd($searchto);
-		if($searchkey3){
-			$job_search->whereBetween('package', array($searchto, $searchkey3));
+		if($searchkey3)
+		{
+		    if($searchkey3<200001)
+		    {
+				$searchto=$searchkey3-10000;
+				$job_search->whereBetween('package', array($searchto, $searchkey3));
+			}
+
+			else
+			{
+				$job_search->where('package', '>=', 200001);
+			}
 		}
 		
 		$job_search = $job_search->paginate(5);

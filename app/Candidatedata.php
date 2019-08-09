@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Candidatedata extends Model
 {
-     
+      protected $table = 'candidatedatas';
 }
 

@@ -6,6 +6,7 @@ use App\MicrowebCompanyProduct;
 use App\MicrowebCompanyDetails;
 use App\MicrowebTestimonial;
 use App\Directory;
+use App\job_opening;
 use DB;
 use Auth;
 use Illuminate\Http\Request;
