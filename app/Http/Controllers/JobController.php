@@ -150,7 +150,7 @@ class JobController extends Controller
 			});
 		}
 
-		$searchkey1=$request->get('place');
+		$searchkey1=$request->get('loc');
 		if($searchkey1){
 			$job_search->where('location' , 'like','%' .$searchkey1. '%');
 		}
@@ -160,8 +160,10 @@ class JobController extends Controller
 		}  
 
 		$searchkey3=$request->get('sal');
+		$searchto=$searchkey3-10000;
+		//dd($searchto);
 		if($searchkey3){
-			$job_search->where('package' , '=', $searchkey3);
+			$job_search->whereBetween('package', array($searchto, $searchkey3));
 		}
 		
 		$job_search = $job_search->paginate(5);

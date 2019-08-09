@@ -227,7 +227,7 @@ $check=1;
         if (auth()->user()->hasRole('Company')) {
             return route('directorycreate');
         } else {
-            return '/home';
+            return '/';
         }
     }
 }

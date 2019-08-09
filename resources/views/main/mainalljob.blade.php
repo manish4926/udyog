@@ -52,7 +52,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+		<br>		</div>
 			</div>
 
 			@endforeach

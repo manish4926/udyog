@@ -138,7 +138,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 /*Admin*/
-Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function ()
+Route::group(['prefix' => 'admin', 'middleware'=>'auth','roles' => ['Admin']], function ()
 {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
 
