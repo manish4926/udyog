@@ -7,6 +7,7 @@ use App\MicrowebCompanyDetails;
 use App\MicrowebTestimonial;
 use App\Directory;
 use App\job_opening;
+use App\Candidatedata;
 use DB;
 use Auth;
 use Illuminate\Http\Request;
@@ -114,6 +115,28 @@ class MicrowebController extends Controller
         $companydetail = Directory::where('user_id',$user->id)->first();
 
         return view('company.testimonialpanel',compact('companydetail'));
+    }
+
+/* to see posted jobs and to post job openings */
+     public function jobpost(Request $request)
+    {
+        $user = Auth::user();
+
+        // $companydetail = 'SHARMA AUTO';
+        $companydetail = Directory::where('user_id',$user->id)->first();
+        $jobs= job_opening::where('company_name' , $companydetail)->paginate(5); 
+
+        return view('company.jobpostpanel',compact('jobs'));
+    }
+/* to see Applicants list */
+         public function applicantslist(Request $request)
+    {
+        $user = Auth::user();
+
+        if(!empty($request->job_id))
+        $applicants= Candidatedata::where('job_id' , $request->job_id)->paginate(5); 
+
+        return view('company.applicantslist',compact('applicants'));
     }
     
     public function makechanges(Request $request)

@@ -112,8 +112,10 @@ Route::group(['prefix' => 'company/panel'], function ()
     Route::get('/ceopanel',['as'=>'ceopanel','uses'=>'MicrowebController@ceoPanel']); 
     Route::get('/aboutus',['as'=>'aboutuspanel','uses'=>'MicrowebController@aboutus']); 
     Route::get('/testimonialpanel',['as'=>'testimonialpanel','uses'=>'MicrowebController@testimonial']); 
+    Route::get('/jobpostpannel',['as'=>'jobpostpanel','uses'=>'MicrowebController@jobpost']); 
     Route::post('/dashboard',['as'=>'dashboard2','uses'=>'MicrowebController@makechanges']);
     Route::get('/delete/{id}',['as'=>'delete','uses'=>'MicrowebController@deletion']); 
+     Route::get('/applicantslist/{job_id}',['as'=>'applicantslist','uses'=>'MicrowebController@applicantslist']);
 });
 
 

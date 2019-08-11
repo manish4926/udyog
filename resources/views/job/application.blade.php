@@ -17,11 +17,19 @@
 
 		<div class="form-group">
 			<fieldset>
+				<legend>Job Details:</legend>
+				<label> job title:  </label><select name="jobid">
+				<option value="{{$job_opening->job_id}}">{{$job_opening->job_title}}</option></select>
+				<label> company name:  </label><select name="companyname">
+				<option value="{{$job_opening->company_name}}">{{$job_opening->company_name}}</option></select><br><br>
+
 				<legend>Personal Details:</legend>
 				<label>First Name :</label>{{$user->firstname}}<br>
 				<label>Last Name :</label>{{$user->lastname}}<br>
 				<label>E-mail :</label>{{$user->email}}<br>
 			</fieldset>
+			
+
 
 			<label>Mobile :  </label><input type="Mobile" name="mobile_no" placeholder="Enter mobile no" /><br>
 			<label>City :  </label><input type="text" name="city" placeholder="Enter City" />
