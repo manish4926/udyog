@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\job_opening;
 use App\Candidatedata;
-
+use App\Directory;
 use DB;
 use Auth;
 use Carbon\Carbon;
@@ -52,7 +52,7 @@ class JobController extends Controller
 		$jobpost->save();
 		
 		return redirect()->back();
-}
+	}
 
 
 	public function application(Request $request )
@@ -93,6 +93,7 @@ class JobController extends Controller
 		
 		$candidate = new Candidatedata;
 
+		$job_id       			   = $request->jobid;
 		$tyear                     = $request->tyear;
 		$tmonth                    = $request->tmonth;
 		$ddlSalaryLacs             = $request->ddlSalaryLacs;
@@ -128,6 +129,7 @@ class JobController extends Controller
 
 	public function alljob (Request $request)
 	{
+		 $company=Directory::whereNotNull('cname')->get();
 		$jobs= job_opening::paginate(5);
 		return view('job.alljob',compact('jobs'));
 	}
@@ -219,4 +221,3 @@ class JobController extends Controller
 	}
 
 }
-

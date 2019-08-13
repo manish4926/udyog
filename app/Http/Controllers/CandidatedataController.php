@@ -7,6 +7,8 @@ use App\Candidatedata;
 use App\Applicant;
 use Illuminate\Http\Request;
 
+use Auth;
+
 
 
 class CandidatedataController extends Controller
@@ -25,7 +27,8 @@ class CandidatedataController extends Controller
     public function userprofile(Request $request)
     {
         $applicantinfo = User::where('id',$request->userid)->first();
-        $applicantdetails = Candidatedata::where('id',$request->userid)->first();
+        $applicantdetails = Candidatedata::where('user_id',$request->userid)->first();
+        //dd($request->userid);
         return view('job.userprofile')->with(['applicantinfo'=>$applicantinfo, 'applicantdetails'=> $applicantdetails]);
     }
 
