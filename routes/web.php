@@ -103,7 +103,7 @@ Route::group(['prefix' => 'company/panel'], function ()
 }); */
 
 /*Company Admin */
-Route::group(['prefix' => 'company/panel'], function ()
+Route::group(['prefix' => 'company/panel','middleware' => 'roles', 'roles' => ['Company']], function ()
 {
     Route::get('/dashboard',['as'=>'companydashboard','uses'=>'MicrowebController@dashboard']);
     Route::get('/companyedit',['as'=>'companypanel','uses'=>'MicrowebController@companyPanel']);
@@ -138,7 +138,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 /*Admin*/
-Route::group(['prefix' => 'admin', 'middleware'=>'auth','roles' => ['Admin']], function ()
+Route::group(['prefix' => 'admin', 'middleware'=>['auth','roles'],'roles' => ['Admin']], function ()
 {
     Route::get('/dashboard','VideoController@dashboard')->name('dashboard');
 
