@@ -120,10 +120,10 @@ class MicrowebController extends Controller
 /* to see posted jobs and to post job openings */
      public function jobpost(Request $request)
     {
-        //$user = Auth::user();
+        $user = Auth::user();
 
-         $companydetail = 'SHARMA AUTO';
-       // $companydetail = Directory::where('user_id',$user->id)->first();
+         //$companydetail = 'SHARMA AUTO';
+        $companydetail = Directory::where('user_id',$user->id)->first();
         $jobs= job_opening::where('company_name' , $companydetail)->paginate(5); 
 
         return view('company.jobpostpanel',compact('jobs'));
@@ -131,7 +131,7 @@ class MicrowebController extends Controller
 /* to see Applicants list */
          public function applicantslist(Request $request)
     {
-        //$user = Auth::user();
+        $user = Auth::user();
 
         if(!empty($request->job_id))
         $applicants= Candidatedata::where('job_id' , $request->job_id)->paginate(5); 

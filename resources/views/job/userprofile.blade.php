@@ -87,7 +87,10 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>         
+                </div>  
+
+
+                       
                 <div class="tab-pane" id="Education">
                     <div class="well well-sm">
                         <h4>EDUCATIONAL BACKGROUND</h4>
