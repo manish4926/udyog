@@ -58,10 +58,15 @@ class JobController extends Controller
 	public function application(Request $request )
 	{
 		$user = Auth::user();
-		$job_title = $request->title;
+		// if(!empty($request->title))
+		// {
+			$job_title = $request->title;
 		$job_opening = job_opening::where('job_id' , $job_title)->first();
-		
 		return view('job.application',compact('user','job_opening'));	
+		// }
+		// else
+		// return view('job.application',compact('user'));
+		
 	}
 
 
@@ -93,7 +98,7 @@ class JobController extends Controller
 		
 		$candidate = new Candidatedata;
 
-		$job_id       			   = $request->jobid;
+		$job_id       			   = $request->job_id;
 		$tyear                     = $request->tyear;
 		$tmonth                    = $request->tmonth;
 		$ddlSalaryLacs             = $request->ddlSalaryLacs;

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CompanyDetail extends Model
 {
-    protected $table = 'companydetails';
+    protected $table = 'cdetails';
 
     public function users()
     {

@@ -23,9 +23,13 @@ class DirectoryController extends Controller
 //***** for inputing new industry data for directory listing through form ******//
     public function create()
     {
+        $user = Auth::user();
+        $companydetail = Directory::where('user_id',$user->id)->first();
+
         $industry_type  = industry_type();
         $business_type = business_type();
-        return view("directory.create", compact('industry_type','business_type')); 
+
+        return view("directory.create", compact('industry_type','business_type','companydetail')); 
     }
 
     public function store(Request $request)
@@ -38,7 +42,6 @@ class DirectoryController extends Controller
 
         if($countCOMPANY==0){
             $validation= $request->validate( [
-                'cname' => 'required|max:100|string',
                 'cemp' => 'required|max:100|string',         
                 'businesstype' => 'required|max:20|string',
                 'industrytype'=>'required|max:20|String',
@@ -52,7 +55,6 @@ class DirectoryController extends Controller
             ]);
             
                    
-            $c_name = $request->input('cname');
             $c_emp = $request->input('cemp');
             $c_no = $request->input('phoneno');
             $c_email = $request->input('companyemail');
@@ -67,7 +69,7 @@ class DirectoryController extends Controller
             $path = $request->file('image')->store('microweb\images\team');
 
            
-            $data = array('cname'=>$c_name, 'slug' => $slug,'cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industrytype'=>$c_industry,'businesstype'=>$c_business,'about'=>$c_about, 'image'=>$path);
+            $data = array('slug' => $slug,'cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industrytype'=>$c_industry,'businesstype'=>$c_business,'about'=>$c_about, 'image'=>$path);
             Directory::where('user_id',$user->id)->update($data);
           //  DB::table('cdetails')->insert($data);
             return view('company.dashboard');

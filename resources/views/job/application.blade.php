@@ -17,12 +17,13 @@
 
 		<div class="form-group">
 			<fieldset>
+			@if($job_opening)
 				<legend>Job Details:</legend>
 				<label> job title:  </label><select name="jobid">
 				<option value="{{$job_opening->job_id}}">{{$job_opening->job_title}}</option></select>
 				<label> company name:  </label><select name="companyname">
 				<option value="{{$job_opening->company_name}}">{{$job_opening->company_name}}</option></select><br><br>
-
+			@endif
 				<legend>Personal Details:</legend>
 				<label>First Name :</label>{{$user->firstname}}<br>
 				<label>Last Name :</label>{{$user->lastname}}<br>

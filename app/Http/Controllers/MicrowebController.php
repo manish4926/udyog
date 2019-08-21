@@ -124,7 +124,7 @@ class MicrowebController extends Controller
 
          //$companydetail = 'SHARMA AUTO';
         $companydetail = Directory::where('user_id',$user->id)->first();
-        $jobs= job_opening::where('company_name' , $companydetail)->paginate(5); 
+        $jobs= job_opening::where('company_name' , $companydetail->cname)->paginate(5); 
 
         return view('company.jobpostpanel',compact('jobs'));
     }
