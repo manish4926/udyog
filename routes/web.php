@@ -256,7 +256,7 @@ Route::group(['namespace' => 'Admin'], function ()
 
 //userprofile
 Route::get('/userprofile/{userid}',['as' => 'userprofile', 'uses' =>'CandidatedataController@userprofile']);
-
+Route::get('/editprofile/{userid}',['as' => 'editprofile', 'uses' =>'CandidatedataController@editprofile']);
 
 //uploadAd
 Route::get('/uploadad',['as' => 'uploadad', 'uses' =>'MainController@uploadad']);

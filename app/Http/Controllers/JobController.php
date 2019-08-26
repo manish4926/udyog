@@ -51,17 +51,24 @@ class JobController extends Controller
 		
 		$jobpost->save();
 		
-		return redirect()->back();
+		return redirect('job/all')->with('status', 'Successfully Submitted!');
 	}
 
 
 	public function application(Request $request )
 	{
 		$user = Auth::user();
-		$job_title = $request->title;
-		$job_opening = job_opening::where('job_id' , $job_title)->first();
 		
+		if(!empty($request->title))
+		{
+			$job_title = $request->title;
+		$job_opening = job_opening::where('job_id' , $job_title)->first();
 		return view('job.application',compact('user','job_opening'));	
+	
+		}
+
+		else
+		return view('job.application',compact('user'));	
 	}
 
 
@@ -91,6 +98,8 @@ class JobController extends Controller
 			$fileupload= '';
 		}
 		
+
+		//dd($request->jobid);
 		$candidate = new Candidatedata;
 
 		$job_id       			   = $request->jobid;
@@ -113,6 +122,7 @@ class JobController extends Controller
 		$candidate->jobtitle       = $request->jobtitle;
 		$candidate->companyname    = $request->companyname;
 		$candidate->industry       = $request->industry;
+		$candidate->basicgraduation= $request->basicgraduation;
 		$candidate->graduation     = $request->graduation;
 		$candidate->postgraduation = $request->postgraduation;
 		$candidate->doctorate      = $request->doctorate;
@@ -124,7 +134,7 @@ class JobController extends Controller
 		
 		$candidate->save();
 		
-		return redirect()->back();
+		return redirect('job/all')->with('status', 'Successfully Submitted!');
 	}
 
 	public function alljob (Request $request)

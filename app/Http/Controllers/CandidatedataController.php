@@ -72,9 +72,12 @@ class CandidatedataController extends Controller
      * @param  \App\Candidatedata  $candidatedata
      * @return \Illuminate\Http\Response
      */
-    public function edit(Candidatedata $candidatedata)
+    public function editprofile(Candidatedata $candidatedata, Request $request)
     {
-        //
+        $applicantinfo = User::where('id',$request->userid)->first();
+        $applicantdetails = Candidatedata::where('user_id',$request->userid)->first();
+        //dd($request->userid);
+        return view('job.editprofile')->with(['applicantinfo'=>$applicantinfo, 'applicantdetails'=> $applicantdetails]);
     }
 
     /**

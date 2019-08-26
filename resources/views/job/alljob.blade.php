@@ -5,6 +5,12 @@
   <div class="col-12">
     <div class="white-card-directory">
 
+          @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+                 @endif
+
         <h3 class="title-blue">LATEST JOBS</h3>
             @foreach($jobs as $job_opening)
 

@@ -36,8 +36,8 @@
                         <li>
                             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi! {{ $user->firstname }}</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#" >User Profile</a>
-                                <a class="dropdown-item" href="{{route('application')}}">Edit Profile</a>
+                                <a class="dropdown-item" href="{{route('userprofile',['userid'=>$user->id])}}" >User Profile</a>
+                                <a class="dropdown-item" href="{{route('editprofile',['userid'=>$user->id])}}">Edit Profile</a>
                                 @if($user->hasRole('Company'))<a class="dropdown-item" href="{{ route('companydashboard') }}">Edit Company Details</a>@endif
                                 <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                             </div>

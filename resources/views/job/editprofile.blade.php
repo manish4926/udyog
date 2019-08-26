@@ -17,25 +17,24 @@
 
 		<div class="form-group">
 			<fieldset>
-				<legend>Job Details:</legend>
+				{{-- <legend>Job Details:</legend>
 				<label> job title:  </label><select name="jobid">
 				<option value="{{$job_opening->job_id}}">{{$job_opening->job_title}}</option></select>
 				<label> company name:  </label><select name="companyname">
-				<option value="{{$job_opening->company_name}}">{{$job_opening->company_name}}</option></select><br><br>
+				<option value="{{$job_opening->company_name}}">{{$job_opening->company_name}}</option></select><br><br> --}}
 
 				<legend>Personal Details:</legend>
-				<label>First Name :</label>{{$user->firstname}}<br>
-				<label>Last Name :</label>{{$user->lastname}}<br>
-				<label>E-mail :</label>{{$user->email}}<br>
+				<label>First Name :</label>{{ $applicantinfo->firstname}}<br>
+				<label>Last Name :</label>{{$applicantinfo->lastname}}<br>
 			</fieldset>
 			
 
-
-			<label>Mobile :  </label><input type="Mobile" name="mobile_no" placeholder="Enter mobile no" /><br>
-			<label>City :  </label><input type="text" name="city" placeholder="Enter City" />
+			<label>Email :  </label><input type="Email" name="Email" value="{{ $applicantinfo->email}}" /><br>
+			<label>Mobile :  </label><input type="Mobile" name="mobile_no" value="{{$applicantdetails->mobile_no}}" /><br>
+			<label>City :  </label><input type="text" name="city" value="{{$applicantdetails->city}}" />
 			<label>State :  </label>                          
 			<select name="state">
-				<option value="">State</option>
+				<option value="{{$applicantdetails->state}}">{{$applicantdetails->state}}</option>
 				<option value="Andaman Nicobar">Andaman Nicobar</option>
 				<option value="Andhra Pradesh">Andhra Pradesh</option>
 				<option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -75,14 +74,15 @@
 			</select>
 
 			<br><label>Date of Birth</label>
-			<input type="date" name="dob" format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
+			<input type="date" name="dob" value="{{$applicantdetails->dob}}" format="dd-mm-yyyy">
 
 			<label>Gender :</label>
+			<input type="radio" name="gender" value="{{$applicantdetails->gender}}">{{$applicantdetails->gender}}
 			<input type="radio" name="gender" value="male"> Male
 			<input type="radio" name="gender" value="female"> Female
 			<input type="radio" name="gender" value="other"> Other
 <br>
-		<label>Skills :  </label><input type="text" name="skills" placeholder="Enter your skills" /><br>
+		<label>Skills :  </label><input type="text" name="skills" value="{{$applicantdetails->skills}}" /><br>
 		</div>
 	{{-- 	<div class="form-group">
 
@@ -136,12 +136,12 @@
 				<legend>Current / Latest Job Details</legend>
 
 				<label>Job Title :</label>
-				<input name="jobtitle" type="text">
+				<input name="jobtitle" type="text" value="{{$applicantdetails->jobtitle}}">
 				<label>Company Name :</label>
-				<input name="companyname" type="text">
+				<input name="companyname" type="text" value="{{$applicantdetails->companyname}}">
 				<label>Industry :</label>
 				<select name="industry">
-					<option selected="selected" value="Industry">Industry</option>
+					<option selected="selected" value="{{$applicantdetails->industry}}">{{$applicantdetails->industry}}</option>
 					<option value="Accounting / Finance">Accounting / Finance</option>
 					<option value="Administration">Administration</option>
 					<option value="Advertising / PR/ MR / Event Management">Advertising / PR/ MR / Event Management</option>
@@ -153,7 +153,7 @@
 					<option value="Architecture / Interior Design<">Architecture / Interior Design</option>
 					<option value="Automobile / Auto Alliance / Auto Components">Automobile / Auto Alliance / Auto Components</option>
 					<option value="Banking / Financial Services / Broking">Banking / Financial Services / Broking</option>
-					<option value="Beauty or Wellness/SPA">Beauty &amp; Wellness/SPA</option>
+					<option value="Beauty or  Wellness/SPA">Beauty &amp; Wellness/SPA</option>
 					<option value="BPO/ Call Centre/ ITES">BPO/ Call Centre/ ITES</option>
 					<option value="Brewery / Distillery">Brewery / Distillery</option>
 					<option value="Ceramics / Sanitary ware">Ceramics / Sanitary ware</option>
@@ -163,7 +163,7 @@
 					<option value="Courier / Transportation / Freight / Warehousing">Courier / Transportation / Freight / Warehousing</option>
 					<option value="Education / Teaching / Training">Education / Teaching / Training</option>
 					<option value="Electricals / Switchgears">Electricals / Switchgears</option>
-					<option value="Engineering/oil or gas/Power/Energy">Engineering/oil &amp; gas/Power/Energy</option>
+					<option value="Engineering/oil  or gas/Power/Energy">Engineering/oil &amp; gas/Power/Energy</option>
 					<option value="Entertainment/Media">Entertainment/Media</option>
 					<option value="Event Management/Promotional event">Event Management/Promotional event</option>
 					<option value="Export / Import">Export / Import</option>
@@ -246,7 +246,7 @@
 				<label>Basic Graduation :</label>
 
 				<select name="basicgraduation">
-					<option value="">Basic Graduation</option>
+					<option value="{{$applicantdetails->basicgraduation}}">{{$applicantdetails->basicgraduation}}</option>
 					<option value="8th">8th </option>
 					<option value="10th (Higher Secondary)">10th (Higher Secondary)</option>
 					<option value="12th (Senior Secondary)">12th (Senior Secondary)</option>
@@ -257,7 +257,7 @@
 				<br><label>Graduation :</label>
 
 				<select name="graduation">
-					<option value="">Graduation</option>
+					<option value="{{$applicantdetails->graduation}}">{{$applicantdetails->graduation}}</option>
 					<option value="BA">B.A</option>
 					<option value="BARCH">B.Arch</option>
 					<option value="BBA">B.B.A</option>
@@ -288,7 +288,7 @@
 				<br><label>Post Graduation :</label>
 
 				<select name="postgraduation">
-					<option value="">Post Graduation</option>
+					<option value="{{$applicantdetails->postgraduation}}">{{$applicantdetails->postgraduation}}</option>
 					<option value="CA">C.A</option>
 					<option value="CS">C.S</option>
 					<option value="ICWA">I.C.W.A</option>
@@ -312,7 +312,7 @@
 
 				<br><label>Certified Course(s):</label>
 
-				<br><textarea name="certificate" rows="2" cols="20" id="certificate" style="height:80px;width:250px;">
+				<br><textarea name="certificate" rows="2" cols="20" id="certificate" style="height:80px;width:250px;"> {{$applicantdetails->certifcate}}
 				</textarea>
 				<label>Upload Resume:</label>
 				<input type="file" name="fileupload" />
