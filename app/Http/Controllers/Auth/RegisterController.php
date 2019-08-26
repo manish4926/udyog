@@ -86,12 +86,17 @@ class RegisterController extends Controller
                 'status'      => 0,
             ]);
         
-
+         
         if(!empty($data['company_code'])) {
-            
+            //dd('dfff');
+            $slug = seoUrl($data['company_name']);
+
             $companydetail = new Directory;
             $companydetail->user_id = $user->id;
             $companydetail->ccode = $data['company_code'];
+            $companydetail->cname = $data['company_name'];
+            $companydetail->slug = $slug;
+            
             $companydetail->save();
             
             $user->roles()->attach(Role::where('name','Company')->first());
@@ -200,7 +205,7 @@ $check=1;
 
     public function checkCompany(Request $request) {
 
-        $companydetail = CompanyDetail::Where('companycode', $request->company_code)
+        $companydetail = CompanyDetail::Where('ccode', $request->company_code)
                         ->count();
         
         if($companydetail==0) {
@@ -208,7 +213,7 @@ $check=1;
                             ->Where('ccode', $request->company_code)
                             ->count();
             
-            $companydetail = CompanyDetail::Where('companycode', $request->company_code)
+            $companydetail = CompanyDetail::Where('ccode', $request->company_code)
                             ->count();
         
             if($companyCount == 1) {

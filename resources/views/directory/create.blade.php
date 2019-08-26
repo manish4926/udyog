@@ -27,8 +27,8 @@
                 <h3>Company Registration</h3>
                     <div class="form-group">
                         <div class="form-wrapper">
-                            <label for="">Company name</label>
-                            <input type="text"  data-parsley-trigger="keyup" class="form-control" name="cname" required >
+                            <label for="">Company name : </label>
+                            {{  ucfirst($companydetail->cname) }}
                         </div>
                         <div class="form-wrapper">
                             <label for="">Director Name</label>
