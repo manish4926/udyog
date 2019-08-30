@@ -70,10 +70,10 @@ class JobController extends Controller
 		// return view('job.application',compact('user'));
 
 		$applicantinfo = User::where('id',$request->userid)->first();
-        // $applicantdetails = Candidatedata::where('user_id',$request->userid)->first();
-        // if($applicantdetails)
+        $applicantdetails = Candidatedata::where('user_id',$request->userid)->first();
+        if($applicantdetails)
         // //dd($request->userid);
-        // {
+        {
         //     $durattn = (string)$applicantdetails->duration;
         //     $durat = explode('.',$durattn,2);
         //     $year = $durat[0];
@@ -86,9 +86,13 @@ class JobController extends Controller
         //     $exper = explode('.',$experience,2);
         //     $yearex = $exper[0];
         //     $monthex = $exper[1];
-        //     return view('job.application',compact('user','job_opening','applicantinfo','applicantdetails', 'year', 'month','lacs', 'thousand','yearex', 'monthex'));
+        	return view('job.applicationtrial',compact('user','job_opening','applicantinfo'));
+        }
+
+        else
+            return view('job.editprofile',compact('user','applicantinfo'))->with('status', 'Please edit your profile first!');
 		// }
-		return view('job.applicationtrial',compact('user','job_opening','applicantinfo'));
+		
 		
 	}
 
@@ -157,7 +161,7 @@ class JobController extends Controller
 		
 		$candidate->save();
 		
-		return redirect('/')->with('status', 'Successfully Submitted!');
+		return redirect('job/all')->with('status', 'Successfully updated! Now please apply for the job.');
 	}
 
 	public function applyjob (Request $request)

@@ -9,11 +9,7 @@
 
 <div class="white-card">
   <br/>
-  @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-                 @endif
+ 
   <br/>
     <div class="col-sm-10">
         <div data-spy="scroll" class="tabbable-panel">
@@ -68,27 +64,27 @@
                             </tr>
                             <tr>    
                                 <td>Date of Birth</td>
-                                <td>: {{$applicantdetails->dob}}</td>       
+                                <td>: {{isset($applicantdetails->dob)?$applicantdetails->dob:''}}</td>       
                             </tr>
                             <tr>
                                 <td>Gender</td>
-                                <td>:{{$applicantdetails->gender}} </td>
+                                <td>:{{isset($applicantdetails->gender)?$applicantdetails->gender:''}} </td>
                             </tr>
                             <tr>
                                 <td>E mail</td>
-                                <td>: {{ $applicantinfo->email}}</td>
+                                <td>: {{ isset($applicantinfo->email)?$applicantinfo->email:''}}</td>
                             </tr>
                             <tr>
                                 <td>Mobile no</td>
-                                <td>:{{$applicantdetails->mobile_no}} </td>
+                                <td>:{{isset($applicantdetails->mobile_no)?$applicantinfo->mobile:''}} </td>
                             </tr>
                              <tr>
                                 <td>State</td>
-                                <td>:{{$applicantdetails->state}} </td>
+                                <td>:{{isset($applicantdetails->state)?$applicantinfo->state:''}} </td>
                             </tr>
                              <tr>
                                 <td>City</td>
-                                <td>:{{$applicantdetails->city}} </td>
+                                <td>:{{isset($applicantdetails->city)?$applicantinfo->city:''}} </td>
                             </tr>
                         </tbody>
                     </table>
@@ -105,15 +101,15 @@
                         <tbody>
                             <tr>
                                 <td>Under Graduate</td>
-                                <td>: {{$applicantdetails->graduation}}</td>
+                                <td>: {{isset($applicantdetails->graduation)?$applicantinfo->graduation:''}}</td>
                             </tr>
                             <tr>
                                 <td>Post Graduate</td>
-                                <td>: {{$applicantdetails->postgraduation}} </td>
+                                <td>: {{isset($applicantdetails->postgraduation)?$applicantinfo->postgraduation:''}} </td>
                             </tr>
                             <tr>
                                 <td>Doctor of Philosophy (PhD)</td>
-                                <td>: {{$applicantdetails->doctorate}} </td>
+                                <td>: {{isset($applicantdetails->doctorate)?$applicantinfo->doctorate:''}} </td>
                             </tr>
                         </tbody>
                     </table>
@@ -128,31 +124,31 @@
                         <tbody>
                             <tr>
                                 <td>Total Experience</td>
-                                <td>:{{$applicantdetails->experience}} </td>
+                                <td>:{{isset($applicantdetails->experience)?$applicantdetails->experience:''}} </td>
                             </tr>
                             <tr>      
                                 <td>Job Duration</td>
-                                <td>:{{$applicantdetails->duration}} </td>
+                                <td>:{{isset($applicantdetails->duration)?$applicantdetails->duration:''}} </td>
                             </tr>
                             <tr>
                                 <td>Salary</td>
-                                <td>:{{$applicantdetails->salary}} </td>
+                                <td>:{{isset($applicantdetails->salary)?$applicantdetails->salary:''}} </td>
                             </tr>
                             <tr>
                                 <td>Job Title</td>
-                                <td>:{{$applicantdetails->jobtitle}} </td>
+                                <td>:{{isset($applicantdetails->jobtitle)?$applicantdetails->jobtitle:''}} </td>
                             </tr>
                             <tr>
                                 <td>Company Name</td>
-                                <td>:{{$applicantdetails->companyname}} </td>
+                                <td>:{{isset($applicantdetails->companyname)?$applicantdetails->companyname:''}} </td>
                             </tr>
                             <tr>
                                 <td>Industry Name</td>
-                                <td>:{{$applicantdetails->industry}} </td>
+                                <td>:{{isset($applicantdetails->industry)?$applicantdetails->industry:''}} </td>
                             </tr>
                             <tr>
                                 <td>Skills</td>
-                                <td>:{{$applicantdetails->skills}} </td>
+                                <td>:{{isset($applicantdetails->skills)?$applicantdetails->skills:''}} </td>
                             </tr>
                         </tbody>
                     </table>
@@ -167,7 +163,7 @@
                         <thead>
                             <tr>
                                 <td> Certification details</td>
-                                <td>: {{$applicantdetails->certifcate}}</td>
+                                <td>: {{isset($applicantdetails->certifcate)?$applicantdetails->certifcate:''}}</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -217,7 +213,7 @@
 
 </div>
 @endsection
-@section('right-content')
+{{-- @section('right-content')
   @include('partials.sidebar-search-job')
-@endsection
+@endsection --}}
 @endsection

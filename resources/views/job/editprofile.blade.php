@@ -12,6 +12,12 @@
 @section('center-content')
 <div class="white-card">
 	
+	@if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+                 @endif
+                 
 	<form action="{{route('applicationsubmit')}}" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
 
