@@ -8,6 +8,7 @@ use App\MicrowebTestimonial;
 use App\Directory;
 use App\job_opening;
 use App\Candidatedata;
+use App\Applicant;
 use DB;
 use Auth;
 use Illuminate\Http\Request;
@@ -134,7 +135,7 @@ class MicrowebController extends Controller
         $user = Auth::user();
 
         if(!empty($request->job_id))
-        $applicants= Candidatedata::where('job_id' , $request->job_id)->paginate(5); 
+        $applicants= Applicant::where('job_id' , $request->job_id)->paginate(5); 
 
         return view('company.applicantslist',compact('applicants'));
     }

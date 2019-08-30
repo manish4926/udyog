@@ -9,6 +9,11 @@
 
 <div class="white-card">
   <br/>
+  @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+                 @endif
   <br/>
     <div class="col-sm-10">
         <div data-spy="scroll" class="tabbable-panel">

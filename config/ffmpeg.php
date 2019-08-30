@@ -18,7 +18,7 @@ return array(
     |
     */
 
-   'ffmpeg'        => '',
+   'ffmpeg'        => 'C:/ffmpeg/bin/ffmpeg.exe',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return array(
     |
     */
 
-   'ffprobe'        => '',
+   'ffprobe'        => 'C:/ffmpeg/bin/ffprobe.exe',
 
    /*
     |--------------------------------------------------------------------------
@@ -67,5 +67,5 @@ return array(
     |
     */
 
-   'tmp_dir'      => ''
+   'tmp_dir'      => 'C:/ffmpeg/tmp/'
 );

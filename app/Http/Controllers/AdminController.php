@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\URL;
 use App\job_opening;
 use App\Applicant;
 use App\Event;
+use App\Advertisement;
 
 use DB;
 use Auth;
@@ -152,4 +153,51 @@ class AdminController extends Controller
         return view('admin.job.allapplicants')->with(['applicants'=>$applicants]);  
     }
 
+    public function addadvt()
+    {
+        return view('admin.job.addadvt');
+    }
+
+
+    public function addadvtSubmit(Request $request)
+    {
+       if(!empty($request->file('fileupload'))){
+            $this->validate($request,[
+                'fileupload' =>'mimes:jpeg,jpg,png']);
+            $filename = $request->file('fileupload')->getClientOriginalName();
+            $request->file('fileupload')->storeAs('advtphoto',$filename);
+            
+        }
+
+
+        $newadvt = new Advertisement;
+
+        $newadvt->title        = $request->title;
+        $newadvt->position     = $request->position;
+        $newadvt->image        = $filename;
+    
+        $newadvt->save();
+
+        Session::flash('success', 'New advertisement is added successfully!');
+        
+        return redirect()->route('alladvt');
+    }    
+
+
+    public function alladvts(Request $request)
+    {
+
+        $alladvts= Advertisement::all();
+        return view('admin.job.alladvt',compact('alladvts'));
+
+    }
+
+    public function deleteAdvt(Request $request)
+    {
+        $id =$request->advtid;
+        Advertisement::where('id',$id)
+                        ->update(['status' => 'INACTIVE']);
+
+        return json_encode('success');
+    }
 }

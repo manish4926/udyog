@@ -179,6 +179,19 @@
             <li><a href="{{ route('allevents') }}"><i class="fa fa-list-ul"></i> All events</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-list-ul"></i>
+            <span>Advertisement</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('addadvt') }}"><i class="fa fa-list-ul"></i> Add Advertisement</a></li>
+            <li><a href="{{ route('alladvt') }}"><i class="fa fa-list-ul"></i> All advertisements</a></li>
+          </ul>
+        </li>
       </ul>
 
     </section>

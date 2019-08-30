@@ -425,7 +425,10 @@ body{
 }
 
 .home-news .news-section a{
-	color: $theme-color-text-black-light;
+	/*color: $theme-color-text-black-light;*/
+
+    color: white;
+
 }
 
 .event-section a {
@@ -466,7 +469,7 @@ body{
 		text-decoration: none;
 		background: $theme-color-light;
 		/* color: #8e8e8e; */
-		color: $dark-blue;
+		color: white;
 		-webkit-transition: all 0.3s ease-in-out;
   		transition: all 0.3s ease-in-out;
 	}
@@ -483,7 +486,83 @@ body{
 
 	#verticalSlider {
 		background: #fff;
-		margin-top: 62px;
+		/*margin-top: 62px;*/
 	}
 
 
+.list-group-item:last-child {
+	background: #01008D;
+}
+
+.sidebar .sidebarBg
+{
+	background: #01008D;
+}
+
+.sidebar .widgetBox .widgetTitle h5
+{
+	color:white;
+}
+
+.sidebar .widgetBox .widgetContent .media-object .media-object-section .media-content p span {
+ color: white;
+}
+
+
+.sidebar .widgetBox .tagcloud a {
+    background: black;
+    color:white;
+   }
+
+
+.parentbg .sidebarBg {
+    background: #01008D;
+  
+}
+
+
+footer .widgetBox .textwidget 
+{
+color:white;
+}
+
+footer .widgetBox .widgetContent .media-object .media-object-section .media-content h6 a 
+{
+	color:white;
+}
+
+footer .widgetBox .widgetContent .media-object .media-object-section .media-content p span
+{
+	color:white;
+}
+
+footer .widgetBox .widgetTitle h5
+{
+	color:white;
+}
+
+footer .widgetBox .tagcloud a {
+    background: white;
+    color: black;
+}
+
+footer .widgetBox .widgetContent form p {
+    color: white;
+}
+
+footer .widgetBox .widgetContent p
+{
+	color: white;
+}
+
+footer .widgetBox .widgetContent h5
+{
+	color:white;
+}
+
+footer .widgetBox .widgetContent form button[type=submit] {
+ 
+    background: white;
+    color: black;
+ 
+}

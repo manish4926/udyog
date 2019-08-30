@@ -121,7 +121,7 @@
                                              <li><a class="dropdown-item" href="#">Search</a>
                                                 <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
                                             <li><a class="dropdown-item" href="{{ route('industrylist') }}">Product</a></li>
-                                            <li><a class="dropdown-item" href="#">Industrial Property</a></li>
+                                            
                                             </ul>
                                              </li>
                                             <li><a class="dropdown-item" href="#">upload your product</a></li>
@@ -261,6 +261,13 @@
                         </div>
                     </form>
                 </div>
+            {{-- <div class="title-bar title-bar-dark" data-responsive-toggle="beNav" data-hide-for="large">
+                            <div class="title-bar-title"><img src="{{ asset('images/logo.png') }}" alt="fl"></div>
+                        </div> --}}
+                <img src="{{ asset('images/Flag_of_India.gif') }}" alt="fl" style="width: 100px;
+    position: absolute;
+    right: 10px;
+    top: 5px;">
             </div>
         </nav>
     </section>

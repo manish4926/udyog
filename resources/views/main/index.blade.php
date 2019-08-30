@@ -57,14 +57,15 @@
                         <div class="video-side-list">
                             <ul class="list-group">
                                 <li><a class="list-group-item" href="{{route('currentaffairs')}}">Current affairs</a></li>
-                                <li><a class="list-group-item" href="{{route('training')}}">Training's</a></li>
+                                <li><a class="list-group-item" href="#">Industrial Property</a></li>
+                                {{-- <li><a class="list-group-item" href="{{route('training')}}">Training's</a></li> --}}
                                 <li><a class="list-group-item" href="{{route('labourlaws')}}">Labour Laws</a></li>
-                                <li><a class="list-group-item" href="{{route('taxation')}}">taxation</a></li>
+                                <li><a class="list-group-item" href="{{route('taxation')}}">Taxation</a></li>
                                 <li><a class="list-group-item" href="{{route('newtechnology')}}">New Technology</a></li>
                                 <li><a class="list-group-item" href="{{route('newproducts')}}">New Products</a></li>
                                 <li><a class="list-group-item" href="{{route('health')}}">Health</a></li>
-                                <li><a class="list-group-item" href="{{route('growbusiness')}}">How to grow business</a></li>
-                                <li><a class="list-group-item" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li>
+                                <li><a class="list-group-item" href="{{route('growbusiness')}}">Expand your business</a></li>
+                                <li><a class="list-group-item" href="{{route('regarademarks')}}">Registerations & Grade Marks</a></li>
                             </ul>
                         </div>
                     </div>
@@ -303,10 +304,10 @@
                         <aside class="sidebar">
                             <div class="sidebarBg"></div>
                             <div class="row">
-                                @include('partials.news')
+                                @include('partials.events')
 
                                 <!-- Events -->
-                                @include('partials.events')
+                                @include('partials.news')
                                 <!-- End Events -->
 
 

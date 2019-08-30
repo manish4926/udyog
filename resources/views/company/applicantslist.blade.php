@@ -19,9 +19,6 @@
                                     <div class="col-md-8">
                                         <h5 class="card-title"><i class="fas fa-bolt red"></i>{{$applicant->firstname}} {{$applicant->lastname}}</h5>
                                     </div>
-                                     <div class="col-md-4">
-                                        <p><i class="fas fa-pen"></i> Skills: {{$applicant->skills}}</p>
-                                    </div>
                                     <div class="col-md-8">
                                        <a href="{{route('userprofile',['user'=> $applicant->user_id ])}}" class="btn btn-outline-primary lg-btn-padding"> See Profile</a>
                                     </div>

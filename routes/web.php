@@ -79,7 +79,9 @@ Route::group(['prefix' => 'job'], function ()
 
     Route::post('/search/searchcontent',  ['as' => 'searchcontent', 'uses' =>'JobController@search']);
 
-    Route::get('/application1', ['as' => 'application', 'uses' =>'JobController@application']);
+    Route::get('/applicationtrial', ['as' => 'applicationdata', 'uses' =>'JobController@application']);
+
+    Route::post('/jobapplication', ['as' => 'application', 'uses' =>'JobController@applyjob']);
 
     Route::post('/application1/submit', ['as' => 'applicationsubmit', 'uses' =>'JobController@applicationSubmit']);
 
@@ -223,8 +225,12 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','roles'],'roles' => ['A
 
     Route::post('/events/delete/submit', ['as' => 'deleteEvent', 'uses' =>'AdminController@deleteEvent']);
 
+    //Admin Advertisement Panel
    
-
+    Route::get('/advt/add',['as' => 'addadvt', 'uses' =>'AdminController@addadvt']);
+    Route::post('/advt/add/submit', ['as' => 'addadvtSubmit', 'uses' =>'AdminController@addadvtSubmit']);
+    Route::get('/advt/all', ['as' => 'alladvt', 'uses' =>'AdminController@alladvts']);   
+    Route::post('/advts/delete/submit', ['as' => 'deleteAdvt', 'uses' =>'AdminController@deleteAdvt']);
 });
 
     
@@ -257,11 +263,11 @@ Route::group(['namespace' => 'Admin'], function ()
 Route::get('/userprofile/{userid}',['as' => 'userprofile', 'uses' =>'CandidatedataController@userprofile']);
 Route::get('/editprofile/{userid}',['as' => 'editprofile', 'uses' =>'CandidatedataController@editprofile']);
 
-//uploadAd
-Route::get('/uploadad',['as' => 'uploadad', 'uses' =>'MainController@uploadad']);
+// //uploadAd
+// Route::get('/uploadad',['as' => 'uploadad', 'uses' =>'MainController@uploadad']);
 
-//uploadAd
-Route::post('/uploadadsubmit',['as' => 'uploadadsubmit', 'uses' =>'MainController@uploadadsubmit']);
+// //uploadAd
+// Route::post('/uploadadsubmit',['as' => 'uploadadsubmit', 'uses' =>'MainController@uploadadsubmit']);
 
 //Main Search
 

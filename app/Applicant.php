@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Applicant extends Model
 {
-    //protected $table = 'candidatedatas';
+    protected $table = 'applicants';
 
     public function users()
     {
