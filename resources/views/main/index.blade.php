@@ -221,7 +221,7 @@
                                         
                                     </div>
                                     <div class="text-center row-btn">
-                                        <a class="button radius" href="#">View All Companies</a>
+                                        <a class="button radius" href="{{route('industrylist')}}">View All Companies</a>
                                     </div>
                                 </div>
                             </div>
@@ -404,7 +404,7 @@
                                 </div> --}}<!-- end most view Widget -->
 
                                 <!-- social Fans Widget -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                                <!-- <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
                                             <h5>Notices & Circulars</h5>
@@ -439,15 +439,12 @@
                                             </div>
                                         </div> --}}
                                     </div>
-                                </div><!-- End social Fans Widget -->
+                                </div>End social Fans Widget -->
 
                                 <!-- ad banner widget -->
                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
-                                        <div class="widgetTitle">
-                                            <h5>Recent post videos</h5>
-                                        </div>
-                                        <div class="widgetContent">
+                                            <div class="widgetContent">
                                             <div class="advBanner text-center">
                                                 <a href="#"><img src="images/sideradv.png" alt="sidebar adv"></a>
                                             </div>
@@ -531,7 +528,7 @@
                                 </div><!-- End Recent post videos -->
 
                                 <!-- tags -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                                <!-- <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
                                             <h5>Tags</h5>
@@ -550,7 +547,7 @@
                                             <a href="#">Recreation</a>
                                         </div>
                                     </div>
-                                </div><!-- End tags -->
+                                </div>End tags -->
                             </div>
                         </aside>
                     </div><!-- end sidebar -->

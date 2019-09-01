@@ -4,7 +4,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use DB;
 use App\Directory;
-
+use App\Product;
 use Auth;
 
 class DirectoryController extends Controller
@@ -36,29 +36,15 @@ class DirectoryController extends Controller
     {
         $user = Auth::user();
         
-        //$companydetail = Directory::where('user_id',$user->id)->first();
+        $companydetail = Directory::where('user_id',$user->id)->first();
 
-        $countCOMPANY = Directory::where('cname',$request->cname)->count();
-
-        if($countCOMPANY==0){
-            $validation= $request->validate( [
-                'cemp' => 'required|max:100|string',         
-                'businesstype' => 'required|max:20|string',
-                'industrytype'=>'required|max:20|String',
-                'companyemail' => 'required|max:50|email',
-                'block'=>'required|max:10|String',
-                'sector'=>'required|max:20|String',
-                'area'=>'required|max:20|String',
-                'state'=>'required|max:20|String',
-                'phoneno' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-                'image' => 'required|mimes:jpeg,png,jpg'
-            ]);
-            
-                   
+        //$countCOMPANY = Directory::where('cname',$request->cname)->count();
+       
+                  
             $c_emp = $request->input('cemp');
             $c_no = $request->input('phoneno');
             $c_email = $request->input('companyemail');
-            $slug = seoUrl($request->input('cname'));
+            $slug = seoUrl($companydetail->cname);
             $c_industry = $request->input('industrytype');
             $c_business = $request->input('businesstype');
             $c_about = $request->input('about');
@@ -67,25 +53,22 @@ class DirectoryController extends Controller
             $c_area = $request->input('area');
             $c_state = $request->input('state');
             $path = $request->file('image')->store('microweb\images\team');
+            $pathlogo = $request->file('logo')->store('microweb\images\logo');
 
            
             $data = array('slug' => $slug,'cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industrytype'=>$c_industry,'businesstype'=>$c_business,'about'=>$c_about, 'image'=>$path);
             Directory::where('user_id',$user->id)->update($data);
           //  DB::table('cdetails')->insert($data);
             return view('company.dashboard');
-        }
-        
-        else
-        {
-        return json_encode('company name already exist');
-        }
+    
     }
 
 
     //******* For showing list of industries ********//
     function index(Request $request)
-    {
+    {   
         $search=Directory::orderBy('c_id');//get data from table
+        $product=Product::orderBy('comapany_id');
         $industry_type  = industry_type();
         $business_type = business_type();
         if(!empty($request->business_types))
@@ -118,10 +101,10 @@ class DirectoryController extends Controller
             $search = $search->orwhere('sector', $request->sector);
         }
 
-        if(!empty($request->material))
-        {
-            $search = $search->orwhere('material', $request->material);
-        }
+        // if(!empty($request->material))
+        // {
+        //     $search = $search->orwhere('material', $request->material);
+        // }
 
         if(!empty($request->company))
         {
@@ -143,7 +126,7 @@ class DirectoryController extends Controller
         $sectors=Directory::whereNotNull('sector')->groupBy('sector')->get();
         $areas=Directory::whereNotNull('area')->groupBy('area')->get();
         $companys=Directory::whereNotNull('cname')->get();
-        return view('directory.industrylist',compact('search','materials','sectors','areas','companys','industry_type','business_type'));//sent data to view
+        return view('directory.industrylist',compact('search','materials','sectors','areas','companys','industry_type','business_type','product'));//sent data to view
     }
 
 

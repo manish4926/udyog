@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
-    class LoginController extends Controller
+class LoginController extends Controller
 {    
     /*
     |--------------------------------------------------------------------------
@@ -49,4 +49,16 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function redirectTo()
+    {
+        if (auth()->user()->hasRole('Admin')) {
+            return route('dashboard');
+        }
+        elseif (auth()->user()->hasRole('Company')) {
+            return route('directorycreate');
+        } else {
+            return '/';
+        }
     }
+}

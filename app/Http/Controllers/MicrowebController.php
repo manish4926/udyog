@@ -100,6 +100,24 @@ class MicrowebController extends Controller
         return view('company.ceopanel',compact('companydetail'));
     }    
 
+    public function clogo(Request $request)
+    {
+        $user = Auth::user();
+
+        $companydetail = Directory::where('user_id',$user->id)->first();
+
+        return view('company.clogo',compact('companydetail'));
+    }
+    
+    public function contactus(Request $request)
+    {
+        $user = Auth::user();
+
+        $companydetail = Directory::where('user_id',$user->id)->first();
+
+        return view('company.contactus',compact('companydetail'));
+    }
+
     public function aboutus(Request $request)
     {
         $user = Auth::user();
@@ -168,6 +186,16 @@ class MicrowebController extends Controller
                 $c_emp = $request->input('cemp');
                 $path = $request->file('image')->store('microweb\images\team');
                 Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp , 'image'=>$path]);
+        }
+
+        // to update company's logo 
+        if(!empty($request->cemp)|| !empty($request->image))
+        {
+           $validation= $request->validate( [
+            'image' => 'required|mimes:jpeg,png,jpg',]);
+
+                $path = $request->file('image')->store('microweb\images\logo');
+                Directory::where('c_id',$companydetail->company_id)->update(['logo'=>$path]);
         }
 
 // to update company's material

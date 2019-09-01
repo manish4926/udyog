@@ -117,7 +117,9 @@ Route::group(['prefix' => 'company/panel','middleware' => 'roles', 'roles' => ['
     Route::get('/jobpostpannel',['as'=>'jobpostpanel','uses'=>'MicrowebController@jobpost']); 
     Route::post('/dashboard',['as'=>'dashboard2','uses'=>'MicrowebController@makechanges']);
     Route::get('/delete/{id}',['as'=>'delete','uses'=>'MicrowebController@deletion']); 
-     Route::get('/applicantslist/{job_id}',['as'=>'applicantslist','uses'=>'MicrowebController@applicantslist']);
+    Route::get('/applicantslist/{job_id}',['as'=>'applicantslist','uses'=>'MicrowebController@applicantslist']);
+    Route::get('/clogo',['as'=>'clogo','uses'=>'MicrowebController@clogo']); 
+    Route::get('/contactus',['as'=>'contactpannel','uses'=>'MicrowebController@contactus']); 
 });
 
 
