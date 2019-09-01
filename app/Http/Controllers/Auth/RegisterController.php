@@ -90,7 +90,7 @@ class RegisterController extends Controller
         if(!empty($data['company_code'])) {
             //dd('dfff');
             $slug = seoUrl($data['company_name']);
-
+//dd($slug);
             $companydetail = new Directory;
             $companydetail->user_id = $user->id;
             $companydetail->ccode = $data['company_code'];

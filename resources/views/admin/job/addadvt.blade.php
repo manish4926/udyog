@@ -36,9 +36,13 @@
                 <div class="form-group">
                   <label for="position">Select Position</label>
                   <select name="position">
-				<option value="fileupload1">middle of the page</option>
-                <option value="fileupload2">right panel of the page</option>
-                <option value="fileupload3">bottom of the page</option>
+				<option value="middle">middle of the page</option>
+                <option value="right">right panel of the page</option>
+                <option value="bottom">bottom of the page</option>
+                </div>
+                <div class="form-group">
+                  <label for="title">Advertisement Link</label>
+                  <input type="text" class="form-control" name="link" id="adlink" placeholder="Enter advertisement link">
                 </div>
                 <div class="form-group">
                   <label for="EventPhoto">Upload Photo</label>

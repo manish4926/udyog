@@ -7,7 +7,7 @@
     <div class="col-md-8">
         <div class="white-card">
         <h2> {{ $companydetail->testimonial }} </h2>
-            <div class="col-md-4">
+            <div class="col-md-12">
             <form method="post" action="{{route('dashboard2')}}">
             @csrf
             <input type="text" class="form-control" name="cname" placeholder="Enter dataP">

@@ -39,12 +39,30 @@ class DirectoryController extends Controller
         $companydetail = Directory::where('user_id',$user->id)->first();
 
         //$countCOMPANY = Directory::where('cname',$request->cname)->count();
-       
+        if(!empty($request->file('logo'))){
+            $this->validate($request,[
+                'logo' =>'mimes:jpeg,jpg,png']);
+                $file = $request->file('logo');
+                $destinationPath = 'microweb/images/logo';
+                $logo = rand(10,100)."-".$file->getClientOriginalName();
+                // dd($filename);
+                $file->move($destinationPath,$logo);  
+        }
+
+        if(!empty($request->file('image'))){
+            $this->validate($request,[
+                'image' =>'mimes:jpeg,jpg,png']);
+                $file = $request->file('image');
+                $destinationPath = 'microweb/images/team';
+                $ceo = rand(10,100)."-".$file->getClientOriginalName();
+                // dd($filename);
+                $file->move($destinationPath,$ceo); 
+        }
                   
             $c_emp = $request->input('cemp');
             $c_no = $request->input('phoneno');
             $c_email = $request->input('companyemail');
-            $slug = seoUrl($companydetail->cname);
+            // $slug = seoUrl($companydetail->cname);
             $c_industry = $request->input('industrytype');
             $c_business = $request->input('businesstype');
             $c_about = $request->input('about');
@@ -52,11 +70,11 @@ class DirectoryController extends Controller
             $c_sector = $request->input('sector');
             $c_area = $request->input('area');
             $c_state = $request->input('state');
-            $path = $request->file('image')->store('microweb\images\team');
-            $pathlogo = $request->file('logo')->store('microweb\images\logo');
+            $path = $ceo;
+            $pathlogo = $logo;
 
            
-            $data = array('slug' => $slug,'cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industrytype'=>$c_industry,'businesstype'=>$c_business,'about'=>$c_about, 'image'=>$path);
+            $data = array('cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industrytype'=>$c_industry,'businesstype'=>$c_business,'about'=>$c_about, 'image'=>$path);
             Directory::where('user_id',$user->id)->update($data);
           //  DB::table('cdetails')->insert($data);
             return view('company.dashboard');

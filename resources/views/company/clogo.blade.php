@@ -6,16 +6,13 @@
 
     <div class="col-md-8">
         <div class="white-card">
-        <h2> <img src="{{ $companydetail->logo }}"> </h2>
-            <div class="col-md-4">
+        <h2><img src="{{asset('microweb/images/logo'.$companydetail->logo)}}" class="card-img card-img-padding" alt="{{ ucfirst($companydetail->cname) }}"></h2>
+            <div class="col-md-6">
 
             <form method="post" action="{{route('dashboard2')}}" enctype="multipart/form-data">
             @csrf
-            <input type="text" class="form-control" name="cemp" placeholder="Enter Edited Name">
-            </div>
-            <div class="col-md-4">
             <H4>Company Logo</H4>
-            <input name="image" type="file" class="form-control" id="imageid" placeholder="choose file...." class="custom-file-input">
+            <input name="logo" type="file" class="form-control" id="imageid" placeholder="choose file...." class="custom-file-input"/>
                 <span style="margin-left: 15px; width: 480px;" class="custom-file-control"></span>
             </div>
             <div class="col-md-4">

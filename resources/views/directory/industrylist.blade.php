@@ -31,16 +31,16 @@
 		<div class="card mb-3">
 				<div class="row no-gutters">
 					<div class="col-md-4-directory">
-						<img src="https://cdn.shopify.com/s/files/1/0252/1347/products/IMG_3420.JPG?v=1486859233" class="card-img card-img-padding" alt="{{ ucfirst($set->cname) }}">
+						<img src="{{asset('microweb/images/logo'.$set->logo))}}" class="card-img card-img-padding" alt="{{ ucfirst($set->cname) }}">
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">
 								<div class="card-block card-info">
 			
 						<h2 class="card-head-directory" >{{  ucfirst($set->cname) }}</h2>
-						<h3 class="card-head-directory" > <span > 
+						<!-- <h3 class="card-head-directory" > <span > 
 							  <a href="{{ route('industrylist', ['tag' => $set->material ]) }}" class="btn btn-primary btn-sm">{{$set->material}}</a>
-						</span></h3>
+						</span></h3> -->
 						<div class="card-desc">Approx 3 Lines of Text</div>
 							<hr>
 							<div class="row">

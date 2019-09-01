@@ -38,7 +38,7 @@
                                     <td>{{$alladvt->title}}</td>
                                     <td>{{$alladvt->position}}</td>
                                    <td>
-                                    <a target="_blank" href="{{ asset('advtphoto/'.$alladvt->image) }}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm">Download Event Photo</a>
+                                    <a target="_blank" href="{{asset('advtphoto/'.$alladvt->image) }}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm">Download Advertisement Photo</a>
                                     </td>
                                     <!-- <td><a href="{{ route('updateevent',['id'=>$alladvt->id])}}">UPDATE EVENT</a></td> -->
                                     <td><button class="btn btn-link" data-id="{{ $alladvt->id}}" onclick="deleteAdvt.call(this)">Delete</button></td>        
