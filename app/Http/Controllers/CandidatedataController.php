@@ -76,8 +76,27 @@ class CandidatedataController extends Controller
     {
         $applicantinfo = User::where('id',$request->userid)->first();
         $applicantdetails = Candidatedata::where('user_id',$request->userid)->first();
+        if($applicantdetails)
         //dd($request->userid);
-        return view('job.editprofile')->with(['applicantinfo'=>$applicantinfo, 'applicantdetails'=> $applicantdetails]);
+        {
+            $durattn = (string)$applicantdetails->duration;
+            $durat = explode('.',$durattn,2);
+            $year = $durat[0];
+            $month = $durat[1];
+            $salary = (string)$applicantdetails->salary;
+            $sal = explode('.',$salary,2);
+            $lacs = $sal[0];
+            $thousand = $sal[1];
+            $experience = (string)$applicantdetails->experience;
+            $exper = explode('.',$experience,2);
+            $yearex = $exper[0];
+            $monthex = $exper[1];
+            return view('job.editprofile')->with(['applicantinfo'=>$applicantinfo, 'applicantdetails'=> $applicantdetails, 'year'=>$year, 'month'=>$month ,'lacs'=>$lacs, 'thousand'=>$thousand ,'yearex'=>$yearex, 'monthex'=>$monthex ]);
+        }
+       
+
+        else 
+        return view('job.editprofile')->with(['applicantinfo'=>$applicantinfo]);
     }
 
     /**

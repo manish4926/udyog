@@ -149,13 +149,13 @@
                     <form data-abide novalidate method="post">
                         <p>Subscribe to get exclusive videos</p>
                         <div class="input">
-                            <input type="text" placeholder="Enter your full Name" required>
+                            <input type="text" placeholder="Enter your full Name">
                             <span class="form-error">
                                 Yo, you had better fill this out, it's required.
                             </span>
                         </div>
                         <div class="input">
-                            <input type="email" id="email" placeholder="Enter your email addres" required >
+                            <input type="email" id="email" placeholder="Enter your email addres">
                             <span class="form-error">
                               I'm required!
                             </span>

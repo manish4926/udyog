@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\URL;
 use App\job_opening;
 use App\Candidatedata;
 use App\Directory;
+use App\User;
 use DB;
 use Auth;
 use Carbon\Carbon;
@@ -51,7 +52,7 @@ class JobController extends Controller
 		
 		$jobpost->save();
 		
-		return redirect('job/all')->with('status', 'Successfully Submitted!');
+		return redirect('company/panel/dashboard')->with('status', 'Successfully Submitted!');
 	}
 
 
@@ -62,10 +63,34 @@ class JobController extends Controller
 		// {
 			$job_title = $request->title;
 		$job_opening = job_opening::where('job_id' , $job_title)->first();
-		return view('job.application',compact('user','job_opening'));	
-		// }
+		// return view('job.application',compact('user','job_opening'));	
+		// // }
 		// else
 		// return view('job.application',compact('user'));
+
+		$applicantinfo = User::where('id',$request->userid)->first();
+        $applicantdetails = Candidatedata::where('user_id',$request->userid)->first();
+        if($applicantdetails)
+        //dd($request->userid);
+        {
+            $durattn = (string)$applicantdetails->duration;
+            $durat = explode('.',$durattn,2);
+            $year = $durat[0];
+            $month = $durat[1];
+            $salary = (string)$applicantdetails->salary;
+            $sal = explode('.',$salary,2);
+            $lacs = $sal[0];
+            $thousand = $sal[1];
+            $experience = (string)$applicantdetails->experience;
+            $exper = explode('.',$experience,2);
+            $yearex = $exper[0];
+            $monthex = $exper[1];
+            return view('job.application',compact('user','job_opening','applicantinfo','applicantdetails', 'year', 'month','lacs', 'thousand','yearex', 'monthex'));
+        }
+       
+
+        else 
+		return view('job.application',compact('user','job_opening','applicantinfo'));
 		
 	}
 
@@ -100,7 +125,7 @@ class JobController extends Controller
 		//dd($request->jobid);
 		$candidate = new Candidatedata;
 
-		$job_id       			   = $request->job_id;
+		
 		$tyear                     = $request->tyear;
 		$tmonth                    = $request->tmonth;
 		$ddlSalaryLacs             = $request->ddlSalaryLacs;
@@ -108,6 +133,7 @@ class JobController extends Controller
 		$yearduration   		   = $request->yearduration;
 		$monthduration             = $request->monthduration;
 		$candidate->user_id        = $user->id;
+		$candidate->job_id       			   = $request->jobid;
 		$candidate->firstname      = $user->firstname;
 		$candidate->lastname       = $user->lastname;
 		$candidate->email          = $user->email;
@@ -122,6 +148,7 @@ class JobController extends Controller
 		$candidate->industry       = $request->industry;
 		$candidate->basicgraduation= $request->basicgraduation;
 		$candidate->graduation     = $request->graduation;
+		$candidate->diploma 	   = $request->diploma;
 		$candidate->postgraduation = $request->postgraduation;
 		$candidate->doctorate      = $request->doctorate;
 		$candidate->certificate    = $request->certificate;
