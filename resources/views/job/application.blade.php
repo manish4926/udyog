@@ -12,7 +12,7 @@
 @section('center-content')
 <div class="white-card">
 	
-	<form action="{{route('applicationsubmit')}}" method="post" enctype="multipart/form-data">
+	<form action="{{route('application')}}" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
 
 		<div class="form-group">

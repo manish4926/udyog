@@ -57,14 +57,15 @@
                         <div class="video-side-list">
                             <ul class="list-group">
                                 <li><a class="list-group-item" href="{{route('currentaffairs')}}">Current affairs</a></li>
-                                <li><a class="list-group-item" href="{{route('training')}}">Training's</a></li>
+                                <li><a class="list-group-item" href="#">Industrial Property</a></li>
+                                {{-- <li><a class="list-group-item" href="{{route('training')}}">Training's</a></li> --}}
                                 <li><a class="list-group-item" href="{{route('labourlaws')}}">Labour Laws</a></li>
-                                <li><a class="list-group-item" href="{{route('taxation')}}">taxation</a></li>
+                                <li><a class="list-group-item" href="{{route('taxation')}}">Taxation</a></li>
                                 <li><a class="list-group-item" href="{{route('newtechnology')}}">New Technology</a></li>
                                 <li><a class="list-group-item" href="{{route('newproducts')}}">New Products</a></li>
                                 <li><a class="list-group-item" href="{{route('health')}}">Health</a></li>
-                                <li><a class="list-group-item" href="{{route('growbusiness')}}">How to grow business</a></li>
-                                <li><a class="list-group-item" href="{{route('regarademarks')}}">Registerations & Arade Marks</a></li>
+                                <li><a class="list-group-item" href="{{route('growbusiness')}}">Expand your business</a></li>
+                                <li><a class="list-group-item" href="{{route('regarademarks')}}">Registerations & Grade Marks</a></li>
                             </ul>
                         </div>
                     </div>
@@ -220,7 +221,7 @@
                                         
                                     </div>
                                     <div class="text-center row-btn">
-                                        <a class="button radius" href="#">View All Companies</a>
+                                        <a class="button radius" href="{{route('industrylist')}}">View All Companies</a>
                                     </div>
                                 </div>
                             </div>
@@ -303,10 +304,10 @@
                         <aside class="sidebar">
                             <div class="sidebarBg"></div>
                             <div class="row">
-                                @include('partials.news')
+                                @include('partials.events')
 
                                 <!-- Events -->
-                                @include('partials.events')
+                                @include('partials.news')
                                 <!-- End Events -->
 
 
@@ -403,7 +404,7 @@
                                 </div> --}}<!-- end most view Widget -->
 
                                 <!-- social Fans Widget -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                                <!-- <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
                                             <h5>Notices & Circulars</h5>
@@ -438,15 +439,12 @@
                                             </div>
                                         </div> --}}
                                     </div>
-                                </div><!-- End social Fans Widget -->
+                                </div>End social Fans Widget -->
 
                                 <!-- ad banner widget -->
                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
-                                        <div class="widgetTitle">
-                                            <h5>Recent post videos</h5>
-                                        </div>
-                                        <div class="widgetContent">
+                                            <div class="widgetContent">
                                             <div class="advBanner text-center">
                                                 <a href="#"><img src="images/sideradv.png" alt="sidebar adv"></a>
                                             </div>
@@ -530,7 +528,7 @@
                                 </div><!-- End Recent post videos -->
 
                                 <!-- tags -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                                <!-- <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
                                             <h5>Tags</h5>
@@ -549,7 +547,7 @@
                                             <a href="#">Recreation</a>
                                         </div>
                                     </div>
-                                </div><!-- End tags -->
+                                </div>End tags -->
                             </div>
                         </aside>
                     </div><!-- end sidebar -->

@@ -90,10 +90,14 @@
                 Theme Main SLider
             =====================================================
             -->
-            <div id="home" class="banner">
+           
+           <div id="home" class="banner">
 
                 <img src="{{ asset('images/800.png') }}">
-            </div> <!--  /#banner -->
+         
+            </div>  
+            
+        
 
 
             <!--
@@ -104,8 +108,8 @@
             <section id="about-us">
                 <div class="container">
                     <div class="theme-title">
-                        <h2>ABOUT {{$companydetail->companyname}}</h2>
-                        <p>{{$companydetail->companyname}} Products was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings. The products we manufacture are in compliance with industry laid norms and guidelines. We take into consideration all the technical details provided to us by our clients while fabricating these products.</p>
+                        <h2>ABOUT {{$companydetail->cname}}</h2>
+                        <p>{{$companydetail->cname}} Products was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings. The products we manufacture are in compliance with industry laid norms and guidelines. We take into consideration all the technical details provided to us by our clients while fabricating these products.</p>
                     </div> <!-- /.theme-title -->
 
                     <div class="row">

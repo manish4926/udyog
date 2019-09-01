@@ -86,8 +86,13 @@
                         <input type="text" class="form-control" name="phoneno" data-parsley-pattern="\+?\d[\d -]{8,12}\d" data-parsley-required>
                     </div>
                     <div class="form-wrapper">
-                        <label for="">Upload Image</label>
+                        <label for="">Upload Ceo Image</label>
                         <input name="image" type="file" class="form-control" id="imageid" placeholder="choose file...." class="custom-file-input" data-parsley-trigger="keyup" data-parsley-required>
+                    </div>
+
+                    <div class="form-wrapper">
+                        <label for="">Upload Company Logo</label>
+                        <input name="logo" type="file" class="form-control" id="imageid" placeholder="choose file...." class="custom-file-input" data-parsley-trigger="keyup" data-parsley-required>
                     </div>
                     
                     <div class="checkbox">

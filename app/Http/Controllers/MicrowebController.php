@@ -8,6 +8,7 @@ use App\MicrowebTestimonial;
 use App\Directory;
 use App\job_opening;
 use App\Candidatedata;
+use App\Applicant;
 use DB;
 use Auth;
 use Illuminate\Http\Request;
@@ -99,6 +100,24 @@ class MicrowebController extends Controller
         return view('company.ceopanel',compact('companydetail'));
     }    
 
+    public function clogo(Request $request)
+    {
+        $user = Auth::user();
+
+        $companydetail = Directory::where('user_id',$user->id)->first();
+
+        return view('company.clogo',compact('companydetail'));
+    }
+    
+    public function contactus(Request $request)
+    {
+        $user = Auth::user();
+
+        $companydetail = Directory::where('user_id',$user->id)->first();
+
+        return view('company.contactus',compact('companydetail'));
+    }
+
     public function aboutus(Request $request)
     {
         $user = Auth::user();
@@ -134,7 +153,7 @@ class MicrowebController extends Controller
         $user = Auth::user();
 
         if(!empty($request->job_id))
-        $applicants= Candidatedata::where('job_id' , $request->job_id)->paginate(5); 
+        $applicants= Applicant::where('job_id' , $request->job_id)->paginate(5); 
 
         return view('company.applicantslist',compact('applicants'));
     }
@@ -167,6 +186,16 @@ class MicrowebController extends Controller
                 $c_emp = $request->input('cemp');
                 $path = $request->file('image')->store('microweb\images\team');
                 Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp , 'image'=>$path]);
+        }
+
+        // to update company's logo 
+        if(!empty($request->cemp)|| !empty($request->image))
+        {
+           $validation= $request->validate( [
+            'image' => 'required|mimes:jpeg,png,jpg',]);
+
+                $path = $request->file('image')->store('microweb\images\logo');
+                Directory::where('c_id',$companydetail->company_id)->update(['logo'=>$path]);
         }
 
 // to update company's material

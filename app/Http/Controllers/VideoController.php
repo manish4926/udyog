@@ -26,6 +26,7 @@ class VideoController extends Controller
     {
     	if($request->hasFile('videoFile') && $request->hasFile('thumbFile'))
     	{
+            
     		$filename = $request->file('videoFile')->getClientOriginalName();
             $thumbname = $request->file('thumbFile')->getClientOriginalName();
             $withoutExtFile = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);

@@ -9,6 +9,7 @@ use App\job_opening;
 use App\Candidatedata;
 use App\Directory;
 use App\User;
+use App\Applicant;
 use DB;
 use Auth;
 use Carbon\Carbon;
@@ -71,28 +72,30 @@ class JobController extends Controller
 		$applicantinfo = User::where('id',$request->userid)->first();
         $applicantdetails = Candidatedata::where('user_id',$request->userid)->first();
         if($applicantdetails)
-        //dd($request->userid);
+        // //dd($request->userid);
         {
-            $durattn = (string)$applicantdetails->duration;
-            $durat = explode('.',$durattn,2);
-            $year = $durat[0];
-            $month = $durat[1];
-            $salary = (string)$applicantdetails->salary;
-            $sal = explode('.',$salary,2);
-            $lacs = $sal[0];
-            $thousand = $sal[1];
-            $experience = (string)$applicantdetails->experience;
-            $exper = explode('.',$experience,2);
-            $yearex = $exper[0];
-            $monthex = $exper[1];
-            return view('job.application',compact('user','job_opening','applicantinfo','applicantdetails', 'year', 'month','lacs', 'thousand','yearex', 'monthex'));
+        //     $durattn = (string)$applicantdetails->duration;
+        //     $durat = explode('.',$durattn,2);
+        //     $year = $durat[0];
+        //     $month = $durat[1];
+        //     $salary = (string)$applicantdetails->salary;
+        //     $sal = explode('.',$salary,2);
+        //     $lacs = $sal[0];
+        //     $thousand = $sal[1];
+        //     $experience = (string)$applicantdetails->experience;
+        //     $exper = explode('.',$experience,2);
+        //     $yearex = $exper[0];
+        //     $monthex = $exper[1];
+        	return view('job.applicationtrial',compact('user','job_opening','applicantinfo'));
         }
-       
 
-        else 
-		return view('job.application',compact('user','job_opening','applicantinfo'));
+        else
+            return view('job.editprofile',compact('user','applicantinfo'))->with('status', 'Please edit your profile first!');
+		// }
+		
 		
 	}
+
 
 
 	public function applicationSubmit(request $request)
@@ -159,7 +162,24 @@ class JobController extends Controller
 		
 		$candidate->save();
 		
-		return redirect('job/all')->with('status', 'Successfully Submitted!');
+		return redirect('job/all')->with('status', 'Successfully updated! Now please apply for the job.');
+	}
+
+	public function applyjob (Request $request)
+	{
+		$user = Auth::user();
+	
+			$applicant = new Applicant;
+
+			$applicant->job_id = $request->jobid;
+			$applicant->user_id        = $user->id;
+			$applicant->firstname      = $user->firstname;
+			$applicant->lastname       = $user->lastname;
+			$applicant->email          = $user->email;
+
+			$applicant->save();
+			
+			return redirect('job/all')->with('status', 'Successfully Submitted!');
 	}
 
 	public function alljob (Request $request)

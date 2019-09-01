@@ -6,7 +6,7 @@
 
     <div class="col-md-8">
         <div class="white-card">
-        <h2> {{ $companydetail->cemp }} </h2>
+        <h2> <img src="{{ $companydetail->logo }}"> </h2>
             <div class="col-md-4">
 
             <form method="post" action="{{route('dashboard2')}}" enctype="multipart/form-data">
@@ -14,7 +14,7 @@
             <input type="text" class="form-control" name="cemp" placeholder="Enter Edited Name">
             </div>
             <div class="col-md-4">
-            <H4>CEO IMAGE</H4>
+            <H4>Company Logo</H4>
             <input name="image" type="file" class="form-control" id="imageid" placeholder="choose file...." class="custom-file-input">
                 <span style="margin-left: 15px; width: 480px;" class="custom-file-control"></span>
             </div>

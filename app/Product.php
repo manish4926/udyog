@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Advertisement extends Model
+class Directory extends Model
 {
-    protected $table='advt';
+     protected $table = 'product';
 }

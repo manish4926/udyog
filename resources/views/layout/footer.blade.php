@@ -54,14 +54,37 @@
                 </div>
                 <div class="textwidget">
                     Company where prooducts are available and manufactured very easily.
-                    
-                    <a href="{{ route('clogin') }}">Register</a>
-                                </button>  
+                    <br>
+                    <br>
+                    <!-- <a href="{{ route('clogin') }}" type="button" class="btn btn-light">Register</a> -->
+                                <!-- </button>   -->
+               
                 </div>
+                <div class="social-links">
+                        <h5>We’re a Social Bunch</h5>
+                        <a class="secondary-button" href="#"><i class="fab fa-facebook"></i></a>
+                        <a class="secondary-button" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="secondary-button" href="#"><i class="fab fa-google-plus"></i></a>
+                        <a class="secondary-button" href="#"><i class="fab fa-instagram"></i></a>
+               <!--         <a class="secondary-button" href="#"><i class="fab fa-vimeo"></i></a>  -->
+                        <a class="secondary-button" href="#"><i class="fab fa-youtube"></i></a>
+                     <!--   <a class="secondary-button" href="#"><i class="fab fa-flickr"></i></a>  -->
+
+                    </div>
             </div>
         </div>
         <div class="large-3 medium-6 columns">
-            <div class="widgetBox">
+        <div class="widgetBox">
+                <div class="widgetTitle">
+                    <h5>Quick Links</h5>
+                </div>
+                <div class="textwidget">
+                 <a href="{{ route('clogin') }}">Register</a>
+                </div>
+        </div>
+    </div>
+       <div class="large-3 medium-6 columns">
+       <div class="widgetBox">
                 <div class="widgetTitle">
                     <h5>Recent Videos</h5>
                 </div>
@@ -118,61 +141,14 @@
                 </div>
             </div>
 
-        </div>
-    
-       <div class="large-3 medium-6 columns">
-            <div class="widgetBox">
-                <div class="widgetTitle">
-                    <h5>Tags</h5>
-                </div>
-                <div class="tagcloud">
-                    <a href="#">3D Videos</a>
-                    <a href="#">Videos</a>
-                    <a href="#">HD</a>
-                    <a href="#">Movies</a>
-                    <a href="#">Sports</a>
-                    <a href="#">3D</a>
-                    <a href="#">Movies</a>
-                    <a href="#">Animation</a>
-                    <a href="#">HD</a>
-                    <a href="#">Music</a>
-                    <a href="#">Recreation</a>
-                </div>
-            </div> 
         </div>  
         <div class="large-3 medium-6 columns">
             <div class="widgetBox">
                 <div class="widgetTitle">
-                    <h5>Subscribe Now</h5>
+                    <h5>Facebook</h5>
                 </div>
                 <div class="widgetContent">
-                    <form data-abide novalidate method="post">
-                        <p>Subscribe to get exclusive videos</p>
-                        <div class="input">
-                            <input type="text" placeholder="Enter your full Name">
-                            <span class="form-error">
-                                Yo, you had better fill this out, it's required.
-                            </span>
-                        </div>
-                        <div class="input">
-                            <input type="email" id="email" placeholder="Enter your email addres">
-                            <span class="form-error">
-                              I'm required!
-                            </span>
-                        </div>
-                        <button class="button" type="submit" value="Submit">Sign up Now</button>
-                    </form>
-                    <div class="social-links">
-                        <h5>We’re a Social Bunch</h5>
-                        <a class="secondary-button" href="#"><i class="fab fa-facebook"></i></a>
-                        <a class="secondary-button" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="secondary-button" href="#"><i class="fab fa-google-plus"></i></a>
-                        <a class="secondary-button" href="#"><i class="fab fa-instagram"></i></a>
-               <!--         <a class="secondary-button" href="#"><i class="fab fa-vimeo"></i></a>  -->
-                        <a class="secondary-button" href="#"><i class="fab fa-youtube"></i></a>
-                     <!--   <a class="secondary-button" href="#"><i class="fab fa-flickr"></i></a>  -->
-
-                    </div>
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FJimsDelhi%2F&tabs=timeline&width=340&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>    
                 </div>
             </div>
         </div>
