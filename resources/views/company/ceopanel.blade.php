@@ -7,7 +7,7 @@
     <div class="col-md-8">
         <div class="white-card">
         <h2> {{ $companydetail->cemp }} </h2>
-            <div class="col-md-4">
+            <div class="col-md-12">
 
             <form method="post" action="{{route('dashboard2')}}" enctype="multipart/form-data">
             @csrf

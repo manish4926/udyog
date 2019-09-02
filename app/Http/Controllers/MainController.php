@@ -50,10 +50,14 @@ class MainController extends Controller
         //dd($live_videos->last());
         //dd($live_videos[0]->getOriginal()); 
 
+
         $directory   = Directory::orderBy('c_id')->limit(3)->get();
         $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
-        $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
-        
+        $event       = Event::orderBy('id')->limit(4)->where('status','ACTIVE')->get();
+        $advtmid     = Advertisement::where('position','middle')->inRandomOrder()->limit(1)->get();
+        $advtright   = Advertisement::inRandomOrder()->limit(1)->where('position','right')->get();
+        $advtbottom  = Advertisement::inRandomOrder()->limit(1)->where('position','bottom')->get();
+        //dd($advtright->id);
         $recommended = Video::inRandomOrder()->limit(10)->get();
 
         //news
@@ -65,7 +69,7 @@ class MainController extends Controller
         }
         
 //dd($live_videos);
-        return view('main.index',compact('directory','videos','jobs','event', 'live_videos','worldfeeds','recommended'));
+        return view('main.index',compact('directory','videos','jobs','event', 'live_videos','worldfeeds','recommended','advtmid','advtbottom','advtright'));
 
 
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);

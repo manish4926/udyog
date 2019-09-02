@@ -227,11 +227,19 @@
                             </div>
                         </section>
                         <!-- ad Section -->
+                       
+                        @foreach ($advtmid as $advt)
+                        @if(!empty($advt))
+                        <div class="googleAdv text-center">
+                            <a href="{{$advt->link}}"><img src="{{asset('advtphoto/'.$advt->image)}}" alt="{{$advt->title}}"></a>
+                        </div>
+                        @else
                         <div class="googleAdv text-center">
                             <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
                         </div><!-- End ad Section -->
-
-
+                        @endif
+                        @endforeach
+                       
                         <!-- popular video -->
                         <section class="content content-with-sidebar">
                             <!-- popular Videos -->
@@ -293,9 +301,19 @@
                                 </div>
                             </div>
                             <!-- ad Section -->
-                            <div class="googleAdv">
-                                <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
-                            </div><!-- End ad Section -->
+                            
+                            @foreach ($advtbottom as $advt)
+                            @if(!empty($advt))
+                        <div class="googleAdv text-center">
+                            <a href="{{$advt->link}}"><img src="{{asset('advtphoto/'.$advt->image)}}"  alt="{{$advt->title}}"></a>
+                        </div>
+                        @else
+                        <div class="googleAdv text-center">
+                            <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
+                        </div><!-- End ad Section -->
+                        @endif
+                        @endforeach
+                        
                         </section><!-- End main content -->
 
                     </div><!-- end left side content area -->
@@ -445,9 +463,19 @@
                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                             <div class="widgetContent">
-                                            <div class="advBanner text-center">
-                                                <a href="#"><img src="images/sideradv.png" alt="sidebar adv"></a>
+                                           
+                                            @foreach ($advtright as $advt)
+                                            @if(!empty($advt->id))
+                                            <div class="googleAdv text-center">
+                                                <a href="{{$advt->link}}"><img src="{{asset('advtphoto/'.$advt->image)}}"  alt="{{$advt->title}}"></a>
                                             </div>
+                                            @else
+                                            <div class="googleAdv text-center">
+                                                <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
+                                            </div><!-- End ad Section -->
+                                            @endif
+                                            @endforeach
+                                       
                                         </div>
                                     </div>
                                 </div><!-- end ad banner widget -->

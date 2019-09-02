@@ -164,8 +164,12 @@ class AdminController extends Controller
        if(!empty($request->file('fileupload'))){
             $this->validate($request,[
                 'fileupload' =>'mimes:jpeg,jpg,png']);
-            $filename = $request->file('fileupload')->getClientOriginalName();
-            $request->file('fileupload')->storeAs('advtphoto',$filename);
+                $file = $request->file('fileupload');
+                $destinationPath = 'advtphoto';
+                $filename = rand(10,100)."-".$file->getClientOriginalName();
+                // dd($filename);
+                $file->move($destinationPath,$filename);
+
             
         }
 
@@ -175,6 +179,7 @@ class AdminController extends Controller
         $newadvt->title        = $request->title;
         $newadvt->position     = $request->position;
         $newadvt->image        = $filename;
+        $newadvt->link         = $request->link;
     
         $newadvt->save();
 
@@ -196,7 +201,7 @@ class AdminController extends Controller
     {
         $id =$request->advtid;
         Advertisement::where('id',$id)
-                        ->update(['status' => 'INACTIVE']);
+                        ->delete();
 
         return json_encode('success');
     }

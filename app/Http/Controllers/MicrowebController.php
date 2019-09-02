@@ -172,7 +172,7 @@ class MicrowebController extends Controller
 
                 $c_name = $request->input('cname');
 
-        Directory::where('c_id',$companydetail->company_id)->update(['cname'=> $c_name]);
+        Directory::where('c_id',$companydetail->c_id)->update(['cname'=> $c_name]);
         }
 
 
@@ -185,17 +185,20 @@ class MicrowebController extends Controller
 
                 $c_emp = $request->input('cemp');
                 $path = $request->file('image')->store('microweb\images\team');
-                Directory::where('c_id',$companydetail->company_id)->update(['cemp'=> $c_emp , 'image'=>$path]);
+                Directory::where('c_id',$companydetail->c_id)->update(['cemp'=> $c_emp , 'image'=>$path]);
         }
 
-        // to update company's logo 
-        if(!empty($request->cemp)|| !empty($request->image))
+        //to udate company's logo
+        if(!empty($request->logo))
         {
-           $validation= $request->validate( [
-            'image' => 'required|mimes:jpeg,png,jpg',]);
-
-                $path = $request->file('image')->store('microweb\images\logo');
-                Directory::where('c_id',$companydetail->company_id)->update(['logo'=>$path]);
+            $this->validate($request,[
+                'logo' =>'mimes:jpeg,jpg,png']);
+                $file = $request->file('logo');
+                $destinationPath = 'microweb/images/logo';
+                $logo = rand(10,100)."-".$file->getClientOriginalName();
+                $file->move($destinationPath,$logo);
+                
+                Directory::where('c_id',$companydetail->c_id)->update(['logo'=>$logo]);
         }
 
 // to update company's material
@@ -209,6 +212,8 @@ class MicrowebController extends Controller
         // Directory::where('c_id',$companydetail->company_id)->update(['material'=> $c_material]);
         // }
 
+      
+
 
         // to update company's testimonial  
          if(!empty($request->testimonial))
@@ -218,7 +223,7 @@ class MicrowebController extends Controller
 
                 $c_testimonial = $request->input('testimonial');
 
-        Directory::where('c_id',$companydetail->company_id)->update(['testimonial'=> $c_testimonial]);
+        Directory::where('c_id',$companydetail->c_id)->update(['testimonial'=> $c_testimonial]);
         }
         
                // dd($companydetail->company_id);

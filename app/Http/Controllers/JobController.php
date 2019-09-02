@@ -136,6 +136,7 @@ class JobController extends Controller
 		$yearduration   		   = $request->yearduration;
 		$monthduration             = $request->monthduration;
 		$candidate->user_id        = $user->id;
+		$candidate->job_id       			   = $request->jobid;
 		$candidate->firstname      = $user->firstname;
 		$candidate->lastname       = $user->lastname;
 		$candidate->email          = $user->email;
