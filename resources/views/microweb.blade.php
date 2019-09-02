@@ -269,7 +269,7 @@
                                     <div class="border-shape"><div><div>
                                         <h6><a href="#"></a>Brake Shoes</h6>
                                         <ul>
-                                            <li>Service /</li>
+                                            <li>Service </li>
                                             <li>Product </li>
                                         </ul></div></div>
                                     </div> <!-- /.border-shape -->
@@ -329,8 +329,8 @@
                                     <div class="border-shape"><div><div>
                                         <h6><a href="#">Fail Safe Brake Lining</a></h6>
                                         <ul>
-                                            <li>Service /</li>
-                                            <li>Product /</li>
+                                            <li>Service </li>
+                                            <li>Product </li>
                                         </ul></div></div>
                                     </div> <!-- /.border-shape -->
                                 </div> <!-- /.opacity -->
@@ -344,8 +344,8 @@
                                     <div class="border-shape"><div><div>
                                         <h6><a href="#">Roll Brake Lining</a></h6>
                                         <ul>
-                                            <li>Service /</li>
-                                            <li>Product /</li>
+                                            <li>Service </li>
+                                            <li>Product </li>
                                         </ul></div></div>
                                     </div> <!-- /.border-shape -->
                                 </div> <!-- /.opacity -->
@@ -777,14 +777,14 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="left-side">
                                 <h2>Contact Info</h2>
-                                <p>Sharma Auto Products was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings.</p>
+                                <p>{{$companydetail->cname}} was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings.</p>
 
                                 <ul>
                                     <li>
                                         <div class="icon tran3s round-border p-color-bg"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
                                         <h6>Address</h6>
-                                        <p>Sharma Auto Products</p>
-                                        <p> S.K. Sharma(Owner) </p>
+                                        <p>{{$companydetail->cname}}</p>
+                                        <p> {{$companydetail->cemp}} </p>
                                         <p>Office Number A-2,Dsidc Industrial Area,Bawana,Sector1,Delhi-110039, India </p>
                                     </li>
                                     <li>
