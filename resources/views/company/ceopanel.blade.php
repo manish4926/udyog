@@ -6,12 +6,11 @@
 
     <div class="col-md-8">
         <div class="white-card">
-        <h2> {{ $companydetail->cemp }} </h2>
+        <h2> CEO Name </h2>
             <div class="col-md-12">
-
-            <form method="post" action="{{route('dashboard2')}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('dashboard2')}}">
             @csrf
-            <input type="text" class="form-control" name="cemp" placeholder="Enter Edited Name">
+            <input type="text" class="form-control" name="cname" value="{{ $companydetail->cemp }}" placeholder="Enter Edited Name">
             </div>
             <div class="col-md-4">
             <H4>CEO IMAGE</H4>

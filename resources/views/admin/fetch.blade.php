@@ -28,6 +28,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                  {{-- {{dd($videos)}} --}}
                 @foreach($videos as $video)
                      <tr>
                      <td>{{$video->id}}</td>
@@ -41,7 +42,7 @@
                      <td><a href="{{route('video.update',['id'=>$video->id])}}" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
                      <td><a href="{{route('video.delete',['id'=>$video->id])}}" class="btn btn-danger">X</a></td>
                      </tr>
-                     @endforeach
+                @endforeach
                 </tbody>
 
               </table>

@@ -15,7 +15,7 @@ class Applicant extends Model
 
     public function job()
     {
-        return $this->hasMany('App\job_opening','id','job_id');
+        return $this->hasMany('App\job_opening','job_id','job_id');
     }
 
     public function getUser()

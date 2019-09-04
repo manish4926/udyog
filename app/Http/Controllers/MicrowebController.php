@@ -35,9 +35,11 @@ class MicrowebController extends Controller
         if(!empty($request->slug))
         {
             $companydetail = Directory::where('slug',$request->slug)->first();
-            $companyproduct = MicrowebCompanyProduct::where('slug',$request->slug)->first();
-            $testimonials = MicrowebTestimonial::where('slug',$request->slug)->first(); 
+            $companyproduct = MicrowebCompanyProduct::where('slug',$request->slug)->get();
+            $testimonials = MicrowebTestimonial::where('slug',$request->slug)->get(); 
         }
+
+       // dd($companyproduct);
 
          return view('microweb',compact('companydetail','companyproduct','testimonials'));
     }
@@ -62,7 +64,7 @@ class MicrowebController extends Controller
         $user = Auth::user();
 
         $companydetail = Directory::where('user_id',$user->id)->first();
-        $companyproucts = DB::table('companyproduct')->where('company_id',$companydetail->company_id)->get();
+        $companyproucts = DB::table('companyproduct')->where('company_id',$companydetail->c_id)->get();
         
         return view('company.materialedit',compact('companydetail','companyproucts'));
 
@@ -81,7 +83,7 @@ class MicrowebController extends Controller
         $file->move($destinationPath,$filename);
 
          $id = $request->input('id');
-        $company_id = $companydetail->company_id;
+        $company_id = $companydetail->c_id;
         $product_name = $request->input('material');
         $slug = $companydetail->slug;
          $data = array('id'=>$id, 'company_id' => $company_id,'product_name'=>$product_name,'image'=>$filename,'slug'=>$slug);
@@ -126,14 +128,63 @@ class MicrowebController extends Controller
 
         return view('company.aboutus',compact('companydetail'));
     }
-    
+
+
     public function testimonial(Request $request)
     {
         $user = Auth::user();
 
         $companydetail = Directory::where('user_id',$user->id)->first();
+        $testimonials = DB::table('testimonial')->where('slug',$companydetail->slug)->get();
 
-        return view('company.testimonialpanel',compact('companydetail'));
+        return view('company.testimonialpanel',compact('companydetail','testimonials'));
+
+      //   $user = Auth::user();
+      //   $companydetail = Directory::where('user_id',$user->id)->first();
+
+      //   $file = $request->file('image');
+      //   $destinationPath = 'team';
+      //   $filename = rand(10,100)."-".$file->getClientOriginalName();
+      //   // dd($filename);
+      //   $file->move($destinationPath,$filename);
+
+      //    $cstid = $request->input('id');
+      // //  $company_id = $companydetail->c_id;
+      //   $customer_name = $request->input('customer');
+      //    $review = $request->input('review');
+      //   $slug = $companydetail->slug;
+      //    $data = array('id'=>$cstid,'customername'=>$customer_name,'review'=>$review,'image'=>$filename,'slug'=>$slug);
+      //   DB::table('testimonial')->insert($data);
+
+      //   return redirect()->back();
+    }
+
+    public function testimonialsubmit(Request $request)
+    {
+        // $user = Auth::user();
+
+        // $companydetail = Directory::where('user_id',$user->id)->first();
+
+        // return view('company.testimonialpanel',compact('companydetail'));
+
+        $user = Auth::user();
+        $companydetail = Directory::where('user_id',$user->id)->first();
+
+        $file = $request->file('image');
+        $destinationPath = 'team';
+        $filename = rand(10,100)."-".$file->getClientOriginalName();
+        // dd($filename);
+        $file->move($destinationPath,$filename);
+
+         $cstid = $request->input('id');
+      //  $company_id = $companydetail->c_id;
+        $customer_name = $request->input('customer');
+         $review = $request->input('review');
+        $slug = $companydetail->slug;
+         $data = array('cstid'=>$cstid,'customername'=>$customer_name,'review'=>$review,'image'=>$filename,'slug'=>$slug);
+        DB::table('testimonial')->insert($data);
+
+        return redirect()->back();
     }
 
 /* to see posted jobs and to post job openings */
@@ -201,16 +252,16 @@ class MicrowebController extends Controller
                 Directory::where('c_id',$companydetail->c_id)->update(['logo'=>$logo]);
         }
 
-// to update company's material
-        //  if(!empty($request->material))
-        // {
-        //     $validation= $request->validate( [
-        //     'material' => 'required|max:100|string']);
+// to update company's about us
+         if(!empty($request->about))
+        {
+            // $validation= $request->validate( [
+            // 'material' => 'required|max:100|string']);
 
-        //         $c_material = $request->input('material');
+                $c_aboutus = $request->input('about');
 
-        // Directory::where('c_id',$companydetail->company_id)->update(['material'=> $c_material]);
-        // }
+        Directory::where('c_id',$companydetail->c_id)->update(['about'=> $c_aboutus]);
+        }
 
       
 
@@ -230,9 +281,17 @@ class MicrowebController extends Controller
                return  redirect('company/panel/dashboard')->with('status', 'Successfully updated!');; 
     }
 
-    public function deletion($id) {
+    public function deletionmaterial($id) {
        
-            DB::table("companyproduct")->delete($id);
+                DB::table("companyproduct")->delete($id);
             return  redirect('company/panel/materialedit')->with('status', 'Product Deleted!');
         }
+
+     public function deletiontestimonial($cstid) {
+       
+                // DB::table("testimonial")->delete($cstid);
+        MicrowebTestimonial::where('cstid',$cstid)->delete();
+            return  redirect('company/panel/testimonialpanel')->with('status', 'Review Deleted!');
+        }
+
 }

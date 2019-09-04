@@ -28242,14 +28242,13 @@ article.page-content ol li span {
   animation: flash 0.3s infinite;
 }
 
-.tab-content {
-  display: none;
-  clear: both;
+/*.tab-content {
+  display:none;
+  clear:both;
 }
-
 .tab-content.active {
-  display: block;
-}
+  display:block;
+}*/
 
 /* Variable Moved to App.scss */
 
@@ -28731,9 +28730,9 @@ body {
   /*margin-top: 62px;*/
 }
 
-.list-group-item:last-child {
-  background: #01008D;
-}
+/*.list-group-item:last-child {
+	background: #01008D;
+}*/
 
 .sidebar .sidebarBg {
   background: #01008D;
@@ -28792,6 +28791,15 @@ footer .widgetBox .widgetContent h5 {
 footer .widgetBox .widgetContent form button[type=submit] {
   background: white;
   color: black;
+}
+
+.card-img {
+  width: 60%;
+  border-radius: calc(0.25rem - 1px);
+}
+
+.index-side-list:last-child {
+  background: #01008D;
 }
 
 .navbar-laravel {

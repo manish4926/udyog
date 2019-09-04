@@ -57,11 +57,11 @@
 			            </div>
 			            <div class="form-group">
 			                <label>Post date :</label>
-			                <input type="text" class="form-control text" id="datetime" name="postdate" placeholder="Enter Post Date" />
+			                <input type="date" class="form-control text" id="datetime" name="postdate" placeholder="Enter Post Date" format="dd-mm-yyyy" />
 			            </div>
 			            <div class="form-group">
 			                <label>Expiry date :</label>
-			                <input type="text" class="form-control text" id="datetime" name="expdate" placeholder="Enter Expiry Date" />
+			                <input type="date" class="form-control text" id="datetime" name="expdate" placeholder="Enter Expiry Date" format="dd-mm-yyyy" />
 			            </div>
 			            <div class="form-group">
 			                <label>Location :</label>

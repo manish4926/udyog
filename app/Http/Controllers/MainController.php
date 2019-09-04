@@ -207,8 +207,23 @@ class MainController extends Controller
         return view('main.training'); 
     }
 
+    // industrial property function
+    public function industrialproperty(Request $request)
+    {
+        return view('main.industrialproperty'); 
+    }
 
+    // privacy and policy function
+    public function privacyandpolicy(Request $request)
+    {
+        return view('main.privacyandpolicy'); 
+    }
 
+    //terms and conditions function
+    public function termsandconditions(Request $request)
+    {
+        return view('main.termsandconditions'); 
+    }
 
 
     //current Law function

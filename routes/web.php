@@ -23,6 +23,11 @@ Route::get('/currentaffairs', ['as' => 'currentaffairs', 'uses' =>'MainControlle
 
 Route::get('/training', ['as' => 'training', 'uses' =>'MainController@training']);
 
+Route::get('/industrialproperty', ['as' => 'industrialproperty', 'uses' =>'MainController@industrialproperty']);
+
+Route::get('/privacyandpolicy', ['as' => 'privacyandpolicy', 'uses' =>'MainController@privacyandpolicy']);
+
+Route::get('/termsandconditions', ['as' => 'termsandconditions', 'uses' =>'MainController@termsandconditions']);
 
 Route::get('/currentlaw', ['as' => 'currentLaw', 'uses' =>'MainController@currentLaw']);
 
@@ -114,9 +119,11 @@ Route::group(['prefix' => 'company/panel','middleware' => 'roles', 'roles' => ['
     Route::get('/ceopanel',['as'=>'ceopanel','uses'=>'MicrowebController@ceoPanel']); 
     Route::get('/aboutus',['as'=>'aboutuspanel','uses'=>'MicrowebController@aboutus']); 
     Route::get('/testimonialpanel',['as'=>'testimonialpanel','uses'=>'MicrowebController@testimonial']); 
+    Route::post('/testimonialpanel/submit',['as'=>'testimonialpanelsubmit','uses'=>'MicrowebController@testimonialsubmit']); 
     Route::get('/jobpostpannel',['as'=>'jobpostpanel','uses'=>'MicrowebController@jobpost']); 
     Route::post('/dashboard',['as'=>'dashboard2','uses'=>'MicrowebController@makechanges']);
-    Route::get('/delete/{id}',['as'=>'delete','uses'=>'MicrowebController@deletion']); 
+    Route::get('/delete/{id}',['as'=>'deleteproduct','uses'=>'MicrowebController@deletionmaterial']);
+    Route::get('/delete/{id}',['as'=>'deletereview','uses'=>'MicrowebController@deletiontestimonial']); 
     Route::get('/applicantslist/{job_id}',['as'=>'applicantslist','uses'=>'MicrowebController@applicantslist']);
     Route::get('/clogo',['as'=>'clogo','uses'=>'MicrowebController@clogo']); 
     Route::get('/contactus',['as'=>'contactus','uses'=>'MicrowebController@contactus']); 

@@ -136,7 +136,6 @@ class JobController extends Controller
 		$yearduration   		   = $request->yearduration;
 		$monthduration             = $request->monthduration;
 		$candidate->user_id        = $user->id;
-		$candidate->job_id       			   = $request->jobid;
 		$candidate->firstname      = $user->firstname;
 		$candidate->lastname       = $user->lastname;
 		$candidate->email          = $user->email;
@@ -185,7 +184,7 @@ class JobController extends Controller
 	public function alljob (Request $request)
 	{
 		 $company=Directory::whereNotNull('cname')->get();
-		$jobs= job_opening::paginate(5);
+		$jobs= job_opening::where('status','=','1')->paginate(5);
 		return view('job.alljob',compact('jobs'));
 	}
 
