@@ -10,6 +10,7 @@
             <div class="col-md-4">
             <form method="post" action="{{route('dashboard2')}}">
             @csrf
+            <textarea id="mytextarea" name="mytextarea">Hello, World!</textarea>
             <input type="text" class="form-control" name="cname" placeholder="Enter dataP">
             </div>
             <div class="col-md-4">
@@ -43,5 +44,7 @@
 </div>
 
 @push('bottomscript')
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>tinymce.init({ selector:'#mytextarea' });</script>
 @endpush
 @endsection
