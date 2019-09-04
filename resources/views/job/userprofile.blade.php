@@ -20,6 +20,7 @@
   <a class="list-group-item list-group-item-action" data-toggle="list" href="#Education" role="tab">Education</a>
   <a class="list-group-item list-group-item-action" data-toggle="list" href="#Work" role="tab">Work Experience</a>
   <a class="list-group-item list-group-item-action" data-toggle="list" href="#Certificates" role="tab">Certification Details</a>
+  <a class="list-group-item list-group-item-action" data-toggle="list" href="#Appliedjob" role="tab">Applied Jobs</a>
   <a class="list-group-item list-group-item-action" data-toggle="list" href="#Resume" role="tab">Resume</a>
 </div>
 
@@ -48,8 +49,9 @@
                     </li>
                 </ul> --}}
                 <div class="tab-content">
-                    <div class="tab-pane active" id="Personalinfo">
+                    <div role="tabpanel" class="tab-pane active" id="Personalinfo">
                         <div class="well well-sm">
+                            <br>
                             <h4>PERSONAL DATA</h4>
                         </div>
                     <table class="table bio-table">
@@ -64,27 +66,27 @@
                             </tr>
                             <tr>    
                                 <td>Date of Birth</td>
-                                <td>: {{isset($applicantdetails->dob)?$applicantdetails->dob:''}}</td>       
+                                <td>: {{isset($applicantdetails->dob)?$applicantdetails->dob:'NA'}}</td>       
                             </tr>
                             <tr>
                                 <td>Gender</td>
-                                <td>:{{isset($applicantdetails->gender)?$applicantdetails->gender:''}} </td>
+                                <td>:{{isset($applicantdetails->gender)?$applicantdetails->gender:'NA'}} </td>
                             </tr>
                             <tr>
                                 <td>E mail</td>
-                                <td>: {{ isset($applicantinfo->email)?$applicantinfo->email:''}}</td>
+                                <td>: {{ isset($applicantinfo->email)?$applicantinfo->email:'NA'}}</td>
                             </tr>
                             <tr>
                                 <td>Mobile no</td>
-                                <td>:{{isset($applicantdetails->mobile_no)?$applicantinfo->mobile:''}} </td>
+                                <td>: {{isset($applicantdetails->mobile_no)?$applicantdetails->mobile_no:'NA'}} </td>
                             </tr>
                              <tr>
                                 <td>State</td>
-                                <td>:{{isset($applicantdetails->state)?$applicantinfo->state:''}} </td>
+                                <td>: {{isset($applicantdetails->state)?$applicantdetails->state:'NA'}} </td>
                             </tr>
                              <tr>
                                 <td>City</td>
-                                <td>:{{isset($applicantdetails->city)?$applicantinfo->city:''}} </td>
+                                <td>: {{isset($applicantdetails->city)?$applicantdetails->city:'NA'}} </td>
                             </tr>
                         </tbody>
                     </table>
@@ -94,6 +96,7 @@
                        
                 <div class="tab-pane" id="Education">
                     <div class="well well-sm">
+                        <br>
                         <h4>EDUCATIONAL BACKGROUND</h4>
                     </div>
                     
@@ -101,15 +104,15 @@
                         <tbody>
                             <tr>
                                 <td>Under Graduate</td>
-                                <td>: {{isset($applicantdetails->graduation)?$applicantinfo->graduation:''}}</td>
+                                <td>: {{isset($applicantdetails->graduation)?$applicantdetails->graduation:'NA'}}</td>
                             </tr>
                             <tr>
                                 <td>Post Graduate</td>
-                                <td>: {{isset($applicantdetails->postgraduation)?$applicantinfo->postgraduation:''}} </td>
+                                <td>: {{isset($applicantdetails->postgraduation)?$applicantdetails->postgraduation:'NA'}} </td>
                             </tr>
                             <tr>
                                 <td>Doctor of Philosophy (PhD)</td>
-                                <td>: {{isset($applicantdetails->doctorate)?$applicantinfo->doctorate:''}} </td>
+                                <td>: {{isset($applicantdetails->doctorate)?$applicantdetails->doctorate:'NA'}} </td>
                             </tr>
                         </tbody>
                     </table>
@@ -117,6 +120,7 @@
                 
                 <div class="tab-pane" id="Work">
                     <div class="well well-sm">
+                        <br>
                         <h4>EXPERIENCE</h4>
                     </div>
                     
@@ -124,31 +128,31 @@
                         <tbody>
                             <tr>
                                 <td>Total Experience</td>
-                                <td>:{{isset($applicantdetails->experience)?$applicantdetails->experience:''}} </td>
+                                <td>: {{isset($applicantdetails->experience)?$applicantdetails->experience:'NA'}} </td>
                             </tr>
                             <tr>      
                                 <td>Job Duration</td>
-                                <td>:{{isset($applicantdetails->duration)?$applicantdetails->duration:''}} </td>
+                                <td>: {{isset($applicantdetails->duration)?$applicantdetails->duration:'NA'}} </td>
                             </tr>
                             <tr>
                                 <td>Salary</td>
-                                <td>:{{isset($applicantdetails->salary)?$applicantdetails->salary:''}} </td>
+                                <td>: {{isset($applicantdetails->salary)?$applicantdetails->salary:'NA'}} </td>
                             </tr>
                             <tr>
                                 <td>Job Title</td>
-                                <td>:{{isset($applicantdetails->jobtitle)?$applicantdetails->jobtitle:''}} </td>
+                                <td>: {{isset($applicantdetails->jobtitle)?$applicantdetails->jobtitle:'NA'}} </td>
                             </tr>
                             <tr>
                                 <td>Company Name</td>
-                                <td>:{{isset($applicantdetails->companyname)?$applicantdetails->companyname:''}} </td>
+                                <td>: {{isset($applicantdetails->companyname)?$applicantdetails->companyname:'NA'}} </td>
                             </tr>
                             <tr>
                                 <td>Industry Name</td>
-                                <td>:{{isset($applicantdetails->industry)?$applicantdetails->industry:''}} </td>
+                                <td>: {{isset($applicantdetails->industry)?$applicantdetails->industry:'NA'}} </td>
                             </tr>
                             <tr>
                                 <td>Skills</td>
-                                <td>:{{isset($applicantdetails->skills)?$applicantdetails->skills:''}} </td>
+                                <td>: {{isset($applicantdetails->skills)?$applicantdetails->skills:'NA'}} </td>
                             </tr>
                         </tbody>
                     </table>
@@ -156,6 +160,7 @@
                  
                 <div class="tab-pane" id="Certificates">
                     <div class="well well-sm">
+                        <br>
                         <h4>CERTIFICATION DETAILS</h4>
                     </div>
                     
@@ -163,10 +168,10 @@
                         <thead>
                             <tr>
                                 <td> Certification details</td>
-                                <td>: {{isset($applicantdetails->certifcate)?$applicantdetails->certifcate:''}}</td>
+                                <td>: {{isset($applicantdetails->certifcate)?$applicantdetails->certifcate:'NA'}}</td>
                             </tr>
                         </thead>
-                        <tbody>
+{{--                         <tbody>
                             <tr>
                                 <td> Certification Name</td>
                                 <td>: </td>
@@ -188,7 +193,7 @@
                         </td>
                             </tr>
                         
-                        </tbody>
+                        </tbody> --}}
                     </table>
                     
                     <br/>
@@ -197,15 +202,48 @@
                 
                 <div class="tab-pane" id="Resume">
                     <div class="well well-sm">
+                        <br>
                         <h4>Download Resume</h4>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-offset-4">
-                                    <h5>Click Here to download Resume : </h5><button type="submit" class="btn btn-primary">Download Resume</button>
+                                   {{--  <h5>Click Here to download Resume : </h5> --}}<button type="submit" class="btn btn-primary">Download Resume</button>
                         </div><!-- /.col-lg-12 -->
                     </div><!-- /.row -->    
-                </div>  
+                </div> 
+
+                 <div class="tab-pane" id="Appliedjob">
+                    <div class="well well-sm">
+                        <br>
+                        <h4>APPLIED JOBS</h4>
+                    </div>
+                    
+                    <table class="table bio-table">
+                        <tbody>
+                            <tr>
+                                <td>S.no</td>
+                                <td>Job Profile</td>
+                                <td>Company Name</td>
+                                <td>Details</td>
+                            </tr>
+                            @php $i = 0 @endphp
+                            @foreach($appliedjobs as $appliedjob)
+                            <tr>
+                                <td>{{ ++$i }}</td>
+                                <td>{{ ucfirst($appliedjob->getJob()->job_title) }}</td>
+                                <td>{{ ucfirst($appliedjob->getJob()->company_name) }}</td>
+                                <td><a href="{{ route('getdisplay',['job_id'=>$appliedjob->job_id])}}"> Check details</td>
+                            </tr>
+                            @endforeach
+                            {{-- <tr>
+                                <td>Job Profile</td>
+                                <td>: {{isset($appliedjob->postgraduation)?$applicantdetails->postgraduation:'NA'}} </td>
+                            </tr> --}}
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>

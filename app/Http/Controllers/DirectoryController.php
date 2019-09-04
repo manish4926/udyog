@@ -74,7 +74,7 @@ class DirectoryController extends Controller
             $pathlogo = $logo;
 
            
-            $data = array('cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industrytype'=>$c_industry,'businesstype'=>$c_business,'about'=>$c_about, 'image'=>$path);
+            $data = array('cemp'=>$c_emp,'block'=>$c_block,'sector'=>$c_sector,'area'=>$c_area,'state'=>$c_state,'phoneno'=>$c_no,'email'=>$c_email ,'industrytype'=>$c_industry,'businesstype'=>$c_business,'about'=>$c_about, 'image'=>$path , 'logo'=>$pathlogo);
             Directory::where('user_id',$user->id)->update($data);
           //  DB::table('cdetails')->insert($data);
             return view('company.dashboard');

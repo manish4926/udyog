@@ -109,7 +109,7 @@
                 <div class="container">
                     <div class="theme-title">
                         <h2>ABOUT {{$companydetail->cname}}</h2>
-                        <p>{{$companydetail->cname}} Products was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings. The products we manufacture are in compliance with industry laid norms and guidelines. We take into consideration all the technical details provided to us by our clients while fabricating these products.</p>
+                        <p>{{$companydetail->about}}</p>
                     </div> <!-- /.theme-title -->
 
                     <div class="row">
@@ -249,7 +249,7 @@
                         <p>We use automated machinery and equipment in our manufacturing unit to produce these products. All the stages of production and post production are effectively supervised by our team of professionals. Their motivated spirits and sincere attitude are the reasons of our success in the domestic market.</p>
                     </div> <!-- /.theme-title -->
 
-                    <div class="project-menu">
+                 <!--   <div class="project-menu">
                         <ul>
                             <li class="filter active tran3s" data-filter="all">All</li>
                             <li class="filter tran3s" data-filter=".web">Brake Shoes</li>
@@ -259,24 +259,26 @@
                             <li class="filter tran3s" data-filter=".dmedia">Fail Safe Brake Lining</li>
                             <li class="filter tran3s" data-filter=".support">Roll Brake Lining</li>
                         </ul>
-                    </div>
-
+                    </div>  -->
+                    @foreach($companyproduct as $product) 
                     <div class="project-gallery clear-fix">
                         <div class="mix grid-item photo om dmedia">
                             <div class="single-img">
-                                <img src="https://3.imimg.com/data3/XN/FB/MY-2809961/brake-shoes-500x500.jpg" alt="Image" height="250" width="250">
+
+                                <img src="{{asset('products/'.$product->image) }}" alt="Image" height="250" width="250">
                                 <div class="opacity">
                                     <div class="border-shape"><div><div>
-                                        <h6><a href="#"></a>Brake Shoes</h6>
-                                        <ul>
-                                            <li>Service /</li>
+                                        <h6><a href="#"></a>{{$product->product_name}}</h6>
+                                       {{--  <ul>
+                                            <li>Service </li>
                                             <li>Product </li>
-                                        </ul></div></div>
+                                        </ul></div></div> --}}
                                     </div> <!-- /.border-shape -->
                                 </div> <!-- /.opacity -->
                             </div> <!-- /.single-img -->
                         </div> <!-- /.grid-item -->
-
+                        
+{{--        
                         <div class="mix grid-item web webd dmedia support">
                             <div class="single-img">
                                 <img src="https://3.imimg.com/data3/GC/IX/MY-3737801/mercedes-brake-lining-250x250.jpg" alt="Image" height="250" width="250">
@@ -329,8 +331,8 @@
                                     <div class="border-shape"><div><div>
                                         <h6><a href="#">Fail Safe Brake Lining</a></h6>
                                         <ul>
-                                            <li>Service /</li>
-                                            <li>Product /</li>
+                                            <li>Service </li>
+                                            <li>Product </li>
                                         </ul></div></div>
                                     </div> <!-- /.border-shape -->
                                 </div> <!-- /.opacity -->
@@ -344,14 +346,15 @@
                                     <div class="border-shape"><div><div>
                                         <h6><a href="#">Roll Brake Lining</a></h6>
                                         <ul>
-                                            <li>Service /</li>
-                                            <li>Product /</li>
+                                            <li>Service </li>
+                                            <li>Product </li>
                                         </ul></div></div>
                                     </div> <!-- /.border-shape -->
                                 </div> <!-- /.opacity -->
                             </div> <!-- /.single-img -->
-                        </div> <!-- /.grid-item -->
-
+                        </div> /.grid-item
+ --}}    
+ @endforeach
                     <!--    <div class="mix grid-item photo om support">
                             <div class="single-img">
                                 <img src="images/project/7.jpg" alt="Image">
@@ -593,12 +596,14 @@
                     </div> <!-- /.theme-title -->
 
                     <div class="client-slider">
+                        @foreach($testimonials as $testimonial)
                         <div class="item">
-                            <img src="{{ asset('microweb/images/home/c1.jpg') }}" alt="Client">
-                            <p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
-                            <h6>- Spryte Loriano -</h6>
+                            <img src="{{ asset('team/'.$testimonial->image) }}" alt="Client">
+                            <p>{{$testimonial->review}}</p>
+                            <h6>- {{$testimonial->customername}} -</h6>
                         </div> <!-- /.item -->
-                        <div class="item">
+                        @endforeach
+                        {{-- <div class="item">
                             <img src="{{ asset('microweb/images/home/c2.jpg') }}" alt="Client">
                             <p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
                             <h6>- Spryte Loriano -</h6>
@@ -607,7 +612,7 @@
                             <img src="{{ asset('microweb/images/home/c3.jpg') }}" alt="Client">
                             <p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
                             <h6>- Spryte Loriano -</h6>
-                        </div> <!-- /.item -->
+                        </div> <!-- /.item --> --}}
                     </div> <!-- /.client-slider -->
                 </div> <!-- /.container -->
             </div> <!-- /#our-client -->
@@ -777,14 +782,14 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="left-side">
                                 <h2>Contact Info</h2>
-                                <p>Sharma Auto Products was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings.</p>
+                                <p>{{$companydetail->cname}} was established in the year 1971. We are a leading Manufacturer, Supplier of Brake Shoes, Brake Linings.</p>
 
                                 <ul>
                                     <li>
                                         <div class="icon tran3s round-border p-color-bg"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
                                         <h6>Address</h6>
-                                        <p>Sharma Auto Products</p>
-                                        <p> S.K. Sharma(Owner) </p>
+                                        <p>{{$companydetail->cname}}</p>
+                                        <p> {{$companydetail->cemp}} </p>
                                         <p>Office Number A-2,Dsidc Industrial Area,Bawana,Sector1,Delhi-110039, India </p>
                                     </li>
                                     <li>
@@ -871,7 +876,8 @@
             -->
             <footer>
                 <div class="container">
-                    <a href="index.html" class="logo"><img src="https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/072011/untitled-1_114.png?itok=HxFV7s-N" alt="Logo"></a>
+        <h2> <img src="{{ $companydetail->logo }}"> </h2>
+                        <a href="index.html" class="logo">< alt="Logo"></a>
 
                     <ul>
                         <li><a href="#" class="tran3s round-border"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>

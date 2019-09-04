@@ -9,7 +9,6 @@
     <title>BCI - Bawana Chamber of Industries</title>
     
     <link rel="icon" type="image/png" href="{{asset('/img/udyog_logo.png')}}">
-
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{{ asset('layerslider/css/layerslider.css') }}">

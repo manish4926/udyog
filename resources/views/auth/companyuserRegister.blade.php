@@ -19,23 +19,21 @@
 
 			<h3>Registration Form</h3>
 			<div class="form-group">
-
-				<div class="form-wrapper">
-					<label for="">Company name</label>
-					<input type="text" class="form-control" name="company_name" id="company_name" required>
-					@if ($errors->has('cname'))
-					<span class="invalid-feedback" role="alert">
-						<strong>{{ $errors->first('cname') }}</strong>
-					</span>
-					@endif
-				</div>
-
 				<div class="form-wrapper">
 					<label for="">Company code</label>
 					<input type="text" class="form-control" name="company_code" id="company_code">
 					@if ($errors->has('code'))
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $errors->first('code') }}</strong>
+					</span>
+					@endif
+				</div>
+				<div class="form-wrapper">
+					<label for="">Company name</label>
+					<input type="text" class="form-control" name="company_name" id="company_name" required>
+					@if ($errors->has('cname'))
+					<span class="invalid-feedback" role="alert">
+						<strong>{{ $errors->first('cname') }}</strong>
 					</span>
 					@endif
 				</div>
@@ -89,12 +87,15 @@
 					<input type="password" class="form-control" name="password_confirmation" required minlength="8"	HTML5
 					data-parsley-minlength="8">
 				</div>
-				<div class="checkbox">
-					<label>
-						<input type="checkbox"> I accept the Terms of Use & Privacy Policy.
-						<span class="checkmark"></span>
-					</label>
-				</div>
+
+				<input type="checkbox"> I accept the Terms of Use & Privacy Policy.
+					{{-- <div class="checkbox">
+
+						<label>
+							
+							<span class="checkmark"></span>
+						</label>
+					</div> --}}
 
 				<button type="submit" class="btn btn-primary">
 					{{ __('Register Now') }}

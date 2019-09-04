@@ -56,9 +56,12 @@ class LoginController extends Controller
             return route('dashboard');
         }
         elseif (auth()->user()->hasRole('Company')) {
-            return route('directorycreate');
-        } else {
-            return '/';
+        return route('companydashboard');
+        } 
+        elseif (auth()->user()->hasRole('General User')) {
+            return route('userprofile',['id' => auth()->user()->id]);
         }
+        else
+        return '/';
     }
 }

@@ -490,9 +490,9 @@ body{
 	}
 
 
-.list-group-item:last-child {
+/*.list-group-item:last-child {
 	background: #01008D;
-}
+}*/
 
 .sidebar .sidebarBg
 {
@@ -565,4 +565,13 @@ footer .widgetBox .widgetContent form button[type=submit] {
     background: white;
     color: black;
  
+}
+
+.card-img {
+    width: 60%;
+    border-radius: calc(0.25rem - 1px);
+}
+
+.index-side-list:last-child{
+	background: #01008D;
 }

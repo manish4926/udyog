@@ -79,7 +79,13 @@
                     <h5>Quick Links</h5>
                 </div>
                 <div class="textwidget">
-                 <a href="{{ route('clogin') }}">Register</a>
+                    <ul>
+                       <li><a href="{{ route('clogin') }}">Register</a></li>
+                       <li><a href="{{ route('industrylist') }}">Industry list</a></li>
+                       <li><a href="{{ route('alljob') }}">Jobs list</a></li>
+                       <li><a href="{{ route('clogin') }}">Terms and Conditions</a></li>
+                       <li><a href="{{ route('clogin') }}">Privacy and Policies</a></li>
+                   </ul>
                 </div>
         </div>
     </div>

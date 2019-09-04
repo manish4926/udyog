@@ -55,17 +55,17 @@
                     </div>
                     <div class="large-4">
                         <div class="video-side-list">
-                            <ul class="list-group">
-                                <li><a class="list-group-item" href="{{route('currentaffairs')}}">Current affairs</a></li>
-                                <li><a class="list-group-item" href="#">Industrial Property</a></li>
+                            <ul class="list-group index-side-list">
+                                <li><a class="list-group-item index-side-list" href="{{route('currentaffairs')}}">Current affairs</a></li>
+                                <li><a class="list-group-item index-side-list" href="#">Industrial Property</a></li>
                                 {{-- <li><a class="list-group-item" href="{{route('training')}}">Training's</a></li> --}}
-                                <li><a class="list-group-item" href="{{route('labourlaws')}}">Labour Laws</a></li>
-                                <li><a class="list-group-item" href="{{route('taxation')}}">Taxation</a></li>
-                                <li><a class="list-group-item" href="{{route('newtechnology')}}">New Technology</a></li>
-                                <li><a class="list-group-item" href="{{route('newproducts')}}">New Products</a></li>
-                                <li><a class="list-group-item" href="{{route('health')}}">Health</a></li>
-                                <li><a class="list-group-item" href="{{route('growbusiness')}}">Expand your business</a></li>
-                                <li><a class="list-group-item" href="{{route('regarademarks')}}">Registerations & Grade Marks</a></li>
+                                <li><a class="index-side-list list-group-item" href="{{route('labourlaws')}}">Labour Laws</a></li>
+                                <li><a class="index-side-list list-group-item" href="{{route('taxation')}}">Taxation</a></li>
+                                <li><a class="index-side-list list-group-item" href="{{route('newtechnology')}}">New Technology</a></li>
+                                <li><a class="index-side-list list-group-item" href="{{route('newproducts')}}">New Products</a></li>
+                                <li><a class="index-side-list list-group-item" href="{{route('health')}}">Health</a></li>
+                                <li><a class="index-side-list list-group-item" href="{{route('growbusiness')}}">Expand your business</a></li>
+                                <li><a class="index-side-list list-group-item" href="{{route('regarademarks')}}">Registerations & Grade Marks</a></li>
                             </ul>
                         </div>
                     </div>
