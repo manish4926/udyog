@@ -57,7 +57,7 @@
             -->
             <header class="theme-main-header">
                 <div class="container">
-                    <a href="#home" class="logo float-left tran4s"><img src="https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/072011/untitled-1_114.png?itok=HxFV7s-N"height="50" width="60" alt="Logo"></a>
+                    <a href="#home" class="logo float-left tran4s"><img src="{{asset('microweb/images/logo/'.$companydetail->logo)}}"height="50" width="60" alt="Logo"></a>
                     
                     <!-- ========================= Theme Feature Page Menu ======================= -->
                     <nav class="navbar float-right theme-main-menu one-page-menu">
@@ -109,10 +109,11 @@
                 <div class="container">
                     <div class="theme-title">
                         <h2>ABOUT {{$companydetail->cname}}</h2>
-                        <p>{{$companydetail->about}}</p>
+                      <p>{!!$companydetail->about!!}</p>
+                      <br/>
                     </div> <!-- /.theme-title -->
 
-                    <div class="row">
+                   {{--  <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-6">
                             <div class="single-about-content">
                                 <div class="icon round-border tran3s">
@@ -156,7 +157,7 @@
                                 <a href="#" class="more tran3s hvr-bounce-to-right">More Details</a>
                             </div> <!-- /.single-about-content -->
                         </div> <!-- /.col -->
-                    </div> <!-- /.row -->
+                    </div> <!-- /.row --> --}}
                 </div> <!-- /.container -->
             </section> <!-- /#about-us -->
 
@@ -247,7 +248,7 @@
                     <div class="theme-title">
                         <h2>PRODUCTS</h2>
                         <p>We use automated machinery and equipment in our manufacturing unit to produce these products. All the stages of production and post production are effectively supervised by our team of professionals. Their motivated spirits and sincere attitude are the reasons of our success in the domestic market.</p>
-                    </div> <!-- /.theme-title -->
+                    </div><br/> <!-- /.theme-title -->
 
                  <!--   <div class="project-menu">
                         <ul>
@@ -260,14 +261,15 @@
                             <li class="filter tran3s" data-filter=".support">Roll Brake Lining</li>
                         </ul>
                     </div>  -->
-                    @foreach($companyproduct as $product) 
+                    
                     <div class="project-gallery clear-fix">
+                        @foreach($companyproduct as $product) 
                         <div class="mix grid-item photo om dmedia">
                             <div class="single-img">
 
                                 <img src="{{asset('products/'.$product->image) }}" alt="Image" height="250" width="250">
                                 <div class="opacity">
-                                    <div class="border-shape"><div><div>
+                                    <div class="border-shape">
                                         <h6><a href="#"></a>{{$product->product_name}}</h6>
                                        {{--  <ul>
                                             <li>Service </li>
@@ -277,7 +279,7 @@
                                 </div> <!-- /.opacity -->
                             </div> <!-- /.single-img -->
                         </div> <!-- /.grid-item -->
-                        
+                        @endforeach
 {{--        
                         <div class="mix grid-item web webd dmedia support">
                             <div class="single-img">
@@ -354,7 +356,7 @@
                             </div> <!-- /.single-img -->
                         </div> /.grid-item
  --}}    
- @endforeach
+ 
                     <!--    <div class="mix grid-item photo om support">
                             <div class="single-img">
                                 <img src="images/project/7.jpg" alt="Image">
@@ -407,9 +409,9 @@
                         </div> -->
 
                     </div> <!-- /.project-gallery -->
-                </div> <!-- /.container -->
-            </div> <!-- /#project-section -->
-
+                </div> <!-- /.container --> 
+            </div> <!-- /#project-section --> 
+          
             <!--
             =====================================================
                 Page middle banner
@@ -439,7 +441,7 @@
                         <div class="float-left">
                             <div class="single-team-member">
                                 <div class="img">
-                                    <img src="{{ asset('microweb/images/team/1.jpg') }}" alt="Image">
+                                    <img src="{{ asset('microweb/images/team/'.$companydetail->image)}}" alt="Image">
                                     <div class="opacity tran4s">
                                         <h4>{{$companydetail->cemp}}</h4>
                                         <span>CEO</span>
@@ -588,6 +590,8 @@
                 Our Client
             =====================================================
             -->
+        
+
             <div id="our-client">
                 <div class="container">
                     <div class="theme-title">
@@ -596,27 +600,27 @@
                     </div> <!-- /.theme-title -->
 
                     <div class="client-slider">
-                        @foreach($testimonials as $testimonial)
+                        @foreach($testimonials as $testimonial) 
                         <div class="item">
-                            <img src="{{ asset('team/'.$testimonial->image) }}" alt="Client">
+                            <img src="{{ asset('team/'.$testimonial->image) }}" alt="Client" style="width: 30%;
+    max-width: 250px;">
                             <p>{{$testimonial->review}}</p>
                             <h6>- {{$testimonial->customername}} -</h6>
                         </div> <!-- /.item -->
                         @endforeach
-                        {{-- <div class="item">
-                            <img src="{{ asset('microweb/images/home/c2.jpg') }}" alt="Client">
+                        <div class="item">
+                            <img src="images/home/c2.jpg" alt="Client">
                             <p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
                             <h6>- Spryte Loriano -</h6>
                         </div> <!-- /.item -->
                         <div class="item">
-                            <img src="{{ asset('microweb/images/home/c3.jpg') }}" alt="Client">
+                            <img src="images/home/c3.jpg" alt="Client">
                             <p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
                             <h6>- Spryte Loriano -</h6>
-                        </div> <!-- /.item --> --}}
+                        </div> <!-- /.item -->
                     </div> <!-- /.client-slider -->
                 </div> <!-- /.container -->
             </div> <!-- /#our-client -->
-
             
 
             <!--
@@ -876,8 +880,8 @@
             -->
             <footer>
                 <div class="container">
-        <h2> <img src="{{ $companydetail->logo }}"> </h2>
-                        <a href="index.html" class="logo">< alt="Logo"></a>
+        <h2> <img class="logomw" src="{{asset('microweb/images/logo/'.$companydetail->logo) }}" style="height:10%; width:10%;margin-left:55rem;"  > </h2>
+                        
 
                     <ul>
                         <li><a href="#" class="tran3s round-border"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>

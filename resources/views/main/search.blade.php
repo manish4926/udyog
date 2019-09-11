@@ -6,71 +6,42 @@
    
 @endpush
 
-@section('center-content')
+{{-- @section('center-content') --}}
 
 <div class="row">
   <div class="col-12">
     <div class="white-card-main-search">
-
+        <br>
        <h3 class="center">Search Result</h3><br />
-
-         <div class="table-responsive">
-          <table >
-
-           <tbody>
-                    <tr>
-                        <div class="card mb-3">
-                            <div class="row no-gutters">
-                              <div class="col-md-8">
-                                <div class="card-body">
-                                   @foreach($videos as $file)
-					                    <div class="item">
-					                        <figure class="premium-img">
-					                            <img src="{{ asset('video/thumbs/'.$file->thumbnail) }}" alt="carousel">
-					                            <figcaption>
-					                                <h5>{{ $file->title }}</h5>
-					                                <p>{{ $file->category }}</p>
-					                            </figcaption>
-					                        </figure>
-					                        <a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}" class="hover-posts">
-					                            <span><i class="fa fa-play"></i>Watch Video</span>
-					                        </a>
-					                    </div>
-					                @endforeach
-
-
-					                <div class="large-12 medium-7 medium-centered columns event-section">
-									    <div class="widgetBox">
-									        <div class="widgetTitle">
-									            <h5>Events</h5>
-									        </div>
-									        @foreach($event as $events)
-									        <div class="widgetContent">
-									            <div class="media-object stack-for-small">
-									                <div class="media-object-section">
-									                    <div class="recent-img">
-									                        <img src= {{ asset('eventphoto/'.$events->photo)}}>
-									                    </div>
-									                </div>
-									                <div class="media-object-section">
-									                    <div class="media-content">
-									                        <h5><a href="#">{{ ucfirst($events->title) }}</a></h5>
-									                        <h6>{{$events->description}}</h6>
-									                        <p><i class="fa fa-clock-o"></i><span>{{$events->date}}</span></p>
-									                    </div>
-									                </div>
-									            </div>
-									        </div>
-									        @endforeach
-									    </div>
-									</div>
-
-
-									<div class="row list-group">
-                                                @foreach($jobs as $job_opening)
-                                                <div class="col-12">
+       <div class="row">
+        @foreach($videos as $file)
+         <div class="col-md-10">
+            <div class="card">
+            <a target="_blank" href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}">
+                <img class="card-img-top" src="{{ asset('video/thumbs/'.$file->thumbnail) }}" alt="{{ $file->title }}">
+                <div class="card-body">
+                    <h4 class="card-title">{{ $file->title }}</h4>
+                       <p>{{ $file->category }}</p>
+                </div>
+            </a>
+            </div>
+        </div> 
+         @endforeach
+     </div>
+     <br/>
+     <div class="row">
+         @foreach($results as $ytvideo)
+         <div class="col-md-6">
+        <iframe src="https://www.youtube.com/embed/{{ $ytvideo->id->videoId }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+       @endforeach
+     </div>
+     <br/>
+<div class="row">
+     @foreach($jobs as $job_opening)
+                                                <div class="col-10">
                                                     <div class="card">
-                                                        <div class="">
+                                                        
                                                             <div class="card-body">
                                                                 <div class="row">
                                                                     <div class="col-md-8">
@@ -95,21 +66,17 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        
                                                     </div>
                                                 </div>
 
                                                 @endforeach
                                             </div>
-                                        </div>
+                                            <br/>
+                                        <div class="row">
+                                              @foreach($directory as $list)
+                                                <div class="col-10">
 
-
-                             <div class="row">
-                                <div class="large-12 columns">
-                                    <div class="tabs-content" data-tabs-content="newVideos">
-                                        <div class="tabs-panel is-active" id="new-all">
-                                            <div class="row list-group">
-                                                @foreach($directory as $list)
                                                 <div class="card">
                                                     <div class="row ">
                                                         <div class="col-md-4">
@@ -137,39 +104,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+                                                </div>
                                                 
                                                 @endforeach
                                             </div>
-                                        </div>
-                                        
-                                    </div>
-
-                              <div class="main-image">
-                                <div class="image 1">
-                                    
-                                    <video id="live-video" class="live-video" autoplay="" controls>
-                                        {{-- <source src="{{ asset('upload/live-video.mp4')}}" type="video/mp4"> --}}
-                                        @if($live_videos)<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
-                                    </video>
-                                </div>
-                            </div>
-
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-     
-
+                                            <br/>
     </div>    
   </div>
 </div>
-@endsection
-@section('right-content')
-  @include('job.companyjobsearch')
-@endsection
 @endsection
