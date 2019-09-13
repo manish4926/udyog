@@ -13,7 +13,12 @@
     <div class="white-card-main-search">
 
        <h3 class="center">Search Result</h3><br />
-
+       @foreach($results as $file)
+        <h5> {{$file->id->videoId}} </h5>
+        <a href="{{ asset('https://www.youtube.com/watch?v='.$file->id->videoId) }}" class="hover-posts">
+					                            <span><i class="fa fa-play"></i>Watch Video</span>
+					                        </a>
+       @endforeach
          <div class="table-responsive">
           <table >
 
@@ -23,7 +28,8 @@
                             <div class="row no-gutters">
                               <div class="col-md-8">
                                 <div class="card-body">
-                                   @foreach($videos as $file)
+                                
+                                   <!-- @foreach($videos as $file)
 					                    <div class="item">
 					                        <figure class="premium-img">
 					                            <img src="{{ asset('video/thumbs/'.$file->thumbnail) }}" alt="carousel">
@@ -36,9 +42,26 @@
 					                            <span><i class="fa fa-play"></i>Watch Video</span>
 					                        </a>
 					                    </div>
-					                @endforeach
+					                @endforeach -->
 
 
+    <!-- {{dd($results[0]->id->videoId)}} -->
+                                    <!-- @foreach($results as $file)
+					                    <div class="item">
+					                        <figure class="premium-img">
+					                            <img src="{{ asset('video/thumbs/'.$file->thumbnail) }}" alt="carousel">
+					                            <figcaption>
+					                                <h5>{{ $file->title }}</h5>
+					                                <p>{{ $file->description }}</p>
+					                            </figcaption>
+					                        </figure>
+					                        <a href="{{ route('videothumb',['id' => $file->id, 'slug' => $file->slug]) }}" class="hover-posts">
+					                            <span><i class="fa fa-play"></i>Watch Video</span>
+					                        </a>
+					                    </div>
+					                @endforeach -->
+
+<!-- 
 					                <div class="large-12 medium-7 medium-centered columns event-section">
 									    <div class="widgetBox">
 									        <div class="widgetTitle">
@@ -158,7 +181,7 @@
                                 </div>
                             </div>
                           </div>
-                        </div>
+                        </div> -->
             </tr>
           </tbody>
         </table>

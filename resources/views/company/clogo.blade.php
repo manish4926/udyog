@@ -6,7 +6,7 @@
 
     <div class="col-md-8">
         <div class="white-card">
-        <h2><img src="{{asset('microweb/images/logo'.$companydetail->logo)}}" class="card-img card-img-padding" alt="{{ ucfirst($companydetail->cname) }}"></h2>
+        <h2><img src="{{asset('microweb/images/logo/'.$companydetail->logo)}}" class="card-img card-img-padding" alt="{{ ucfirst($companydetail->cname) }}"></h2>
             <div class="col-md-6">
 
             <form method="post" action="{{route('dashboard2')}}" enctype="multipart/form-data">

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use Alaouy\Youtube\YoutubeServiceProvider;
 use App\Http\Controllers\Controller;
 use DB;
 use Auth;
 use Carbon\Carbon;
-
+use Alaouy\Youtube\Facades\Youtube;
+use Alaouy\Youtube\Facades\YoutubeServiceProvider;
 use App\Video;
 use App\Live_Video;
 use App\Directory;
@@ -147,13 +149,13 @@ class MainController extends Controller
     {
 
         $searchkey= $request->search;
-
+$s = 'Bawana Chamber Of Industries';
         $videos      = Video::limit(6)->get();
         $live_videos = Live_Video::orderBy('order')->first(); 
         $directory   = Directory::orderBy('c_id')->limit(3)->get();
         $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
         $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
-
+        
         
         if($searchkey && !empty($searchkey)){
             $jobs->where(function($query) use ($searchkey){
@@ -184,9 +186,13 @@ class MainController extends Controller
                 $query->where('title' , 'like','%' .$searchkey. '%');
             });
 
+            $results = Youtube::searchVideos($searchkey);
+
         }
         
-        return view('main.search',compact('directory','videos','jobs','event', 'live_videos'));
+        $results = Youtube::searchVideos($s);
+
+        return view('main.search',compact('directory','videos','jobs','event', 'live_videos','results'));
     }
 
 
