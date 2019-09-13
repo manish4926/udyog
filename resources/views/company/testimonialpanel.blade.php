@@ -49,7 +49,7 @@
               <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $testimonial->customername }}</td>
-                <td><img src="{{ asset('team/'.$testimonial->image) }}" style="width: 100px;"></td>
+                <td><img src="{{ asset('testimonials/'.$testimonial->image) }}" style="width: 100px;"></td>
                 <td>{{ $testimonial->review }}</td>
                 <td><a href="{{route('deletereview', ['cstid'=> $testimonial->cstid ])}}" class="remCF">Remove</a></td>
               </tr>

@@ -28832,6 +28832,12 @@ footer .widgetBox .widgetContent form button[type=submit] {
   letter-spacing: 2px;
 }
 
+/*
+.testimonialwidth
+{
+	max-width:280px;
+}*/
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

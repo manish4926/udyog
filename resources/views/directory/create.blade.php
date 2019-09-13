@@ -9,8 +9,8 @@
         <script src="http://parsleyjs.org/dist/parsley.js"></script>
 
 
-        <div class="wrapper" style="background-image: url('Registerpage/images/bg-registration-form-2.jpg');">
-            <div class="inner">
+        <div class="white-card">
+
               
                 <form method="POST" action="{{ route('store') }}" id="validate_form" enctype="multipart/form-data">
                         @csrf
@@ -108,8 +108,7 @@
                 
                 </form>
             </div>
-        </div>
-    
+        
 
     <script>
             $(document).ready(function(){  

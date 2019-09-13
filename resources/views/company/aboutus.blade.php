@@ -18,7 +18,7 @@
             <div class="col-md-12">
             <form method="post" action="{{route('dashboard2')}}">
             @csrf
-            <textarea name="about" id="About" class="form-control tinymce" ></textarea>
+            <textarea name="about" id="About" row ="12" class="form-control tinymce" ></textarea>
 
             </div>
             <div class="col-md-4">

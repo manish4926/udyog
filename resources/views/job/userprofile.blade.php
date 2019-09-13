@@ -212,7 +212,7 @@
                         </div><!-- /.col-lg-12 -->
                     </div><!-- /.row -->    
                 </div> 
-
+                @if(isset($appliedjobs))
                  <div class="tab-pane" id="Appliedjob">
                     <div class="well well-sm">
                         <br>
@@ -244,6 +244,14 @@
                     </table>
                 </div>
 
+                @else
+                <div class="tab-pane" id="Appliedjob">
+                    <div class="well well-sm">
+                        <br>
+                        <h4>APPLIED JOBS</h4>
+                    </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -251,7 +259,8 @@
 
 </div>
 @endsection
-{{-- @section('right-content')
+@section('right-content')
   @include('partials.sidebar-search-job')
-@endsection --}}
+
+@endsection
 @endsection

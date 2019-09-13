@@ -184,7 +184,7 @@ class JobController extends Controller
 	public function alljob (Request $request)
 	{
 		 $company=Directory::whereNotNull('cname')->get();
-		$jobs= job_opening::where('status','=','1')->paginate(5);
+		$jobs= job_opening::where('status','=','1')->orderBy('postdate','DESC')->paginate(5);
 		return view('job.alljob',compact('jobs'));
 	}
 

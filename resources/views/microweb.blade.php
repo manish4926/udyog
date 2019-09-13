@@ -166,25 +166,58 @@
                 Service Section
             =====================================================
             -->
+            @if(isset($services))
             <div id="service-section">
+          <div id="project-section">
                 <div class="container">
                     <div class="theme-title">
                         <h2>SERVICES WE PROVIDE</h2>
                         <p>“Don’t try to tell the customer what he wants. If you want to be smart, be smart in the shower. Then get out, go to work, and serve the customer!”</p>
                     </div> <!-- /.theme-title -->
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-6">
+<br/>
+                    {{-- <div class="row"> --}}
+                        
+                      
+                        {{-- <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="single-service-content">
                                 <div class="icon-heading tran3s">
-                                    <div class="icon tran3s"><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
-                                    <h6><a href="#" class="tran3s">Brake Parts</a></h6>
+                                    @if(isset($service->image))
+                                    <div class="icon tran3s">
+                                    <img src="{{ asset('microweb/images/services/'.$service->image)}}" alt="Image">
+                                    </div>
+                                    @else
+                                    <div class="icon tran3s"><i class="fa fa-tools" aria-hidden="true"></i></div>
+                                    @endif
+                                    <h6><a href="#" class="tran3s">{{$service->title}}</a></h6>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur scing elit, sed do eiusmod, tempor incididunt labore et dolore magna aliqua. Ut enim ad minim ut veniam, quis nostrud exercitation ullamco aliquip ex ea commodo consequat. </p>
+                                <p>{{$service->description}}</p>
                             </div> <!-- /.single-service-content -->
-                        </div> <!-- /.col-lg -->
+                        </div> <!-- /.col-lg --> --}}
+                         <div class="project-gallery clear-fix">
+                              @foreach($services as $service)
+                              <div class="mix grid-item photo om dmedia">
+                            <div class="single-img">
 
-                        <div class="col-lg-4 col-md-4 col-sm-6">
+                                <img src="{{ asset('microweb/images/services/'.$service->image)}}" alt="Image"style=" width: 100%; max-width: 280px; height:280px">
+                                <div class="opacity" style="background: white">
+                                    <div class="border-shape">
+                                        <h6><a href="#"></a>{{$service->title}}</h6>
+                                        <br/>
+                                        <br/>
+                                        <p>{{$service->description}}</p>
+                                       {{--  <ul>
+                                            <li>Service </li>
+                                            <li>Product </li>
+                                        </ul></div></div> --}}
+                                    </div> <!-- /.border-shape -->
+                                </div> <!-- /.opacity -->
+                            </div> <!-- /.single-img -->
+                        </div> <!-- /.grid-item -->
+                        @endforeach
+
+                    </div>
+                                                
+                       {{--  <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="single-service-content">
                                 <div class="icon-heading tran3s">
                                     <div class="icon tran3s"><i class="fa fa-camera" aria-hidden="true"></i></div>
@@ -232,12 +265,13 @@
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur scing elit, sed do eiusmod, tempor incididunt labore et dolore magna aliqua. Ut enim ad minim ut veniam, quis nostrud exercitation ullamco aliquip ex ea commodo consequat. </p>
                             </div> <!-- /.single-service-content -->
-                        </div> <!-- /.col-lg -->
-                    </div> <!-- /.row -->
+                        </div> <!-- /.col-lg -->--}}
+                    {{-- </div> /.row --}}
                 </div> <!-- /.container -->
             </div> <!-- /#service-section -->
+        </div>
 
-
+ @endif
             <!--
             =====================================================
                 Project Section
@@ -270,7 +304,9 @@
                                 <img src="{{asset('products/'.$product->image) }}" alt="Image" height="250" width="250">
                                 <div class="opacity">
                                     <div class="border-shape">
-                                        <h6><a href="#"></a>{{$product->product_name}}</h6>
+                                        <br/>
+                                        <br/><br/>
+                                        <h4><a href="#"></a>{{$product->product_name}}</h4>
                                        {{--  <ul>
                                             <li>Service </li>
                                             <li>Product </li>
@@ -440,15 +476,15 @@
                     <div class="clear-fix team-member-wrapper">
                         <div class="float-left">
                             <div class="single-team-member">
-                                <div class="img">
-                                    <img src="{{ asset('microweb/images/team/'.$companydetail->image)}}" alt="Image">
-                                    <div class="opacity tran4s">
+                                <div class="img" style="width: 100%; max-width: 280px;" >
+                                    <img src="{{ asset('microweb/images/team/'.$companydetail->image)}}" alt="Image"  style="width: 100%; max-width: 280px;" >
+                                    <div class="opacity tran4s" style="width: 100%; max-width: 280px;"  >
                                         <h4>{{$companydetail->cemp}}</h4>
                                         <span>CEO</span>
                                         <p>On the other hand, We denounce ut with righteo indignation and dislike men who are so beguiled and demoralized.</p>
                                     </div>
-                                </div> <!-- /.img -->
-                                <div class="member-name">
+                                </div> <!-- /.img --> 
+                                <div class="member-name" style="width: 100%; max-width: 280px;">
                                     <h6>{{$companydetail->cemp}}</h6>
                                     <p>CEO</p>
                                     <ul>
@@ -591,7 +627,7 @@
             =====================================================
             -->
         
-
+<div id="service-section">
             <div id="our-client">
                 <div class="container">
                     <div class="theme-title">
@@ -602,13 +638,13 @@
                     <div class="client-slider">
                         @foreach($testimonials as $testimonial) 
                         <div class="item">
-                            <img src="{{ asset('team/'.$testimonial->image) }}" alt="Client" style="width: 30%;
+                            <img src="{{ asset('testimonials/'.$testimonial->image) }}" alt="Client" style="width: 30%;
     max-width: 250px;">
-                            <p>{{$testimonial->review}}</p>
+                            <p style="color: white">{{$testimonial->review}}</p>
                             <h6>- {{$testimonial->customername}} -</h6>
                         </div> <!-- /.item -->
                         @endforeach
-                        <div class="item">
+                        {{-- <div class="item">
                             <img src="images/home/c2.jpg" alt="Client">
                             <p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
                             <h6>- Spryte Loriano -</h6>
@@ -617,11 +653,11 @@
                             <img src="images/home/c3.jpg" alt="Client">
                             <p>Our successful construction approach is based on aggressive subcontractor administration, employ-ment of competent personnel, accurate schedule control, quality control and cost control. We employ only qualified subcontractors who share our goal in creating quality projects.</p>
                             <h6>- Spryte Loriano -</h6>
-                        </div> <!-- /.item -->
+                        </div> <!-- /.item --> --}}
                     </div> <!-- /.client-slider -->
                 </div> <!-- /.container -->
             </div> <!-- /#our-client -->
-            
+            </div>
 
             <!--
             =====================================================
@@ -821,7 +857,7 @@
 
 
                     <!-- Contact Form -->
-                    <div class="send-message">
+                  {{--   <div class="send-message">
                         <h2>Send Message</h2>
 
                         <form action="inc/sendemail.php" class="form-validation" autocomplete="off" method="post">
@@ -868,11 +904,11 @@
                                 </div>
                             </div>
                         </div> <!-- End of .alert_wrapper -->
-                    </div> <!-- /.send-message -->
+                    </div> <!-- /.send-message -->--}}
                 </div> <!-- /.container -->
             </div> <!-- /#contact-section -->
 
-
+ 
             <!--
             =====================================================
                 Footer
