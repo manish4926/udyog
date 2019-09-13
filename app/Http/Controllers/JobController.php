@@ -30,7 +30,8 @@ class JobController extends Controller
 	public function postJob(Request $request)
 	{
 		$user = Auth::user();
-		return view('job.jobpost');	//,compact()
+		$companydetail = Directory::where('user_id',$user->id)->first();
+		return view('job.jobpost',compact('companydetail'));	//,compact()
 	}
     
     public function postJobSubmit(request $request)
@@ -102,7 +103,71 @@ class JobController extends Controller
 	{
 		$user = Auth::user();
     	
-		$validatedData = $request->validate([
+		
+		if(!empty($request->file('fileupload'))){
+			$this->validate($request,[
+				'fileupload' =>'mimes:doc,docx,pdf']);
+			$filename = $request->file('fileupload')->getClientOriginalName();
+			$request->file('fileupload')->storeAs('resumes',$filename);
+			
+		} else {
+			$filename= '';
+		}
+		
+		 $applicantdetails = Candidatedata::where('user_id',$user->id)->count();
+		 
+
+		 if($applicantdetails==1)
+
+		{
+		
+		
+				$tyear                     = $request->tyear;
+				$tmonth                    = $request->tmonth;
+				$ddlSalaryLacs             = $request->ddlSalaryLacs;
+				$salThousand     		   = $request->salThousand;
+				$yearduration   		   = $request->yearduration;
+				$monthduration             = $request->monthduration;
+				$user_id        = $user->id;
+				$firstname      = $user->firstname;
+				$lastname       = $user->lastname;
+				$email          = $user->email;
+				$mobile_no      = $request->mobile_no;
+				$state          = $request->state;
+				$city           = $request->city;
+				$gender         = $request->gender;
+				$dob            = $request->dob;
+				$skills         = $request->skills;
+				$jobtitle       = $request->jobtitle;
+				$companyname    = $request->companyname;
+				$industry       = $request->industry;
+				$basicgraduation= $request->basicgraduation;
+				$graduation     = $request->graduation;
+				$diploma 	   = $request->diploma;
+				$postgraduation = $request->postgraduation;
+				$doctorate      = $request->doctorate;
+				$certificate    = $request->certificate;
+				$experience     = $tyear.'.'.$tmonth;
+				$salary         = $ddlSalaryLacs.'.'.$salThousand;
+				$duration       = $yearduration.'.'.$monthduration;
+				if($filename != '')
+				{
+					$resume   	   = $filename;	
+
+					 $data = array('firstname'=>$firstname,'lastname'=>$lastname,'email'=>$email,'mobile_no'=>$mobile_no,'state'=>$state,'city'=>$city,'gender'=>$gender ,'dob'=>$dob,'skills'=>$skills,'jobtitle'=>$jobtitle, 'companyname'=>$companyname , 'industry'=>$industry, 'basicgraduation'=>$basicgraduation, 'graduation'=>$graduation, 'diploma'=>$diploma, 'postgraduation'=>$postgraduation, 'doctorate'=>$doctorate, 'certificate'=>$certificate, 'resume'=>$resume, 'experience'=>$experience, 'salary'=>$salary , 'duration'=>$duration);
+				}
+		           
+		           else
+		           {
+		           	 $data = array('firstname'=>$firstname,'lastname'=>$lastname,'email'=>$email,'mobile_no'=>$mobile_no,'state'=>$state,'city'=>$city,'gender'=>$gender ,'dob'=>$dob,'skills'=>$skills,'jobtitle'=>$jobtitle, 'companyname'=>$companyname , 'industry'=>$industry, 'basicgraduation'=>$basicgraduation, 'graduation'=>$graduation, 'diploma'=>$diploma, 'postgraduation'=>$postgraduation, 'doctorate'=>$doctorate, 'certificate'=>$certificate,'experience'=>$experience, 'salary'=>$salary , 'duration'=>$duration);
+		           }
+            Candidatedata::where('user_id',$user_id)->update($data);
+
+        }
+
+        else
+        {
+        	$validatedData = $request->validate([
             'mobile_no' =>'required|max:10',
             'state' =>'required',
             'city' =>'required|max:20',
@@ -114,20 +179,7 @@ class JobController extends Controller
             'graduation' =>'required',
             'fileupload'=> 'required'
             ]);
-		if(!empty($request->file('fileupload'))){
-			$this->validate($request,[
-				'fileupload' =>'mimes:doc,docx,pdf']);
-			$filename = $request->file('fileupload')->getClientOriginalName();
-			$request->file('fileupload')->storeAs('resumes',$filename);
-			
-		} else {
-			$fileupload= '';
-		}
-		
-
-		//dd($request->jobid);
-		$candidate = new Candidatedata;
-
+        		$candidate = new Candidatedata;
 		
 		$tyear                     = $request->tyear;
 		$tmonth                    = $request->tmonth;
@@ -158,8 +210,9 @@ class JobController extends Controller
 		$candidate->experience     = $tyear.'.'.$tmonth;
 		$candidate->salary         = $ddlSalaryLacs.'.'.$salThousand;
 		$candidate->duration       = $yearduration.'.'.$monthduration;
-		
+
 		$candidate->save();
+        }
 		
 		return redirect('job/all')->with('status', 'Successfully updated! Now please apply for the job.');
 	}

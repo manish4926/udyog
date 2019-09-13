@@ -28,7 +28,7 @@ class CandidatedataController extends Controller
     {
         $applicantinfo = User::where('id',$request->userid)->first();
         $applicantdetails = Candidatedata::where('user_id',$request->userid)->first();
-        $appliedjobs = Applicant::where('user_id',$request->userid)->get();
+        $appliedjobs = Applicant::where('user_id',$request->userid)->orderby('updated_at','DESC')->get();
         
         if($applicantdetails)
         //dd($request->userid);
@@ -118,6 +118,12 @@ class CandidatedataController extends Controller
         //
     }
 
+    public function download(Request $request){ 
+     $applicantinfo = User::where('id',$request->userid)->first(); 
+        $entry = Candidatedata::where('user_id',$request->userid)->first();
+        $pathToFile=public_path('resumes/'.$entry->resume);
+        return response()->download($pathToFile);           
+    }
     /**
      * Remove the specified resource from storage.
      *

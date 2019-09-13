@@ -23,13 +23,15 @@
 			                </ul>
 			            </div>
 			        @endif
+
+
 			            <div class="form-group">
 			                <label>Job Title :</label>
 			                <input type="text" class="form-control text" name="title" placeholder="Enter Job Title" />
 			            </div>
 			            <div class="form-group">
 			                <label>Company Name :</label>
-			                <input type="text" class="form-control text" name="companyname" placeholder="Enter Company Name" />
+			                <input type="text" class="form-control text" name="companyname" value="{{isset($companydetail->cname)?$companydetail->cname:''}}"/>
 			            </div>
 			            <div class="form-group">
 			                <label>HR Name :</label>
