@@ -6,7 +6,6 @@ use App\User;
 use App\Role;
 use App\Directory;
 use App\companyverify;
-use App\CompanyDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -205,15 +204,12 @@ $check=1;
 
     public function checkCompany(Request $request) {
 
-        $companydetail = CompanyDetail::Where('ccode', $request->company_code)
+        $companydetail = Directory::Where('ccode', $request->company_code)
                         ->count();
         
         if($companydetail==0) {
             $companyCount = companyverify::where('cname' , $request->company_name)
                             ->Where('ccode', $request->company_code)
-                            ->count();
-            
-            $companydetail = CompanyDetail::Where('ccode', $request->company_code)
                             ->count();
         
             if($companyCount == 1) {

@@ -469,7 +469,7 @@
 									</ul>
 								</div> <!-- /.member-name -->
 							</div> <!-- /.single-team-member -->
-						</div> <!-- /float-left -->
+						</div> 
 <!--
 						<div class="float-left">
 							<div class="single-team-member">

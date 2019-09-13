@@ -31,7 +31,7 @@
 		<div class="card mb-3">
 				<div class="row no-gutters">
 					<div class="col-md-4-directory">
-						<img src="{{asset('microweb/images/logo'.$set->logo)}}" class="card-img card-img-padding" alt="{{ ucfirst($set->cname) }}">
+						<img src="{{asset('microweb/images/logo/'.$set->logo)}}" class="card-img card-img-padding" alt="{{ ucfirst($set->cname) }}">
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">

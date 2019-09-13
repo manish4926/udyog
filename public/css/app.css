@@ -28802,6 +28802,42 @@ footer .widgetBox .widgetContent form button[type=submit] {
   background: #01008D;
 }
 
+.white-card-main-search {
+  background-color: white;
+  padding-left: 10rem;
+}
+
+.img {
+  max-width: 100%;
+  display: block;
+  align-items: center;
+  margin-left: 55rem;
+}
+
+.inner {
+  min-width: 850px;
+  margin: auto;
+  padding-top: 68px;
+  padding-bottom: 15px;
+  height: 610px;
+}
+
+.inner h3 {
+  text-transform: uppercase;
+  font-size: 22px;
+  font-family: "Muli-Bold";
+  text-align: center;
+  margin-bottom: 32px;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+/*
+.testimonialwidth
+{
+	max-width:280px;
+}*/
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

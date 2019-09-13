@@ -228,6 +228,7 @@ class LivevideoController extends Controller
     public function moveToLive(Request $request)
     {       
         $temp = Video::find($request->id);
+        //dd($temp);
 
         $livevideo = new Live_Video;
         
@@ -237,7 +238,7 @@ class LivevideoController extends Controller
         $count = Live_Video::count();
         $livevideo->order = $count + 1;
         $livevideo->duration = $temp->duration;
-        $livevideo->visible = 0;
+        //$livevideo->visible = 0;
 
         $count = Live_Video::count();
            if($count == 0)

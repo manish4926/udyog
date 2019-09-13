@@ -29,6 +29,7 @@ class CandidatedataController extends Controller
         $applicantinfo = User::where('id',$request->userid)->first();
         $applicantdetails = Candidatedata::where('user_id',$request->userid)->first();
         $appliedjobs = Applicant::where('user_id',$request->userid)->get();
+        
         if($applicantdetails)
         //dd($request->userid);
         {return view('job.userprofile')->with(['applicantinfo'=>$applicantinfo, 'applicantdetails'=> $applicantdetails, 'appliedjobs'=>$appliedjobs]);}

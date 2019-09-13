@@ -46,8 +46,10 @@
                     </div>
                 </div>
             </div>
-
+<br/>
             @endforeach
+
+            <br/>
             {{--Latest Jobs End--}}
             {{ $jobs->links() }}
 

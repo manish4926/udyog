@@ -10,7 +10,7 @@
             <div class="col-md-12">
             <form method="post" action="{{route('dashboard2')}}">
             @csrf
-            <input type="text" class="form-control" name="cname" value="{{ $companydetail->cemp }}" placeholder="Enter Edited Name">
+            <input type="text" class="form-control" name="cemp" value="{{ $companydetail->cemp }}" placeholder="Enter Edited Name">
             </div>
             <div class="col-md-4">
             <H4>CEO IMAGE</H4>

@@ -162,8 +162,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        //for youtube api
+        //youtube api
         Alaouy\Youtube\YoutubeServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -232,8 +233,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         
-        //for youtube api
+        //youtube api
         'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
+
 
          //Thumbnail and Duration
         'Thumbnail' => Lakshmaji\Thumbnail\Facade\Thumbnail::class,

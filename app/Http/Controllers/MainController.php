@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use DB;
 use Auth;
 use Carbon\Carbon;
+
+
 use Alaouy\Youtube\Facades\Youtube;
 use Alaouy\Youtube\Facades\YoutubeServiceProvider;
 use App\Video;
@@ -157,7 +159,7 @@ $s = 'Bawana Chamber Of Industries';
         $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
         
         
-        if($searchkey && !empty($searchkey)){
+        if($searchkey){
             $jobs->where(function($query) use ($searchkey){
                 $query->where('job_title' , 'like','%' .$searchkey. '%');
                 $query->orWhere('skills' , 'like','%' .$searchkey. '%');
@@ -184,13 +186,16 @@ $s = 'Bawana Chamber Of Industries';
 
             $event->where(function($query) use ($searchkey){
                 $query->where('title' , 'like','%' .$searchkey. '%');
+
+                
             });
 
             $results = Youtube::searchVideos($searchkey);
 
         }
         
-        $results = Youtube::searchVideos($s);
+        $results = Youtube::search('Bawana Chambers of Industries');
+        //dd($results);
 
         return view('main.search',compact('directory','videos','jobs','event', 'live_videos','results'));
     }

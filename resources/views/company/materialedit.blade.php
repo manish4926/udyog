@@ -52,7 +52,7 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $companyprouct->product_name }}</td>
                 <td><img src="{{ asset('products/'.$companyprouct->image) }}" style="width: 100px;"></td>
-                <td><a href="{{route('delete', ['id'=> $companyprouct->id ])}}" class="remCF">Remove</a></td>
+                <td><a href="{{route('deleteproduct', ['id'=> $companyprouct->id ])}}" class="remCF">Remove</a></td>
               </tr>
               @endforeach
               </tbody>

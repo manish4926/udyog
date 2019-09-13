@@ -189,7 +189,7 @@
                                                 <div class="card">
                                                     <div class="row ">
                                                         <div class="col-md-4">
-                                                            <img src="https://picsum.photos/200/300" class="card-img card-img-padding" alt="{{ ucfirst($list->cname) }}">
+                                                            <img src="{{asset('microweb/images/logo/'.$list->logo)}}" class="card-img card-img-padding" alt="{{ ucfirst($list->cname) }}">
                                                         </div>
                                                         <div class="col-md-8 px-3">
                                                             <div class="card-block card-info">
