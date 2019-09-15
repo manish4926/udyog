@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/job/jobform.css') }}">
 @endpush
 
-@section('center-content')
+
    <div class="white-card">
            <center><h2><b id="post">JOB POSTING FORM</b></h2></center>            
            <form method="post" action="{{ route('postjobsubmit') }}">
@@ -83,7 +83,7 @@
             </form>
     </div>
 
-@endsection
+
             
 @push('bottomscript')
     <script type="text/javascript" src="{{asset('js/bootstrap-datepicker.min.js')}}"></script>

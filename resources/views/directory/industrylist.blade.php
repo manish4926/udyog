@@ -14,11 +14,11 @@
 		side content
 	</div>
 @endsection--}}
-<section class="section-top">
+{{-- <section class="section-top"> --}}
 <div class="row">
   <div class="col-8">
 <div class="white-card-directory">
-
+	<br/>
    <h3 class="center">Industry List</h3><br />
 
      <div class="table-responsive">
@@ -71,7 +71,7 @@
    </div>
   
   <div  class="col-4">
-		<div class="white-card-directory">
+		<div class="white-card">
 		<form action="{{ route('industrylist') }}" method="get">
 		<h2>Advanced Filters</h2>
 
@@ -140,5 +140,5 @@
 	</div> 
 	</div>
 </div> 
-</section>
+{{-- </section> --}}
 @endsection

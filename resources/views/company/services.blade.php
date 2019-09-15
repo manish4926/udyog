@@ -5,7 +5,7 @@
     @include('company.sidemenu')
 
     <div class="col-md-8">
-       <div class="col-md-8">
+      
         <div class="white-card">
         <h2> Enter the services</h2>
             <!-- <div class="col-md-4"> -->

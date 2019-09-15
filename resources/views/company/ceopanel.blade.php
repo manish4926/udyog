@@ -14,6 +14,7 @@
             </div>
             <div class="col-md-4">
             <H4>CEO IMAGE</H4>
+            <img src="{{asset('microweb/images/team/'.$companydetail->image)}}" class="card-img card-img-padding" alt="{{ ucfirst($companydetail->cname) }}">
             <input name="image" type="file" class="form-control" id="imageid" placeholder="choose file...." class="custom-file-input">
                 <span style="margin-left: 15px; width: 480px;" class="custom-file-control"></span>
             </div>

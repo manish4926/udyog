@@ -40,8 +40,14 @@
                                         <p><i class="fas fa-rupee-sign"></i> Package: {{$job_opening->package}}</p>
                                     </div>
                                     <div class="col-md-8">
+                                        <p><i class="fas fa-eye"></i> Status: @if($job_opening->status == 1) Active </p>
+                                        </div>
+                                    <div class="col-md-8">
                                        <a href="{{route('applicantslist', ['job_id'=> $job_opening->job_id])}}" class="btn btn-outline-primary lg-btn-padding"> List of applicants </a>
                                     </div>
+                                        @else Pending.. 
+                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

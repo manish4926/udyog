@@ -87,7 +87,8 @@ class JobController extends Controller
         //     $exper = explode('.',$experience,2);
         //     $yearex = $exper[0];
         //     $monthex = $exper[1];
-        	return view('job.applicationtrial',compact('user','job_opening','applicantinfo'));
+
+          	return view('job.applicationtrial',compact('user','job_opening','applicantinfo'));
         }
 
         else

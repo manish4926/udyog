@@ -151,40 +151,40 @@ class MainController extends Controller
     {
 
         $searchkey= $request->search;
-$s = 'Bawana Chamber Of Industries';
+        $s = 'Bawana Chamber Of Industries';
         $videos      = Video::limit(6)->get();
         $live_videos = Live_Video::orderBy('order')->first(); 
         $directory   = Directory::orderBy('c_id')->limit(3)->get();
         $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
         $event       = Event::orderBy('id')->limit(4)->where('status','=','ACTIVE')->get();
-        
+        $results = Youtube::search($s);
         
         if($searchkey){
-            $jobs->where(function($query) use ($searchkey){
+            $jobs = $jobs->where(function($query) use ($searchkey){
                 $query->where('job_title' , 'like','%' .$searchkey. '%');
                 $query->orWhere('skills' , 'like','%' .$searchkey. '%');
                 $query->orwhere('company_name', 'LIKE', '%' .$searchkey. '%');
             });
        
-            $videos->where(function($query) use ($searchkey){
+           $videos = $videos->where(function($query) use ($searchkey){
                 $query->where('title' , 'like','%' .$searchkey. '%');
                 $query->orWhere('tags' , 'like','%' .$searchkey. '%');
                 $query->orwhere('name', 'LIKE', '%' .$searchkey. '%');
             });
 
 
-            $live_videos->where(function($query) use ($searchkey){
+           $live_videos = $live_videos->where(function($query) use ($searchkey){
                 $query->where('filename' , 'like','%' .$searchkey. '%');
                 $query->orwhere('name', 'LIKE', '%' .$searchkey. '%');
             });
 
-            $directory->where(function($query) use ($searchkey){
+           $directory = $directory->where(function($query) use ($searchkey){
                 $query->where('cname' , 'like','%' .$searchkey. '%');
                 $query->orWhere('industrytype' , 'like','%' .$searchkey. '%');
                 $query->orwhere('businesstype', 'LIKE', '%' .$searchkey. '%');
             });
 
-            $event->where(function($query) use ($searchkey){
+           $event = $event->where(function($query) use ($searchkey){
                 $query->where('title' , 'like','%' .$searchkey. '%');
 
                 
@@ -194,7 +194,7 @@ $s = 'Bawana Chamber Of Industries';
 
         }
         
-        $results = Youtube::search('Bawana Chambers of Industries');
+        
         //dd($results);
 
         return view('main.search',compact('directory','videos','jobs','event', 'live_videos','results'));
