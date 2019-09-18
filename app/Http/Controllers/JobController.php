@@ -175,9 +175,9 @@ class JobController extends Controller
             'gender' =>'required',
             'dob' =>'required',
             'skills'=>'required',
-            'jobtitle' =>'required|max:20',
-            'companyname' =>'required',
-            'graduation' =>'required',
+            //'jobtitle' =>'required|max:20',
+            //'companyname' =>'required',
+            //'graduation' =>'required',
             'fileupload'=> 'required'
             ]);
         		$candidate = new Candidatedata;
@@ -221,24 +221,24 @@ class JobController extends Controller
 	public function applyjob (Request $request)
 	{
 		$user = Auth::user();
-	
-			$applicant = new Applicant;
+				$applicant = new Applicant;
 
-			$applicant->job_id = $request->jobid;
-			$applicant->user_id        = $user->id;
-			$applicant->firstname      = $user->firstname;
-			$applicant->lastname       = $user->lastname;
-			$applicant->email          = $user->email;
+				$applicant->job_id         = $request->jobid;
+				$applicant->user_id        = $user->id;
+				$applicant->firstname      = $user->firstname;
+				$applicant->lastname       = $user->lastname;
+				$applicant->email          = $user->email;
 
-			$applicant->save();
+				$applicant->save();
+
+				return redirect('job/all')->with('status', 'Successfully Submitted!');			
 			
-			return redirect('job/all')->with('status', 'Successfully Submitted!');
 	}
 
 	public function alljob (Request $request)
 	{
 		 $company=Directory::whereNotNull('cname')->get();
-		$jobs= job_opening::where('status','=','1')->orderBy('postdate','DESC')->paginate(5);
+		$jobs= job_opening::where('expdate','>=',Carbon::today()->toDateString())->where('status','=','1')->orderBy('postdate','DESC')->paginate(5);
 		return view('job.alljob',compact('jobs'));
 	}
 
@@ -285,7 +285,7 @@ class JobController extends Controller
 			}
 		}
 		
-		$job_search = $job_search->paginate(5);
+		$job_search = $job_search->where('expdate','>=',Carbon::today()->toDateString())->where('status','=','1')->orderBy('postdate','DESC')->paginate(5);
 		
 		return view('job.search')->with(['searching'=>$job_search]); 
 	}

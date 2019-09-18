@@ -14,11 +14,12 @@
 
     <div class="col-md-8">
         <div class="white-card">
-        <h2> {{ $companydetail->about }} </h2>
+          <h2> About </h2>
+         
             <div class="col-md-12">
             <form method="post" action="{{route('dashboard2')}}">
             @csrf
-            <textarea name="about" id="About" row ="12" class="form-control tinymce" ></textarea>
+            <textarea name="about" id="About" row ="12" class="form-control tinymce" >{!! $companydetail->about !!} </textarea>
 
             </div>
             <div class="col-md-4">
@@ -52,7 +53,6 @@
 </div>
 
 @push('bottomscript')
-  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>tinymce.init({ selector:'#mytextarea' });</script>
+ 
 @endpush
 @endsection

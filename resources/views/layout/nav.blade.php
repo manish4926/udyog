@@ -252,7 +252,7 @@
                     </div>
                 </div>
                 <div id="search-bar" class="clearfix search-bar-light search-bar-dark">
-                    <form method="post" action="{{ route('mainsearch') }}"> {{ csrf_field() }}
+                    <form method="get" action="{{ route('mainsearch') }}"> {{ csrf_field() }}
                         <div class="search-input float-left">
                             <input type="text" name="search" placeholder="Seach Here">
                         </div>

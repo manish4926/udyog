@@ -208,9 +208,16 @@
                     
                     <div class="row">
                         <div class="col-md-offset-4">
+
+                            @if(!empty($applicantdetails->resume))
+
                         <form action="{{ route('resumedownload',['userid'=>$applicantinfo->id]) }}" method="get">
                                    {{--  <h5>Click Here to download Resume : </h5> --}}<button type="submit" class="btn btn-primary">Download Resume</button>
                                    </form>
+                                   @else
+
+                                   <a>NA</a>
+                        @endif
                         </div><!-- /.col-lg-12 -->
                     </div><!-- /.row -->    
                 </div> 

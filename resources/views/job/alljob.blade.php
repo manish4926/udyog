@@ -31,8 +31,11 @@
                                     <div class="col-md-4">
                                         <p><i class="fas fa-pen"></i> Skills: {{$job_opening->skills}}</p>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4">
                                         <p><i class="fas fa-archive"></i> Experience: {{$job_opening->experience}}</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <a href="{{ route('getdisplay',['job_id'=>$job_opening->job_id])}}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm"> Details</a>
                                     </div>
                                     <div class="col-md-4">
                                         <p><i class="fas fa-map-marker"></i> Location: {{$job_opening->location}}</p>
@@ -40,6 +43,7 @@
                                     <div class="col-md-8">
                                         <p><i class="fas fa-rupee-sign"></i> Package: {{$job_opening->package}}</p>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

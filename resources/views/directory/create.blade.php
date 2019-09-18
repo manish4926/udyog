@@ -6,7 +6,7 @@
         <!-- STYLE CSS -->
         <script src="http://parsleyjs.org/dist/parsley.js"></script>
         <link rel="stylesheet" href="Registerpage/css/style.css">
-        <script src="http://parsleyjs.org/dist/parsley.js"></script>
+        
 
 
         <div class="white-card">
@@ -109,11 +109,12 @@
                 </form>
             </div>
         
-
+@push('bottomscript')
     <script>
             $(document).ready(function(){  
     $('#validate_form').parsley();
  
   });
     </script>
+@endpush
 @endsection

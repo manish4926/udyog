@@ -2,7 +2,10 @@
 
 @section('content')
 
+<script src="http://parsleyjs.org/dist/parsley.js"></script>
+
 @push('topscript')
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/job/applicationform.css') }}">
 @endpush
 
@@ -10,6 +13,8 @@
 
 
 @section('center-content')
+
+
 <div class="white-card">
 	
 	@if (session('status'))
@@ -18,7 +23,7 @@
             </div>
                  @endif
                  
-	<form action="{{route('applicationsubmit')}}" method="post" enctype="multipart/form-data">
+	<form action="{{route('applicationsubmit')}}" method="post" id="validate_form" enctype="multipart/form-data">
 		{{ csrf_field() }}
 
 		<div class="form-group">
@@ -29,11 +34,11 @@
 			</fieldset>
 			
 
-			<label>Email :  </label><input type="Email" name="Email" value="{{ $applicantinfo->email}}" /><br>
-			<label>Mobile :  </label><input type="Mobile" name="mobile_no" value="{{isset($applicantdetails->mobile_no)?$applicantdetails->mobile_no:''}}" /><br>
-			<label>City :  </label><input type="text" name="city" value="{{isset($applicantdetails->city)?$applicantdetails->city:''}}" />
+			<label>Email :  </label><input type="email" name="Email" value="{{ $applicantinfo->email}}"  required/><br>
+			<label>Mobile :  </label><input type="Mobile" name="mobile_no" value="{{isset($applicantdetails->mobile_no)?$applicantdetails->mobile_no:''}}" data-parsley-pattern="\+?\d[\d -]{8,12}\d" required /><br>
+			<label>City :  </label><input type="text" name="city" value="{{isset($applicantdetails->city)?$applicantdetails->city:''}}" required/>
 			<label>State :  </label>                          
-			<select name="state">
+			<select name="state" required>
 				<option value="{{isset($applicantdetails->state)?$applicantdetails->state:''}}">{{isset($applicantdetails->state)?$applicantdetails->state:''}}</option>
 				<option value="Andaman Nicobar">Andaman Nicobar</option>
 				<option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -74,11 +79,11 @@
 			</select>
 
 			<br><label>Date of Birth</label>
-			<input type="date" name="dob" value="{{isset($applicantdetails->dob)?$applicantdetails->dob:''}}" format="dd-mm-yyyy">
+			<input type="date" name="dob" value="{{isset($applicantdetails->dob)?$applicantdetails->dob:''}}" format="dd-mm-yyyy" required />
 			@if(isset($applicantdetails->gender))
 			<label>Gender :</label>
-			<input type="radio" name="gender" value="male" {{($applicantdetails->gender == 'male')?"checked":''}}> Male
-			<input type="radio" name="gender" value="female"  {{($applicantdetails->gender == 'female')?"checked":''}}> Female
+			<input type="radio" name="gender" value="male" {{($applicantdetails->gender == 'male')?"checked":''}} /> Male
+			<input type="radio" name="gender" value="female"  {{($applicantdetails->gender == 'female')?"checked":''}} /> Female
 			<input type="radio" name="gender" value="other"  {{($applicantdetails->gender == 'other')?"checked":''}}> Other
 <br>
 			@else
@@ -88,7 +93,7 @@
 			<input type="radio" name="gender" value="other" > Other
 <br>
 @endif
-		<label>Skills :  </label><input type="text" name="skills" value="{{isset($applicantdetails->skills)?$applicantdetails->skills:''}}" /><br>
+		<label>Skills :  </label><input type="text" name="skills" value="{{isset($applicantdetails->skills)?$applicantdetails->skills:''}}" required /><br>
 		</div>
 	{{-- 	<div class="form-group">
 
@@ -322,7 +327,7 @@
 				<br><textarea name="certificate" rows="2" cols="20" id="certificate" style="height:80px;width:250px;"> {{isset($applicantdetails->certificate)?$applicantdetails->certificate:''}}
 				</textarea>
 				<label>Upload Resume:</label>
-				<input type="file" name="fileupload" />
+				<input type="file" name="fileupload" required/>
 			</fieldset>
 				<br>
 			</div>
@@ -332,5 +337,12 @@
 	</form>
 </div>
 @endsection
+
+ <script>
+            $(document).ready(function(){  
+    $('#validate_form').parsley();
+ 
+  });
+    </script>
 
 @endsection

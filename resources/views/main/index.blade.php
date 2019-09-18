@@ -49,8 +49,8 @@
                         </div>
                     </div> --}}
                     <div class="large-8">
-                        <video id="live-video" class="live-video" autoplay="off" controls>
-                            @if($live_videos)<source src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
+                        <video id="live-video" class="live-video" style="height: 425px" autoplay="off" controls>
+                            @if($live_videos)<source id="mp4video" src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
                         </video>
                     </div>
                     <div class="large-4">
@@ -101,66 +101,7 @@
                         </a>
                     </div>
                     @endforeach
-                    <div class="item">
-                        <figure class="premium-img">
-                            <img src="http://placehold.it/400x300" alt="carousel">
-                            <figcaption>
-                                <h5>ICE Age 5 upcoming Movie</h5>
-                                <p>Movies Trailer</p>
-                            </figcaption>
-                        </figure>
-                        <a href="single-video-v1.html" class="hover-posts">
-                            <span><i class="fa fa-play"></i>Watch Video</span>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <figure class="premium-img">
-                            <img src="http://placehold.it/400x300" alt="carousel">
-                            <figcaption>
-                                <h5>ICE Age 5 upcoming Movie</h5>
-                                <p>Movies Trailer</p>
-                            </figcaption>
-                        </figure>
-                        <a href="single-video-v1.html" class="hover-posts">
-                            <span><i class="fa fa-play"></i>Watch Video</span>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <figure class="premium-img">
-                            <img src="http://placehold.it/400x300" alt="carousel">
-                            <figcaption>
-                                <h5>ICE Age 5 upcoming Movie</h5>
-                                <p>Movies Trailer</p>
-                            </figcaption>
-                        </figure>
-                        <a href="single-video-v1.html" class="hover-posts">
-                            <span><i class="fa fa-play"></i>Watch Video</span>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <figure class="premium-img">
-                            <img src="http://placehold.it/400x300" alt="carousel">
-                            <figcaption>
-                                <h5>ICE Age 5 upcoming Movie</h5>
-                                <p>Movies Trailer</p>
-                            </figcaption>
-                        </figure>
-                        <a href="single-video-v1.html" class="hover-posts">
-                            <span><i class="fa fa-play"></i>Watch Video</span>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <figure class="premium-img">
-                            <img src="http://placehold.it/400x300" alt="carousel">
-                            <figcaption>
-                                <h5>ICE Age 5 upcoming Movie</h5>
-                                <p>Movies Trailer</p>
-                            </figcaption>
-                        </figure>
-                        <a href="single-video-v1.html" class="hover-posts">
-                            <span><i class="fa fa-play"></i>Watch Video</span>
-                        </a>
-                    </div>
+                
                 </div>
             </section><!-- End Premium Videos -->
             <section class="mainContentv3">

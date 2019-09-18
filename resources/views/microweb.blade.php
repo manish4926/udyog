@@ -919,7 +919,7 @@
         <h2> <img class="logomw" src="{{asset('microweb/images/logo/'.$companydetail->logo) }}" style="height:10%; width:10%;margin-left:55rem;"  > </h2>
                         
 
-                    <ul>
+              <!--      <ul>
                         <li><a href="#" class="tran3s round-border"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="#" class="tran3s round-border"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                         <li><a href="#" class="tran3s round-border"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
@@ -928,7 +928,7 @@
                         <li><a href="#" class="tran3s round-border"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
                         <li><a href="#" class="tran3s round-border"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
                         <li><a href="#" class="tran3s round-border"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                    </ul>
+                    </ul>  -->
                 <!-- <p>Copyright @2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>  -->
                 </div>
             </footer>

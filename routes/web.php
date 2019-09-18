@@ -284,7 +284,7 @@ Route::get('/resumedownload/{userid}',['as' => 'resumedownload', 'uses' =>'Candi
 
 //Main Search
 
-Route::any('/search',['as' => 'mainsearch', 'uses' =>'MainController@mainsearch']);
+Route::get('/search',['as' => 'mainsearch', 'uses' =>'MainController@mainsearch']);
 
 Route::post('/searchresult',['as' => 'mainsearchresult', 'uses' =>'MainController@mainsearch']);
 

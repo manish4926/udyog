@@ -6,14 +6,16 @@
 		display: none;
 	}
 </style>
-
+@push('topscript')
+ <script src="http://parsleyjs.org/dist/parsley.js"></script>
+@endpush
 
 <!-- STYLE CSS -->
 <link rel="stylesheet" href="Registerpage/css/style.css">
 <div class="wrapper" style="background-image: url('Registerpage/images/bg-registration-form-2.jpg');">
-	<div class="inner">
+	<div class="inner" style="height:750px">
 
-		<form method="POST" action="{{ route('register') }}">
+		<form method="POST" action="{{ route('register') }}" id="registartion_form">
 
 			@csrf
 
@@ -21,7 +23,7 @@
 			<div class="form-group">
 				<div class="form-wrapper">
 					<label for="">Company code</label>
-					<input type="text" class="form-control" name="company_code" id="company_code">
+					<input type="text" class="form-control" name="company_code" id="company_code" required>
 					@if ($errors->has('code'))
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $errors->first('code') }}</strong>
@@ -74,7 +76,7 @@
 					</div>
 					<label for="">Password</label>
 					<input type="password" class="form-control" name="password" required minlength="8"	HTML5
-					data-parsley-minlength="8">
+					data-parsley-minlength="8"crequired>
 					@if ($errors->has('password'))
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $errors->first('password') }}</strong>
@@ -85,10 +87,10 @@
 				<div class="form-wrapper">
 					<label for="">Confirm Password</label>
 					<input type="password" class="form-control" name="password_confirmation" required minlength="8"	HTML5
-					data-parsley-minlength="8">
+					data-parsley-minlength="8" required>
 				</div>
 
-				<input type="checkbox"> I accept the Terms of Use & Privacy Policy.
+				<input type="checkbox" required> I accept the Terms of Use & Privacy Policy.
 					{{-- <div class="checkbox">
 
 						<label>

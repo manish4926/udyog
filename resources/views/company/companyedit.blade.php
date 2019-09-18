@@ -11,7 +11,7 @@
             <form method="post" action="{{route('dashboard2')}}">
             @csrf
             <input type="text" class="form-control" name="cname" value="{{ $companydetail->cname }}" placeholder="Enter Edited Name">
-            </div>
+            
             <div class="col-md-6">
             <br>
             <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter">Submit</button>

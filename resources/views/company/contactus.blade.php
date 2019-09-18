@@ -1,6 +1,7 @@
 @extends('layout.master')
 
 @section('content')
+<script src="http://parsleyjs.org/dist/parsley.js"></script>
 <div class="row">
     @include('company.sidemenu')
 
@@ -8,35 +9,35 @@
         <div class="white-card">
         <h2> Contact Details</h2>
             <div class="col-md-12">
-            <form method="post" action="{{route('dashboard2')}}">
+            <form method="post" action="{{route('dashboard2')}}" id="validate_form">
             @csrf
             <div class="form-wrapper">
                         <label for="">Company Email</label>
-                        <input type="email" class="form-control" name="companyemail" data-parsley-trigger="keyup" value="{{$companydetail->email}}" data-parsley-required>
+                        <input type="email" class="form-control" name="companyemail" value="{{$companydetail->email}}" required>
                     </div>
 
                     <div class="form-wrapper">
                         <label for="">Company address</label>
                         <div class="form-wrapper">
                         <label for="">Block</label>
-                        <input type="text" class="form-control" name="block"  width="100%" value="{{$companydetail->block}}" validateString data-parsley-trigger="keyup" data-parsley-required>
+                        <input type="text" class="form-control" name="block"  width="100%" value="{{$companydetail->block}}" required>
                     </div>
                     <div class="form-wrapper">
                         <label for="">Sector</label>
-                        <input type="text" class="form-control" name="sector" value="{{$companydetail->sector}}" validateString data-parsley-trigger="keyup" data-parsley-required>
+                        <input type="text" class="form-control" name="sector" value="{{$companydetail->sector}}" required>
                     </div>
                     <div class="form-wrapper">
                         <label for="">Area</label>
-                        <input type="text" class="form-control" name="area" value="{{$companydetail->area}}" validateString data-parsley-trigger="keyup" data-parsley-required>
+                        <input type="text" class="form-control" name="area" value="{{$companydetail->area}}" required>
                     </div>
                     <div class="form-wrapper">
                         <label for="">State</label>
-                        <input type="text" class="form-control" name="state" value="{{$companydetail->state}}" validateString data-parsley-trigger="keyup" data-parsley-required >
+                        <input type="text" class="form-control" name="state" value="{{$companydetail->state}}" required >
                     </div>
                  </div>
                     <div class="form-wrapper">
                         <label for="">Phone number</label>
-                        <input type="text" class="form-control" name="phoneno" value="{{$companydetail->phoneno}}" data-parsley-pattern="\+?\d[\d -]{8,12}\d" data-parsley-required>
+                        <input type="text" class="form-control" name="phoneno" value="{{$companydetail->phoneno}}" data-parsley-pattern="\+?\d[\d -]{8,12}\d" required>
                     </div>
                     <div class="col-md-4">
             <br>
@@ -70,5 +71,12 @@
 
 @push('bottomscript')
 @endpush
+
+ <script>
+            $(document).ready(function(){  
+    $('#validate_form').parsley();
+ 
+  });
+    </script>
 @endsection
 

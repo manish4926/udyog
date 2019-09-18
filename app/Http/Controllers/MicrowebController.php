@@ -222,6 +222,10 @@ class MicrowebController extends Controller
         return view('company.applicantslist',compact('applicants'));
     }
     
+
+
+
+    /* edit module*/
     public function makechanges(Request $request)
     {
         $user = Auth::user();
@@ -241,16 +245,35 @@ class MicrowebController extends Controller
 
 
 // to update company's ceo name and image 
-         if(!empty($request->cemp)|| !empty($request->image))
+         if(!empty($request->cemp) || !empty($request->image))
         {
+
            $validation= $request->validate( [
-            'cemp' => 'required|max:100|string',
-            'image' => 'required|mimes:jpeg,png,jpg',]);
+            'cemp' => 'required|max:100|string']);
 
                 $c_emp = $request->input('cemp');
-                $path = $request->file('image')->store('microweb\images\team');
-                Directory::where('c_id',$companydetail->c_id)->update(['cemp'=> $c_emp , 'image'=>$path]);
+
+                if(!empty($request->image))
+                    {
+                         $this->validate($request,[
+                            'image' =>'mimes:jpeg,jpg,png']);
+                            $file = $request->file('image');
+                            $destinationPath = 'microweb/images/team';
+                            $image = rand(10,100)."-".$file->getClientOriginalName();
+                            $file->move($destinationPath,$image);
+                            
+                            Directory::where('c_id',$companydetail->c_id)->update(['cemp'=>$c_emp,'image'=>$image]);
+                    }
+
+                else
+                {
+                     Directory::where('c_id',$companydetail->c_id)->update(['cemp'=> $c_emp ]);
+                }
+               
         }
+
+
+        
 
         //to udate company's logo
         if(!empty($request->logo))
@@ -291,9 +314,32 @@ class MicrowebController extends Controller
         }
         
                // dd($companydetail->company_id);
-               return  redirect('company/panel/dashboard')->with('status', 'Successfully updated!');; 
+
+        if(!empty($request->companyemail) || !empty($request->block) || !empty($request->sector) || !empty($request->area) || !empty($request->state) || !empty($request->phoneno))
+        {
+            $validation= $request->validate( [
+            'companyemail' => 'required',
+            'block'=> 'required',
+            'sector'=> 'required',
+            'area'=> 'required',
+            'state'=> 'required',
+            'phoneno'=> 'required'
+            ]);
+
+             $cemail = $request->input('companyemail');
+             $cblock = $request->input('block');
+             $sector = $request->input('sector');
+             $area = $request->input('area');
+             $state = $request->input('state');
+             $phoneno = $request->input('phoneno');
+             Directory::where('c_id',$companydetail->c_id)->update(['email'=> $cemail , 'block'=>$cblock, 'sector'=>$sector, 'area'=>$area, 'state'=>$state, 'phoneno'=> $phoneno]);
+        
+        }
+
+        return  redirect('company/panel/dashboard')->with('status', 'Successfully updated!');; 
     }
 
+    
     public function deletionmaterial($id) {
        
                 DB::table("companyproduct")->delete($id);

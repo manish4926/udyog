@@ -36,11 +36,11 @@
                         <tbody>
                             @foreach($applicants as $applicant)
                                 <tr>
-                                    <td>{{ $applicant->id }}</td>
+                                    <td>{{ $applicant->user_id }}</td>
                                     <td>{{ $applicant->getUser()->firstname }}</td>
                                     <td>{{ $applicant->getUser()->lastname }}</td>
                                     <td>{{ $applicant->getUser()->email }}</td>
-                                    <td><a href="{{ route('userprofile',['userid'=> $applicant->id]) }}" class="btn btn-success">User Profile</a></td>
+                                    <td><a href="{{ route('userprofile',['userid'=> $applicant->user_id]) }}" class="btn btn-success">User Profile</a></td>
                                     
                                 </tr>
                             @endforeach

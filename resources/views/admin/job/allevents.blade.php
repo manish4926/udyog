@@ -43,7 +43,7 @@
                                     <a target="_blank" href="{{ asset('eventphoto/'.$allevent->photo) }}" class="btn btn-outline-primary lg-btn-padding" class="btn btn-sm">Download Event Photo</a>
                                     </td>
                                     <td><a href="{{ route('updateevent',['id'=>$allevent->id])}}">UPDATE EVENT</a></td>
-                                    <td><button class="btn btn-link" data-id="{{ $allevent->id }}" onclick="deleteEvent.call(this)">Delete</button></td>        
+                                    <td><button type="button" class="btn btn-link" data-id="{{ $allevent->id }}" onclick="deleteEvent.call(this)">Delete</button></td>        
                                 </tr>
                             @endforeach
                         </tbody>

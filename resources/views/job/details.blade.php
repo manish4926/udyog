@@ -78,8 +78,12 @@
                         @if(Auth::guest() == true) 
 
                             <a href="{{ route('login') }}?redirecturl=getdisplay&id={{$job_opening->job_id}}" class="btn btn-success">Apply Now</a>
-                        @else
+                        @elseif(Auth::user()->hasRole('General User'))
+                            @if(empty($job_opening->getApplicants($job_opening->job_id))) 
                             <a href="{{ route('applicationdata',['title'=> $job_opening->job_id,'userid'=>$user->id]) }}" class="btn btn-success">Apply Now</a>
+                            @else
+                                <p>Already Applied</p>
+                            @endif
                         @endif
                         
             </div>

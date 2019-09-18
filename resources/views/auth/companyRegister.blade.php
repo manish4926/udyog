@@ -1,9 +1,11 @@
 @extends('layout.master')
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
 
 @section('content')
+ <script src="http://parsleyjs.org/dist/parsley.js"></script>
 @push('topscript')
 <link rel="stylesheet" type="text/css" href="{{ asset('loginpage/css/main.css') }}">
 @endpush
@@ -14,7 +16,7 @@
                     <img src="{{ asset('loginpage/img/logo.png') }}" alt="IMG">
                 </div>
 
-                <form  method="POST" action={{Route('cregister')}}>
+                <form  method="POST" id="validate_form" action={{Route('cregister')}}>
                         @csrf
 
 
@@ -24,7 +26,7 @@
                     </span>
 
                     <div class="wrap-input100 validate-input" >
-                        <input class="input100" type="text" name="cname" placeholder="Company name">
+                        <input class="input100" type="text" name="cname" placeholder="Company name" required> 
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -33,7 +35,7 @@
                            
                     
                     <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                        <input class="input100 {{ $errors->has('cid') ? ' is-invalid' : '' }}" type="text" name="code" placeholder="company code">
+                        <input class="input100 {{ $errors->has('cid') ? ' is-invalid' : '' }}" type="text" name="code" placeholder="company code" required>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -73,5 +75,12 @@
         scale: 1.1
     })
 </script>
+ <script>
+            $(document).ready(function(){  
+    $('#validate_form').parsley();
+ 
+  });
+    </script>
 @endpush
+
 @endsection

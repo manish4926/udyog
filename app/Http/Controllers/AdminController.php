@@ -94,7 +94,7 @@ class AdminController extends Controller
     {
         $id =$request->eventid;
         Event::where('id',$id)
-                        ->update(['status' => 'INACTIVE']);
+                        ->delete();
 
         return json_encode('success');
     }
