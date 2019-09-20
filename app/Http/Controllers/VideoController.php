@@ -67,8 +67,9 @@ class VideoController extends Controller
             // $durationVid = $ffprobe->format('storage/upload/'.$filename)->get('duration');
             
             // return response()->json(['success'=>'You have successfully upload file.']);            // dd(floor($durationVid));
-            Session::flash('successMessage', 'Video Added Successfully');
-            return redirect()->back();
+            // Session::flash('successMessage', 'Video Added Successfully');
+            // return redirect()->back();
+            return  redirect('admin/video/all')->with('status', 'Successfully Added!');
     	}
     	return $request->all();
     }
@@ -102,7 +103,8 @@ class VideoController extends Controller
         $video->description = $request->description;
         $video->tags = $request->tags;
         $video->save();
-        return redirect()->route('videoall');
+        // return redirect()->route('videoall');
+        return  redirect('admin/video/all')->with('status', 'Successfully Updated!');
     }
 
 }

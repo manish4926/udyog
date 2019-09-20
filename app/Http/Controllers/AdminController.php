@@ -67,9 +67,7 @@ class AdminController extends Controller
     
         $newevent->save();
 
-        Session::flash('success', 'New Event is added successfully!');
-        
-        return redirect()->route('allevents');
+        return  redirect('admin/event/all')->with('status', 'Successfully Added!');
     }    
 
 
@@ -82,11 +80,41 @@ class AdminController extends Controller
     }
 
 
+    public function updateeventSubmit(Request $request)
+    {
+
+
+         $title        = $request->title;
+         $slug         = str_slug($request->title, '-');
+         $description  = $request->description;
+         $author       = $request->author;
+         $date         = $request->date;
+       
+
+       if(!empty($request->file('fileupload'))){
+            $this->validate($request,[
+                'fileupload' =>'mimes:jpeg,jpg,png']);
+            $filename = $request->file('fileupload')->getClientOriginalName();
+            $request->file('fileupload')->storeAs('eventphoto',$filename);
+            
+            Event::where('id',$request->id)->update(['title'=> $title, 'slug'=>$slug, 'description'=>$description, 'author'=>$author, 'date'=>$date, 'photo'=>$filename ]);
+        }
+
+       
+        else
+        Event::where('id',$request->id)->update(['title'=> $title, 'slug'=>$slug, 'description'=>$description, 'author'=>$author, 'date'=>$date ]);
+
+
+        return  redirect('admin/event/all')->with('status', 'Successfully updated!');
+
+        // Session::flash('success', 'New Event is added successfully!');
+    }    
+
+
     public function updateevent(Request $request)
     {
        $update= Event::where('id' , $request->id)->first();
-        return view('admin.job.update')->with(['update
-            '=>$update]);  
+        return view('admin.job.updateevent',compact('update'));
     }
 
 
@@ -183,9 +211,7 @@ class AdminController extends Controller
     
         $newadvt->save();
 
-        Session::flash('success', 'New advertisement is added successfully!');
-        
-        return redirect()->route('alladvt');
+       return  redirect('admin/advt/all')->with('status', 'Successfully Added!');
     }    
 
 

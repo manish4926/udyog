@@ -38,9 +38,7 @@
 								<div class="card-block card-info">
 			
 						<h2 class="card-head-directory" >{{  ucfirst($set->cname) }}</h2>
-						<!-- <h3 class="card-head-directory" > <span > 
-							  <a href="{{ route('industrylist', ['tag' => $set->material ]) }}" class="btn btn-primary btn-sm">{{$set->material}}</a>
-						</span></h3> -->
+					
 						<div class="card-desc">Approx 3 Lines of Text</div>
 							<hr>
 							<div class="row">
@@ -95,12 +93,22 @@
 				</select>
 		</div>
 
-		<label for="">Product/Service</label>
+		<label for="">Product</label>
 		<div>
-				<select class="form-control" name="material">
+				<select class="form-control" name="product">
 						<option value="">Select</option>
-						@foreach($materials as $s)
-						<option value="{{ $s->material }}">{{ $s->material }}</option>
+						@foreach($products as $s)
+						<option value="{{ $s->product_name }}">{{ $s->product_name }}</option>
+						@endforeach
+				</select>
+		</div>
+
+		<label for="">Service</label>
+		<div>
+				<select class="form-control" name="service">
+						<option value="">Select</option>
+						@foreach($services as $s)
+						<option value="{{ $s->title }}">{{ $s->title }}</option>
 						@endforeach
 				</select>
 		</div>

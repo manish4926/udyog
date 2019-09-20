@@ -126,6 +126,7 @@ Route::group(['prefix' => 'company/panel','middleware' => 'roles', 'roles' => ['
     Route::get('/deletereview/{id}',['as'=>'deletereview','uses'=>'MicrowebController@deletiontestimonial']); 
     Route::get('/applicantslist/{job_id}',['as'=>'applicantslist','uses'=>'MicrowebController@applicantslist']);
     Route::get('/clogo',['as'=>'clogo','uses'=>'MicrowebController@clogo']); 
+    Route::get('/cheader',['as'=>'cheader','uses'=>'MicrowebController@cheader']); 
     Route::get('/contactus',['as'=>'contactus','uses'=>'MicrowebController@contactus']); 
     Route::get('/services',['as'=>'servicepanel','uses'=>'MicrowebController@services']); 
     Route::post('/services/submit',['as'=>'servicepanelsubmit','uses'=>'MicrowebController@servicesubmit']); 
@@ -234,6 +235,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','roles'],'roles' => ['A
     Route::get('/event/all', ['as' => 'allevents', 'uses' =>'AdminController@allevents']);
 
     Route::get('/event/update/{id}', ['as' => 'updateevent', 'uses' =>'AdminController@updateevent']);
+
+    Route::post('/event/updatesubmit/{id}', ['as' => 'updateeventSubmit', 'uses' =>'AdminController@updateeventSubmit']);
 
     Route::post('/events/delete/submit', ['as' => 'deleteEvent', 'uses' =>'AdminController@deleteEvent']);
 

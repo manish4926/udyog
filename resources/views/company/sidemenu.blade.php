@@ -9,6 +9,7 @@
             <li class="list-group-item"><a href="{{route('servicepanel')}}" class="btn btn-outline-primary lg-btn-padding"> Services</a></li>
             <li class="list-group-item"><a href="{{route('jobpostpanel')}}" class="btn btn-outline-primary lg-btn-padding"> Post Job Openings</a></li>
             <li class="list-group-item"><a href="{{route('clogo')}}" class="btn btn-outline-primary lg-btn-padding">Logo </a></li>
+            <li class="list-group-item"><a href="{{route('cheader')}}" class="btn btn-outline-primary lg-btn-padding">Header Image </a></li>
             <li class="list-group-item"><a href="{{route('contactus')}}" class="btn btn-outline-primary lg-btn-padding">Contact Us </a></li>  
         </ul>
     </div>

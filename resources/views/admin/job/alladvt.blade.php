@@ -15,7 +15,13 @@
 			<!-- <div class="box box-primary">
             <div class="box-header with-border"> -->
               <center><h3 class="box-title">All Advertisements</h3></center>
+            
+
+    @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
             </div>
+                 @endif
             <!-- /.box-header -->
             <!-- form start -->
             <div class="container"></div>
@@ -50,7 +56,7 @@
             
         </div>
 		  </div>
-		  </div>
+		  
 
 @push('bottomscript')
     <script src="{{ asset('js/jQuery.tagify.min.js') }}"></script>

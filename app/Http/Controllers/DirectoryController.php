@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Directory;
 use App\Product;
+use App\MicrowebServices;
 use Auth;
 
 class DirectoryController extends Controller
@@ -86,7 +87,8 @@ class DirectoryController extends Controller
     function index(Request $request)
     {   
         $search=Directory::orderBy('c_id');//get data from table
-        $product=Product::orderBy('comapany_id');
+        // $product=Product::orderBy('company_id');
+        // $service=MicrowebServices::orderBy('svid');
         $industry_type  = industry_type();
         $business_type = business_type();
         if(!empty($request->business_types))
@@ -128,23 +130,38 @@ class DirectoryController extends Controller
         {
             $search = $search->orwhere('cname', $request->company);
         }
+
+        if(!empty($request->product))
+        {
+             $product = Product::select('company_id')->where('product_name', $request->product)->pluck('company_id');
+             //dd($product);
+             $search = $search->orwherein('c_id',$product);
+        }
+
+        if(!empty($request->service))
+        {
+             $service = MicrowebServices::select('slug')->where('title', $request->service)->pluck('slug');
+             $search = $search->orwherein('slug',$service->slug);
+        }
         //$search = $search->paginate(5);
         //dd($request->material);
-        $materials=Directory::whereNotNull('material')->groupBy('material')->get();
+        // $materials=Directory::whereNotNull('material')->groupBy('material')->get();
         //******* search for material tags in cards *************
-        if(!empty($request->tag))
-        {
-            $search = $search->where('material', $request->tag);
-        }
+        // if(!empty($request->tag))
+        // {
+        //     $search = $search->where('material', $request->tag);
+        // }
         // pagination
         $search = $search->paginate(5);
         //dd($request->material);
-        $materials=Directory::where('material','!=','')->groupBy('material')->get();
+        // $materials=Directory::where('material','!=','')->groupBy('material')->get();
         //dd($materials);
+        $products=Product::whereNotNull('product_name')->groupBy('product_name')->get();
+        $services=MicrowebServices::whereNotNull('title')->groupBy('title')->get();
         $sectors=Directory::whereNotNull('sector')->groupBy('sector')->get();
         $areas=Directory::whereNotNull('area')->groupBy('area')->get();
         $companys=Directory::whereNotNull('cname')->get();
-        return view('directory.industrylist',compact('search','materials','sectors','areas','companys','industry_type','business_type','product'));//sent data to view
+        return view('directory.industrylist',compact('search','sectors','areas','companys','industry_type','business_type','products','services'));//sent data to view
     }
 
 

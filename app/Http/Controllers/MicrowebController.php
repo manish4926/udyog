@@ -112,6 +112,15 @@ class MicrowebController extends Controller
 
         return view('company.clogo',compact('companydetail'));
     }
+
+    public function cheader(Request $request)
+    {
+        $user = Auth::user();
+
+        $companydetail = Directory::where('user_id',$user->id)->first();
+
+        return view('company.cheader',compact('companydetail'));
+    }
     
     public function contactus(Request $request)
     {
@@ -288,6 +297,21 @@ class MicrowebController extends Controller
                 Directory::where('c_id',$companydetail->c_id)->update(['logo'=>$logo]);
         }
 
+        //to udate company's header image
+        if(!empty($request->header))
+        {
+            $this->validate($request,[
+                'header' =>'mimes:jpeg,jpg,png']);
+                // |dimensions:max_width=1920,max_height=700,min_width=1100,min_height=500']);
+                $file = $request->file('header');
+                $destinationPath = 'microweb/images/header';
+                $header = rand(10,100)."-".$file->getClientOriginalName();
+                $file->move($destinationPath,$header);
+                
+                Directory::where('c_id',$companydetail->c_id)->update(['header'=>$header]);
+        }
+
+
 // to update company's about us
          if(!empty($request->about))
         {
@@ -336,7 +360,7 @@ class MicrowebController extends Controller
         
         }
 
-        return  redirect('company/panel/dashboard')->with('status', 'Successfully updated!');; 
+        return  redirect('company/panel/dashboard')->with('status', 'Successfully updated!'); 
     }
 
     

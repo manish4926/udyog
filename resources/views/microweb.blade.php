@@ -92,9 +92,12 @@
             -->
            
            <div id="home" class="banner">
-
+           
+                @if(!empty($companydetail->header))
+                <img src="{{asset('microweb/images/header/'.$companydetail->header)}}">
+                @else
                 <img src="{{ asset('images/800.png') }}">
-         
+                @endif
             </div>  
             
         
@@ -830,17 +833,17 @@
                                         <h6>Address</h6>
                                         <p>{{$companydetail->cname}}</p>
                                         <p> {{$companydetail->cemp}} </p>
-                                        <p>Office Number A-2,Dsidc Industrial Area,Bawana,Sector1,Delhi-110039, India </p>
+                                        <p>{{$companydetail->block}} {{$companydetail->sector}} {{$companydetail->area}} {{$companydetail->state}}, India </p>
                                     </li>
                                     <li>
                                         <div class="icon tran3s round-border p-color-bg"><i class="fa fa-phone" aria-hidden="true"></i></div>
                                         <h6>Phone</h6>
-                                        <p>08048621967</p>
+                                        <p>{{$companydetail->phoneno}}</p>
                                     </li>
                                     <li>
                                         <div class="icon tran3s round-border p-color-bg"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
                                         <h6>Email</h6>
-                                        <p>backpiper.com@gmail.com</p>
+                                        <p>{{$companydetail->email}}</p>
                                     </li>
                                 </ul>
                             </div> <!-- /.left-side -->

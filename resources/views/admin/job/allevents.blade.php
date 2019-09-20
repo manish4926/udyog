@@ -11,7 +11,15 @@
 @endpush
 	<div class="container">
 	<div class="row">
+
+
 			<br>
+
+             @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+                 @endif
 			<!-- <div class="box box-primary">
             <div class="box-header with-border"> -->
               <center><h3 class="box-title">All Events</h3></center>

@@ -52,10 +52,10 @@
 						    @endforeach
 				                </select>
                         </div>
-                        <div class="form-wrapper">
+                        {{-- <div class="form-wrapper">
                             <label for="">Material</label>
                             <input type="text" class="form-control" name="material" data-parsley-trigger="keyup" data-parsley-required>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="form-wrapper">
                         <label for="">Company Email</label>

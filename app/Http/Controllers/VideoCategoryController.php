@@ -21,7 +21,8 @@ class VideoCategoryController extends Controller
         $category = new VideoCategory;
         $category->category = $request->category;
         $category->save();
-        return redirect()->route('categorypage');
+        // return redirect()->route('categorypage');
+           return  redirect('admin/category/all')->with('status', 'Successfully Added!');
 
     }
 
@@ -52,7 +53,8 @@ class VideoCategoryController extends Controller
         $category = VideoCategory::find($id);
         $category->category = $request->category;
         $category->save();
-        return redirect()->route('allcategory'); ;
+        // return redirect()->route('allcategory'); 
+        return  redirect('admin/category/all')->with('status', 'Successfully Updated!');
     }
 
 }

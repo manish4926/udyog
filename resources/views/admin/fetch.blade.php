@@ -8,6 +8,11 @@
    <div class="container">
    <h3 class="box-title">All Videos</h3>
 
+    @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+                 @endif
                   <div class="row">
                      <div class="col-md-11">
                      <div class="box">
