@@ -206,12 +206,25 @@
                                                             <div class="card-body">
                                                                 <div class="row">
                                                                     <div class="col-md-8">
-                                                                        <h5 class="card-title"><i class="fas fa-bolt red"></i> <a href="{{ route('getdisplay',['job_id' => $job_opening->job_id]) }}">{{ ucfirst($job_opening->job_title) }}</a></h5>
-                                                                        <p>Company: <a class="link-red" href="{{ route('getdisplay',['job_id' => $job_opening->job_id]) }}"><u>{{ ucfirst($job_opening->company_name) }}</u></a> </p>
-                                                                        <p>{{ $job_opening->job_desc }} Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <img src="{{ asset('img/udyog_logo.png') }}" class="job-company-logo">
+                                                                        <h5 class="card-title"><i class="fas fa-bolt red"></i> <a href="{{ route('getdisplay',['job_id' => $job_opening->job_id]) }}">{{ ucfirst($job_opening->job_title) }}</a></h5> @foreach($company as $companys)
+                                         @if($job_opening->company_id == $companys->c_id)
+                                        <p>Company: <a href="{{route('microwebsite', ['site'=> $companys->slug ])}}"><u>{{ ucfirst($job_opening->company_name) }}</u></a> </p>
+                                        @endif
+                                        @endforeach
+
+                                        <p>{{ $job_opening->job_desc }} </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @if(!empty($job_opening->getCompany()->image))
+                                            <img src="{{asset('microweb/images/logo/'.$job_opening->getCompany()->logo)}}" class="job-company-logo">
+                                        @else
+                                            <img src="{{asset('img/udyog_logo.png')}}" class="job-company-logo">
+                                        @endif
+                                        {{-- @foreach($company as $companys)
+                                          @if($job_opening->company_id == $companys->c_id)
+                                        <img src="{{asset('microweb/images/logo/'.$companys->logo)}}" class="job-company-logo">
+                                          @endif
+                                        @endforeach --}}
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <p><i class="fas fa-pen"></i> Skills: {{$job_opening->skills}}</p>

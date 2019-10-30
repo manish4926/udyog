@@ -8,6 +8,19 @@ use App\Video;
 use Carbon\Carbon;
 class LivevideoController extends Controller
 {
+
+    public function __construct()
+    {
+        //$user = Auth::user();    
+        
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();      
+            $recentpostedvideos = Video::orderBy('id','desc')->limit(4)->get();      
+            view()->share(['user'=> $user,'recentpostedvideos' => $recentpostedvideos]);
+            return $next($request);
+        });
+    }
+    
      public function index()
     {
         $currenttime = Carbon::now();

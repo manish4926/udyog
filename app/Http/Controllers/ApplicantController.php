@@ -4,9 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Applicant;
 use Illuminate\Http\Request;
+use App\Video;
 
 class ApplicantController extends Controller
 {
+
+    public function __construct()
+    {
+        //$user = Auth::user();    
+        
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();      
+            $recentpostedvideos = Video::orderBy('id','desc')->limit(4)->get();      
+            view()->share(['user'=> $user,'recentpostedvideos' => $recentpostedvideos]);
+            return $next($request);
+        });
+    }
     /**
      * Display a listing of the resource.
      *

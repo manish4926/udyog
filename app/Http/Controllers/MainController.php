@@ -30,8 +30,9 @@ class MainController extends Controller
         //$user = Auth::user();    
         
         $this->middleware(function ($request, $next) {
-            $user = Auth::user();            
-            view()->share('user', $user);
+            $user = Auth::user();      
+            $recentpostedvideos = Video::orderBy('id','desc')->limit(4)->get();      
+            view()->share(['user'=> $user,'recentpostedvideos' => $recentpostedvideos]);
             return $next($request);
         });
     }
@@ -56,14 +57,15 @@ class MainController extends Controller
 
 
         $directory   = Directory::orderBy('c_id')->limit(3)->get();
-        $jobs        = job_opening::orderBy('job_id')->limit(5)->get();
+         $company = Directory::whereNotNull('cname')->get();
+        $jobs        = job_opening::orderBy('postdate','DESC')->limit(3)->where('status','=','1')->get();
         $event       = Event::orderBy('id')->limit(4)->where('status','ACTIVE')->get();
         $advtmid     = Advertisement::where('position','middle')->inRandomOrder()->limit(1)->get();
         $advtright   = Advertisement::inRandomOrder()->limit(1)->where('position','right')->get();
         $advtbottom  = Advertisement::inRandomOrder()->limit(1)->where('position','bottom')->get();
         //dd($advtright->id);
         $recommended = Video::inRandomOrder()->limit(10)->get();
-        $recentpostedvideos = Video::orderBy('id','desc')->limit(6)->get();
+        //$recentpostedvideos = Video::orderBy('id','desc')->limit(6)->get();
 
         //news
         $feed = simplexml_load_file('https://news.google.com/news/rss');
@@ -74,7 +76,10 @@ class MainController extends Controller
         }
         
 //dd($live_videos);
-        return view('main.index',compact('directory','videos','jobs','event', 'live_videos','worldfeeds','recommended','advtmid','advtbottom','advtright','recentpostedvideos'));
+
+        /*return view('main.index',compact('directory','videos','jobs','event', 'live_videos','worldfeeds','recommended','advtmid','advtbottom','advtright','recentpostedvideos'));*/
+
+        return view('main.index',compact('directory','videos','jobs','company','event', 'live_videos','worldfeeds','recommended','advtmid','advtbottom','advtright'));
 
 
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);

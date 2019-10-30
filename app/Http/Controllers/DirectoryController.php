@@ -6,6 +6,7 @@ use DB;
 use App\Directory;
 use App\Product;
 use App\MicrowebServices;
+use App\Video;
 use Auth;
 
 class DirectoryController extends Controller
@@ -15,8 +16,9 @@ class DirectoryController extends Controller
         //$user = Auth::user();    
         
         $this->middleware(function ($request, $next) {
-            $user = Auth::user();            
-            view()->share('user', $user);
+            $user = Auth::user();      
+            $recentpostedvideos = Video::orderBy('id','desc')->limit(4)->get();      
+            view()->share(['user'=> $user,'recentpostedvideos' => $recentpostedvideos]);
             return $next($request);
         });
     }

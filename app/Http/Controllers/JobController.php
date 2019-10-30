@@ -10,6 +10,7 @@ use App\Candidatedata;
 use App\Directory;
 use App\User;
 use App\Applicant;
+use App\Video;
 use DB;
 use Auth;
 use Carbon\Carbon;
@@ -21,8 +22,9 @@ class JobController extends Controller
         //$user = Auth::user();    
         
         $this->middleware(function ($request, $next) {
-            $user = Auth::user();            
-            view()->share('user', $user);
+            $user = Auth::user();      
+            $recentpostedvideos = Video::orderBy('id','desc')->limit(4)->get();      
+            view()->share(['user'=> $user,'recentpostedvideos' => $recentpostedvideos]);
             return $next($request);
         });
     }
@@ -42,6 +44,7 @@ class JobController extends Controller
 		$jobpost->job_title    = $request->title;
 		// $jobpost->slug         = seoUrl($request->title."-".rand(10000,99999));
 		$jobpost->company_name = $request->companyname;
+		$jobpost->company_id   = $request->companyid;
 		$jobpost->hr_name      = $request->hrname;
 		$jobpost->experience   = $request->exp;
 		$jobpost->skills       = $request->skill;
@@ -239,7 +242,7 @@ class JobController extends Controller
 	{
 		 $company=Directory::whereNotNull('cname')->get();
 		$jobs= job_opening::where('expdate','>=',Carbon::today()->toDateString())->where('status','=','1')->orderBy('postdate','DESC')->paginate(5);
-		return view('job.alljob',compact('jobs'));
+		return view('job.alljob',compact('jobs','company'));
 	}
 
 	public function getdisplay(Request $request)

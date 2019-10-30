@@ -33,6 +33,10 @@
 			                <label>Company Name :</label>
 			                <input type="text" class="form-control text" name="companyname" value="{{isset($companydetail->cname)?$companydetail->cname:''}}"/>
 			            </div>
+			             <div class="form-group">
+
+			                <input type="hidden" class="form-control text" name="companyid" value="{{isset($companydetail->c_id)?$companydetail->c_id:''}}" />
+			            </div>
 			            <div class="form-group">
 			                <label>HR Name :</label>
 			                <input type="text" class="form-control" name="hrname" placeholder="Enter HR Name"/>

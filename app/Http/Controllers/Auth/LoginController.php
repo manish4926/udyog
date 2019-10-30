@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use App\Video;
+
 
 class LoginController extends Controller
 {    
@@ -47,6 +49,11 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $this->middleware(function ($request, $next) {
+            $recentpostedvideos = Video::orderBy('id','desc')->limit(4)->get();      
+            view()->share(['recentpostedvideos' => $recentpostedvideos]);
+            return $next($request);
+        });
         $this->middleware('guest')->except('logout');
     }
 

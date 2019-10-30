@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Candidatedata;
 use App\Applicant;
+use App\Video;
 use Illuminate\Http\Request;
 
 use Auth;
@@ -18,8 +19,9 @@ class CandidatedataController extends Controller
         //$user = Auth::user();    
         
         $this->middleware(function ($request, $next) {
-            $user = Auth::user();            
-            view()->share('user', $user);
+            $user = Auth::user();      
+            $recentpostedvideos = Video::orderBy('id','desc')->limit(4)->get();      
+            view()->share(['user'=> $user,'recentpostedvideos' => $recentpostedvideos]);
             return $next($request);
         });
     }

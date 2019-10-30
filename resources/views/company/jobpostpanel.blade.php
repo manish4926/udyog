@@ -21,11 +21,11 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <h5 class="card-title"><i class="fas fa-bolt red"></i> <a href="{{ route('getdisplay',['job_id'=>$job_opening->job_id])}}">{{ ucfirst($job_opening->job_title) }}</a></h5>
-                                        <p>Company: <a href="#"><u>{{ ucfirst($job_opening->company_name) }}</u></a> </p>
+                                        <p>Company: <a href="{{route('microwebsite', ['site'=> $company->slug ])}}"><u>{{ ucfirst($job_opening->company_name) }}</u></a> </p>
                                         <p>{{ $job_opening->job_desc }} </p>
                                     </div>
                                     <div class="col-md-4">
-                                        <img src="{{ asset('img/udyog_logo.png') }}" class="job-company-logo">
+                                        <img src="{{asset('microweb/images/logo/'.$company->logo)}}" class="job-company-logo">                                   
                                     </div>
                                     <div class="col-md-4">
                                         <p><i class="fas fa-pen"></i> Skills: {{$job_opening->skills}}</p>
