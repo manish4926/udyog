@@ -464,7 +464,9 @@ input[type=checkbox]:checked + .customLabel:before {
         border-bottom: 2px solid #e96969 !important; }
     #navBar .top-bar .search-btn {
       padding: 17px 0;
-      margin-left: 30px; }
+      margin-left: 0px;
+      margin-right: 50px;
+      }
       #navBar .top-bar .search-btn li.search {
         padding-left: 5px; }
         #navBar .top-bar .search-btn li.search i {

@@ -49,7 +49,7 @@
                         </div>
                     </div> --}}
                     <div class="large-8">
-                        <video id="live-video" class="live-video" style="height: 425px" autoplay="off" controls>
+                        <video id="live-video" class="live-video" style="height: 425px" autoplay="on" controls>
                             @if($live_videos)<source id="mp4video" src="{{ asset('video/upload/'.$live_videos->filename)}}" type="video/mp4">@endif
                         </video>
                     </div>
@@ -134,7 +134,7 @@
                                                         </div>
                                                         <div class="col-md-8 px-3">
                                                             <div class="card-block card-info">
-                                                                <h4 class="card-title"><a href="#"> {{ ucfirst($list->cname) }} </a></h4>
+                                                                <h4 class="card-title"><a href="{{route('microwebsite', ['site'=> $list->slug ])}}"> {{ ucfirst($list->cname) }} </a></h4>
                                                                
                                                                 <div class="card-desc">Approx 3 Lines of Text</div>
                                                                 <hr>
@@ -248,15 +248,11 @@
                             
                             @foreach ($advtbottom as $advt)
                             @if(!empty($advt))
-                        <div class="googleAdv text-center">
-                            <a href="{{$advt->link}}"><img src="{{asset('advtphoto/'.$advt->image)}}"  alt="{{$advt->title}}"></a>
-                        </div>
-                        @else
-                        <div class="googleAdv text-center">
-                            <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
-                        </div><!-- End ad Section -->
-                        @endif
-                        @endforeach
+                                <div class="googleAdv advert-bottom text-center">
+                                    <a href="{{$advt->link}}"><img src="{{asset('advtphoto/'.$advt->image)}}"  alt="{{$advt->title}}"></a>
+                                </div>
+                            @endif
+                            @endforeach
                         
                         </section><!-- End main content -->
 
@@ -431,70 +427,24 @@
                                             <h5>Recent post videos</h5>
                                         </div>
                                         <div class="widgetContent">
+                                            @foreach($recentpostedvideos as $recentpostedvideo)
                                             <div class="media-object stack-for-small">
                                                 <div class="media-object-section">
                                                     <div class="recent-img">
-                                                        <img src= "http://placehold.it/120x80" alt="recent">
-                                                        <a href="#" class="hover-posts">
+                                                        <img src= "{{ asset('video/thumbs/'.$recentpostedvideo->thumbnail) }}" alt="recent">
+                                                        <a href="{{ route('videothumb',['id' => $recentpostedvideo->id, 'slug' => $recentpostedvideo->slug]) }}" class="hover-posts">
                                                             <span><i class="fa fa-play"></i></span>
                                                         </a>
                                                     </div>
                                                 </div>
                                                 <div class="media-object-section">
                                                     <div class="media-content">
-                                                        <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                                        <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
+                                                        <h6><a href="{{ route('videothumb',['id' => $recentpostedvideo->id, 'slug' => $recentpostedvideo->slug]) }}">{{ $recentpostedvideo->title }}</a></h6>
+                                                        <p><i class="fa fa-clock-o"></i><span>{{ $recentpostedvideo->category }}</span></p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="media-object stack-for-small">
-                                                <div class="media-object-section">
-                                                    <div class="recent-img">
-                                                        <img src= "http://placehold.it/120x80" alt="recent">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="media-object-section">
-                                                    <div class="media-content">
-                                                        <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                                        <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="media-object stack-for-small">
-                                                <div class="media-object-section">
-                                                    <div class="recent-img">
-                                                        <img src= "http://placehold.it/120x80" alt="recent">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="media-object-section">
-                                                    <div class="media-content">
-                                                        <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                                        <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="media-object stack-for-small">
-                                                <div class="media-object-section">
-                                                    <div class="recent-img">
-                                                        <img src= "http://placehold.it/120x80" alt="recent">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="media-object-section">
-                                                    <div class="media-content">
-                                                        <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                                        <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div><!-- End Recent post videos -->
@@ -691,7 +641,7 @@ var videosource = document.getElementById('mp4video');
                                     var filename = video.filename;
                                     var duration = video.duration;
                                     var endtime = video.endtime;
-
+                                    
                                     FetchData(filename);   
                                 }           
                             });

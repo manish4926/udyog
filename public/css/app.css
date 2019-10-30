@@ -23454,7 +23454,8 @@ input[type=checkbox]:checked + .customLabel:before {
 
 #navBar .top-bar .search-btn {
   padding: 17px 0;
-  margin-left: 30px;
+  margin-left: 0px;
+  margin-right: 50px;
 }
 
 #navBar .top-bar .search-btn li.search {
@@ -28837,6 +28838,35 @@ footer .widgetBox .widgetContent form button[type=submit] {
 {
 	max-width:280px;
 }*/
+
+.advert-bottom img {
+  widows: 100%;
+  max-height: 90px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.event-section a {
+  color: #fff;
+}
+
+.event-section h6 {
+  color: #fff;
+  font-size: 12px;
+}
+
+.textwidget ul {
+  list-style: none;
+}
+
+.textwidget ul li {
+  padding: 5px 0;
+  font-size: 15px;
+}
+
+.textwidget ul li a {
+  color: #fff;
+}
 
 .navbar-laravel {
   background-color: #fff;

@@ -63,6 +63,7 @@ class MainController extends Controller
         $advtbottom  = Advertisement::inRandomOrder()->limit(1)->where('position','bottom')->get();
         //dd($advtright->id);
         $recommended = Video::inRandomOrder()->limit(10)->get();
+        $recentpostedvideos = Video::orderBy('id','desc')->limit(6)->get();
 
         //news
         $feed = simplexml_load_file('https://news.google.com/news/rss');
@@ -73,7 +74,7 @@ class MainController extends Controller
         }
         
 //dd($live_videos);
-        return view('main.index',compact('directory','videos','jobs','event', 'live_videos','worldfeeds','recommended','advtmid','advtbottom','advtright'));
+        return view('main.index',compact('directory','videos','jobs','event', 'live_videos','worldfeeds','recommended','advtmid','advtbottom','advtright','recentpostedvideos'));
 
 
 //        return view('main.index')->with(['videos'=>$videos, 'jobs' => $jobs]);

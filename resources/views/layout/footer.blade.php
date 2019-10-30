@@ -95,55 +95,24 @@
                     <h5>Recent Videos</h5>
                 </div>
                 <div class="widgetContent">
-                    <div class="media-object">
+                    @foreach($recentpostedvideos as $recentpostedvideo)
+                    <div class="media-object stack-for-small">
                         <div class="media-object-section">
                             <div class="recent-img">
-                                <img src= "http://placehold.it/80x80" alt="recent">
-                                <a href="#" class="hover-posts">
+                                <img src= "{{ asset('video/thumbs/'.$recentpostedvideo->thumbnail) }}" alt="recent">
+                                <a href="{{ route('videothumb',['id' => $recentpostedvideo->id, 'slug' => $recentpostedvideo->slug]) }}" class="hover-posts">
                                     <span><i class="fa fa-play"></i></span>
                                 </a>
                             </div>
                         </div>
                         <div class="media-object-section">
                             <div class="media-content">
-                                <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
+                                <h6><a href="{{ route('videothumb',['id' => $recentpostedvideo->id, 'slug' => $recentpostedvideo->slug]) }}">{{ $recentpostedvideo->title }}</a></h6>
+                                <p><i class="fa fa-clock-o"></i><span>{{ $recentpostedvideo->category }}</span></p>
                             </div>
                         </div>
                     </div>
-                    <div class="media-object">
-                        <div class="media-object-section">
-                            <div class="recent-img">
-                                <img src= "http://placehold.it/80x80" alt="recent">
-                                <a href="#" class="hover-posts">
-                                    <span><i class="fa fa-play"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="media-object-section">
-                            <div class="media-content">
-                                <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="media-object">
-                        <div class="media-object-section">
-                            <div class="recent-img">
-                                <img src= "http://placehold.it/80x80" alt="recent">
-                                <a href="#" class="hover-posts">
-                                    <span><i class="fa fa-play"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="media-object-section">
-                            <div class="media-content">
-                                <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
